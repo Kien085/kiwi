@@ -6,8 +6,7 @@ branches:
   only:
     - master
     - staging
-
-    
+   
 branches:
   except:
     - development
