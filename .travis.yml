@@ -12,7 +12,7 @@ install:
 script:
   # Run React
   - cd dev/peter-test/react
-  # - npm test
+  - npm test
   - npm install
   - npm run build
   - mv build ../../../
