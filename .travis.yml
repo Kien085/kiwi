@@ -6,8 +6,7 @@ branches:
   only:
     - master
     - staging
-    
-        
+   
 branches:
   except:
     - development
@@ -21,9 +20,9 @@ install:
 
 script:
   # Run React
-  - cd dev/peter-test/react
-  - npm test
   - npm install
+  - npm test
+  - cd dev/peter-test/react
   - npm run build
   - mv build ../../../
   - cd ../../../
