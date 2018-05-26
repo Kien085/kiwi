@@ -32,6 +32,7 @@
     "moment": "^2.18.1",
     "morgan": "^1.8.1",
     "node-env-file": "^0.1.8",
+    "node-forge": "^0.7.5",
     "node-sass": "^4.5.2",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
