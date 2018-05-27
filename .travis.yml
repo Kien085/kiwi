@@ -10,9 +10,9 @@ branches:
     - production
    
 # blacklist
-branches:
-  except:
-    - development
+# branches:
+#   except:
+#     - development
 
 
 # cache:
