@@ -1,1 +1,288 @@
-[]
+[
+  {
+    "name": "dbUpdateComment",
+    "filePath": "app/actions/commentActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 76,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 77,
+        "line": " * Update a comment from database\r"
+      },
+      {
+        "lineNumber": 78,
+        "line": " * @param  {string} id of comment\r"
+      },
+      {
+        "lineNumber": 79,
+        "line": " * @param {string} postId is the identifier of the post which comment belong to\r"
+      },
+      {
+        "lineNumber": 80,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 81,
+        "line": "export const dbUpdateComment = (id, postId, text) => {\r"
+      }
+    ],
+    "codeParams": [
+      "id",
+      "postId",
+      "text"
+    ],
+    "docParams": [
+      "id",
+      "postId"
+    ]
+  },
+  {
+    "name": "defaultDataDisable",
+    "filePath": "app/actions/globalActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 26,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 27,
+        "line": " * Default data loaded status will be false\r"
+      },
+      {
+        "lineNumber": 28,
+        "line": " * @param {boolean} status \r"
+      },
+      {
+        "lineNumber": 29,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 30,
+        "line": "export const defaultDataDisable = () => {\r"
+      }
+    ],
+    "codeParams": [],
+    "docParams": [
+      "status"
+    ]
+  },
+  {
+    "name": "addNotify",
+    "filePath": "app/actions/notifyActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 103,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 104,
+        "line": " * Add notificaition \r"
+      },
+      {
+        "lineNumber": 105,
+        "line": " * @param {object} data  \r"
+      },
+      {
+        "lineNumber": 106,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 107,
+        "line": "export const addNotify = () => {\r"
+      }
+    ],
+    "codeParams": [],
+    "docParams": [
+      "data"
+    ]
+  },
+  {
+    "name": "dbGetUserInfoByUserId",
+    "filePath": "app/actions/userActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 34,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 35,
+        "line": " *  Get user info from database\r"
+      },
+      {
+        "lineNumber": 36,
+        "line": " * @param {string} uid \r"
+      },
+      {
+        "lineNumber": 37,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 38,
+        "line": "export const dbGetUserInfoByUserId = (uid, sw) => {\r"
+      }
+    ],
+    "codeParams": [
+      "uid",
+      "sw"
+    ],
+    "docParams": [
+      "uid"
+    ]
+  },
+  {
+    "name": "dbAddVote",
+    "filePath": "app/actions/voteActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 13,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 14,
+        "line": " *  Add vote to database\r"
+      },
+      {
+        "lineNumber": 15,
+        "line": " * @param  {string} postId is the identifier of the post which user vote\r"
+      },
+      {
+        "lineNumber": 16,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 17,
+        "line": "export const dbAddVote = (postId, ownerPostUserId) => {\r"
+      }
+    ],
+    "codeParams": [
+      "postId",
+      "ownerPostUserId"
+    ],
+    "docParams": [
+      "postId"
+    ]
+  },
+  {
+    "name": "dbDeleteVote",
+    "filePath": "app/actions/voteActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 61,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 62,
+        "line": " * Delete a vote from database\r"
+      },
+      {
+        "lineNumber": 63,
+        "line": " * @param  {string} id of vote\r"
+      },
+      {
+        "lineNumber": 64,
+        "line": " * @param {string} postId is the identifier of the post which vote belong to\r"
+      },
+      {
+        "lineNumber": 65,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 66,
+        "line": "export const dbDeleteVote = (postId) => {\r"
+      }
+    ],
+    "codeParams": [
+      "postId"
+    ],
+    "docParams": [
+      "id",
+      "postId"
+    ]
+  },
+  {
+    "name": "uploadImage",
+    "filePath": "app/api/FileAPI.jsx",
+    "lines": [
+      {
+        "lineNumber": 18,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 19,
+        "line": " * Upload image on the server\r"
+      },
+      {
+        "lineNumber": 20,
+        "line": " * @param {file} file \r"
+      },
+      {
+        "lineNumber": 21,
+        "line": " * @param {string} fileName \r"
+      },
+      {
+        "lineNumber": 22,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 23,
+        "line": "const uploadImage = (file, fileName, progress) => {\r"
+      }
+    ],
+    "codeParams": [
+      "file",
+      "fileName",
+      "progress"
+    ],
+    "docParams": [
+      "file",
+      "fileName"
+    ]
+  },
+  {
+    "name": "constraintImage",
+    "filePath": "app/api/FileAPI.jsx",
+    "lines": [
+      {
+        "lineNumber": 50,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 51,
+        "line": " * Constraint image size\r"
+      },
+      {
+        "lineNumber": 52,
+        "line": " * @param {file} file \r"
+      },
+      {
+        "lineNumber": 53,
+        "line": " * @param {number} maxWidth \r"
+      },
+      {
+        "lineNumber": 54,
+        "line": " * @param {number} maxHeight \r"
+      },
+      {
+        "lineNumber": 55,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 56,
+        "line": "const constraintImage = (file, fileName, maxWidth, maxHeight) => {\r"
+      }
+    ],
+    "codeParams": [
+      "file",
+      "fileName",
+      "maxWidth",
+      "maxHeight"
+    ],
+    "docParams": [
+      "file",
+      "maxWidth",
+      "maxHeight"
+    ]
+  }
+]

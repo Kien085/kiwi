@@ -1,13 +1,601 @@
 {
-  "coverage": "80%",
-  "expectCount": 5,
-  "actualCount": 4,
+  "coverage": "15.24%",
+  "expectCount": 341,
+  "actualCount": 52,
   "files": {
-    "src/PeterTest.jsx": {
-      "expectCount": 5,
-      "actualCount": 4,
+    "app/actions/commentActions.jsx": {
+      "expectCount": 11,
+      "actualCount": 7,
       "undocumentLines": [
-        6
+        63,
+        186,
+        192,
+        199
+      ]
+    },
+    "app/actions/globalActions.jsx": {
+      "expectCount": 15,
+      "actualCount": 3,
+      "undocumentLines": [
+        21,
+        39,
+        46,
+        53,
+        71,
+        85,
+        93,
+        100,
+        107,
+        114,
+        121,
+        129
+      ]
+    },
+    "app/actions/notifyActions.jsx": {
+      "expectCount": 9,
+      "actualCount": 7,
+      "undocumentLines": [
+        35,
+        143
+      ]
+    },
+    "app/actions/userActions.jsx": {
+      "expectCount": 11,
+      "actualCount": 6,
+      "undocumentLines": [
+        13,
+        101,
+        182,
+        189,
+        197
+      ]
+    },
+    "app/actions/voteActions.jsx": {
+      "expectCount": 7,
+      "actualCount": 5,
+      "undocumentLines": [
+        47,
+        112
+      ]
+    },
+    "app/api/AuthAPI.jsx": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        10
+      ]
+    },
+    "app/api/FileAPI.jsx": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        4,
+        10
+      ]
+    },
+    "app/api/PostAPI.jsx": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        8,
+        19
+      ]
+    },
+    "app/api/StringAPI.jsx": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "app/app.jsx": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        22
+      ]
+    },
+    "app/components/FindPeople.jsx": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        10,
+        11
+      ]
+    },
+    "app/components/Followers.jsx": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        7
+      ]
+    },
+    "app/components/Following.jsx": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        11
+      ]
+    },
+    "app/components/MasterLoading.jsx": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "app/components/People.jsx": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        18,
+        20
+      ]
+    },
+    "app/components/Profile.jsx": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        13,
+        15
+      ]
+    },
+    "app/components/UserAvatar.jsx": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        8
+      ]
+    },
+    "app/constants/actionTypes.jsx": {
+      "expectCount": 72,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        22,
+        23,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        35,
+        36,
+        37,
+        38,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        62,
+        63,
+        64,
+        65,
+        66,
+        69,
+        70,
+        71,
+        72,
+        75,
+        76,
+        77,
+        78,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ]
+    },
+    "app/firebase/index.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        17,
+        20,
+        21
+      ]
+    },
+    "app/layouts/DialogTitle.jsx": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        7
+      ]
+    },
+    "app/layouts/IconButtonElement.jsx": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        18
+      ]
+    },
+    "app/store/configureStore.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        19,
+        22,
+        23,
+        26,
+        40,
+        43
+      ]
+    },
+    "app/tests/actions/authorizeActions.test.jsx": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        7,
+        10
+      ]
+    },
+    "app/tests/app.test.jsx": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "app/tests/components/Blog.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Circle.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Comment.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/CommentWrite.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/CommnetGroup.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/CommnetList.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/EditProfile.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/FindPeople.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Followers.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Following.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Home.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/HomeHeader.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/ImageGallery.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Img.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/ImgCover.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Login.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Master.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/NotifyItem.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Post.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/PostWrite.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Settings.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Sidebar.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/Signup.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/UserBox.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/UserBoxList.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/components/YourCircles.test.jsx": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "app/tests/reducers/authorizeReducer.test.jsx": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        2,
+        3
       ]
     }
   }
