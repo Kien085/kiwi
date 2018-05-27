@@ -75,13 +75,6 @@ export var dbSignup = (user) => {
                     console.log(err)
                 } else {
                     let localStorage = window.localStorage;
-                    // Generate a public key for symmetric encryption
-                    // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
-                    let key = forge.random.getBytesSync(16);
-                    let iv = forge.random.getBytesSync(16);
-                    localStorage.setItem('PUBkey', key);
-                    localStorage.setItem('PUBiv', iv);
-            
                     // keypair.privateKey, keypair.publicKey
                     let privateKey = keypair.privateKey;
                     let publicKey = keypair.publicKey;
@@ -90,12 +83,23 @@ export var dbSignup = (user) => {
                     // Save privateKey locally
                     localStorage.setItem('privPair', privateKey);
                     localStorage.setItem('pubPair', publicKey);
+                    // Generate a public key for symmetric encryption
+                    // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
+                    let key = forge.random.getBytesSync(16);
+                    let iv = forge.random.getBytesSync(16);
+                    localStorage.setItem('PUBkey', key);
+                    localStorage.setItem('PUBiv', iv);
+            
                     
-                    firebase.database().ref(`keys/${signupResult.uid}/`).set({
+                    firebaseRef.child(`keys/${signupResult.uid}/`).set({
                         key: key,
                         iv: iv
-                    });
+                    }).then((result) => {
+                        dispatch(globalActions.showNotificationSuccess())
+                    }, (error) => dispatch(globalActions.showErrorMessage(error.code)));
                     console.log('OUTPUT: KEY is ' + key);
+                    
+                    
                 }
             });
             firebaseRef.child(`users/${signupResult.uid}/info`).set({
@@ -104,14 +108,13 @@ export var dbSignup = (user) => {
             }).then((result) => {
                 dispatch(globalActions.showNotificationSuccess())
             }, (error) => dispatch(globalActions.showErrorMessage(error.code)));
-
+            
             dispatch(signup({
                 uid: signupResult.uid,
                 ...user
             }));
-
+            
             dispatch(push('/'));
-             
         }, (error) => dispatch(globalActions.showErrorMessage(error.code)))
     }
 

@@ -19,6 +19,7 @@ import forge from 'node-forge';
  * @param {function} callBack 
  */
 export var dbAddPost = (newPost, callBack) => {
+    console.log("OUTPUT: In function dbAddPost()");
     return (dispatch, getState) => {
 
         let uid = getState().authorize.uid;
@@ -60,6 +61,7 @@ export var dbAddPost = (newPost, callBack) => {
  * @param {function} callBack 
  */
 export const dbAddImagePost = (newPost, callBack) => {
+    console.log("OUTPUT: In function dbAddImagePost()");
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
 
@@ -103,6 +105,7 @@ export const dbAddImagePost = (newPost, callBack) => {
  * @param {func} callBack //TODO: anti pattern should change to parent state or move state to redux
  */
 export const dbUpdatePost = (newPost, callBack) => {
+    console.log("OUTPUT: In function dbUpdatePost()");
     console.log(newPost);
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
@@ -176,16 +179,23 @@ export const dbGetPosts = () => {
     console.log("OUTPUT: In function dbGetPosts()");
     return (dispatch, getState) => {
         // Look up key and iv to decipher post
-        var key, iv;
+        let key, iv, decipher;
         let uid = getState().authorize.uid;
         console.log('OUTPUT: USERID is ' + uid);
         let keysRef = firebaseRef.child(`keys/${uid}`);
         keysRef.once('value').then((snap) => {
-            key = snap.val().key || {};
-            iv = snap.val().iv || {};
-            console.log('OUTPUT: key is ' + key);
-            console.log('OUTPUT: iv is ' + iv);
-            let decipher = forge.cipher.createDecipher('AES-CBC', key);
+            console.log(`OUTPUT: Type of snap is ${typeof(snap)} and type of snap.val() is ${typeof(snap.val())}`);
+            console.log(`OUTPUT: Contents of snap are`);
+            console.log(snap);
+            console.log(`OUTPUT: Contents of snap.val() are`);
+            console.log(snap.val());
+            if(snap.val()) {
+                key = snap.val().key || {};
+                iv = snap.val().iv || {};
+                console.log('OUTPUT: key is ' + key);
+                console.log('OUTPUT: iv is ' + iv);
+                decipher = forge.cipher.createDecipher('AES-CBC', key);
+            }
             if (uid) {
                 let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
                 
@@ -199,13 +209,15 @@ export const dbGetPosts = () => {
                             ...posts[postId]
                         };
                         // Decrypt body of post
-                        console.log('OUTPUT: post body is : ' + parsedPosts[postId].body);
-                        decipher.start({iv: iv});
-                        decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
-                        decipher.finish();
-                        let decipheredText = decipher.output.toString();
-                        console.log('OUTPUT: deciphered posts is ' + decipheredText);
-                        parsedPosts[postId].body = decipheredText
+                        if(snap.val()) {
+                            console.log('OUTPUT: post body is : ' + parsedPosts[postId].body);
+                            decipher.start({iv: iv});
+                            decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
+                            decipher.finish();
+                            let decipheredText = decipher.output.toString();
+                            console.log('OUTPUT: deciphered posts is ' + decipheredText);
+                            parsedPosts[postId].body = decipheredText
+                        }
                     });
                     
                     dispatch(addPosts(uid, parsedPosts));
@@ -240,15 +252,18 @@ export const dbGetPostsByUserId = (uid) => {
     console.log("OUTPUT: In function dbGetPostsByUserId()");
     return (dispatch, getState) => {
         // Look up key and iv to decipher post
-        var key, iv;
+        let key, iv, decipher;
+        console.log('OUTPUT: USERID of self is ' + getState().authorize.uid);
         console.log('OUTPUT: USERID is ' + uid);
         let keysRef = firebaseRef.child(`keys/${uid}`);
         keysRef.once('value').then((snap) => {
-            key = snap.val().key || {};
-            iv = snap.val().iv || {};
-            console.log('OUTPUT: key is ' + key);
-            console.log('OUTPUT: iv is ' + iv);
-            let decipher = forge.cipher.createDecipher('AES-CBC', key);
+            if(snap.val()) {
+                key = snap.val().key || {};
+                iv = snap.val().iv || {};
+                console.log('OUTPUT: key is ' + key);
+                console.log('OUTPUT: iv is ' + iv);
+                decipher = forge.cipher.createDecipher('AES-CBC', key);
+            }
             if (uid) {
                 let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
     
@@ -263,12 +278,14 @@ export const dbGetPostsByUserId = (uid) => {
                         };
                         // Decrypt body of post
                         console.log('OUTPUT: post body is : ' + parsedPosts[postId].body);
-                        decipher.start({iv: iv});
-                        decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
-                        decipher.finish();
-                        let decipheredText = decipher.output.toString();
-                        console.log('OUTPUT: deciphered posts is ' + decipheredText);
-                        parsedPosts[postId].body = decipheredText
+                        if(snap.val()) {
+                            decipher.start({iv: iv});
+                            decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
+                            decipher.finish();
+                            let decipheredText = decipher.output.toString();
+                            console.log('OUTPUT: deciphered posts is ' + decipheredText);
+                            parsedPosts[postId].body = decipheredText
+                        }
                     });
                 
                     dispatch(addPosts(uid, parsedPosts));
