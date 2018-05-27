@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">app/components/Post.jsx | peter-test</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#actions">actions</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbLogin">dbLogin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbLogout">dbLogout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbSignup">dbSignup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbUpdatePassword">dbUpdatePassword</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logout">logout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-signup">signup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updatePassword">updatePassword</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addCircle">addCircle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addCircles">addCircles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addFollowingUser">addFollowingUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clearAllCircles">clearAllCircles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeCircleSettings">closeCircleSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbAddCircle">dbAddCircle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbAddFollowingUser">dbAddFollowingUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbDeleteCircle">dbDeleteCircle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbDeleteFollowingUser">dbDeleteFollowingUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetCircles">dbGetCircles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetCirclesByUserId">dbGetCirclesByUserId</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbUpdateCircle">dbUpdateCircle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteCircle">deleteCircle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteFollowingUser">deleteFollowingUser</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openCircleSettings">openCircleSettings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateCircle">updateCircle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addComment">addComment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addCommentList">addCommentList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clearAllData">clearAllData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeCommentEditor">closeCommentEditor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbAddComment">dbAddComment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbDeleteComment">dbDeleteComment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetComments">dbGetComments</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbUpdateComment">dbUpdateComment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteComment">deleteComment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openCommentEditor">openCommentEditor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateComment">updateComment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closePostWrite">closePostWrite</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-defaultDataDisable">defaultDataDisable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-defaultDataEnable">defaultDataEnable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-hideMessage">hideMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-hideTopLoading">hideTopLoading</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadDataGuest">loadDataGuest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openPostWrite">openPostWrite</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-progressChange">progressChange</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setHeaderTitle">setHeaderTitle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setHeaderTitleOpt">setHeaderTitleOpt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-showErrorMessage">showErrorMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-showNotificationRequest">showNotificationRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-showNotificationSuccess">showNotificationSuccess</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-showTopLoading">showTopLoading</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-temp">temp</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addImage">addImage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addImageList">addImageList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clearAllData">clearAllData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clearSelectData">clearSelectData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbDeleteImage">dbDeleteImage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbDownloadImage">dbDownloadImage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbSaveImage">dbSaveImage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbUploadImage">dbUploadImage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteImage">deleteImage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-downloadForImageGallery">downloadForImageGallery</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sendImageRequest">sendImageRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setImageURL">setImageURL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addNotify">addNotify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addNotifyList">addNotifyList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clearAllNotifications">clearAllNotifications</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbAddNotify">dbAddNotify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbDeleteNotify">dbDeleteNotify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetNotifies">dbGetNotifies</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbSeenNotify">dbSeenNotify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteNotify">deleteNotify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-seenNotify">seenNotify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addImagePost">addImagePost</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addPost">addPost</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addPosts">addPosts</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clearAllData">clearAllData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbAddImagePost">dbAddImagePost</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbAddPost">dbAddPost</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbDeletePost">dbDeletePost</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetPostById">dbGetPostById</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetPosts">dbGetPosts</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetPostsByUserId">dbGetPostsByUserId</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbUpdatePost">dbUpdatePost</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deletePost">deletePost</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updatePost">updatePost</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addPeopleInfo">addPeopleInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addUserInfo">addUserInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clearAllData">clearAllData</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-closeEditProfile">closeEditProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetPeopleInfo">dbGetPeopleInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetUserInfo">dbGetUserInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetUserInfoByUserId">dbGetUserInfoByUserId</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbUpdateUserInfo">dbUpdateUserInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-openEditProfile">openEditProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-updateUserInfo">updateUserInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-userInfo">userInfo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addVote">addVote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addVoteList">addVoteList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clearAllvotes">clearAllvotes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbAddVote">dbAddVote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbDeleteVote">dbDeleteVote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dbGetVotes">dbGetVotes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-deleteVote">deleteVote</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#api">api</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isAdmin">isAdmin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isAuthorized">isAuthorized</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-PrivateRoute">PrivateRoute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-PublicRoute">PublicRoute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getFollowingUsers">getFollowingUsers</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getUserBelongCircles">getUserBelongCircles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-detectTags">detectTags</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getContentTags">getContentTags</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sortObjectsDate">sortObjectsDate</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Blog.jsx~Blog.html">Blog</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Circle.jsx~Circle.html">Circle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Comment.jsx~Comment.html">Comment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/CommentGroup.jsx~CommentGroup.html">CommentGroup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/CommentList.jsx~CommentList.html">CommentList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/CommentWrite.jsx~CommentWrite.html">CommentWrite</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/EditProfile.jsx~EditProfile.html">EditProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/FindPeople.jsx~FindPeople.html">FindPeople</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Followers.jsx~Followers.html">Followers</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Following.jsx~Following.html">Following</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Home.jsx~Home.html">Home</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/HomeHeader.jsx~HomeHeader.html">HomeHeader</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/ImageGallery.jsx~ImageGallery.html">ImageGallery</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Img.jsx~Img.html">Img</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/ImgCover.jsx~ImgCover.html">ImgCover</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Login.jsx~Login.html">Login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Master.jsx~Master.html">Master</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Notify.jsx~Notify.html">Notify</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/NotifyItem.jsx~NotifyItem.html">NotifyItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/People.jsx~People.html">People</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Post.jsx~Post.html">Post</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/PostPage.jsx~PostPage.html">PostPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/PostWrite.jsx~PostWrite.html">PostWrite</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Profile.jsx~Profile.html">Profile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/ProfileHead.jsx~ProfileHead.html">ProfileHead</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Settings.jsx~Settings.html">Settings</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Sidebar.jsx~Sidebar.html">Sidebar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/SidebarContent.jsx~SidebarContent.html">SidebarContent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/SidebarMain.jsx~SidebarMain.html">SidebarMain</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/Signup.jsx~Signup.html">Signup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/UserAvatar.jsx~UserAvatar.html">UserAvatar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/UserBox.jsx~UserBox.html">UserBox</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/UserBoxList.jsx~UserBoxList.html">UserBoxList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/components/YourCircles.jsx~YourCircles.html">YourCircles</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-MasterLoading">MasterLoading</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#constants">constants</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_CIRCLE">ADD_CIRCLE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_COMMENT">ADD_COMMENT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_COMMENT_LIST">ADD_COMMENT_LIST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_FOLLOWING_USER">ADD_FOLLOWING_USER</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_IMAGE_GALLERY">ADD_IMAGE_GALLERY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_IMAGE_LIST_GALLERY">ADD_IMAGE_LIST_GALLERY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_IMAGE_POST">ADD_IMAGE_POST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_LIST_CIRCLE">ADD_LIST_CIRCLE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_LIST_POST">ADD_LIST_POST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_NOTIFY">ADD_NOTIFY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_NOTIFY_LIST">ADD_NOTIFY_LIST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_PEOPLE_INFO">ADD_PEOPLE_INFO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_POST">ADD_POST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_USERS">ADD_USERS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_USER_INFO">ADD_USER_INFO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_VIDEO_POST">ADD_VIDEO_POST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_VOTE">ADD_VOTE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ADD_VOTE_LIST">ADD_VOTE_LIST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEARS_SELECT_IMAGE_GALLERY">CLEARS_SELECT_IMAGE_GALLERY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEAR_ALL_CIRCLES">CLEAR_ALL_CIRCLES</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEAR_ALL_DATA_COMMENT">CLEAR_ALL_DATA_COMMENT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEAR_ALL_DATA_NOTIFY">CLEAR_ALL_DATA_NOTIFY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEAR_ALL_DATA_POST">CLEAR_ALL_DATA_POST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEAR_ALL_DATA_USER">CLEAR_ALL_DATA_USER</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEAR_ALL_DATA_VOTE">CLEAR_ALL_DATA_VOTE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLEAT_ALL_DATA_IMAGE_GALLERY">CLEAT_ALL_DATA_IMAGE_GALLERY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLOSE_CIRCLE_SETTINGS">CLOSE_CIRCLE_SETTINGS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLOSE_COMMENT_EDITOR">CLOSE_COMMENT_EDITOR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-CLOSE_EDIT_PROFILE">CLOSE_EDIT_PROFILE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_DATA_DISABLE">DEFAULT_DATA_DISABLE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_DATA_ENABLE">DEFAULT_DATA_ENABLE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELETE_CIRCLE">DELETE_CIRCLE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELETE_COMMENT">DELETE_COMMENT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELETE_FOLLOWING_USER">DELETE_FOLLOWING_USER</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELETE_IMAGE">DELETE_IMAGE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELETE_NOTIFY">DELETE_NOTIFY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELETE_POST">DELETE_POST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DELETE_VOTE">DELETE_VOTE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DOWNLOAD_FILE">DOWNLOAD_FILE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-HIDE_MESSAGE_GLOBAL">HIDE_MESSAGE_GLOBAL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-HIDE_TOP_LOADING">HIDE_TOP_LOADING</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-IMAGE_SELECT_GALLERY">IMAGE_SELECT_GALLERY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOADING">LOADING</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGIN">LOGIN</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LOGOUT">LOGOUT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-OPEN_CIRCLE_SETTINGS">OPEN_CIRCLE_SETTINGS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-OPEN_COMMENT_EDITOR">OPEN_COMMENT_EDITOR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-OPEN_EDIT_PROFILE">OPEN_EDIT_PROFILE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-OPEN_IMAGE_EDITOR">OPEN_IMAGE_EDITOR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-OPEN_IMAGE_GALLERY">OPEN_IMAGE_GALLERY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-OPEN_IMAGE_UPLOADER">OPEN_IMAGE_UPLOADER</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PROGRESS_CHANGE">PROGRESS_CHANGE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SEEN_NOTIFY">SEEN_NOTIFY</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SEND_IMAGE_REQUEST">SEND_IMAGE_REQUEST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SET_HEADER_TITLE">SET_HEADER_TITLE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SET_IMAGE_URL">SET_IMAGE_URL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SHOW_ERROR_MESSAGE_GLOBAL">SHOW_ERROR_MESSAGE_GLOBAL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SHOW_NORMAL_MESSAGE_GLOBAL">SHOW_NORMAL_MESSAGE_GLOBAL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SHOW_REQUEST_SUCCESS_MESSAGE_GLOBAL">SHOW_REQUEST_SUCCESS_MESSAGE_GLOBAL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SHOW_SEND_REQUEST_MESSAGE_GLOBAL">SHOW_SEND_REQUEST_MESSAGE_GLOBAL</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SHOW_TOP_LOADING">SHOW_TOP_LOADING</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SIGNUP">SIGNUP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TEMP">TEMP</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPDATE_CIRCLE">UPDATE_CIRCLE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPDATE_COMMENT">UPDATE_COMMENT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPDATE_PASSWORD">UPDATE_PASSWORD</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPDATE_POST">UPDATE_POST</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPDATE_USER_INFO">UPDATE_USER_INFO</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPLOAD_FILE">UPLOAD_FILE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPLOAD_FILE_COMPLETE">UPLOAD_FILE_COMPLETE</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UPLOAD_FILE_ERROR">UPLOAD_FILE_ERROR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-USER_INFO">USER_INFO</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#firebase">firebase</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseAuth">firebaseAuth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-firebaseRef">firebaseRef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-storageRef">storageRef</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#helpers">helpers</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-auth">auth</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-login">login</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-logout">logout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-resetPassword">resetPassword</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-saveUser">saveUser</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#layouts">layouts</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/layouts/DialogTitle.jsx~DialogTitle.html">DialogTitle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-IconButtonElement">IconButtonElement</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#reducers">reducers</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-authorizeReducer">authorizeReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-circleReducer">circleReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-commentReducer">commentReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-globalReducer">globalReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-imageGalleryReducer">imageGalleryReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notifyReducer">notifyReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-postReducer">postReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-userReducer">userReducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-voteReducer">voteReducer</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#store">store</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-history">history</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-store">store</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">app/components/Post.jsx</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component } from &apos;react&apos;;
+import { connect } from &apos;react-redux&apos;;
+import { NavLink } from &apos;react-router-dom&apos;;
+import { push } from &apos;react-router-redux&apos;;
+import moment from &apos;moment&apos;;
+import { createAction as action } from &apos;redux-actions&apos;;
+import Linkify from &apos;react-linkify&apos;;
+
+// - Material UI
+import { CardActions, CardHeader, CardMedia, CardText } from &apos;material-ui/Card&apos;;
+import Snackbar from &apos;material-ui/Snackbar&apos;;
+import SvgLink from &apos;material-ui/svg-icons/content/link&apos;;
+import SvgFavorite from &apos;material-ui/svg-icons/action/favorite&apos;;
+import SvgFavoriteBorder from &apos;material-ui/svg-icons/action/favorite-border&apos;;
+import Checkbox from &apos;material-ui/Checkbox&apos;;
+import Paper from &apos;material-ui/Paper&apos;;
+import Menu from &apos;material-ui/Menu&apos;;
+import MenuItem from &apos;material-ui/MenuItem&apos;;
+import TextField from &apos;material-ui/TextField&apos;;
+import IconMenu from &apos;material-ui/IconMenu&apos;;
+import reactStringReplace from &apos;react-string-replace&apos;;
+
+// - Import app components
+import CommentGroup from &apos;CommentGroup&apos;;
+import PostWrite from &apos;PostWrite&apos;;
+import Img from &apos;Img&apos;;
+import IconButtonElement from &apos;IconButtonElement&apos;;
+import UserAvatar from &apos;UserAvatar&apos;;
+
+// - Import actions
+import * as voteActions from &apos;voteActions&apos;;
+import * as postActions from &apos;postActions&apos;;
+import * as globalActions from &apos;globalActions&apos;;
+
+export class Post extends Component {
+    /**
+     * Component constructor
+     * @param  {object} props is an object properties of component
+     */
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            // Post text
+            text: this.props.body,
+
+            // It&apos;s true if whole the text post is visible
+            readMoreState: false,
+
+            // Handle open comment from parent component
+            openComments: false,
+
+            // If it&apos;s true, share dialog will be open
+            shareOpen: false,
+
+            // If it&apos;s true comment will be disabled on post
+            disableComments: this.props.disableComments,
+
+            // If it&apos;s true share will be disabled on post
+            disableSharing: this.props.disableSharing,
+
+            // Title of share post
+            shareTitle: &apos;Share On&apos;,
+
+            // If it&apos;s true, post link will be visible in share post dialog
+            openCopyLink: false,
+
+            // If it&apos;s true, post write will be open
+            openPostWrite: false
+        };
+    }
+
+
+    /**
+     * Toggle on show/hide comment
+     * @param  {event} evt passed by clicking on comment slide show
+     */
+    handleOpenComments = (evt) =&gt; {
+        this.setState({ openComments: !this.state.openComments });
+    }
+
+    /**
+     * Open post write
+     * 
+     * @memberof Blog
+     */
+    handleOpenPostWrite = () =&gt; {
+        this.setState({ openPostWrite: true });
+    }
+
+    /**
+     * Close post write
+     * 
+     * @memberof Blog
+     */
+    handleClosePostWrite = () =&gt; {
+        this.setState({ openPostWrite: false });
+    }
+
+    /**
+     * Delete a post
+     * 
+     * @memberof Post
+     */
+    handleDelete = () =&gt; {
+        this.props.delete(this.props.id);
+    }
+
+    /**
+     * Show copy link 
+     * 
+     * @memberof Post
+     */
+    handleCopyLink = () =&gt; {
+        this.setState({
+            openCopyLink: true,
+            shareTitle: &apos;Copy Link&apos;
+        });
+    }
+
+    /**
+     * Open share post
+     * 
+     * @memberof Post
+     */
+    handleOpenShare = (event) =&gt; {
+        this.setState({ shareOpen: true });
+
+        const text = `${location.origin}/${this.props.ownerUserId}/posts/${this.props.id}`;
+
+        if (window.clipboardData &amp;&amp; window.clipboardData.setData) {
+            // IE specific code path to prevent textarea being shown while dialog is visible.
+            return clipboardData.setData(&quot;Text&quot;, text);
+        } else if (document.queryCommandSupported &amp;&amp; document.queryCommandSupported(&quot;copy&quot;)) {
+            var textarea = document.createElement(&quot;textarea&quot;);
+            textarea.textContent = text;
+            textarea.style.position = &quot;fixed&quot;;  // Prevent scrolling to bottom of page in MS Edge.
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                return document.execCommand(&quot;copy&quot;);  // Security exception may be thrown by some browsers.
+            } catch (ex) {
+                console.warn(&quot;Copy to clipboard failed.&quot;, ex);
+                return false;
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+    }
+
+    /**
+     * Close share post
+     * 
+     * @memberof Post
+     */
+    handleCloseShare = () =&gt; {
+        this.setState({
+            shareOpen: false,
+            shareTitle: &apos;Share On&apos;,
+            openCopyLink: false
+        });
+    }
+
+    /**
+     * Handle vote on a post
+     * 
+     * @memberof Post
+     */
+    handleVote = () =&gt; {
+        if (this.props.userVoteStatus) {
+            this.props.unvote();
+        }
+
+        else {
+            this.props.vote();
+        }
+    }
+
+    /**
+     * Set open comment group function on state which passed by CommentGroup component
+     * @param  {function} open the function to open comment list
+     */
+    getOpenCommentGroup = (open) =&gt; {
+        this.setState({ openCommentGroup: open });
+    }
+
+    /**
+     * Handle read more event
+     * @param  {event} evt  is the event passed by click on read more
+     */
+    handleReadMore(evt) {
+        this.setState({ readMoreState: !this.state.readMoreState });
+    }
+
+    /**
+     * Reneder component DOM
+     * @return {react element} return the DOM which rendered by component
+     */
+    render() {
+        /**
+         * DOM styles
+         *
+         * @memberof Post
+         */
+        const styles = {
+            counter: {
+                lineHeight: &apos;36px&apos;,
+                color: &apos;#757575&apos;,
+                fontSize: &apos;12px&apos;
+            },
+            postBody: {
+                wordWrap: &quot;break-word&quot;
+            },
+            dialog: {
+                width: &apos;&apos;,
+                maxWidth: &apos;530px&apos;,
+                borderRadius: &quot;4px&quot;
+            },
+            rightIconMenu: {
+                position: &apos;absolute&apos;,
+                right: 18,
+                top: 8
+            }
+        };
+
+        const RightIconMenu = () =&gt; (
+            &lt;IconMenu iconButtonElement={IconButtonElement} style={{ display: &quot;block&quot;, position: &quot;absolute&quot;, top: &quot;0px&quot;, right: &quot;4px&quot;, transform: &apos;rotate(90deg)&apos; }}&gt;
+                &lt;MenuItem primaryText=&quot;Edit&quot; onClick={this.handleOpenPostWrite} /&gt;
+                &lt;MenuItem primaryText=&quot;Delete&quot; onClick={this.handleDelete} /&gt;
+                &lt;MenuItem primaryText={this.props.disableComments ? &quot;Enable comments&quot; : &quot;Disable comments&quot;} onClick={() =&gt; this.props.toggleDisableComments(!this.props.disableComments)} /&gt;
+                &lt;MenuItem primaryText={this.props.disableSharing ? &quot;Enable sharing&quot; : &quot;Disable sharing&quot;} onClick={() =&gt; this.props.toggleSharingComments(!this.props.disableSharing)} /&gt;
+            &lt;/IconMenu&gt;
+        );
+
+        const { ownerUserId, setHomeTitle, goTo, ownerDisplayName, creationDate, avatar, fullName, isPostOwner, image, body } = this.props;
+
+        return (
+            &lt;div style={{ backgroundColor: &apos;#fff&apos;, border: &apos;1px solid #dddfe2&apos;, borderRadius: &apos;7px&apos; }}&gt;
+                &lt;CardHeader
+                    title={&lt;NavLink to={`/${ownerUserId}`}&gt;{ownerDisplayName}&lt;/NavLink&gt;}
+                    subtitle={moment.unix(creationDate).fromNow()}
+                    avatar={&lt;NavLink to={`/${ownerUserId}`}&gt;&lt;UserAvatar fullName={fullName} fileName={avatar} size={36} /&gt;&lt;/NavLink&gt;}
+                &gt;
+                    {isPostOwner ? (&lt;div style={styles.rightIconMenu}&gt;&lt;RightIconMenu /&gt;&lt;/div&gt;) : &apos;&apos;}
+                &lt;/CardHeader&gt;
+
+                {body ?
+                    &lt;CardText style={styles.postBody}&gt;
+                        &lt;Linkify properties={{ target: &apos;_blank&apos;, style: { color: &apos;blue&apos; } }}&gt;
+                            {reactStringReplace(body, /#(\w+)/g, (match, i) =&gt; (
+                                &lt;NavLink
+                                    style={{ color: &apos;green&apos; }}
+                                    key={match + i}
+                                    to={`/tag/${match}`}
+                                    onClick={evt =&gt; {
+                                        evt.preventDefault()
+                                        goTo(`/tag/${match}`)
+                                        setHomeTitle(`#${match}`)
+                                    }}
+                                &gt;
+                                    #{match}
+                                &lt;/NavLink&gt;
+                            ))}
+                        &lt;/Linkify&gt;
+                    &lt;/CardText&gt; : &apos;&apos;
+                }
+
+                {image ? (
+                    &lt;CardMedia&gt;
+                        &lt;Img fileName={image} /&gt;
+                    &lt;/CardMedia&gt;) : &apos;&apos;}
+
+                &lt;CardActions&gt;
+                    &lt;div style={{ margin: &quot;16px 8px&quot;, display: &apos;flex&apos;, justifyContent: &apos;space-between&apos; }}&gt;
+                        &lt;div style={{ display: &apos;flex&apos; }}&gt;
+                            &lt;div className=&apos;g__circle&apos; onClick={this.handleVote}&gt;
+                                &lt;Checkbox
+                                    checkedIcon={&lt;SvgFavorite style={{ fill: &apos;#EC425C&apos; }} /&gt;}
+                                    uncheckedIcon={&lt;SvgFavoriteBorder style={{ fill: &apos;#757575&apos; }} /&gt;}
+                                    defaultChecked={this.props.userVoteStatus}
+                                    style={{ transform: &apos;translate(6px, 6px)&apos; }}
+                                /&gt;
+                            &lt;/div&gt;
+                            &lt;div style={styles.counter}&gt; {this.props.voteCount &gt; 0 ? this.props.voteCount : &apos;&apos;} &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div style={{ display: &apos;flex&apos; }}&gt;
+                            {!this.props.disableComments ? (&lt;div style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos; }}&gt;
+                                &lt;div style={styles.counter}&gt;
+                                    {this.props.commentCount &gt; 1 ? this.props.commentCount + &quot; comments&quot; : 
+                                        this.props.commentCount === 1 ? 
+                                            this.props.commentCount + &quot; comment&quot; : &apos;&apos;}
+                                &lt;/div&gt;
+                                &lt;span className=&apos;g__circle&apos; style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, justifyContent: &apos;center&apos;, margin: &apos;0&apos; }}&gt;
+                                    &lt;svg onClick={this.handleOpenComments} style={{ marginTop: &apos;2px&apos; }} width=&quot;20&quot; height=&quot;21&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z&quot; fill={(this.props.commentCount &gt; 0) ? &apos;#4E7FF7&apos; : &apos;#757575&apos;} /&gt;
+                                        &lt;rect x=&quot;4&quot; y=&quot;4&quot; width=&quot;12&quot; height=&quot;2&quot; fill={(this.props.commentCount &gt; 0) ? &apos;#4E7FF7&apos; : &apos;#fff&apos;}&gt;&lt;/rect&gt;
+                                        &lt;rect x=&quot;4&quot; y=&quot;7&quot; width=&quot;12&quot; height=&quot;2&quot; fill={(this.props.commentCount &gt; 0) ? &apos;#4E7FF7&apos; : &apos;#fff&apos;}&gt;&lt;/rect&gt;
+                                        &lt;rect x=&quot;4&quot; y=&quot;10&quot; width=&quot;12&quot; height=&quot;2&quot; fill={(this.props.commentCount &gt; 0) ? &apos;#4E7FF7&apos; : &apos;#fff&apos;}&gt;&lt;/rect&gt;
+                                    &lt;/svg&gt;
+                                &lt;/span&gt;
+                            &lt;/div&gt;) : &apos;&apos;}
+                            {!this.props.disableSharing ?
+                                &lt;div className=&apos;g__circle&apos; style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, justifyContent: &apos;center&apos; }}&gt;
+                                    &lt;svg onClick={this.handleOpenShare} style={{marginBottom: &apos;1px&apos;}} width=&quot;20&quot; height=&quot;16&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z&quot; fill=&quot;#757575&quot;/&gt;&lt;/svg&gt;
+                                &lt;/div&gt;
+                                : &apos;&apos;}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/CardActions&gt;
+
+                &lt;CommentGroup open={this.state.openComments} ownerPostUserId={this.props.ownerUserId} onToggleRequest={this.handleOpenComments} isPostOwner={this.props.isPostOwner} disableComments={this.props.disableComments} postId={this.props.id} /&gt;
+
+                &lt;Snackbar
+                    open={this.state.shareOpen}
+                    message={&quot;Link to Post copied!&quot;}
+                    autoHideDuration={1000}
+                    style={{ left: &apos;1%&apos;, transform: &apos;none&apos; }}
+                /&gt;
+
+                &lt;PostWrite
+                    open={this.state.openPostWrite}
+                    onRequestClose={this.handleClosePostWrite}
+                    edit={true}
+                    text={this.props.body}
+                    image={this.props.image ? this.props.image : &apos;&apos;}
+                    id={this.props.id}
+                    disableComments={this.props.disableComments}
+                    disableSharing={this.props.disableSharing}
+                /&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+
+/**
+ * Map dispatch to props
+ * @param  {func} dispatch is the function to dispatch action to reducers
+ * @param  {object} ownProps is the props belong to component
+ * @return {object}          props of component
+ */
+const mapDispatchToProps = (dispatch, ownProps) =&gt; {
+    return {
+        vote: () =&gt; dispatch(voteActions.dbAddVote(ownProps.id, ownProps.ownerUserId)),
+        unvote: () =&gt; dispatch(voteActions.dbDeleteVote(ownProps.id)),
+        delete: (id) =&gt; dispatch(postActions.dbDeletePost(id)),
+        toggleDisableComments: (status) =&gt; dispatch(postActions.dbUpdatePost({ id: ownProps.id, disableComments: status }, _ =&gt; _)),
+        toggleSharingComments: (status) =&gt; dispatch(postActions.dbUpdatePost({ id: ownProps.id, disableSharing: status }, _ =&gt; _)),
+        goTo: (url) =&gt; dispatch(push(url)),
+        setHomeTitle: (title) =&gt; dispatch(globalActions.setHeaderTitle(title || &apos;&apos;))
+
+
+    }
+}
+
+/**
+ * Map state to props
+ * @param  {object} state is the obeject from redux store
+ * @param  {object} ownProps is the props belong to component
+ * @return {object}          props of component
+ */
+const mapStateToProps = (state, ownProps) =&gt; {
+    const { uid } = state.authorize
+    let votes = state.vote.postVotes[ownProps.id]
+    const post = (state.post.userPosts[uid] ? Object.keys(state.post.userPosts[uid]).filter((key) =&gt; { return ownProps.id === key }).length : 0)
+
+    return {
+        avatar: state.user.info &amp;&amp; state.user.info[ownProps.ownerUserId] ? state.user.info[ownProps.ownerUserId].avatar || &apos;&apos; : &apos;&apos;,
+        fullName: state.user.info &amp;&amp; state.user.info[ownProps.ownerUserId] ? state.user.info[ownProps.ownerUserId].fullName || &apos;&apos; : &apos;&apos;,
+        commentCount: state.comment.postComments[ownProps.id] ? Object.keys(state.comment.postComments[ownProps.id]).length : 0,
+        voteCount: state.vote.postVotes[ownProps.id] ? Object.keys(state.vote.postVotes[ownProps.id]).length : 0,
+        userVoteStatus: votes &amp;&amp; Object.keys(votes).filter((key) =&gt; votes[key].userId === state.authorize.uid)[0] ? true : false,
+        isPostOwner: post &gt; 0
+    }
+}
+
+// - Connect component to redux store
+export default connect(mapStateToProps, mapDispatchToProps)(Post)
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

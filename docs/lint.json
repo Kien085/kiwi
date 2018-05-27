@@ -69,6 +69,39 @@
     ]
   },
   {
+    "name": "dbSaveImage",
+    "filePath": "app/actions/imageGalleryActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 51,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 52,
+        "line": " * Save image URL in the server\r"
+      },
+      {
+        "lineNumber": 53,
+        "line": " * @param  {string} imageURL is the URL of image\r"
+      },
+      {
+        "lineNumber": 54,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 55,
+        "line": "export const dbSaveImage = (imageURL, imageFullPath) => {\r"
+      }
+    ],
+    "codeParams": [
+      "imageURL",
+      "imageFullPath"
+    ],
+    "docParams": [
+      "imageURL"
+    ]
+  },
+  {
     "name": "addNotify",
     "filePath": "app/actions/notifyActions.jsx",
     "lines": [
@@ -96,6 +129,39 @@
     "codeParams": [],
     "docParams": [
       "data"
+    ]
+  },
+  {
+    "name": "addImagePost",
+    "filePath": "app/actions/postActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 294,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 295,
+        "line": " * Add a post with image\r"
+      },
+      {
+        "lineNumber": 296,
+        "line": " * @param {object} post \r"
+      },
+      {
+        "lineNumber": 297,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 298,
+        "line": "export const addImagePost = (uid, post) => {\r"
+      }
+    ],
+    "codeParams": [
+      "uid",
+      "post"
+    ],
+    "docParams": [
+      "post"
     ]
   },
   {
@@ -283,6 +349,123 @@
       "file",
       "maxWidth",
       "maxHeight"
+    ]
+  },
+  {
+    "name": "mapStateToProps",
+    "filePath": "app/components/CommentList.jsx",
+    "lines": [
+      {
+        "lineNumber": 61,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 62,
+        "line": " * Map state to props\r"
+      },
+      {
+        "lineNumber": 63,
+        "line": " * @param  {object} state is the obeject from redux store\r"
+      },
+      {
+        "lineNumber": 64,
+        "line": " * @param  {object} ownProps is the props belong to component\r"
+      },
+      {
+        "lineNumber": 65,
+        "line": " * @return {object}          props of component\r"
+      },
+      {
+        "lineNumber": 66,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 67,
+        "line": "const mapStateToProps = (state) => {\r"
+      }
+    ],
+    "codeParams": [
+      "state"
+    ],
+    "docParams": [
+      "state",
+      "ownProps"
+    ]
+  },
+  {
+    "name": "ImageGallery#render",
+    "filePath": "app/components/ImageGallery.jsx",
+    "lines": [
+      {
+        "lineNumber": 103,
+        "line": "    /**\r"
+      },
+      {
+        "lineNumber": 104,
+        "line": "     * When the post text changed\r"
+      },
+      {
+        "lineNumber": 105,
+        "line": "     * @param  {event} evt is an event passed by change post text callback funciton\r"
+      },
+      {
+        "lineNumber": 106,
+        "line": "     * @param  {string} data is the post content which user writes\r"
+      },
+      {
+        "lineNumber": 107,
+        "line": "     */\r"
+      },
+      {
+        "lineNumber": 108,
+        "line": "    render() {\r"
+      }
+    ],
+    "codeParams": [],
+    "docParams": [
+      "evt",
+      "data"
+    ]
+  },
+  {
+    "name": "mapStateToProps",
+    "filePath": "app/components/ImageGallery.jsx",
+    "lines": [
+      {
+        "lineNumber": 181,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 182,
+        "line": " * Map state to props\r"
+      },
+      {
+        "lineNumber": 183,
+        "line": " * @param  {object} state is the obeject from redux store\r"
+      },
+      {
+        "lineNumber": 184,
+        "line": " * @param  {object} ownProps is the props belong to component\r"
+      },
+      {
+        "lineNumber": 185,
+        "line": " * @return {object}          props of component\r"
+      },
+      {
+        "lineNumber": 186,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 187,
+        "line": "const mapStateToProps = (state) => {\r"
+      }
+    ],
+    "codeParams": [
+      "state"
+    ],
+    "docParams": [
+      "state",
+      "ownProps"
     ]
   }
 ]
