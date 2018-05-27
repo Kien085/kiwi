@@ -2,14 +2,18 @@ language: node_js
 
 node_js: stable
 
+# whitelist
 branches:
   only:
     - master
     - staging
-    
+    - production
+   
+# blacklist
 branches:
   except:
     - development
+
 
 # cache:
 #   directories:
