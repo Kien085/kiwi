@@ -8,6 +8,8 @@ import * as types from 'actionTypes';
 // - Import actions
 import * as globalActions from 'globalActions';
 
+import forge from 'node-forge';
+
 /* _____________ CRUD DB _____________ */
 
 /**
@@ -63,6 +65,39 @@ export var dbSignup = (user) => {
     return (dispatch, getState) => {
         dispatch(globalActions.showNotificationRequest());
         return firebaseAuth().createUserWithEmailAndPassword(user.email, user.password).then((signupResult) => {
+            console.log("OUTPUT: Firebase signup")
+            let rsa = forge.pki.rsa;
+            console.log('OUTPUT: USERID is ' + signupResult.uid);
+            // generate an RSA key pair asynchronously (uses web workers if available)
+            // use workers: -1 to run a fast core estimator to optimize # of workers
+            rsa.generateKeyPair({bits: 2048, workers: -1}, function(err, keypair) {
+                if(err) {
+                    console.log(err)
+                } else {
+                    let localStorage = window.localStorage;
+                    // Generate a public key for symmetric encryption
+                    // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
+                    let key = forge.random.getBytesSync(16);
+                    let iv = forge.random.getBytesSync(16);
+                    localStorage.setItem('PUBkey', key);
+                    localStorage.setItem('PUBiv', iv);
+            
+                    // keypair.privateKey, keypair.publicKey
+                    let privateKey = keypair.privateKey;
+                    let publicKey = keypair.publicKey;
+            
+                    // TODO: Save publicKey, key, iv to DB
+                    // Save privateKey locally
+                    localStorage.setItem('privPair', privateKey);
+                    localStorage.setItem('pubPair', publicKey);
+                    
+                    firebase.database().ref(`keys/${signupResult.uid}/`).set({
+                        key: key,
+                        iv: iv
+                    });
+                    console.log('OUTPUT: KEY is ' + key);
+                }
+            });
             firebaseRef.child(`users/${signupResult.uid}/info`).set({
                 ...user,
                 avatar: 'noImage'
@@ -76,6 +111,7 @@ export var dbSignup = (user) => {
             }));
 
             dispatch(push('/'));
+             
         }, (error) => dispatch(globalActions.showErrorMessage(error.code)))
     }
 

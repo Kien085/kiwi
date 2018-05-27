@@ -11,6 +11,8 @@ import * as globalActions from 'globalActions';
 // - Import app API
 import StringAPI from 'StringAPI';
 
+import forge from 'node-forge';
+
 export class Signup extends Component {
 
     /**
@@ -95,12 +97,13 @@ export class Signup extends Component {
 
         else if (confirmInput !== passwordInput) {
             this.setState({
-                passwordInputError: 'This field sould be equal to confirm password.',
-                confirmInputError: 'This field sould be equal to password.'
+                passwordInputError: 'This field should be equal to confirm password.',
+                confirmInputError: 'This field should be equal to password.'
             });
         }
 
         else {
+            // Encryption of password
             let bcrypt = require('bcryptjs');
             let salt = bcrypt.genSaltSync(12);
             let hash = bcrypt.hashSync(passwordInput, salt);

@@ -9,6 +9,8 @@ import * as types from 'actionTypes';
 // - Import actions
 import * as globalActions from 'globalActions';
 
+import forge from 'node-forge';
+
 /* _____________ CRUD DB _____________ */
 
 /**
@@ -87,7 +89,7 @@ export const dbAddImagePost = (newPost, callBack) => {
         return postRef.then(() => {
             dispatch(addPost(uid, {
                 ...post,
-                id: postRef.key
+                id: postRef.key       
             }));
             callBack();
             dispatch(globalActions.hideTopLoading());
@@ -169,31 +171,54 @@ export const dbDeletePost = (id) => {
     };
 }
 
-//  Get all user posts from data base
+//  Get all user posts from data base (self posts)
 export const dbGetPosts = () => {
+    console.log("OUTPUT: In function dbGetPosts()");
     return (dispatch, getState) => {
+        // Look up key and iv to decipher post
+        var key, iv;
         let uid = getState().authorize.uid;
-        if (uid) {
-            let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
-
-            return postsRef.once('value').then((snapshot) => {
-                let posts = snapshot.val() || {};
-                let parsedPosts = {};
-                Object.keys(posts).forEach((postId) => {
-                    parsedPosts[postId] = {
-                        id: postId,
-                        ...posts[postId]
-                    };
+        console.log('OUTPUT: USERID is ' + uid);
+        let keysRef = firebaseRef.child(`keys/${uid}`);
+        keysRef.once('value').then((snap) => {
+            key = snap.val().key || {};
+            iv = snap.val().iv || {};
+            console.log('OUTPUT: key is ' + key);
+            console.log('OUTPUT: iv is ' + iv);
+            let decipher = forge.cipher.createDecipher('AES-CBC', key);
+            if (uid) {
+                let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
+                
+                // Decrypt body of post look up all of own's posts
+                return postsRef.once('value').then((snapshot) => {
+                    let posts = snapshot.val() || {};
+                    let parsedPosts = {};
+                    Object.keys(posts).forEach((postId) => {
+                        parsedPosts[postId] = {
+                            id: postId,
+                            ...posts[postId]
+                        };
+                        // Decrypt body of post
+                        console.log('OUTPUT: post body is : ' + parsedPosts[postId].body);
+                        decipher.start({iv: iv});
+                        decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
+                        decipher.finish();
+                        let decipheredText = decipher.output.toString();
+                        console.log('OUTPUT: deciphered posts is ' + decipheredText);
+                        parsedPosts[postId].body = decipheredText
+                    });
+                    
+                    dispatch(addPosts(uid, parsedPosts));
                 });
-
-                dispatch(addPosts(uid, parsedPosts));
-            });
-        }
+            }
+        });
     };
 }
 
 //  Get all user posts from data base
 export const dbGetPostById = (uid, postId) => {
+    console.log("OUTPUT: In function dbGetPostsById()");
+
     return (dispatch, getState) => {
         if (uid) {
             let postsRef = firebaseRef.child(`userPosts/${uid}/posts/${postId}`);
@@ -210,25 +235,46 @@ export const dbGetPostById = (uid, postId) => {
     };
 }
 
-//  Get all user posts from data base by user id
+//  Get all user posts from data base by user id ()
 export const dbGetPostsByUserId = (uid) => {
+    console.log("OUTPUT: In function dbGetPostsByUserId()");
     return (dispatch, getState) => {
-        if (uid) {
-            let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
-
-            return postsRef.once('value').then((snapshot) => {
-                let posts = snapshot.val() || {};
-                let parsedPosts = {};
-                Object.keys(posts).forEach((postId) => {
-                    parsedPosts[postId] = {
-                        id: postId,
-                        ...posts[postId]
-                    };
+        // Look up key and iv to decipher post
+        var key, iv;
+        console.log('OUTPUT: USERID is ' + uid);
+        let keysRef = firebaseRef.child(`keys/${uid}`);
+        keysRef.once('value').then((snap) => {
+            key = snap.val().key || {};
+            iv = snap.val().iv || {};
+            console.log('OUTPUT: key is ' + key);
+            console.log('OUTPUT: iv is ' + iv);
+            let decipher = forge.cipher.createDecipher('AES-CBC', key);
+            if (uid) {
+                let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
+    
+                // Look up all posts of user with this id
+                return postsRef.once('value').then((snapshot) => {
+                    let posts = snapshot.val() || {};
+                    let parsedPosts = {};
+                    Object.keys(posts).forEach((postId) => {
+                        parsedPosts[postId] = {
+                            id: postId,
+                            ...posts[postId]
+                        };
+                        // Decrypt body of post
+                        console.log('OUTPUT: post body is : ' + parsedPosts[postId].body);
+                        decipher.start({iv: iv});
+                        decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
+                        decipher.finish();
+                        let decipheredText = decipher.output.toString();
+                        console.log('OUTPUT: deciphered posts is ' + decipheredText);
+                        parsedPosts[postId].body = decipheredText
+                    });
+                
+                    dispatch(addPosts(uid, parsedPosts));
                 });
-
-                dispatch(addPosts(uid, parsedPosts));
-            });
-        }
+            }
+        });
     };
 }
 
