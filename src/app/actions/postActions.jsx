@@ -89,7 +89,7 @@ export const dbAddImagePost = (newPost, callBack) => {
         return postRef.then(() => {
             dispatch(addPost(uid, {
                 ...post,
-                id: postRef.key
+                id: postRef.key       
             }));
             callBack();
             dispatch(globalActions.hideTopLoading());
@@ -175,9 +175,8 @@ export const dbDeletePost = (id) => {
 export const dbGetPosts = () => {
     console.log("OUTPUT: In function dbGetPosts()");
     return (dispatch, getState) => {
+        // Look up key and iv to decipher post
         var key, iv;
-        let userId = firebase.auth().currentUser.uid;
-        console.log('OUTPUT: USERID is ' + userId);
         let uid = getState().authorize.uid;
         console.log('OUTPUT: USERID is ' + uid);
         let keysRef = firebaseRef.child(`keys/${uid}`);
@@ -190,6 +189,7 @@ export const dbGetPosts = () => {
             if (uid) {
                 let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
                 
+                // Decrypt body of post look up all of own's posts
                 return postsRef.once('value').then((snapshot) => {
                     let posts = snapshot.val() || {};
                     let parsedPosts = {};
@@ -198,6 +198,7 @@ export const dbGetPosts = () => {
                             id: postId,
                             ...posts[postId]
                         };
+                        // Decrypt body of post
                         console.log('OUTPUT: post body is : ' + parsedPosts[postId].body);
                         decipher.start({iv: iv});
                         decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
@@ -238,6 +239,7 @@ export const dbGetPostById = (uid, postId) => {
 export const dbGetPostsByUserId = (uid) => {
     console.log("OUTPUT: In function dbGetPostsByUserId()");
     return (dispatch, getState) => {
+        // Look up key and iv to decipher post
         var key, iv;
         console.log('OUTPUT: USERID is ' + uid);
         let keysRef = firebaseRef.child(`keys/${uid}`);
@@ -250,6 +252,7 @@ export const dbGetPostsByUserId = (uid) => {
             if (uid) {
                 let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
     
+                // Look up all posts of user with this id
                 return postsRef.once('value').then((snapshot) => {
                     let posts = snapshot.val() || {};
                     let parsedPosts = {};
@@ -258,6 +261,7 @@ export const dbGetPostsByUserId = (uid) => {
                             id: postId,
                             ...posts[postId]
                         };
+                        // Decrypt body of post
                         console.log('OUTPUT: post body is : ' + parsedPosts[postId].body);
                         decipher.start({iv: iv});
                         decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
