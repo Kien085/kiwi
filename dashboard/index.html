@@ -1,0 +1,237 @@
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>Oasis Admin Dashboard</title>
+
+  <!-- CSS Includes -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheer">
+
+  <!-- JS Includes -->
+  <script 
+	src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+	crossorigin="anonymous">
+  </script>
+  <script 
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" 
+	integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" 
+	crossorigin="anonymous">
+  </script>
+  <script 
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" 
+	integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" 
+	crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script stc="js/dashboard.js"></script>
+
+</head>
+<body class="app sidebar-fixed aside-menu-fixed sidebar-lg-show">
+  <div class="app-body">
+
+  	<!-- Sidebar Menu -->
+    <div class="sidebar">
+      <nav class="sidebar-nav">
+        <ul class="nav">
+          <li class="nav-title">User Statistics</li>
+          <li class="nav-item"><a class="nav-link" href=""><i class="nav-icon icon-drop"></i> Number of Users</a></li>
+          <li class="nav-item"><a class="nav-link" href=""><i class="nav-icon icon-pencil"></i> Daily Active Users</a></li>
+          <li class="nav-title">Monetization</li>
+          <li class="nav-item"><a class="nav-link" href=""><i class="nav-icon icon-pie-chart"></i> Subscriptions</a></li>
+          <li class="nav-item"><a class="nav-link" href=""><i class="nav-icon icon-pie-chart"></i> Advertising</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Body -->
+    <main class="main">
+
+      <!-- Breadcrumb-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item"><a href="#">Admin</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+
+        <!-- Breadcrumb Menu-->
+        <li class="breadcrumb-menu d-md-down-none">
+          <div class="btn-group" role="group" aria-label="Button group">
+            <a class="btn" href="#"><i class="icon-speech"></i></a>
+            <a class="btn" href="./"><i class="icon-graph"></i>  Dashboard</a>
+            <a class="btn" href="#"><i class="icon-settings"></i>  Settings</a>
+          </div>
+        </li>
+
+      </ol>
+      <div class="container-fluid">
+        <div class="animated fadeIn">
+          
+          <!-- Begin Row -->
+          <div class="row">
+
+          	<!-- Info Box 1 -->
+            <div class="col-sm-6 col-lg-3">
+              <div class="card text-white bg-primary">
+                <div class="card-body pb-0">
+                  <button type="button" class="btn btn-transparent p-0 float-right">
+                    <i class="icon-location-pin"></i>
+                  </button>
+                  <div class="text-value">24</div>
+                  <div>Total Users</div>
+                </div>
+                <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                  <p><b>15.2%</b> Growth This Week</b></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Info Box 2 -->
+            <div class="col-sm-6 col-lg-3">
+              <div class="card text-white bg-info">
+                <div class="card-body pb-0">
+                  <button type="button" class="btn btn-transparent p-0 float-right">
+                    <i class="icon-location-pin"></i>
+                  </button>
+                  <div class="text-value">6</div>
+                  <div>Users Online</div>
+                </div>
+                <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                  <p><b>1.2hrs</b> Average Time Online</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Info Box 3 -->
+            <div class="col-sm-6 col-lg-3">
+              <div class="card text-white bg-warning">
+                <div class="card-body pb-0">
+                  <button type="button" class="btn btn-transparent p-0 float-right">
+                    <i class="icon-location-pin"></i>
+                  </button>
+                  <div class="text-value">2</div>
+                  <div>Total Subscriptions</div>
+                </div>
+                <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                  <p><b>5.22%</b> Growth This Week</b></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Info Box 4 -->
+            <div class="col-sm-6 col-lg-3">
+              <div class="card text-white bg-danger">
+                <div class="card-body pb-0">
+                  <button type="button" class="btn btn-transparent p-0 float-right">
+                    <i class="icon-location-pin"></i>
+                  </button>
+                  <div class="text-value">342</div>
+                  <div>Advertisements Served</div>
+                </div>
+                <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                  <p><b>8.2%</b> Click Through Rate</b></p>
+                </div>
+              </div>
+            </div>
+
+          <!-- End Row -->  
+          </div>
+
+          <!-- Main Graph Content -->
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-5">
+                  <h4 class="card-title mb-0">Number of Users</h4>
+                  <div class="small text-muted">May 2018</div>
+                </div>
+
+                <!-- Range Picker -->
+                <div class="col-sm-7 d-none d-md-block">
+                  <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons">
+                    <label class="btn btn-outline-secondary active">
+                      <input type="radio" name="options" id="option1" autocomplete="off" checked> Week
+                    </label>
+                    <label class="btn btn-outline-secondary">
+                      <input type="radio" name="options" id="option2" autocomplete="off"> Month
+                    </label>
+                    <label class="btn btn-outline-secondary">
+                      <input type="radio" name="options" id="option3" autocomplete="off"> Year
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+              <div class="chart-wrapper" style="height:300px;margin-top:40px;">
+                <div id="tester" style="width:100%;height:250px;"></div>
+              </div>
+            </div>
+
+            <!-- Chart Footer -->
+            <div class="card-footer">
+              <div class="row text-center">
+
+              	<!-- Footer Element 1 -->
+                <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                  <div class="text-muted">Visitors</div>
+                  <strong>2,401 Vistors</strong>
+                  <div class="progress progress-xs mt-2">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <!-- Footer Element 2 -->
+                <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                  <div class="text-muted">Unique</div>
+                  <strong>614 Unique Visitors</strong>
+                  <div class="progress progress-xs mt-2">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <!-- Footer Element 3 -->
+                <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                  <div class="text-muted">Pageviews</div>
+                  <strong>5,419 Impressions</strong>
+                  <div class="progress progress-xs mt-2">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <!-- Footer Element 4 -->
+                <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                  <div class="text-muted">New Users</div>
+                  <strong>22 New Users This Week</strong>
+                  <div class="progress progress-xs mt-2">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+                <!-- Footer Element 5 -->
+                <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                  <div class="text-muted">Subscriptions</div>
+                  <strong>2 Conversions</strong>
+                  <div class="progress progress-xs mt-2">
+                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div> 
+
+  <script>
+	TESTER = document.getElementById('tester');
+    Plotly.plot( TESTER, [{
+    x: ["5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27"],
+    y: [1, 2, 4, 8, 16, 20, 24] }], {
+    margin: { t: 0 } } );
+  </script>
+
+</body>
+</html>
