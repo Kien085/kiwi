@@ -125,31 +125,12 @@ export class PostWrite extends Component {
         } else {
             console.log("OUTPUT: No Local Storage");
         }
-        // TODO: Get own PUB key
-        // // Generate key and iv
 
-        let key = localStorage.getItem('PUBkey');
-        let iv = localStorage.getItem('PUBiv');
-        let privateKey, publicKey;
-        let rsa = forge.pki.rsa;
-       
-        // encrypt some bytes using GCM mode
-        let cipher = forge.cipher.createCipher('AES-CBC', key);
-        cipher.start({iv: iv});
-        cipher.update(forge.util.createBuffer(postText));
-        cipher.finish();
-        let ciphertext = forge.util.encode64(cipher.output.getBytes());
-        
-        // outputs encrypted hex
-        // console.log('OUTPUT: cipher is ' + typeof(ciphertext) );
-
-        
-        // TODO: encrypt message, image
         // In edit status we should fire update if not we should fire post function
         if (!edit) {
             if (image !== '') {
                 post({
-                    body: ciphertext,
+                    body: postText,
                     tags: tags,
                     image: image,
                     imageFullPath: imageFullPath,
@@ -160,7 +141,7 @@ export class PostWrite extends Component {
                 }, onRequestClose);
             } else {
                 post({
-                    body: ciphertext,
+                    body: postText,
                     tags: tags,
                     avatar: avatar,
                     name: name,
@@ -171,7 +152,7 @@ export class PostWrite extends Component {
         } else { // In edit status we pass post to update functions
             update({
                 id: id,
-                body: ciphertext,
+                body: postText,
                 tags: tags,
                 image: image,
                 imageFullPath: imageFullPath,

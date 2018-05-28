@@ -72,7 +72,7 @@ export var dbSignup = (user) => {
             // use workers: -1 to run a fast core estimator to optimize # of workers
             rsa.generateKeyPair({bits: 2048, workers: -1}, function(err, keypair) {
                 if(err) {
-                    console.log(err)
+                    console.error(err)
                 } else {
                     let localStorage = window.localStorage;
                     // keypair.privateKey, keypair.publicKey

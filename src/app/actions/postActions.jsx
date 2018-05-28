@@ -43,7 +43,24 @@ export var dbAddPost = (newPost, callBack) => {
             deleted: false
         };
 
-        let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(post);
+        // deep copy
+        let encryptedPost = JSON.parse(JSON.stringify(post));
+
+        // Get own public key
+        let key = localStorage.getItem('PUBkey');
+        let iv = localStorage.getItem('PUBiv');
+        let privateKey, publicKey;
+        let rsa = forge.pki.rsa;
+    
+        console.log('OUTPUT: body of post is ' + post.body)
+        // encrypt some bytes using GCM mode
+        let cipher = forge.cipher.createCipher('AES-CBC', key);
+        cipher.start({iv: iv});
+        cipher.update(forge.util.createBuffer(post.body));
+        cipher.finish();
+        encryptedPost.body = forge.util.encode64(cipher.output.getBytes());
+
+        let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
         return postRef.then(() => {
             dispatch(addPost(uid, {
                 ...post,
@@ -64,7 +81,7 @@ export const dbAddImagePost = (newPost, callBack) => {
     console.log("OUTPUT: In function dbAddImagePost()");
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
-
+        
         let uid = getState().authorize.uid;
         let post = {
             postTypeId: 1,
@@ -87,7 +104,25 @@ export const dbAddImagePost = (newPost, callBack) => {
             deleted: false
         };
 
-        let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(post);
+        // deep copy
+        let encryptedPost = JSON.parse(JSON.stringify(post));
+
+        // Get own public key
+        let key = localStorage.getItem('PUBkey');
+        let iv = localStorage.getItem('PUBiv');
+        let privateKey, publicKey;
+        let rsa = forge.pki.rsa;
+    
+        console.log('OUTPUT: body of post is ' + post.body)
+        // encrypt some bytes using GCM mode
+        let cipher = forge.cipher.createCipher('AES-CBC', key);
+        cipher.start({iv: iv});
+        cipher.update(forge.util.createBuffer(post.body));
+        cipher.finish();
+        encryptedPost.body = forge.util.encode64(cipher.output.getBytes());
+
+        // TODO: Encrypt images
+        let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
         return postRef.then(() => {
             dispatch(addPost(uid, {
                 ...post,
@@ -184,11 +219,6 @@ export const dbGetPosts = () => {
         console.log('OUTPUT: USERID is ' + uid);
         let keysRef = firebaseRef.child(`keys/${uid}`);
         keysRef.once('value').then((snap) => {
-            console.log(`OUTPUT: Type of snap is ${typeof(snap)} and type of snap.val() is ${typeof(snap.val())}`);
-            console.log(`OUTPUT: Contents of snap are`);
-            console.log(snap);
-            console.log(`OUTPUT: Contents of snap.val() are`);
-            console.log(snap.val());
             if(snap.val()) {
                 key = snap.val().key || {};
                 iv = snap.val().iv || {};
@@ -247,7 +277,10 @@ export const dbGetPostById = (uid, postId) => {
     };
 }
 
-//  Get all user posts from data base by user id ()
+/**
+ * Get all user post from database by user id
+ * @param  {string} uid is id of user whose posts we want to get
+ */
 export const dbGetPostsByUserId = (uid) => {
     console.log("OUTPUT: In function dbGetPostsByUserId()");
     return (dispatch, getState) => {
