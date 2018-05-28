@@ -9,6 +9,8 @@ import * as types from 'actionTypes';
 // - Import actions
 import * as globalActions from 'globalActions';
 
+import forge from 'node-forge';
+
 /* _____________ CRUD DB _____________ */
 
 /**
@@ -17,6 +19,7 @@ import * as globalActions from 'globalActions';
  * @param {function} callBack 
  */
 export var dbAddPost = (newPost, callBack) => {
+    console.log("OUTPUT: In function dbAddPost()");
     return (dispatch, getState) => {
 
         let uid = getState().authorize.uid;
@@ -40,7 +43,22 @@ export var dbAddPost = (newPost, callBack) => {
             deleted: false
         };
 
-        let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(post);
+        // deep copy
+        let encryptedPost = JSON.parse(JSON.stringify(post));
+
+        // Get own public key
+        let key = localStorage.getItem('PUBkey');
+        let iv = localStorage.getItem('PUBiv');
+        let privateKey, publicKey;
+    
+        // encrypt some bytes using GCM mode
+        let cipher = forge.cipher.createCipher('AES-CBC', key);
+        cipher.start({iv: iv});
+        cipher.update(forge.util.createBuffer(post.body));
+        cipher.finish();
+        encryptedPost.body = forge.util.encode64(cipher.output.getBytes());
+
+        let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
         return postRef.then(() => {
             dispatch(addPost(uid, {
                 ...post,
@@ -58,9 +76,10 @@ export var dbAddPost = (newPost, callBack) => {
  * @param {function} callBack 
  */
 export const dbAddImagePost = (newPost, callBack) => {
+    console.log("OUTPUT: In function dbAddImagePost()");
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
-
+        
         let uid = getState().authorize.uid;
         let post = {
             postTypeId: 1,
@@ -83,11 +102,27 @@ export const dbAddImagePost = (newPost, callBack) => {
             deleted: false
         };
 
-        let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(post);
+        // deep copy
+        let encryptedPost = JSON.parse(JSON.stringify(post));
+
+        // Get own public key
+        let key = localStorage.getItem('PUBkey');
+        let iv = localStorage.getItem('PUBiv');
+        let privateKey, publicKey;
+    
+        // encrypt some bytes using GCM mode
+        let cipher = forge.cipher.createCipher('AES-CBC', key);
+        cipher.start({iv: iv});
+        cipher.update(forge.util.createBuffer(post.body));
+        cipher.finish();
+        encryptedPost.body = forge.util.encode64(cipher.output.getBytes());
+
+        // TODO: Encrypt images
+        let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
         return postRef.then(() => {
             dispatch(addPost(uid, {
                 ...post,
-                id: postRef.key
+                id: postRef.key       
             }));
             callBack();
             dispatch(globalActions.hideTopLoading());
@@ -101,6 +136,7 @@ export const dbAddImagePost = (newPost, callBack) => {
  * @param {func} callBack //TODO: anti pattern should change to parent state or move state to redux
  */
 export const dbUpdatePost = (newPost, callBack) => {
+    console.log("OUTPUT: In function dbUpdatePost()");
     console.log(newPost);
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
@@ -169,31 +205,53 @@ export const dbDeletePost = (id) => {
     };
 }
 
-//  Get all user posts from data base
+//  Get all user posts from data base (self posts)
 export const dbGetPosts = () => {
+    console.log("OUTPUT: In function dbGetPosts()");
     return (dispatch, getState) => {
+        // Look up key and iv to decipher post
+        let key, iv, decipher;
         let uid = getState().authorize.uid;
-        if (uid) {
-            let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
-
-            return postsRef.once('value').then((snapshot) => {
-                let posts = snapshot.val() || {};
-                let parsedPosts = {};
-                Object.keys(posts).forEach((postId) => {
-                    parsedPosts[postId] = {
-                        id: postId,
-                        ...posts[postId]
-                    };
+        let keysRef = firebaseRef.child(`keys/${uid}`);
+        keysRef.once('value').then((snap) => {
+            if(snap.val()) {
+                key = snap.val().key || {};
+                iv = snap.val().iv || {};
+                decipher = forge.cipher.createDecipher('AES-CBC', key);
+            }
+            if (uid) {
+                let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
+                
+                // Decrypt body of post look up all of own's posts
+                return postsRef.once('value').then((snapshot) => {
+                    let posts = snapshot.val() || {};
+                    let parsedPosts = {};
+                    Object.keys(posts).forEach((postId) => {
+                        parsedPosts[postId] = {
+                            id: postId,
+                            ...posts[postId]
+                        };
+                        // Decrypt body of post
+                        if(snap.val()) {
+                            decipher.start({iv: iv});
+                            decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
+                            decipher.finish();
+                            let decipheredText = decipher.output.toString();
+                            parsedPosts[postId].body = decipheredText
+                        }
+                    });
+                    
+                    dispatch(addPosts(uid, parsedPosts));
                 });
-
-                dispatch(addPosts(uid, parsedPosts));
-            });
-        }
+            }
+        });
     };
 }
 
 //  Get all user posts from data base
 export const dbGetPostById = (uid, postId) => {
+    console.log("OUTPUT: In function dbGetPostsById()");
+
     return (dispatch, getState) => {
         if (uid) {
             let postsRef = firebaseRef.child(`userPosts/${uid}/posts/${postId}`);
@@ -210,25 +268,49 @@ export const dbGetPostById = (uid, postId) => {
     };
 }
 
-//  Get all user posts from data base by user id
+/**
+ * Get all user post from database by user id
+ * @param  {string} uid is id of user whose posts we want to get
+ */
 export const dbGetPostsByUserId = (uid) => {
+    console.log("OUTPUT: In function dbGetPostsByUserId()");
     return (dispatch, getState) => {
-        if (uid) {
-            let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
+        // Look up key and iv to decipher post
+        let key, iv, decipher;
+        let keysRef = firebaseRef.child(`keys/${uid}`);
+        keysRef.once('value').then((snap) => {
+            if(snap.val()) {
+                key = snap.val().key || {};
+                iv = snap.val().iv || {};
+                decipher = forge.cipher.createDecipher('AES-CBC', key);
+            }
 
-            return postsRef.once('value').then((snapshot) => {
-                let posts = snapshot.val() || {};
-                let parsedPosts = {};
-                Object.keys(posts).forEach((postId) => {
-                    parsedPosts[postId] = {
-                        id: postId,
-                        ...posts[postId]
-                    };
+            if (uid) {
+                let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
+    
+                // Look up all posts of user with this id
+                return postsRef.once('value').then((snapshot) => {
+                    let posts = snapshot.val() || {};
+                    let parsedPosts = {};
+                    Object.keys(posts).forEach((postId) => {
+                        parsedPosts[postId] = {
+                            id: postId,
+                            ...posts[postId]
+                        };
+                        // Decrypt body of post
+                        if(snap.val()) {
+                            decipher.start({iv: iv});
+                            decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
+                            decipher.finish();
+                            let decipheredText = decipher.output.toString();
+                            parsedPosts[postId].body = decipheredText
+                        }
+                    });
+                
+                    dispatch(addPosts(uid, parsedPosts));
                 });
-
-                dispatch(addPosts(uid, parsedPosts));
-            });
-        }
+            }
+        });
     };
 }
 
