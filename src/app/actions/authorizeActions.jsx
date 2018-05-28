@@ -29,7 +29,6 @@ export var dbLogin = (email, password) => {
             for (key in snapshot.val()) {
                 let info = snapshot.val()[key]['info'];
                 if (email.localeCompare(info.email) === 0) {
-                    console.log(info.password);
                     if(info.password) {
                         password = bcrypt.compareSync(password, info.password) ? info.password : password;
                     }
@@ -67,7 +66,6 @@ export var dbSignup = (user) => {
         return firebaseAuth().createUserWithEmailAndPassword(user.email, user.password).then((signupResult) => {
             console.log("OUTPUT: Firebase signup")
             let rsa = forge.pki.rsa;
-            console.log('OUTPUT: USERID is ' + signupResult.uid);
             // generate an RSA key pair asynchronously (uses web workers if available)
             // use workers: -1 to run a fast core estimator to optimize # of workers
             rsa.generateKeyPair({bits: 2048, workers: -1}, function(err, keypair) {
@@ -97,7 +95,6 @@ export var dbSignup = (user) => {
                     }).then((result) => {
                         dispatch(globalActions.showNotificationSuccess())
                     }, (error) => dispatch(globalActions.showErrorMessage(error.code)));
-                    console.log('OUTPUT: KEY is ' + key);
                     
                     
                 }

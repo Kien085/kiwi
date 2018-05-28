@@ -50,9 +50,7 @@ export var dbAddPost = (newPost, callBack) => {
         let key = localStorage.getItem('PUBkey');
         let iv = localStorage.getItem('PUBiv');
         let privateKey, publicKey;
-        let rsa = forge.pki.rsa;
     
-        console.log('OUTPUT: body of post is ' + post.body)
         // encrypt some bytes using GCM mode
         let cipher = forge.cipher.createCipher('AES-CBC', key);
         cipher.start({iv: iv});
@@ -111,9 +109,7 @@ export const dbAddImagePost = (newPost, callBack) => {
         let key = localStorage.getItem('PUBkey');
         let iv = localStorage.getItem('PUBiv');
         let privateKey, publicKey;
-        let rsa = forge.pki.rsa;
     
-        console.log('OUTPUT: body of post is ' + post.body)
         // encrypt some bytes using GCM mode
         let cipher = forge.cipher.createCipher('AES-CBC', key);
         cipher.start({iv: iv});
@@ -216,14 +212,11 @@ export const dbGetPosts = () => {
         // Look up key and iv to decipher post
         let key, iv, decipher;
         let uid = getState().authorize.uid;
-        console.log('OUTPUT: USERID is ' + uid);
         let keysRef = firebaseRef.child(`keys/${uid}`);
         keysRef.once('value').then((snap) => {
             if(snap.val()) {
                 key = snap.val().key || {};
                 iv = snap.val().iv || {};
-                console.log('OUTPUT: key is ' + key);
-                console.log('OUTPUT: iv is ' + iv);
                 decipher = forge.cipher.createDecipher('AES-CBC', key);
             }
             if (uid) {
@@ -240,12 +233,10 @@ export const dbGetPosts = () => {
                         };
                         // Decrypt body of post
                         if(snap.val()) {
-                            console.log('OUTPUT: post body is : ' + parsedPosts[postId].body);
                             decipher.start({iv: iv});
                             decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
                             decipher.finish();
                             let decipheredText = decipher.output.toString();
-                            console.log('OUTPUT: deciphered posts is ' + decipheredText);
                             parsedPosts[postId].body = decipheredText
                         }
                     });
@@ -286,17 +277,14 @@ export const dbGetPostsByUserId = (uid) => {
     return (dispatch, getState) => {
         // Look up key and iv to decipher post
         let key, iv, decipher;
-        console.log('OUTPUT: USERID of self is ' + getState().authorize.uid);
-        console.log('OUTPUT: USERID is ' + uid);
         let keysRef = firebaseRef.child(`keys/${uid}`);
         keysRef.once('value').then((snap) => {
             if(snap.val()) {
                 key = snap.val().key || {};
                 iv = snap.val().iv || {};
-                console.log('OUTPUT: key is ' + key);
-                console.log('OUTPUT: iv is ' + iv);
                 decipher = forge.cipher.createDecipher('AES-CBC', key);
             }
+
             if (uid) {
                 let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
     
@@ -310,13 +298,11 @@ export const dbGetPostsByUserId = (uid) => {
                             ...posts[postId]
                         };
                         // Decrypt body of post
-                        console.log('OUTPUT: post body is : ' + parsedPosts[postId].body);
                         if(snap.val()) {
                             decipher.start({iv: iv});
                             decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
                             decipher.finish();
                             let decipheredText = decipher.output.toString();
-                            console.log('OUTPUT: deciphered posts is ' + decipheredText);
                             parsedPosts[postId].body = decipheredText
                         }
                     });
