@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import SvgDehaze from 'material-ui/svg-icons/image/dehaze';
 import { blue500 } from 'material-ui/styles/colors';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
@@ -10,7 +9,6 @@ import FlatButton from 'material-ui/FlatButton';
 import Popover, { PopoverAnimationVertical } from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
-import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 import SvgHome from 'material-ui/svg-icons/action/home';
 import SvgPeople from 'material-ui/svg-icons/social/people';
 import EventListener, { withOptions } from 'react-event-listener';
@@ -137,7 +135,7 @@ export class HomeHeader extends Component {
     render() {
         const styles = {
             toolbarStyle: {
-                backgroundColor: "#5574F7",
+                background: 'linear-gradient(45deg, #090979, #00d4ff)',
                 transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
                 boxSizing: "border-box",
                 fontFamily: "Roboto, sans-serif",
@@ -163,51 +161,29 @@ export class HomeHeader extends Component {
 
                 {/* Left side */}
                 <ToolbarGroup firstChild={true}>
-
-                    {/* <IconButton iconStyle={{ color: "#fff" }} onClick={this.onToggleSidebar} >
-                        <SvgDehaze style={{ color: "#fff", marginLeft: "15px", cursor: "pointer" }} />
-                    </IconButton> */}
-
-                    <div style={{ marginLeft: '30px' }}>
-                        <FlatButton onClick={this.props.homePage} style={{color: "#fff"}}>
-                            <SvgHome  style={{color: "#fff", position: "absolute", top: "4px", left: "0px"}}/>
-                            <div style={{display: "inline-block", textTransform: "uppercase", fontWeight: "500", fontSize: "14px", paddingLeft: "24px"}}>home</div>
+                    <div style={{ marginLeft: '30px', marginRight: '30px' }}>
+                        <FlatButton onClick={this.props.homePage}>
+                            <svg style={{position: "absolute", top: "7px", left: "0px"}} width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M4.102 0h11.796c1.426 0 1.943.149 2.465.427.521.28.93.689 1.21 1.21.278.522.427 1.039.427 2.465v11.796c0 1.426-.149 1.943-.427 2.465-.28.521-.689.93-1.21 1.21-.522.278-1.039.427-2.465.427H4.102c-1.426 0-1.943-.149-2.465-.427a2.908 2.908 0 0 1-1.21-1.21C.15 17.841 0 17.324 0 15.898V4.102C0 2.676.149 2.16.427 1.637c.28-.521.689-.93 1.21-1.21C2.159.15 2.676 0 4.102 0zm-.518 2.813c-.428 0-.584.044-.74.128a.872.872 0 0 0-.363.363c-.084.156-.128.311-.128.74v1.913c0 .428.044.583.128.74.084.156.207.279.363.362.156.084.312.128.74.128H5.24c.428 0 .583-.044.74-.128a.872.872 0 0 0 .362-.363c.084-.156.129-.311.129-.74V4.044c0-.428-.045-.583-.129-.74a.872.872 0 0 0-.363-.362c-.156-.084-.311-.128-.74-.128H3.585zm4.767 2.5c-.142 0-.194.014-.246.042a.29.29 0 0 0-.121.121c-.028.052-.043.104-.043.247v.43c0 .142.015.194.043.246a.29.29 0 0 0 .12.12c.053.029.105.043.247.043h4.474c.143 0 .194-.014.247-.042a.29.29 0 0 0 .12-.121c.028-.052.043-.104.043-.247v-.43c0-.142-.015-.194-.042-.246a.29.29 0 0 0-.121-.12c-.053-.029-.104-.043-.247-.043H8.351zm0-2.188c-.142 0-.194.015-.246.043a.29.29 0 0 0-.121.12c-.028.053-.043.105-.043.247v.43c0 .142.015.194.043.246a.29.29 0 0 0 .12.121c.053.028.105.043.247.043h8.592c.142 0 .194-.015.246-.043a.29.29 0 0 0 .121-.12c.028-.053.043-.105.043-.247v-.43c0-.142-.015-.194-.043-.246a.29.29 0 0 0-.12-.121c-.053-.028-.105-.043-.247-.043H8.35zM3.584 9.063c-.428 0-.584.044-.74.128a.872.872 0 0 0-.363.363c-.084.156-.128.311-.128.74v6.288c0 .428.044.583.128.74.084.156.207.279.363.362.156.084.312.128.74.128h12.832c.428 0 .584-.044.74-.128a.872.872 0 0 0 .363-.363c.084-.156.128-.311.128-.74v-6.288c0-.428-.044-.583-.128-.74a.872.872 0 0 0-.363-.362c-.156-.084-.312-.129-.74-.129H3.584z" fill="#fff"/></svg>
+                            <div style={{display: "inline-block", color: '#fff', fontWeight: "500", fontSize: "14px", paddingLeft: "12px"}}>Feed</div>
                         </FlatButton>
                     </div>
-
-                    {/* <div style={{ marginLeft: '15px' }}>
-                        <svg width="21" height="17" xmlns="http://www.w3.org/2000/svg"><path d="M5.97 11.151L1.017 8.117c-.308-.184-.292-.437.048-.57L19.547.16c.334-.132.72-.301.647.043l-3.42 16.618s.513.304.204.12l-6.272-3.034-2.797 2.417-1.94-5.173zm1.293-.878l1.145 3.64c.078.25.198.251.26-.02l.534-2.327 8.357-8.74c.384-.4.333-.457-.113-.125L7.263 10.273z" fill="#FFF" /></svg>
-                    </div>
-                    <ToolbarTitle style={{ color: "#fff", marginLeft: "15px" }} text="Oasis" /> */}
-                </ToolbarGroup>
-                {/* <ToolbarGroup>
                     <div>
-                        <FlatButton onClick={this.props.homePage} style={{color: "#fff"}}>
-                            <SvgHome  style={{color: "#fff", position: "absolute", top: "4px", left: "0px"}}/>
-                            <div style={{display: "inline-block", textTransform: "uppercase", fontWeight: "500", fontSize: "14px", paddingLeft: "24px"}}>home</div>
-                        </FlatButton>
-                    </div>
-                </ToolbarGroup> */}
-                <ToolbarGroup>
-                    <div>
-                        <FlatButton onClick={this.props.people} style={{color: "#fff"}}>
+                        <FlatButton onClick={this.props.people}>
                             <SvgPeople  style={{color: "#fff", position: "absolute", top: "4px", left: "0px"}}/>
-                            <div style={{display: "inline-block", textTransform: "uppercase", fontWeight: "500", fontSize: "14px", paddingLeft: "36px"}}>people</div>
+                            <div style={{display: "inline-block", color: '#fff', fontWeight: "500", fontSize: "14px", paddingLeft: "24px"}}>People</div>
                         </FlatButton>
                     </div>
                 </ToolbarGroup>
-
                 <ToolbarGroup lastChild={true}>
                     <div className="homeHeader__right">
-                        {this.props.notifyCount > 0 ? (<IconButton tooltip="Notifications" onTouchTap={this.handleNotifyTouchTap}>
-                            <div className="homeHeader__notify">
-                                <div className='title'>{this.props.notifyCount}</div>
-                            </div>
-                        </IconButton>)
+                        <IconButton tooltip="Notifications" onTouchTap={this.handleNotifyTouchTap}>
+                            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M8 20c1.1 0 2-.9 2-2H6a2 2 0 0 0 2 2zm6-6V9c0-3.07-1.64-5.64-4.5-6.32V2C9.5 1.17 8.83.5 8 .5S6.5 1.17 6.5 2v.68C3.63 3.36 2 5.92 2 9v5l-2 2v1h16v-1l-2-2z" fill="rgba(255, 255, 255, 0.87)"/>
+                                {this.props.notifyCount > 0 && 
+                                    <circle cx="14" cy="6" r="6" fill="red"></circle>
+                                }
+                            </svg>
+                        </IconButton>
 
-                            : (<IconButton tooltip="Notifications" onTouchTap={this.handleNotifyTouchTap}>
-                                <NotificationsIcon color='rgba(255, 255, 255, 0.87)' />
-                            </IconButton>)}
                         <Notify open={this.state.openNotifyMenu} anchorEl={this.state.anchorEl} onRequestClose={this.handleCloseNotify} />
 
                         {/* User avatar*/}
