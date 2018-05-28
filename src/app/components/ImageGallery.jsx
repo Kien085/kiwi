@@ -77,10 +77,11 @@ export class ImageGallery extends Component {
     imageList = () => {
         return this.props.images.map((image, index) => {
             return (<GridTile
+                style={{cursor: 'pointer'}}
+                onClick={evt => this.handleSetImage(evt, image.URL, image.fullPath)}
                 key={image.id}
                 title={<SvgDelete hoverColor={grey200} color="white" color="white" style={{ marginLeft: "5px", cursor: "pointer" }} onClick={evt => this.handleDeleteImage(evt, image.id)} />}
                 subtitle={<span></span>}
-                actionIcon={<SvgAddImage hoverColor={grey200} color="white" style={{ marginRight: "5px", cursor: "pointer" }} onClick={evt => this.handleSetImage(evt, image.URL, image.fullPath)} />}
             >
                 <div>
                     <div style={{ overflowY: "hidden", overflowX: "auto" }}>
@@ -89,7 +90,6 @@ export class ImageGallery extends Component {
                                 <div style={{ display: "block", marginRight: "8px", transition: "transform .25s" }}>
                                     <li style={{ width: "100%", margin: 0, verticalAlign: "bottom", position: "static", display: "inline-block" }}>
                                         <Img fileName={image.URL} style={{ width: "100%", height: "auto" }} />
-
                                     </li>
                                 </div>
                             </div>
