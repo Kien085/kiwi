@@ -10,11 +10,10 @@ import { Provider } from 'react-redux';
 import store, { history } from 'configureStore';
 import { ConnectedRouter } from 'react-router-redux';
 
-// - Import components
-import WebConvo from 'khs-convo-chat-component';
-
 // - Import app components
 import Master from 'Master';
+import { Widget } from 'react-chat-widget';
+import 'react-chat-widget/lib/styles.css';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -30,15 +29,7 @@ ReactDOM.render(
 		<ConnectedRouter history={history}>
 			<MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
 				<Master />
-				<div id={"chatComponent"} style={{right: 0, bottom: 0, position: "fixed"}}>
-					<WebConvo
-						brandingTitle={"Someone's Name"}
-						containerWidth={"400px"}
-						receiveHandler={null}
-						sender={"This user"}
-						senderHandler={null}
-					/>
-                </div>
+				<Widget />
 			</MuiThemeProvider>
 		</ConnectedRouter>
 	</Provider>,
