@@ -117,7 +117,6 @@ export class Master extends Component {
                         }
                         } />
                         <Route render={() => <Home uid={this.props.uid} />} />
-
                     </Switch>) : ''
                 }
                 <Snackbar

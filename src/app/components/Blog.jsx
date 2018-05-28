@@ -42,14 +42,10 @@ export class Blog extends Component {
             // The title of home header.
             homeTitle: ''
         };
-
-        // Binding functions to `this`
-        this.postLoad = this.postLoad.bind(this);
     }
 
     /**
      * Open post write
-     * 
      * 
      * @memberof Blog
      */
@@ -59,7 +55,6 @@ export class Blog extends Component {
 
     /**
      * Close post write
-     * 
      * 
      * @memberof Blog
      */
@@ -72,7 +67,7 @@ export class Blog extends Component {
      * @return {DOM} posts
      */
     postLoad = () => {
-        let { posts, match } = this.props;
+        const { posts, match } = this.props;
         let { tag } = match.params;
 
         if (posts === undefined || !Object.keys(posts).length > 0) {
@@ -84,8 +79,8 @@ export class Blog extends Component {
         }
 
         else {
-            var postBack = { oddPostList: [], evenPostList: [] };
-            var parsedPosts = [];
+            let postBack = { oddPostList: [], evenPostList: [] };
+            let parsedPosts = [];
 
             Object.keys(posts).forEach((postId) => {
                 if (tag) {
@@ -133,7 +128,6 @@ export class Blog extends Component {
                             disableSharing={post.disableSharing}
                             viewCount={posts.viewCount}
                             pictureState={true} />
-
                     </div>
                 )
 
@@ -160,7 +154,7 @@ export class Blog extends Component {
      */
     render() {
 
-        let postList = this.postLoad();
+        const postList = this.postLoad();
 
         const { tag, displayWriting, } = this.props;
 
@@ -169,19 +163,17 @@ export class Blog extends Component {
                 <div className='grid grid__gutters grid__1of2 grid__space-around animate-top'>
                     <div className='grid-cell animate-top' style={{ maxWidth: '530px', minWidth: '280px' }}>
                         {displayWriting && !tag
-                            ? (<PostWrite open={this.state.openPostWrite} onRequestClose={this.handleClosePostWrite} edit={false} >
+                            ? (<PostWrite open={this.state.openPostWrite} onRequestClose={this.handleClosePostWrite} edit={false}>
                                 <div style={{ height: "68px", width: "100%", backgroundColor: 'white', border: '1px solid #dddfe2', borderRadius: '5px' }}>
                                     <ListItem
                                         primaryText={<span style={{ color: grey400, cursor: "text" }}> What's new with you? </span>}
                                         leftAvatar={<UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} size={36} />}
-                                        rightIcon={
-                                            <svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M10.133 15.239H3.84L8.533 9.92l2.995 3.393 3.939-5.438 5.226 7.364h-10.56zM1.742 0h20.516c.606 0 .826.063 1.047.181.221.119.395.293.514.514.118.221.181.441.181 1.047v14.516c0 .606-.063.826-.181 1.047a1.234 1.234 0 0 1-.514.514c-.221.118-.441.181-1.047.181H1.742c-.606 0-.826-.063-1.047-.181a1.234 1.234 0 0 1-.514-.514C.063 17.084 0 16.864 0 16.258V1.742C0 1.136.063.916.181.695.3.474.474.3.695.181.916.063 1.136 0 1.742 0zm.391 2.25v13.5h19.734V2.25H2.133zM6.72 7.875c-1.084 0-1.92-.801-1.92-1.739 0-1.04.836-1.84 1.92-1.84.978 0 1.813.8 1.813 1.84 0 .938-.835 1.739-1.813 1.739z" fill="#585858"/></svg>
-                                        }
+                                        rightIcon={<svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M10.133 15.239H3.84L8.533 9.92l2.995 3.393 3.939-5.438 5.226 7.364h-10.56zM1.742 0h20.516c.606 0 .826.063 1.047.181.221.119.395.293.514.514.118.221.181.441.181 1.047v14.516c0 .606-.063.826-.181 1.047a1.234 1.234 0 0 1-.514.514c-.221.118-.441.181-1.047.181H1.742c-.606 0-.826-.063-1.047-.181a1.234 1.234 0 0 1-.514-.514C.063 17.084 0 16.864 0 16.258V1.742C0 1.136.063.916.181.695.3.474.474.3.695.181.916.063 1.136 0 1.742 0zm.391 2.25v13.5h19.734V2.25H2.133zM6.72 7.875c-1.084 0-1.92-.801-1.92-1.739 0-1.04.836-1.84 1.92-1.84.978 0 1.813.8 1.813 1.84 0 .938-.835 1.739-1.813 1.739z" fill="#7ED321"/></svg>}
                                         style={{ padding: "7px 0px", fontWeight: "200" }}
                                         onTouchTap={this.handleOpenPostWrite}
                                     />
                                 </div>
-                                <div style={{ height: "16px" }}></div>
+                                <div style={{ height: "20px" }}></div>
                             </PostWrite>)
                             : ''}
 
