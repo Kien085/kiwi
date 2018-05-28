@@ -24,6 +24,7 @@ injectTapEventPlugin();
 require('applicationStyles');
 const supportsHistory = 'pushState' in window.history;
 
+// TODO Merge chatComponent inside Master component
 ReactDOM.render(
 	<Provider store={store}>
 		<ConnectedRouter history={history}>
