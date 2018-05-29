@@ -56,10 +56,6 @@ export const dbAddComment = (newComment, callBack) => {
                 id: commentRef.key,
                 editorStatus: false
             }));
-<<<<<<< HEAD
-=======
-
->>>>>>> e734ab548d4148436c073f3b688a21d34542d4ed
         return commentRef.then(() => {
             callBack();
             dispatch(globalActions.hideTopLoading());
@@ -191,10 +187,6 @@ export const dbDeleteComment = (id, postId) => {
  * @param {object} data  
  */
 export const addComment = (data) => {
-<<<<<<< HEAD
-    console.log(data);
-=======
->>>>>>> e734ab548d4148436c073f3b688a21d34542d4ed
     return {
         type: types.ADD_COMMENT,
         payload: data
