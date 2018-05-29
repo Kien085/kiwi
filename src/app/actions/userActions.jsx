@@ -11,7 +11,7 @@ import * as userActions from 'userActions';
 
 // Get user info from database
 export const dbGetUserInfo = () => {
-    console.log("OUTPUT: in dbGetUserInfo");
+    // console.log("OUTPUT: in dbGetUserInfo");
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
         if (uid) {
@@ -37,7 +37,7 @@ export const dbGetUserInfo = () => {
  * @param {string} uid 
  */
 export const dbGetUserInfoByUserId = (uid, sw) => {
-    console.log("OUTPUT: in dbGetUserInfoByUserId");
+    // console.log("OUTPUT: in dbGetUserInfoByUserId");
     return (dispatch, getState) => {
         if (uid) {
             let userInfoRef = firebaseRef.child(`users/${uid}/info`);
@@ -70,7 +70,7 @@ export const dbGetUserInfoByUserId = (uid, sw) => {
  * @param {object} newInfo 
  */
 export const dbUpdateUserInfo = (newInfo) => {
-    console.log("OUTPUT: in dbUpdateUserInfo");
+    // console.log("OUTPUT: in dbUpdateUserInfo");
     return (dispatch, getState) => {
         // Get current user id
         let uid = getState().authorize.uid;
@@ -99,7 +99,7 @@ export const dbUpdateUserInfo = (newInfo) => {
 
 // - Get people info from database
 export const dbGetPeopleInfo = () => {
-    console.log("OUTPUT: in dbGetPeopleInfo");
+    // console.log("OUTPUT: in dbGetPeopleInfo");
 
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;

@@ -74,7 +74,7 @@ export const dbDeleteVote = (postId) => {
         let updates = {};
         let votes = getState().vote.postVotes[postId];
         let id = Object.keys(votes).filter((key) => votes[key].userId === uid)[0];
-        console.log(' Id :  ', id);
+        // console.log(' Id :  ', id);
 
         updates[`postVotes/${postId}/${id}`] = null;
 

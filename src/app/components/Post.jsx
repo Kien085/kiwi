@@ -224,7 +224,7 @@ export class Post extends Component {
         };
 
         const RightIconMenu = () => (
-            <IconMenu iconButtonElement={IconButtonElement} style={{ display: "block", position: "absolute", top: "0px", right: "4px", transform: 'rotate(90deg)' }}>
+            <IconMenu iconButtonElement={IconButtonElement} style={{ display: "block", position: "absolute", top: "0px", right: "4px", MsTransform: 'rotate(90deg)', WebkitTransform: 'rotate(90deg)', MozTransform: 'rotate(90deg)', OTransform: 'rotate(90deg)', transform: 'rotate(90deg)' }}>
                 <MenuItem primaryText="Edit" onClick={this.handleOpenPostWrite} />
                 <MenuItem primaryText="Delete" onClick={this.handleDelete} />
                 <MenuItem primaryText={this.props.disableComments ? "Enable comments" : "Disable comments"} onClick={() => this.props.toggleDisableComments(!this.props.disableComments)} />

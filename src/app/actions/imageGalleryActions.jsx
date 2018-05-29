@@ -92,7 +92,7 @@ export const dbDeleteImage = (id) => {
 
         return firebaseRef.update(updates).then((result) => {
             dispatch(deleteImage(id));
-            console.log('image removed: ', id);
+            // console.log('image removed: ', id);
         }, (error) => {
             console.log(error);
         });

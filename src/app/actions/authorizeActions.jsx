@@ -19,24 +19,33 @@ import forge from 'node-forge';
  */
 export var dbLogin = (email, password) => {
     return (dispatch, getState) => {
+<<<<<<< HEAD
         // dispatch(globalActions.showNotificationRequest());
+=======
+        dispatch(globalActions.showNotificationRequest())
+>>>>>>> 803a2d31b7f05f2511a68fb51acbc9067354faff
 
         // Encrypt password input to compare with that stored in db
         let bcrypt = require('bcryptjs');
-        let ref = firebase.database().ref('/users');;
+        let ref = firebase.database().ref('/users');
         ref.once('value', (snapshot) => {
-            // find info of user with proper email
+            // Find info of user with proper email
             let key;
             for (key in snapshot.val()) {
                 let info = snapshot.val()[key]['info'];
                 if (email.localeCompare(info.email) === 0) {
                     if(info.password) {
                         password = bcrypt.compareSync(password, info.password) ? info.password : password;
+                        debugger;
                     }
                     break;
                 };
             }
+<<<<<<< HEAD
             // console.log("here");
+=======
+            debugger;
+>>>>>>> 803a2d31b7f05f2511a68fb51acbc9067354faff
             // Log in user if input matches credentials in db
             return firebaseAuth().signInWithEmailAndPassword(email, password).then((result) => {
                 dispatch(globalActions.showNotificationSuccess());
@@ -62,8 +71,11 @@ export var dbLoginWithOAuth = (provider) => {
         // The signed-in user info.
         // var user = result.user;
         dispatch(globalActions.showNotificationSuccess());
-        // dispatch(login(result.uid, true))
+<<<<<<< HEAD
         console.log(result);
+=======
+        // console.log(result);
+>>>>>>> e734ab548d4148436c073f3b688a21d34542d4ed
         dispatch(login(result.uid));
         dispatch(push('/'));
         })
@@ -95,7 +107,6 @@ export var dbSignup = (user) => {
     return (dispatch, getState) => {
         dispatch(globalActions.showNotificationRequest());
         return firebaseAuth().createUserWithEmailAndPassword(user.email, user.password).then((signupResult) => {
-            console.log("OUTPUT: Firebase signup")
             let rsa = forge.pki.rsa;
             // generate an RSA key pair asynchronously (uses web workers if available)
             // use workers: -1 to run a fast core estimator to optimize # of workers
@@ -104,11 +115,9 @@ export var dbSignup = (user) => {
                     console.error(err)
                 } else {
                     let localStorage = window.localStorage;
-                    // keypair.privateKey, keypair.publicKey
                     let privateKey = keypair.privateKey;
                     let publicKey = keypair.publicKey;
             
-                    // TODO: Save publicKey, key, iv to DB
                     // Save privateKey locally
                     localStorage.setItem('privPair', privateKey);
                     localStorage.setItem('pubPair', publicKey);
@@ -234,4 +243,3 @@ export var signup = (user) => {
 export const updatePassword = () => {
     return { type: types.UPDATE_PASSWORD };
 }
-
