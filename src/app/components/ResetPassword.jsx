@@ -63,7 +63,8 @@ export class ResetPassword extends Component {
                 minWidth: 337,
                 textAlign: 'center',
                 display: 'block',
-                margin: 'auto'
+                margin: 'auto',
+                borderRadius: '10px'
             }
         }
     }
@@ -110,7 +111,7 @@ export class ResetPassword extends Component {
         return (
             //   <Grid container spacing={24}>
             //   <Grid item xs={12} className={classes.contain}>
-            <div>
+            <div style={{ height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
                 {/* <h1 className='g__app-name'>{config.settings.appName}</h1> */}
 
@@ -122,7 +123,7 @@ export class ResetPassword extends Component {
                                 paddingRight: '40px'
                             }}>
 
-                                <h2 className='zoomOutLCorner animated g__paper-title'>Reset Password</h2>
+                                <h1 className='zoomOutLCorner animated g__paper-title'>Reset Password</h1>
                             </div>
 
                             <TextField
@@ -146,10 +147,10 @@ export class ResetPassword extends Component {
                             <br />
                             <div className='settings__button-box'>
                                 <div>
-                                    <FlatButton onClick={this.props.loginPage}>Back</FlatButton>
+                                    <FlatButton onClick={this.props.loginPage} label={"Back"}></FlatButton>
                                 </div>
                                 <div>
-                                    <RaisedButton onClick={this.handleForm} className="reset" style={{margin: "0 5px"}}>Reset Password</RaisedButton>
+                                    <RaisedButton onClick={this.handleForm} className="reset" label={"Reset Password"}></RaisedButton>
                                 </div>
                             </div>
                             <p style={this.styles.caption}>
