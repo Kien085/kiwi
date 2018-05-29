@@ -32,12 +32,10 @@ export var dbLogin = (email, password) => {
                 if (email.localeCompare(info.email) === 0) {
                     if(info.password) {
                         password = bcrypt.compareSync(password, info.password) ? info.password : password;
-                        debugger;
                     }
                     break;
                 };
             }
-            debugger;
             // Log in user if input matches credentials in db
             return firebaseAuth().signInWithEmailAndPassword(email, password).then((result) => {
                 dispatch(globalActions.showNotificationSuccess());
