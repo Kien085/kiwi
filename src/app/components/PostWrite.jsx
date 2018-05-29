@@ -120,7 +120,7 @@ export class PostWrite extends Component {
         const tags = PostAPI.getContentTags(postText);
 
         
-        if(storageAvailable('localStorage')) {
+        if (storageAvailable('localStorage')) {
             console.log("OUTPUT: Local Storage is available");
         } else {
             console.log("OUTPUT: No Local Storage");
@@ -233,10 +233,7 @@ export class PostWrite extends Component {
      */
     render() {
         const iconButtonElement = (
-            <IconButton
-                touch={true}
-                tooltipPosition="bottom-left"
-            >
+            <IconButton touch={true} tooltipPosition="bottom-left">
                 <MoreVertIcon color={grey400} />
             </IconButton>
         );
@@ -248,25 +245,21 @@ export class PostWrite extends Component {
             </IconMenu>
         );
 
-        const postAvatar = (<UserAvatar fullName={this.props.name} fileName={this.props.avatar} style={{ top: "8px" }} size={40} />);
+        const postAvatar = (<UserAvatar fullName={this.props.name} fileName={this.props.avatar} size={40} />);
 
         const author = (
             <div>
                 <span style={{
-                    fontSize: "14px",
-                    paddingRight: "10px",
-                    fontWeight: 400,
-                    color: "rgba(0,0,0,0.87)",
+                    fontSize: "16px",
                     textOverflow: "ellipsis",
-                    overflow: "hidden",
-                    paddingLeft: "50px",
-                    lineHeight: "25px"
+                    overflow: "hidden"
                 }}>{this.props.name}</span>
             </div>
         );
 
         const writeActions = [
             <FlatButton
+                key='cancel'
                 label="Cancel"
                 primary={true}
                 keyboardFocused={false}
@@ -274,6 +267,7 @@ export class PostWrite extends Component {
                 style={{ color: grey800 }}
             />,
             <FlatButton
+                key='post'
                 label={this.props.edit ? 'UPDATE' : 'POST'}
                 primary={true}
                 keyboardFocused={false}
@@ -295,17 +289,15 @@ export class PostWrite extends Component {
         const styles = {
             dialog: {
                 width: '',
-                maxWidth: '530px',
-                borderRadius: "4px"
+                maxWidth: '530px'
             }
         };
 
         return (
-            <div style={this.props.style}>
+            <div>
                 {this.props.children}
                 <Dialog
                     id={this.props.id || 0}
-                    actions={writeActions}
                     modal={false}
                     open={this.props.open}
                     contentStyle={styles.dialog}
@@ -313,14 +305,13 @@ export class PostWrite extends Component {
                     overlayStyle={{ background: "rgba(0,0,0,0.12)" }}
                     bodyStyle={{ padding: 0 }}
                     autoDetectWindowHeight={false}
-                    actionsContainerStyle={{ borderTop: "1px solid rgb(224, 224, 224)" }}
                 >
                     <ListItem
                         disabled={true}
                         leftAvatar={postAvatar}
                         rightIconButton={rightIconMenu}
                         primaryText={author}
-                        style={{ padding: "16px 4px 30px 16px" }}
+                        styles={{ padding: "16px 4px 30px 16px" }}
                     />
 
                     <div style={{ display: "flex", flexDirection: "column", flexGrow: 1, overflow: "hidden" }}>
@@ -331,8 +322,8 @@ export class PostWrite extends Component {
                                 hintText="What is new with you?"
                                 underlineShow={false}
                                 multiLine={true}
-                                hintStyle={{ fontWeight: 200, fontSize: "16px" }}
-                                textareaStyle={{ fontWeight: 200, fontSize: "14px" }}
+                                hintStyle={{ fontSize: "16px" }}
+                                textareaStyle={{ fontSize: "16px" }}
                                 style={{ margin: "0 16px", flexShrink: 0, width: "initial", flexGrow: 1 }}
                             />
 
@@ -361,11 +352,14 @@ export class PostWrite extends Component {
                                 </div>) : ''}
                         </div>
                         <div style={{ flexShrink: 0, boxFlex: 0, flexGrow: 0, maxHeight: "48px", width: "100%" }}>
-                            <div style={{ flexDirection: "row", display: "flex" }}>
+                            <div style={{ flexDirection: "row", display: "flex", alignItems: 'center', justifyContent: 'space-between' }}>
                                 <div onClick={this.handleOpenGallery} style={{ outline: "none", width: "48px", zIndex: 0, overflow: "hidden", position: "relative", textAlign: "center", transition: "background .3s", border: 0, borderRadius: "50%", display: "inlineBlock", height: "48px" }}>
-                                    <span style={{ top: "15px", display: "block", position: "relative", cursor: "pointer" }}>
+                                    <span style={{ top: "13px", position: "relative", cursor: "pointer" }}>
                                         <SvgCamera color="grey" />
                                     </span>
+                                </div>
+                                <div>
+                                    {writeActions}
                                 </div>
                             </div>
                         </div>
