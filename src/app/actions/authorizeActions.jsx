@@ -44,6 +44,35 @@ export var dbLogin = (email, password) => {
     }
 }
 
+/**
+ * Login user with OAuth
+ * @param {string} type 
+ */
+export var dbLoginWithOAuth = (provider) => {
+    return (dispatch, getState) => {
+      dispatch(globalActions.showNotificationRequest());
+  
+    //   return authorizeService.loginWithOAuth(type).then((result) => {
+      return firebaseAuth().signInWithPopup(provider).then((result) => {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        // var token = result.credential.accessToken;
+        // The signed-in user info.
+        // var user = result.user;
+        dispatch(globalActions.showNotificationSuccess());
+        // dispatch(login(result.uid, true))
+        console.log(result);
+        dispatch(login(result.uid));
+        dispatch(push('/'));
+        })
+    //   }, (error) => dispatch(globalActions.showErrorMessage(error.code)))
+        .catch((error) => {
+          // An error happened.
+          dispatch(globalActions.showErrorMessage(error.code));
+  
+        })
+    }
+  }
+
 // Log out user in server
 export var dbLogout = () => {
     return (dispatch, getState) => {

@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom';
 import { push } from 'react-router-redux';
 import TextField from 'material-ui/TextField';
+import IconButton from 'material-ui/IconButton';
+// import Grid from 'material-ui/Grid/Grid';
+import { firebaseAuth } from 'app/firebase/';
 
 // - Import actions
 import * as authorizeActions from 'authorizeActions';
@@ -21,6 +24,14 @@ export class Login extends Component {
             emailInputError: '',
             passwordInput: '',
             passwordInputError: ''
+        };
+
+        this.styles = {
+            singinOptions: {
+              paddingBottom: 10,
+              justifyContent: 'space-around',
+              display: 'flex'
+            }
         };
     }
 
@@ -67,7 +78,18 @@ export class Login extends Component {
             <form style={{height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <div style={{backgroundColor: 'white', width: '450px', textAlign: 'center', borderRadius: '10px'}}>
                     <h1>Sign in</h1>
-
+                    <div style={this.styles.singinOptions}>
+                        <IconButton onClick={() => this.props.loginWithOAuth(new firebaseAuth.FacebookAuthProvider())}>
+                            <div className='icon-fb icon'></div>
+                        </IconButton>
+                        <IconButton onClick={() => this.props.loginWithOAuth(new firebaseAuth.GoogleAuthProvider())}>
+                            <div className='icon-google icon'></div>
+                        </IconButton>
+                        <IconButton onClick={() => this.props.loginWithOAuth(new firebaseAuth.GithubAuthProvider())}>
+                            <div className='icon-github icon'></div>
+                        </IconButton>
+                    </div>
+                    <hr/>
                     <TextField
                         onChange={this.handleInputChange}
                         errorText={this.state.emailInputError}
@@ -101,6 +123,65 @@ export class Login extends Component {
                 </div>
             </form>
         )
+        // return (
+        //     <Grid container spacing={24}>
+        //       <Grid item xs={12} className={classes.contain}>
+      
+        //         <h1 className='g__app-name'>{config.settings.appName}</h1>
+      
+        //         <div className='animate-bottom'>
+        //           <Paper className={classes.paper} elevation={1} >
+        //             <form>
+        //               <div style={{ padding: '48px 40px 36px' }}>
+        //                 <div style={{
+        //                   paddingLeft: '40px',
+        //                   paddingRight: '40px'
+        //                 }}>
+      
+        //                   <h2 className='zoomOutLCorner animated g__paper-title'>{translate!('login.title')}</h2>
+        //                 </div>
+        //                 {config.settings.enabledOAuthLogin ? OAuthLogin : ''}
+                      
+        //                 <Divider style={this.styles.divider} />
+        //                 <TextField
+        //                   className={classes.textField}
+        //                   autoFocus
+        //                   onChange={this.handleInputChange}
+        //                   helperText={this.state.emailInputError}
+        //                   error={this.state.emailInputError.trim() !== ''}
+        //                   name='emailInput'
+        //                   label={translate!('login.emailLabel')}
+        //                   type='email'
+        //                   tabIndex={1}
+        //                 /><br />
+        //                 <TextField
+        //                   className={classes.textField}
+        //                   onChange={this.handleInputChange}
+        //                   helperText={this.state.passwordInputError}
+        //                   error={this.state.passwordInputError.trim() !== ''}
+        //                   name='passwordInput'
+        //                   label={translate!('login.passwordLabel')}
+        //                   type='password'
+        //                   tabIndex={2}
+        //                 /><br />
+        //                 <br />
+        //                 <br />
+        //                 <div className='login__button-box'>
+        //                   <div>
+        //                     <Button onClick={this.props.signupPage} tabIndex={4}>{translate!('login.createAccountButton')}</Button>
+        //                   </div>
+        //                   <div >
+        //                     <Button variant='raised' color='primary' onClick={this.handleForm} tabIndex={3} >{translate!('login.loginButton')}</Button>
+        //                   </div>
+        //                 </div>
+        //                 <span className={classes.bottomPaper}>{translate!('login.forgetPasswordMessage')} <NavLink to='/resetPassword' className={classes.link}>{translate!('login.resetPasswordLabel')}</NavLink></span>
+        //               </div>
+        //             </form>
+        //           </Paper>
+        //         </div>
+        //       </Grid>
+        //     </Grid>
+        //   )
     }
 }
 
@@ -114,6 +195,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         login: (username, password) => {
             dispatch(authorizeActions.dbLogin(username, password))
+        },
+        loginWithOAuth: (provider) => {
+            dispatch(authorizeActions.dbLoginWithOAuth(provider))
         },
         signupPage: () => {
             dispatch(push("/signup"))
