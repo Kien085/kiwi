@@ -19,11 +19,7 @@ import forge from 'node-forge';
  */
 export var dbLogin = (email, password) => {
     return (dispatch, getState) => {
-<<<<<<< HEAD
-        // dispatch(globalActions.showNotificationRequest());
-=======
         dispatch(globalActions.showNotificationRequest())
->>>>>>> 803a2d31b7f05f2511a68fb51acbc9067354faff
 
         // Encrypt password input to compare with that stored in db
         let bcrypt = require('bcryptjs');
@@ -41,11 +37,6 @@ export var dbLogin = (email, password) => {
                     break;
                 };
             }
-<<<<<<< HEAD
-            // console.log("here");
-=======
-            debugger;
->>>>>>> 803a2d31b7f05f2511a68fb51acbc9067354faff
             // Log in user if input matches credentials in db
             return firebaseAuth().signInWithEmailAndPassword(email, password).then((result) => {
                 dispatch(globalActions.showNotificationSuccess());

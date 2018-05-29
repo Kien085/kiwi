@@ -77,7 +77,6 @@ export class Login extends Component {
         }
 
         else {
-            debugger;
             this.props.login(this.state.emailInput, this.state.passwordInput);
         }
     }
