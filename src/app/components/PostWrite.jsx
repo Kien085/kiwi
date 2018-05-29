@@ -119,13 +119,6 @@ export class PostWrite extends Component {
 
         const tags = PostAPI.getContentTags(postText);
 
-        
-        if(storageAvailable('localStorage')) {
-            console.log("OUTPUT: Local Storage is available");
-        } else {
-            console.log("OUTPUT: No Local Storage");
-        }
-
         // In edit status we should fire update if not we should fire post function
         if (!edit) {
             if (image !== '') {
@@ -416,27 +409,3 @@ const mapStateToProps = (state, ownProps) => {
 
 // - Connect component to redux store
 export default connect(mapStateToProps, mapDispatchToProps)(PostWrite)
-
-function storageAvailable(type) {
-    try {
-        var storage = window[type],
-            x = '__storage_test__';
-        storage.setItem(x, x);
-        storage.removeItem(x);
-        return true;
-    }
-    catch(e) {
-        return e instanceof DOMException && (
-            // everything except Firefox
-            e.code === 22 ||
-            // Firefox
-            e.code === 1014 ||
-            // test name field too, because code might not be present
-            // everything except Firefox
-            e.name === 'QuotaExceededError' ||
-            // Firefox
-            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
-            // acknowledge QuotaExceededError only if there's something already stored
-            storage.length !== 0;
-    }
-}

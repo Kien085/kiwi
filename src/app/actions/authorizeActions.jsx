@@ -60,7 +60,6 @@ export var dbLoginWithOAuth = (provider) => {
         // The signed-in user info.
         // var user = result.user;
         dispatch(globalActions.showNotificationSuccess());
-        // dispatch(login(result.uid, true))
         console.log(result);
         dispatch(login(result.uid));
         dispatch(push('/'));
@@ -93,7 +92,6 @@ export var dbSignup = (user) => {
     return (dispatch, getState) => {
         dispatch(globalActions.showNotificationRequest());
         return firebaseAuth().createUserWithEmailAndPassword(user.email, user.password).then((signupResult) => {
-            console.log("OUTPUT: Firebase signup")
             let rsa = forge.pki.rsa;
             // generate an RSA key pair asynchronously (uses web workers if available)
             // use workers: -1 to run a fast core estimator to optimize # of workers
@@ -102,11 +100,9 @@ export var dbSignup = (user) => {
                     console.error(err)
                 } else {
                     let localStorage = window.localStorage;
-                    // keypair.privateKey, keypair.publicKey
                     let privateKey = keypair.privateKey;
                     let publicKey = keypair.publicKey;
             
-                    // TODO: Save publicKey, key, iv to DB
                     // Save privateKey locally
                     localStorage.setItem('privPair', privateKey);
                     localStorage.setItem('pubPair', publicKey);
@@ -210,4 +206,3 @@ export var signup = (user) => {
 export const updatePassword = () => {
     return { type: types.UPDATE_PASSWORD };
 }
-

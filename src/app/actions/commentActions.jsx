@@ -17,7 +17,6 @@ import forge from 'node-forge';
  * @param  {function} callBack  will be fired when server responsed
  */
 export const dbAddComment = (newComment, callBack) => {
-    console.log("OUTPUT: In function dbAddComment() in commentActions");
     return (dispatch, getState) => {
 
         dispatch(globalActions.showTopLoading());
@@ -41,32 +40,24 @@ export const dbAddComment = (newComment, callBack) => {
          let iv = localStorage.getItem('PUBiv');
          let privateKey, publicKey;
         
-        //  console.log('OUTPUT: body of comment is - ' + comment.text)
          // Encrypt contents of comments
          let cipher = forge.cipher.createCipher('AES-CBC', key);
          cipher.start({iv: iv});
          cipher.update(forge.util.createBuffer(comment.text));
          cipher.finish();
          encryptedComment.text = forge.util.encode64(cipher.output.getBytes()); 
-        //  console.log('OUTPUT: body of encrypted comment is - ' + encryptedComment.text);
-        //  console.log('OUTPUT: body of comment (after encrypt) is - ' + comment.text);
 
         // Save encrypted comment to firebase
         let commentRef = firebaseRef.child(`postComments/${newComment.postId}`).push(encryptedComment);
-        // console.log(commentRef);
-        console.log('OUTPUT: PUSHED TO FIREBASE');
+        dispatch(addComment(
+            {
+                comment,
+                postId: newComment.postId,
+                id: commentRef.key,
+                editorStatus: false
+            }));
+
         return commentRef.then(() => {
-            // console.log('OUTPUT: Adding comment to post locally');
-            // console.log('OUTPUT: body of comment (after encrypt) is - ' + comment.text);
-            dispatch(addComment(
-                {
-                    comment,
-                    postId: newComment.postId,
-                    id: commentRef.key,
-                    editorStatus: false
-                }));
-            // console.log(`OUTPUT: ADDED COMMENT with postId ${newComment.postId}, and id ${commentRef.key}`);
-            // console.log(comment)
             callBack();
             dispatch(globalActions.hideTopLoading());
 
@@ -87,7 +78,6 @@ export const dbAddComment = (newComment, callBack) => {
 
 // Get all comments from database
 export const dbGetComments = () => {
-    console.log("OUTPUT: In function dbGetComments() in commentActions");
     return (dispatch, getState) => {
         // let key, iv, decipher;
         let uid = getState().authorize.uid;
@@ -132,7 +122,6 @@ export const dbGetComments = () => {
  * @param {string} postId is the identifier of the post which comment belong to
  */
 export const dbUpdateComment = (id, postId, text) => {
-    console.log("OUTPUT: In function dbUpdateComment() in commentActions");
 
     return (dispatch, getState) => {
 
@@ -172,7 +161,6 @@ export const dbUpdateComment = (id, postId, text) => {
  * @param {string} postId is the identifier of the post which comment belong to
  */
 export const dbDeleteComment = (id, postId) => {
-    console.log("OUTPUT: In function dbDeleteComments() in commentActions");
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
 
@@ -200,8 +188,6 @@ export const dbDeleteComment = (id, postId) => {
  * @param {object} data  
  */
 export const addComment = (data) => {
-    console.log('OUTPUT: In function addComment() in commentActions');
-    console.log(data);
     return {
         type: types.ADD_COMMENT,
         payload: data
@@ -224,7 +210,6 @@ export const updateComment = (data) => {
  * @param {[object]} postComments an array of comments
  */
 export const addCommentList = (postComments) => {
-    console.log('OUTPUT: In function addCommentList() in commentActions');
     return {
         type: types.ADD_COMMENT_LIST,
         payload: postComments
