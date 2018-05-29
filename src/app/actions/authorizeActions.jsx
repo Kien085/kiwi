@@ -19,6 +19,7 @@ import forge from 'node-forge';
  */
 export var dbLogin = (email, password) => {
     return (dispatch, getState) => {
+        // dispatch(globalActions.showNotificationRequest());
 
         // Encrypt password input to compare with that stored in db
         let bcrypt = require('bcryptjs');
@@ -35,6 +36,7 @@ export var dbLogin = (email, password) => {
                     break;
                 };
             }
+            // console.log("here");
             // Log in user if input matches credentials in db
             return firebaseAuth().signInWithEmailAndPassword(email, password).then((result) => {
                 dispatch(globalActions.showNotificationSuccess());
@@ -175,6 +177,28 @@ export const dbUpdatePassword = (newPassword) => {
         })
     }
 }
+
+/**
+ * Reset user's password
+ * @param {string} newPassword
+ */
+export const dbResetPassword = (email) => {
+    return (dispatch, getState) => {
+      dispatch(globalActions.showNotificationRequest())
+  
+      return firebaseAuth().sendPasswordResetEmail(email).then(() => {
+  
+        // Reset password successful.
+        dispatch(globalActions.showNotificationSuccess())
+        dispatch(push('/login'))
+      })
+        .catch((error) => {
+          // An error happened.
+          dispatch(globalActions.showMessage(error.code))
+  
+        })
+    }
+  }
 
 /* _____________ CRUD State _____________ */
 

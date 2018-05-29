@@ -36,6 +36,14 @@
     display: inline-block;
 }
 
+.iconbutton {
+    border-radius: 48px;
+}
+
+.iconbutton:hover {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
 .icon-github {
     background-image: icon(github, '%2324292e');
 }
@@ -46,4 +54,8 @@
 
 .icon-fb {
     background-image: icon(facebook, '%234267b2');
+}
+
+.alink:hover{
+    text-decoration: underline;
 }
