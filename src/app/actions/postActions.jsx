@@ -134,7 +134,7 @@ export const dbAddImagePost = (newPost, callBack) => {
  * @param {func} callBack //TODO: anti pattern should change to parent state or move state to redux
  */
 export const dbUpdatePost = (newPost, callBack) => {
-    console.log(newPost);
+    // console.log(newPost);
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
 

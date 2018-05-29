@@ -108,7 +108,7 @@ export class Master extends Component {
                         <Route path="/signup" component={Signup} />
                         <Route path="/settings" component={Settings} />
                         <Route path="/login" render={() => {
-                            console.log('this.props.authed: ', this.props.authed, "this.props: ", this.props)
+                            // console.log('this.props.authed: ', this.props.authed, "this.props: ", this.props)
                             return (
                                 this.props.authed
                                     ? <Redirect to="/" />

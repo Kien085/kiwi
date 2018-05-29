@@ -60,7 +60,7 @@ export var dbLoginWithOAuth = (provider) => {
         // The signed-in user info.
         // var user = result.user;
         dispatch(globalActions.showNotificationSuccess());
-        console.log(result);
+        // console.log(result);
         dispatch(login(result.uid));
         dispatch(push('/'));
         })
