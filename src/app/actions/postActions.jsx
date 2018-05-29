@@ -253,18 +253,36 @@ export const dbGetPostById = (uid, postId) => {
     console.log("OUTPUT: In function dbGetPostsById()");
 
     return (dispatch, getState) => {
-        if (uid) {
-            let postsRef = firebaseRef.child(`userPosts/${uid}/posts/${postId}`);
+        // Look up key and iv to decipher post
+        let key, iv, decipher;
+        let keysRef = firebaseRef.child(`keys/${uid}`);
+        keysRef.once('value').then((snap) => {
+            if(snap.val()) {
+                key = snap.val().key || {};
+                iv = snap.val().iv || {};
+                decipher = forge.cipher.createDecipher('AES-CBC', key);
+            }
+            if (uid) {
+                let postsRef = firebaseRef.child(`userPosts/${uid}/posts/${postId}`);
 
-            return postsRef.once('value').then((snapshot) => {
-                const newPost = snapshot.val() || {};
-                const post = {
-                    id: postId,
-                    ...newPost
-                };
-                dispatch(addPost(uid, post));
-            });
-        }
+                return postsRef.once('value').then((snapshot) => {
+                    const newPost = snapshot.val() || {};
+                    const post = {
+                        id: postId,
+                        ...newPost
+                    };
+                    // Decrypt body of post
+                    if(snap.val()) {
+                        decipher.start({iv: iv});
+                        decipher.update(forge.util.createBuffer(forge.util.decode64(post.body)));
+                        decipher.finish();
+                        let decipheredText = decipher.output.toString();
+                        post.body = decipheredText
+                    }
+                    dispatch(addPost(uid, post));
+                });
+            }
+        });
     };
 }
 

@@ -19,22 +19,25 @@ import forge from 'node-forge';
  */
 export var dbLogin = (email, password) => {
     return (dispatch, getState) => {
+        dispatch(globalActions.showNotificationRequest())
 
         // Encrypt password input to compare with that stored in db
         let bcrypt = require('bcryptjs');
-        let ref = firebase.database().ref('/users');;
+        let ref = firebase.database().ref('/users');
         ref.once('value', (snapshot) => {
-            // find info of user with proper email
+            // Find info of user with proper email
             let key;
             for (key in snapshot.val()) {
                 let info = snapshot.val()[key]['info'];
                 if (email.localeCompare(info.email) === 0) {
                     if(info.password) {
                         password = bcrypt.compareSync(password, info.password) ? info.password : password;
+                        debugger;
                     }
                     break;
                 };
             }
+            debugger;
             // Log in user if input matches credentials in db
             return firebaseAuth().signInWithEmailAndPassword(email, password).then((result) => {
                 dispatch(globalActions.showNotificationSuccess());
@@ -60,7 +63,6 @@ export var dbLoginWithOAuth = (provider) => {
         // The signed-in user info.
         // var user = result.user;
         dispatch(globalActions.showNotificationSuccess());
-        // dispatch(login(result.uid, true))
         console.log(result);
         dispatch(login(result.uid));
         dispatch(push('/'));
@@ -106,7 +108,6 @@ export var dbSignup = (user) => {
                     let privateKey = keypair.privateKey;
                     let publicKey = keypair.publicKey;
             
-                    // TODO: Save publicKey, key, iv to DB
                     // Save privateKey locally
                     localStorage.setItem('privPair', privateKey);
                     localStorage.setItem('pubPair', publicKey);
