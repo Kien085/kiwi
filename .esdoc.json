@@ -1,9 +1,0 @@
-{
-  "source": "./dev/peter-test/react/src",
-  "destination": "./docs",
-  "index": "./README.md",
-  "includes": [".*\\.jsx"],
-  "plugins": [{"name": "esdoc-standard-plugin"},
-  {"name": "esdoc-react-plugin"} ,
-  {"name": "esdoc-jsx-plugin", "option": {"enable": true}}
-  ] }

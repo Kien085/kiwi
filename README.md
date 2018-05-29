@@ -8,6 +8,10 @@ which technology is most compatible with our team's skills and abilities. We als
 these technologies to provide Peter, our client, a clearer understanding on how we reached
 our final decision on the technologies we decided upon.
 
+## Build Pipeline
+
+![High Level Build Pipeline](README_resources/build_pipeline.png?raw=true "Optional Title")
+
 ## Getting Started
 To get started, clone our repository. 
 
