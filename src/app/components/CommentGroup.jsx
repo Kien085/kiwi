@@ -197,7 +197,6 @@ const mapStateToProps = (state, ownProps) => {
         avatar: state.user.info && state.user.info[state.authorize.uid] ? state.user.info[state.authorize.uid].avatar || '' : '',
         fullName: state.user.info && state.user.info[state.authorize.uid] ? state.user.info[state.authorize.uid].fullName || '' : '',
         userInfo: state.user.info
-
     }
 }
 

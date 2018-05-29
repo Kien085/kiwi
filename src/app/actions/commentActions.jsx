@@ -17,7 +17,6 @@ import forge from 'node-forge';
  * @param  {function} callBack  will be fired when server responsed
  */
 export const dbAddComment = (newComment, callBack) => {
-    console.log("OUTPUT: In function dbAddComment() in commentActions");
     return (dispatch, getState) => {
 
         dispatch(globalActions.showTopLoading());
@@ -57,6 +56,10 @@ export const dbAddComment = (newComment, callBack) => {
                 id: commentRef.key,
                 editorStatus: false
             }));
+<<<<<<< HEAD
+=======
+
+>>>>>>> e734ab548d4148436c073f3b688a21d34542d4ed
         return commentRef.then(() => {
             callBack();
             dispatch(globalActions.hideTopLoading());
@@ -78,7 +81,6 @@ export const dbAddComment = (newComment, callBack) => {
 
 // Get all comments from database
 export const dbGetComments = () => {
-    console.log("OUTPUT: In function dbGetComments() in commentActions");
     return (dispatch, getState) => {
         // let key, iv, decipher;
         let uid = getState().authorize.uid;
@@ -123,7 +125,6 @@ export const dbGetComments = () => {
  * @param {string} postId is the identifier of the post which comment belong to
  */
 export const dbUpdateComment = (id, postId, text) => {
-    console.log("OUTPUT: In function dbUpdateComment() in commentActions");
 
     return (dispatch, getState) => {
 
@@ -163,7 +164,6 @@ export const dbUpdateComment = (id, postId, text) => {
  * @param {string} postId is the identifier of the post which comment belong to
  */
 export const dbDeleteComment = (id, postId) => {
-    console.log("OUTPUT: In function dbDeleteComments() in commentActions");
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
 
@@ -191,7 +191,10 @@ export const dbDeleteComment = (id, postId) => {
  * @param {object} data  
  */
 export const addComment = (data) => {
+<<<<<<< HEAD
     console.log(data);
+=======
+>>>>>>> e734ab548d4148436c073f3b688a21d34542d4ed
     return {
         type: types.ADD_COMMENT,
         payload: data

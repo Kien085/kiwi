@@ -19,7 +19,6 @@ import forge from 'node-forge';
  * @param {function} callBack 
  */
 export var dbAddPost = (newPost, callBack) => {
-    console.log("OUTPUT: In function dbAddPost()");
     return (dispatch, getState) => {
 
         let uid = getState().authorize.uid;
@@ -76,7 +75,6 @@ export var dbAddPost = (newPost, callBack) => {
  * @param {function} callBack 
  */
 export const dbAddImagePost = (newPost, callBack) => {
-    console.log("OUTPUT: In function dbAddImagePost()");
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
         
@@ -136,8 +134,7 @@ export const dbAddImagePost = (newPost, callBack) => {
  * @param {func} callBack //TODO: anti pattern should change to parent state or move state to redux
  */
 export const dbUpdatePost = (newPost, callBack) => {
-    console.log("OUTPUT: In function dbUpdatePost()");
-    console.log(newPost);
+    // console.log(newPost);
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
 
@@ -207,7 +204,6 @@ export const dbDeletePost = (id) => {
 
 //  Get all user posts from data base (self posts)
 export const dbGetPosts = () => {
-    console.log("OUTPUT: In function dbGetPosts()");
     return (dispatch, getState) => {
         // Look up key and iv to decipher post
         let key, iv, decipher;
@@ -250,7 +246,6 @@ export const dbGetPosts = () => {
 
 //  Get all user posts from data base
 export const dbGetPostById = (uid, postId) => {
-    console.log("OUTPUT: In function dbGetPostsById()");
 
     return (dispatch, getState) => {
         // Look up key and iv to decipher post
@@ -291,7 +286,6 @@ export const dbGetPostById = (uid, postId) => {
  * @param  {string} uid is id of user whose posts we want to get
  */
 export const dbGetPostsByUserId = (uid) => {
-    console.log("OUTPUT: In function dbGetPostsByUserId()");
     return (dispatch, getState) => {
         // Look up key and iv to decipher post
         let key, iv, decipher;
