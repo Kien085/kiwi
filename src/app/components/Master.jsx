@@ -10,6 +10,7 @@ import Home from 'Home';
 import Signup from 'Signup';
 import Login from 'Login';
 import Settings from 'Settings';
+import ResetPassword from 'ResetPassword';
 
 import MasterLoading from 'MasterLoading';
 
@@ -107,8 +108,9 @@ export class Master extends Component {
                     ? (<Switch>
                         <Route path="/signup" component={Signup} />
                         <Route path="/settings" component={Settings} />
+                        <Route path="/resetpassword" component={ResetPassword} />
                         <Route path="/login" render={() => {
-                            console.log('this.props.authed: ', this.props.authed, "this.props: ", this.props)
+                            // console.log('this.props.authed: ', this.props.authed, "this.props: ", this.props)
                             return (
                                 this.props.authed
                                     ? <Redirect to="/" />

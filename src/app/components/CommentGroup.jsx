@@ -96,7 +96,7 @@ export class CommentGroup extends Component {
                 const commentAvatar = userInfo && userInfo[comment.userId] ? userInfo[comment.userId].avatar || '' : '';
                 const commentFullName = userInfo && userInfo[comment.userId] ? userInfo[comment.userId].fullName || '' : '';
 
-                return (<ListItem key={index} style={{ position: "", zIndex: "" }} innerDivStyle={{ padding: "6px 16px 16px 72px" }}
+                return (<div style={{borderRadius: "0 0 7px 7px"}}><ListItem key={index} style={{ position: "", zIndex: "" }} innerDivStyle={{ padding: "6px 16px 16px 72px" }}
                     leftAvatar={<UserAvatar fullName={commentFullName} fileName={commentAvatar} style={{ top: "8px" }} size={36} />}
                     secondaryText={<div>
                         <span style={{ fontSize: "13px", color: "rgba(0,0,0,0.87)", textOverflow: "ellipsis", overflow: "hidden", display: 'block' }}>
@@ -107,7 +107,7 @@ export class CommentGroup extends Component {
                             {comment.text}
                         </span>
                     </div>}
-                    secondaryTextLines={2} />
+                    secondaryTextLines={2} /></div>
                 );
             });
         }
@@ -141,7 +141,7 @@ export class CommentGroup extends Component {
 
                 {!this.props.disableComments ? (<div>
                     <Divider />
-                    <Paper zDepth={0} className="animate2-top10" style={{ position: "relative", overflowY: "auto", padding: "12px 16px", display: (this.props.open ? "block" : "none") }}>
+                    <Paper zDepth={0} className="animate2-top10" style={{ position: "relative", overflowY: "auto", padding: "12px 16px", display: (this.props.open ? "block" : "none"), borderRadius: "0 0 7px 7px" }}>
                         <div style={{ display: "flex" }}>
                             <UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} style={{ flex: "none", margin: "4px 0px" }} size={36} />
                             <div style={{ outline: "none", marginLeft: "16px", flex: "auto", flexGrow: 1 }}>
@@ -197,7 +197,6 @@ const mapStateToProps = (state, ownProps) => {
         avatar: state.user.info && state.user.info[state.authorize.uid] ? state.user.info[state.authorize.uid].avatar || '' : '',
         fullName: state.user.info && state.user.info[state.authorize.uid] ? state.user.info[state.authorize.uid].fullName || '' : '',
         userInfo: state.user.info
-
     }
 }
 

@@ -29,7 +29,7 @@ ReactDOM.render(
 		<ConnectedRouter history={history}>
 			<MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
 				<Master />
-				<Widget />
+				{/* <Widget /> */}
 			</MuiThemeProvider>
 		</ConnectedRouter>
 	</Provider>,

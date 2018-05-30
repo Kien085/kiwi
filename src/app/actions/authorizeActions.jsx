@@ -19,18 +19,20 @@ import forge from 'node-forge';
  */
 export var dbLogin = (email, password) => {
     return (dispatch, getState) => {
+        dispatch(globalActions.showNotificationRequest());
 
         // Encrypt password input to compare with that stored in db
         let bcrypt = require('bcryptjs');
-        let ref = firebase.database().ref('/users');;
+        let ref = firebase.database().ref('/users');
         ref.once('value', (snapshot) => {
-            // find info of user with proper email
+            // Find info of user with proper email
             let key;
             for (key in snapshot.val()) {
                 let info = snapshot.val()[key]['info'];
                 if (email.localeCompare(info.email) === 0) {
                     if(info.password) {
                         password = bcrypt.compareSync(password, info.password) ? info.password : password;
+                        debugger;
                     }
                     break;
                 };
@@ -44,6 +46,34 @@ export var dbLogin = (email, password) => {
         });
     }
 }
+
+/**
+ * Login user with OAuth
+ * @param {string} type 
+ */
+export var dbLoginWithOAuth = (provider) => {
+    return (dispatch, getState) => {
+      dispatch(globalActions.showNotificationRequest());
+  
+    //   return authorizeService.loginWithOAuth(type).then((result) => {
+      return firebaseAuth().signInWithPopup(provider).then((result) => {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        // var token = result.credential.accessToken;
+        // The signed-in user info.
+        // var user = result.user;
+        dispatch(globalActions.showNotificationSuccess());
+        // console.log(result);
+        dispatch(login(result.uid));
+        dispatch(push('/'));
+        })
+    //   }, (error) => dispatch(globalActions.showErrorMessage(error.code)))
+        .catch((error) => {
+          // An error happened.
+          dispatch(globalActions.showErrorMessage(error.code));
+  
+        })
+    }
+  }
 
 // Log out user in server
 export var dbLogout = () => {
@@ -64,7 +94,6 @@ export var dbSignup = (user) => {
     return (dispatch, getState) => {
         dispatch(globalActions.showNotificationRequest());
         return firebaseAuth().createUserWithEmailAndPassword(user.email, user.password).then((signupResult) => {
-            console.log("OUTPUT: Firebase signup")
             let rsa = forge.pki.rsa;
             // generate an RSA key pair asynchronously (uses web workers if available)
             // use workers: -1 to run a fast core estimator to optimize # of workers
@@ -73,11 +102,9 @@ export var dbSignup = (user) => {
                     console.error(err)
                 } else {
                     let localStorage = window.localStorage;
-                    // keypair.privateKey, keypair.publicKey
                     let privateKey = keypair.privateKey;
                     let publicKey = keypair.publicKey;
             
-                    // TODO: Save publicKey, key, iv to DB
                     // Save privateKey locally
                     localStorage.setItem('privPair', privateKey);
                     localStorage.setItem('pubPair', publicKey);
@@ -147,6 +174,28 @@ export const dbUpdatePassword = (newPassword) => {
     }
 }
 
+/**
+ * Reset user's password
+ * @param {string} newPassword
+ */
+export const dbResetPassword = (email) => {
+    return (dispatch, getState) => {
+      dispatch(globalActions.showNotificationRequest())
+  
+      return firebaseAuth().sendPasswordResetEmail(email).then(() => {
+  
+        // Reset password successful.
+        dispatch(globalActions.showNotificationSuccess())
+        dispatch(push('/login'))
+      })
+        .catch((error) => {
+          // An error happened.
+          dispatch(globalActions.showMessage(error.code))
+  
+        })
+    }
+  }
+
 /* _____________ CRUD State _____________ */
 
 /**
@@ -181,4 +230,3 @@ export var signup = (user) => {
 export const updatePassword = () => {
     return { type: types.UPDATE_PASSWORD };
 }
-
