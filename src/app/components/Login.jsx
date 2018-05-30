@@ -4,6 +4,8 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { push } from 'react-router-redux';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 // import Grid from 'material-ui/Grid/Grid';
 import { firebaseAuth } from 'app/firebase/';
 
@@ -28,9 +30,19 @@ export class Login extends Component {
 
         this.styles = {
             singinOptions: {
-              paddingBottom: 10,
-              justifyContent: 'space-around',
-              display: 'flex'
+                paddingBottom: 10,
+                justifyContent: 'space-around',
+                display: 'flex'
+            },
+            bottomPaper: {
+                display: 'inherit',
+                fontSize: 'small',
+                marginTop: '50px',
+                marginBottom: '25px'
+            },
+            link: {
+                color: '#0095ff',
+                display: 'inline-block'
             }
         };
     }
@@ -75,21 +87,21 @@ export class Login extends Component {
      */
     render() {
         return (
-            <form style={{height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <div style={{backgroundColor: 'white', width: '450px', textAlign: 'center', borderRadius: '10px'}}>
+            <form style={{ height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ backgroundColor: 'white', width: '450px', textAlign: 'center', borderRadius: '10px' }}>
                     <h1>Sign in</h1>
                     <div style={this.styles.singinOptions}>
-                        <IconButton onClick={() => this.props.loginWithOAuth(new firebaseAuth.FacebookAuthProvider())}>
+                        <IconButton className="iconbutton" onClick={() => this.props.loginWithOAuth(new firebaseAuth.FacebookAuthProvider())}>
                             <div className='icon-fb icon'></div>
                         </IconButton>
-                        <IconButton onClick={() => this.props.loginWithOAuth(new firebaseAuth.GoogleAuthProvider())}>
+                        <IconButton className="iconbutton" onClick={() => this.props.loginWithOAuth(new firebaseAuth.GoogleAuthProvider())}>
                             <div className='icon-google icon'></div>
                         </IconButton>
-                        <IconButton onClick={() => this.props.loginWithOAuth(new firebaseAuth.GithubAuthProvider())}>
+                        <IconButton className="iconbutton" onClick={() => this.props.loginWithOAuth(new firebaseAuth.GithubAuthProvider())}>
                             <div className='icon-github icon'></div>
                         </IconButton>
                     </div>
-                    <hr/>
+                    <hr style={{borderColor: "rgba(0, 0, 0, 0.12)", width: "75%"}}/>
                     <TextField
                         onChange={this.handleInputChange}
                         errorText={this.state.emailInputError}
@@ -113,75 +125,29 @@ export class Login extends Component {
                     <br />
                     <br />
 
-                    <div style={{display: 'flex', width: '100%', flexDirection: 'column'}}>
-                        <div style={{display: 'flex', outline: 'none', cursor: 'pointer', alignItems: 'center', justifyContent: 'center', height: '50px', backgroundColor: 'white', color: 'black', marginRight: '25px'}} label="Create an account" onClick={this.props.signupPage}>
-                            <svg style={{marginRight: '10px'}} width="15" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z" fill="#A2A2A2"/></svg>
+                    {/* <div style={{ display: 'flex', width: '100%', flexDirection: 'column' }}>
+                        <div style={{ display: 'flex', outline: 'none', cursor: 'pointer', alignItems: 'center', justifyContent: 'center', height: '50px', backgroundColor: 'white', color: 'black', marginRight: '25px' }} label="Create an account" onClick={this.props.signupPage}>
+                            <svg style={{ marginRight: '10px' }} width="15" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z" fill="#A2A2A2" /></svg>
                             Create an account
                         </div>
-                        <div style={{display: 'flex', outline: 'none', cursor: 'pointer', alignItems: 'center', justifyContent: 'center', height: '50px', backgroundColor: '#9013FE', color: 'white', borderRadius: '0 0 10px 10px'}} label="Login" onClick={this.handleForm}>Login</div>
+                        <div style={{ display: 'flex', outline: 'none', cursor: 'pointer', alignItems: 'center', justifyContent: 'center', height: '50px', backgroundColor: '#9013FE', color: 'white', borderRadius: '0 0 10px 10px' }} label="Login" onClick={this.handleForm}>Login</div>
+                    </div> */}
+                    <div className='login__button-box'>
+                        <div>
+                            <FlatButton onClick={this.props.signupPage} style={{padding: "0 5px 0 5px"}}>
+                                <svg style={{ marginRight: '10px' }} width="15" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z" fill="#A2A2A2" /></svg>
+                                Create an account
+                            </FlatButton>
+                        </div>
+                        <div >
+                            <RaisedButton onClick={this.handleForm}>Login</RaisedButton>
+                        </div>
                     </div>
+                    <span style={this.styles.bottomPaper}>Forgot your password? <NavLink to='/resetpassword' className="alink" style={this.styles.link}>Reset it here</NavLink></span>
+
                 </div>
             </form>
         )
-        // return (
-        //     <Grid container spacing={24}>
-        //       <Grid item xs={12} className={classes.contain}>
-      
-        //         <h1 className='g__app-name'>{config.settings.appName}</h1>
-      
-        //         <div className='animate-bottom'>
-        //           <Paper className={classes.paper} elevation={1} >
-        //             <form>
-        //               <div style={{ padding: '48px 40px 36px' }}>
-        //                 <div style={{
-        //                   paddingLeft: '40px',
-        //                   paddingRight: '40px'
-        //                 }}>
-      
-        //                   <h2 className='zoomOutLCorner animated g__paper-title'>{translate!('login.title')}</h2>
-        //                 </div>
-        //                 {config.settings.enabledOAuthLogin ? OAuthLogin : ''}
-                      
-        //                 <Divider style={this.styles.divider} />
-        //                 <TextField
-        //                   className={classes.textField}
-        //                   autoFocus
-        //                   onChange={this.handleInputChange}
-        //                   helperText={this.state.emailInputError}
-        //                   error={this.state.emailInputError.trim() !== ''}
-        //                   name='emailInput'
-        //                   label={translate!('login.emailLabel')}
-        //                   type='email'
-        //                   tabIndex={1}
-        //                 /><br />
-        //                 <TextField
-        //                   className={classes.textField}
-        //                   onChange={this.handleInputChange}
-        //                   helperText={this.state.passwordInputError}
-        //                   error={this.state.passwordInputError.trim() !== ''}
-        //                   name='passwordInput'
-        //                   label={translate!('login.passwordLabel')}
-        //                   type='password'
-        //                   tabIndex={2}
-        //                 /><br />
-        //                 <br />
-        //                 <br />
-        //                 <div className='login__button-box'>
-        //                   <div>
-        //                     <Button onClick={this.props.signupPage} tabIndex={4}>{translate!('login.createAccountButton')}</Button>
-        //                   </div>
-        //                   <div >
-        //                     <Button variant='raised' color='primary' onClick={this.handleForm} tabIndex={3} >{translate!('login.loginButton')}</Button>
-        //                   </div>
-        //                 </div>
-        //                 <span className={classes.bottomPaper}>{translate!('login.forgetPasswordMessage')} <NavLink to='/resetPassword' className={classes.link}>{translate!('login.resetPasswordLabel')}</NavLink></span>
-        //               </div>
-        //             </form>
-        //           </Paper>
-        //         </div>
-        //       </Grid>
-        //     </Grid>
-        //   )
     }
 }
 

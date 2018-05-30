@@ -32,6 +32,7 @@ export var dbLogin = (email, password) => {
                 if (email.localeCompare(info.email) === 0) {
                     if(info.password) {
                         password = bcrypt.compareSync(password, info.password) ? info.password : password;
+                        debugger;
                     }
                     break;
                 };
@@ -172,6 +173,28 @@ export const dbUpdatePassword = (newPassword) => {
         })
     }
 }
+
+/**
+ * Reset user's password
+ * @param {string} newPassword
+ */
+export const dbResetPassword = (email) => {
+    return (dispatch, getState) => {
+      dispatch(globalActions.showNotificationRequest())
+  
+      return firebaseAuth().sendPasswordResetEmail(email).then(() => {
+  
+        // Reset password successful.
+        dispatch(globalActions.showNotificationSuccess())
+        dispatch(push('/login'))
+      })
+        .catch((error) => {
+          // An error happened.
+          dispatch(globalActions.showMessage(error.code))
+  
+        })
+    }
+  }
 
 /* _____________ CRUD State _____________ */
 
