@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Kiwi Document</title>
+
+         <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#team_kiwi">Team Kiwi</a>
+                    </li>
+                    <li>
+                        <a href="#document_generation">Document Generation</a>
+                    </li>
+                    <li>
+                        <a href="#codacy">Codacy</a>
+                    </li>
+                    <li>
+                        <a href="#travis_ci">Travis CI</a>
+                    </li>
+                    <li>
+                        <a href="#testing">Testing</a>
+                    </li>
+                    <li>
+                        <a href="#github_file_structure">GitHub File Structure</a>
+                    </li>
+                    
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content">
+                <!--Slider -->
+                <!--
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img class="d-block w-100" src="images/Kiwi Pipeline Tools.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="images/Kiwi Pipeline- tool comparison.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="images/Kiwi Pipeline-2.jpg" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                -->
+
+                <div id="team_kiwi" class="block-content" role="alert" style="margin-top:0px !important">
+                    <h2>Team Kiwi</h2>
+
+                    <p>
+                        Conveyor belt:
+                    </p>
+                    <p>
+                        Team Kiwi’s conveyor belt is designed to build software the right way. 
+                        We have included in our repository a unique approach to building our conveyor built in order to compare and contrast the strengths and weaknesses each technology has against the other. 
+                    </p>
+                    <p>
+                        We compare React, Angular, Vue, and Web Components in order to determine which technology is most compatible with our team’s skills and abilities. 
+                        We also compare these technologies to provide our client, a clearer understanding on how we reached our final decision on the technologies we decided upon 
+                    </p>
+                </div>
+
+                <div id="document_generation" class="block-content" role="alert">
+                    <h2>Documentation Generation</h2>
+                    <p>
+                        For document generation, we are using ESDocs.
+                    </p>
+                    <p>
+                        ESDoc has two goals.
+                    </p>
+
+                    <div class="inner-first-padding">
+                        <p>
+                            - To make documentation maintenance comfortable and pleasant
+                        </p>
+                        <p>
+                            - To create easy-to-understand documentation.
+                            In order to achieve this two goals, ESDoc produces a practical document, 
+                            measures the coverage, integrates the test code and more.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="codacy" class="block-content" role="alert">
+                    <h2>Codacy</h2>
+                    <p>
+                        We use a static code analysis tool called Codacy in order to keep our code consistent and as simple as possible. We use this in order to track the progress of our code quality as the project progresses. This tool allows us to set goals we can determine within our team and with our client to ensure code quality. Since people have different measures of quality, we may dial it to our very own specificcations as to what quality means for us and our client. Some of the metrics we can fine tune are:
+                    </p>
+
+                    <div class="inner-first-padding">
+                        <p>
+                            - Code Complexity
+                        </p>
+                        <p>
+                            - File Structure Complexity
+                        </p>
+                        <p>
+                            - Duplication of Code and Files
+                        </p>
+                        <p>
+                            - Code Test Coverage
+                        </p>
+                        <p>
+                            - Pull Requests, Commits, etc.
+                        </p>
+                        <p>
+                            - Security Vulnerablity Analysis
+                        </p>
+                    </div>
+
+                    <p>
+                        Once we have set the standards we are to follow, the dashboard this tool provides will allow our client to visualize the quality of work we are completing with a letter grade rating.
+                        Internally, we use this to track everyone’s contribution and quality of work by viewing what issues are introduced by whom and how often. In this way, we are able to track bugs in our code to avoid future repetitions of the same mistakes, and thus tune and refine our pipeline if needed.                       
+                    </p>
+                </div>
+
+                <div id="travis_ci" class="block-content" role="alert">
+                    <h2>Travis CI</h2>
+                    <p>
+                        We use Travis CI as our continuous integration tool. It allows us to centralize our builds and deployments. 
+                        While adding another layer of quality checks through testing and deployment in a controlled environment, independer of any one’s developer’s local environment. 
+                    </p>
+                    <p>
+                        Since we may control this independent environment the way we want, it allows us to have a separate environment where we may run our build process and incrementally add new features to our project. 
+                        Not only this, we can control what gets into the build in an incremental manner. We perform a series of tests that make sure that what we develop will work in the proposed environment we agree upon with our client. 
+                    </p>
+                    <p>
+                        It also allows us to perform code reviews so we can add a human aspect to how our code should be in terms of quality, structure, and readability. 
+                        Lastly, we can automate many tasks that would otherwise require much developer time, saving our client time and money.
+                    </p>
+                </div>
+
+                <div id="testing" class="block-content" role="alert">
+
+                    <h2>Testing</h2>
+                    <p>
+                        We have organized our repository to make it easy to navigate by anyone who may want to look at our current work by using familiar names that are easy to understand and remember.
+                        We have also made our best effort to keep different technologies separate so that they may not interfere with eachother with being run.
+                    </p>
+                    <p>
+                        The following file structure roughly represents how we have organized our repository:
+                    </p>
+                    <pre><code>
+                            /Kiwi
+                            - this is the topmost directory of our project
+                            - here you will find configuration files to most of the
+                              tools we use throughout our repository including TravisCI
+                              Firebase, ESDocs, etc
+                            
+                            /_tests_
+                            - here you will find our React tests, which include our
+                              Enzyme and Jest tests
+                            
+                            /dev
+                            - folder containts components that are currently under
+                              development
+                            
+                            /dev/peter-test
+                            - this folder contains our use of different frameworks
+                              for the purpose of comparing and contrasting the strengths and weaknesses of each framework
+                            - Included frameworks: Angular, React, Vue, and 
+                              WebComponents
+                            
+                            /docs
+                            - this folder contains teh documentation to the components
+                              under development as well as components that have reached
+                              production
+                            - docs are able to be viewed via a browser
+                    </code></pre>
+                </div>
+
+                <div id="testing" class="block-content" role="alert">
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script src="owlcarousel/owl.carousel.js"></script>
+
+        <script>
+            jQuery(document).ready(function($) {
+                // $('.carousel').carousel()
+
+                $('.owl-carousel').owlCarousel({
+                    margin:10,
+                    nav:true,
+                    items: 1
+                })
+            });
+        </script>
+    </body>
+</html>
