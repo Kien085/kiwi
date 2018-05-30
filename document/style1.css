@@ -7,7 +7,6 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
-    margin: 0px;
 }
 
 p {
@@ -46,20 +45,27 @@ a, a:hover, a:focus {
     margin: 40px 0;
 }
 
+li {
+    list-style-type: none;
+}
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
 .wrapper {
     display: flex;
     align-items: stretch;
+    padding-left: 250px;
+    padding-right: 250px;
 }
 
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
-    color: #fff;
+    /*background: #7386D5;*/
+    color: black;
     transition: all 0.3s;
+    margin-top: 50px;
 }
 
 #sidebar.active {
@@ -69,18 +75,14 @@ a, a:hover, a:focus {
 #sidebar .sidebar-header {
     padding: 20px;
     background: #6d7fcc;
-    position: fixed;
-    min-width: 250px;
-    max-width: 250px;
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
     position: fixed;
-    min-width: 250px;
-    max-width: 250px;
-    margin-top: 100px;
+    padding: 20px 0;
+    font-weight: bold;
+    font-size: 18px;
+    /* border-bottom: 1px solid #47748b; */
 }
 
 #sidebar ul p {
@@ -99,8 +101,8 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: black;
+    /* background: #6d7fcc; */
 }
 
 
@@ -124,7 +126,7 @@ a[aria-expanded="true"]::before {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    /* background: #6d7fcc; */
 }
 
 ul.CTAs {
@@ -145,8 +147,8 @@ a.download {
 }
 
 a.article, a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
+    /* background: #6d7fcc !important; */
+    color: black !important;
 }
 
 
@@ -158,25 +160,21 @@ a.article, a.article:hover {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
+    /* margin-top: 50px; */
     padding-left: 50px;
 }
 
-.inner-padding {
+.inner-first-padding {
     padding-left: 20px;
-}
-
-.left-padding{
-    padding-left: 50px;
-}
-
-.block-content h2 {
-    padding-top: 20px;
+    margin-top: 10px;
 }
 
 .block-content {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px dashed lightgray;
+    /* margin-top: 50px; */
+}
+
+.block-content h2 {
+    padding-top: 80px;
 }
 
 /* ---------------------------------------------------
