@@ -19,7 +19,7 @@ import forge from 'node-forge';
  */
 export var dbLogin = (email, password) => {
     return (dispatch, getState) => {
-        dispatch(globalActions.showNotificationRequest())
+        dispatch(globalActions.showNotificationRequest());
 
         // Encrypt password input to compare with that stored in db
         let bcrypt = require('bcryptjs');
