@@ -8,6 +8,10 @@ which technology is most compatible with our team's skills and abilities. We als
 these technologies to provide Peter, our client, a clearer understanding on how we reached
 our final decision on the technologies we decided upon.
 
+## Build Pipeline
+
+![High Level Build Pipeline](README_resources/build_pipeline.png?raw=true "Optional Title")
+
 ## Getting Started
 To get started, clone our repository. 
 
@@ -90,7 +94,7 @@ To find out more about how Codacy works, please
 visit the documentation page here: https://support.codacy.com/hc/en-us
 
 ## Travis CI
-[![Build Status](https://travis-ci.org/aabadill/kiwi.svg?branch=master)](https://travis-ci.org/aabadill/kiwi)
+[![Build Status](https://travis-ci.org/Kien085/kiwi.svg?branch=master)](https://travis-ci.org/Kien085/kiwi)
 
 We use Travis CI as our continuous integration tool. It allows us to centralize our builds and deployments. while adding another layer of quality checks through testing and deployment
 in a controlled environment, independer of any one's developer's
@@ -161,3 +165,17 @@ The following file structure roughly represents how we have organized our reposi
       under development as well as components that have reached
       production
     - docs are able to be viewed via a browser
+<<<<<<< HEAD
+=======
+
+# License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+>>>>>>> 64a27565fdf40d1a5f7387547d085678633750e3

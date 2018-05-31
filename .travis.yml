@@ -2,14 +2,17 @@ language: node_js
 
 node_js: stable
 
+# whitelist
 branches:
   only:
     - master
     - staging
-    
-branches:
-  except:
-    - development
+    - production
+   
+# blacklist
+# branches:
+#   except:
+#     - development
 
 #cache:
   #directories:
@@ -25,6 +28,7 @@ script:
   #- firebase deploy --token "$FIREBASE_TOKEN_STAGING" -P "kiwi-staging"
   # Runs esdoc command to document this build after Travis checks it
   #- ./node_modules/.bin/esdoc
+
 env:
   global:
     secure: TholFGhjCdT9Kb5cp4SUWxazXgQRBrLQKIonmeQF27Mwd5BKDFJhv/WvNtERgQQZ2EBNfV3mK+UCZyYICf1TLoYAN4fYYpgvLXuCG7q5YCbZjh1SOSR12+u6uMH+G+2I3HS47sF4QwYrvvul0CSvmpDIFPgy3GD6oQwP4Do7aMvQcCJNIAk58Gr8KUpZ22zYaTMAkS2XcZ0ATktBStRnMOqunwGMDZxjj7oYgROwamP8JIfubBecr2a7AZzpRpSp6l7BCwQG5h2kp7q7f2rug1miT64/8DWvoDivorQRjiQgumbe+uOVMtlwVo2qhzeTYV/iSuB0FF/WXIFe5lBTjI8UqowWGew3EzvLYZfBuat0DDaHcknX0pvac233YEBo2/0DiWeCCq7DYBxsBuQFumOixcrpOlyQx28n99HeCmd3ktTXQU2XI+XioZAbrlCDJQrbnenwPjU+kw3rCj3ZVJzh5jjlnT8o+Cijkv2KHcc3BC4c6URd7+oaHj5/HazDDR1ep5dHzU/aKrlL+40CpQ0AzPWbpMT7fGdY1+Ir+2HtDThmFyDTvDDs4M2y98t9L4Qu1kYUgTCxCeFaquOx71SiKl/PzX2Wi9L9hzTU02qKDS/o0cacIoPeCHb7z4Nlv7rTB8WM5u/vWbzBooEVpApfIyw3nfBYO7DDtx1BwTo=
