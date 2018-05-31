@@ -6,8 +6,8 @@ node_js: stable
 branches:
   only:
     - master
-#    - staging
-#    - production
+    - staging
+    - production
    
 # blacklist
 # branches:
@@ -23,7 +23,7 @@ install:
 
 script:
   # Run Regression Tests
-  #- npm install
+  - npm install
   #- npm run test:stagingRegression
   #- npm run test:stagingUpdate
 
