@@ -23,7 +23,7 @@ install:
 
 script:
   # Run Regression Tests
-  - npm install
+  - echo
   #- npm run test:stagingRegression
   #- npm run test:stagingUpdate
 
