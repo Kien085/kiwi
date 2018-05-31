@@ -16,6 +16,7 @@ import SidebarMain from 'SidebarMain';
 import Profile from 'Profile';
 import PostPage from 'PostPage';
 import People from 'People';
+import Messenger from 'Messenger';
 
 // - Import API
 import CircleAPI from 'CircleAPI';
@@ -117,6 +118,8 @@ export class Home extends Component {
                         </Switch>
                     </SidebarMain>
                 </Sidebar>
+
+                {/*<Messenger/>*/}
             </div>
         )
     }
