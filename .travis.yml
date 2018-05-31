@@ -24,9 +24,9 @@ install:
 
 script:
   # Run Regression Tests
-  - npm install
-  - npm run test:stagingRegression
-  - npm run test:stagingUpdate
+  #- npm install
+  #- npm run test:stagingRegression
+  #- npm run test:stagingUpdate
 
   # TODO Handle how to push app to firebase
   # Build and pushes to firebase
@@ -40,9 +40,9 @@ script:
   #- npm install
   #- npm test
 
-  - cd ../
+  #- cd ../
   # Runs esdoc command to document this build after Travis checks it
-  - ./node_modules/.bin/esdoc
+  #- ./node_modules/.bin/esdoc
 
 env:
   global:
