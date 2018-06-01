@@ -9,6 +9,8 @@ import * as types from 'actionTypes';
 // - Import actions
 import * as globalActions from 'globalActions';
 
+// - Import app API
+import EncryptionAPI from '../api/EncryptionAPI';
 import forge from 'node-forge';
 
 /* _____________ CRUD DB _____________ */
@@ -20,6 +22,7 @@ import forge from 'node-forge';
  */
 export var dbAddPost = (newPost, callBack) => {
     return (dispatch, getState) => {
+        dispatch(globalActions.showTopLoading());
 
         let uid = getState().authorize.uid;
         let post = {
@@ -39,34 +42,40 @@ export var dbAddPost = (newPost, callBack) => {
             video: '',
             disableComments: newPost.disableComments,
             disableSharing: newPost.disableSharing,
-            deleted: false
+            deleted: false,
         };
 
-        // deep copy
+        // Deep copy
         let encryptedPost = JSON.parse(JSON.stringify(post));
 
-        // Get own public key
-        let key = localStorage.getItem('PUBkey');
-        let iv = localStorage.getItem('PUBiv');
-        let privateKey, publicKey;
-    
-        // encrypt some bytes using GCM mode
-        let cipher = forge.cipher.createCipher('AES-CBC', key);
-        cipher.start({iv: iv});
-        cipher.update(forge.util.createBuffer(post.body));
-        cipher.finish();
-        encryptedPost.body = forge.util.encode64(cipher.output.getBytes());
-
-        let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
-        return postRef.then(() => {
-            dispatch(addPost(uid, {
-                ...post,
-                id: postRef.key
-            }));
-            callBack();
-        }, (error) => dispatch(globalActions.showErrorMessage(error.message)));
-    };
+        
+        // let privateKey, publicKey;
+        // Retrieve keys from database
+        let key, iv;
+        let keysRef = firebaseRef.child(`keys/${uid}`);
+        keysRef.once('value', (snap) => {
+            if(snap.val()) {
+                key = snap.val().key || {};
+                iv = snap.val().iv || {};
+            }
+        
+            // encrypt text of post
+            if(key && iv) encryptedPost.body = EncryptionAPI.encrypt(post.body, key, iv);
+            
+            // Create post in firebase
+            let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
+            return postRef.then(() => {
+                dispatch(addPost(uid, {
+                    ...post,
+                    id: postRef.key,
+                }));
+                callBack();
+                dispatch(globalActions.hideTopLoading());
+            }, (error) => dispatch(globalActions.showErrorMessage(error.message)));
+        });
+    }
 }
+    
 
 
 /**
@@ -97,34 +106,36 @@ export const dbAddImagePost = (newPost, callBack) => {
             video: '',
             disableComments: newPost.disableComments ? newPost.disableComments : false,
             disableSharing: newPost.disableSharing ? newPost.disableSharing : false,
-            deleted: false
+            deleted: false,
         };
 
-        // deep copy
-        let encryptedPost = JSON.parse(JSON.stringify(post));
+      // Deep copy
+      let encryptedPost = JSON.parse(JSON.stringify(post));
 
-        // Get own public key
-        let key = localStorage.getItem('PUBkey');
-        let iv = localStorage.getItem('PUBiv');
-        let privateKey, publicKey;
-    
-        // encrypt some bytes using GCM mode
-        let cipher = forge.cipher.createCipher('AES-CBC', key);
-        cipher.start({iv: iv});
-        cipher.update(forge.util.createBuffer(post.body));
-        cipher.finish();
-        encryptedPost.body = forge.util.encode64(cipher.output.getBytes());
-
-        // TODO: Encrypt images
-        let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
-        return postRef.then(() => {
-            dispatch(addPost(uid, {
-                ...post,
-                id: postRef.key       
-            }));
-            callBack();
-            dispatch(globalActions.hideTopLoading());
-        });
+      // let privateKey, publicKey;
+      // Retrieve keys from database
+      let key, iv;
+      let keysRef = firebaseRef.child(`keys/${uid}`);
+      keysRef.once('value', (snap) => {
+          if(snap.val()) {
+              key = snap.val().key || {};
+              iv = snap.val().iv || {};
+          }
+      
+          // encrypt text of post
+          if(key && iv) encryptedPost.body = EncryptionAPI.encrypt(post.body, key, iv);
+          
+          // Create post in firebase
+          let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
+          return postRef.then(() => {
+              dispatch(addPost(uid, {
+                  ...post,
+                  id: postRef.key,
+              }));
+              callBack();
+              dispatch(globalActions.hideTopLoading());
+          }, (error) => dispatch(globalActions.showErrorMessage(error.message)));
+      });
     };
 }
 
@@ -134,7 +145,7 @@ export const dbAddImagePost = (newPost, callBack) => {
  * @param {func} callBack //TODO: anti pattern should change to parent state or move state to redux
  */
 export const dbUpdatePost = (newPost, callBack) => {
-    // console.log(newPost);
+    console.log("function updatePost");
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
 
@@ -161,18 +172,37 @@ export const dbUpdatePost = (newPost, callBack) => {
             video: '',
             disableComments: newPost.disableComments !== undefined ? newPost.disableComments : (post.disableComments ? post.disableComments : false),
             disableSharing: newPost.disableSharing !== undefined ? newPost.disableSharing : (post.disableSharing ? post.disableSharing : false),
-            deleted: false
+            deleted: false,
         };
 
-        updates[`userPosts/${uid}/posts/${newPost.id}`] = updatedPost;
+        // Deep copy
+      let encryptedPost = JSON.parse(JSON.stringify(updatedPost));
 
-        return firebaseRef.update(updates).then((result) => {
-            dispatch(updatePost(uid, { id: newPost.id, ...updatedPost }));
-            callBack();
-            dispatch(globalActions.hideTopLoading());
-        }, (error) => {
-            dispatch(globalActions.showErrorMessage(error.message));
-            dispatch(globalActions.hideTopLoading());
+      // let privateKey, publicKey;
+      // Retrieve keys from database
+      let key, iv;
+      let keysRef = firebaseRef.child(`keys/${uid}`);
+      keysRef.once('value', (snap) => {
+          if(snap.val()) {
+              key = snap.val().key || {};
+              iv = snap.val().iv || {};
+          }
+      
+            // encrypt text of post
+            if(key && iv) {
+                encryptedPost.body = EncryptionAPI.encrypt(updatedPost.body, key, iv);
+            }
+
+            updates[`userPosts/${uid}/posts/${newPost.id}`] = encryptedPost;
+
+            return firebaseRef.update(updates).then((result) => {
+                dispatch(updatePost(uid, { id: newPost.id, ...updatedPost }));
+                callBack();
+                dispatch(globalActions.hideTopLoading());
+            }, (error) => {
+                dispatch(globalActions.showErrorMessage(error.message));
+                dispatch(globalActions.hideTopLoading());
+            });
         });
     };
 }
@@ -204,22 +234,22 @@ export const dbDeletePost = (id) => {
 
 //  Get all user posts from data base (self posts)
 export const dbGetPosts = () => {
+    console.log('function dbGetPosts')
     return (dispatch, getState) => {
         // Look up key and iv to decipher post
-        let key, iv, decipher;
+        let key, iv;
         let uid = getState().authorize.uid;
         let keysRef = firebaseRef.child(`keys/${uid}`);
-        keysRef.once('value').then((snap) => {
+        keysRef.once('value',(snap) => {
             if(snap.val()) {
                 key = snap.val().key || {};
                 iv = snap.val().iv || {};
-                decipher = forge.cipher.createDecipher('AES-CBC', key);
             }
             if (uid) {
                 let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
                 
                 // Decrypt body of post look up all of own's posts
-                return postsRef.once('value').then((snapshot) => {
+                return postsRef.once('value', (snapshot) => {
                     let posts = snapshot.val() || {};
                     let parsedPosts = {};
                     Object.keys(posts).forEach((postId) => {
@@ -227,14 +257,9 @@ export const dbGetPosts = () => {
                             id: postId,
                             ...posts[postId]
                         };
+                        
                         // Decrypt body of post
-                        if(snap.val()) {
-                            decipher.start({iv: iv});
-                            decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
-                            decipher.finish();
-                            let decipheredText = decipher.output.toString();
-                            parsedPosts[postId].body = decipheredText
-                        }
+                        if(key && iv ) parsedPosts[postId].body = EncryptionAPI.decrypt(parsedPosts[postId].body, key, iv);
                     });
                     
                     dispatch(addPosts(uid, parsedPosts));
@@ -244,18 +269,18 @@ export const dbGetPosts = () => {
     };
 }
 
-//  Get all user posts from data base
+//  Get single post from database by its id
 export const dbGetPostById = (uid, postId) => {
 
+    console.log('function dbGetPostsById')
     return (dispatch, getState) => {
         // Look up key and iv to decipher post
-        let key, iv, decipher;
+        let key, iv;
         let keysRef = firebaseRef.child(`keys/${uid}`);
         keysRef.once('value').then((snap) => {
             if(snap.val()) {
                 key = snap.val().key || {};
                 iv = snap.val().iv || {};
-                decipher = forge.cipher.createDecipher('AES-CBC', key);
             }
             if (uid) {
                 let postsRef = firebaseRef.child(`userPosts/${uid}/posts/${postId}`);
@@ -266,14 +291,10 @@ export const dbGetPostById = (uid, postId) => {
                         id: postId,
                         ...newPost
                     };
+
                     // Decrypt body of post
-                    if(snap.val()) {
-                        decipher.start({iv: iv});
-                        decipher.update(forge.util.createBuffer(forge.util.decode64(post.body)));
-                        decipher.finish();
-                        let decipheredText = decipher.output.toString();
-                        post.body = decipheredText
-                    }
+                    if(key && iv) post.body = EncryptionAPI.decrypt(post.body, key, iv);
+
                     dispatch(addPost(uid, post));
                 });
             }
@@ -286,39 +307,34 @@ export const dbGetPostById = (uid, postId) => {
  * @param  {string} uid is id of user whose posts we want to get
  */
 export const dbGetPostsByUserId = (uid) => {
+    console.log('function dbGetPostsByUserId')
     return (dispatch, getState) => {
         // Look up key and iv to decipher post
-        let key, iv, decipher;
+        let key, iv;
         let keysRef = firebaseRef.child(`keys/${uid}`);
-        keysRef.once('value').then((snap) => {
+        keysRef.once('value', (snap) => {
             if(snap.val()) {
                 key = snap.val().key || {};
                 iv = snap.val().iv || {};
-                decipher = forge.cipher.createDecipher('AES-CBC', key);
             }
 
             if (uid) {
                 let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
     
                 // Look up all posts of user with this id
-                return postsRef.once('value').then((snapshot) => {
+                return postsRef.once('value', (snapshot) => {
                     let posts = snapshot.val() || {};
                     let parsedPosts = {};
+
                     Object.keys(posts).forEach((postId) => {
                         parsedPosts[postId] = {
                             id: postId,
                             ...posts[postId]
                         };
+
                         // Decrypt body of post
-                        if(snap.val()) {
-                            decipher.start({iv: iv});
-                            decipher.update(forge.util.createBuffer(forge.util.decode64(parsedPosts[postId].body)));
-                            decipher.finish();
-                            let decipheredText = decipher.output.toString();
-                            parsedPosts[postId].body = decipheredText
-                        }
+                        if(key && iv) parsedPosts[postId].body = EncryptionAPI.decrypt(parsedPosts[postId].body, key, iv);
                     });
-                
                     dispatch(addPosts(uid, parsedPosts));
                 });
             }
@@ -336,7 +352,7 @@ export const dbGetPostsByUserId = (uid) => {
 export const addPost = (uid, post) => {
     return {
         type: types.ADD_POST,
-        payload: { uid, post }
+        payload: { uid, post },
     };
 }
 
@@ -348,7 +364,7 @@ export const addPost = (uid, post) => {
 export const updatePost = (uid, post) => {
     return {
         type: types.UPDATE_POST,
-        payload: { uid, post }
+        payload: { uid, post },
     };
 }
 
@@ -360,7 +376,7 @@ export const updatePost = (uid, post) => {
 export const deletePost = (uid, id) => {
     return {
         type: types.DELETE_POST,
-        payload: { uid, id }
+        payload: { uid, id },
     };
 }
 
@@ -373,7 +389,7 @@ export const deletePost = (uid, id) => {
 export const addPosts = (uid, posts) => {
     return {
         type: types.ADD_LIST_POST,
-        payload: { uid, posts }
+        payload: { uid, posts },
     };
 }
 
@@ -382,7 +398,7 @@ export const addPosts = (uid, posts) => {
  */
 export const clearAllData = () => {
     return {
-        type: types.CLEAR_ALL_DATA_POST
+        type: types.CLEAR_ALL_DATA_POST,
     };
 }
 
@@ -393,6 +409,6 @@ export const clearAllData = () => {
 export const addImagePost = (uid, post) => {
     return {
         type: types.ADD_IMAGE_POST,
-        payload: { uid, post }
+        payload: { uid, post },
     };
 }
