@@ -35,37 +35,37 @@ export const dbAddComment = (newComment, callBack) => {
          // Deep copy of comments
          let encryptedComment = JSON.parse(JSON.stringify(comment));
 
-        //  // Get own public key
-        //  let key = localStorage.getItem('PUBkey');
-        //  let iv = localStorage.getItem('PUBiv');
-        //  let privateKey, publicKey;
+         // Get own public key
+         let key = localStorage.getItem('PUBkey');
+         let iv = localStorage.getItem('PUBiv');
+        let privateKey, publicKey;
+        let keysRef = firebaseRef.child(`keys/${uid}`);
+        keysRef.once('value',(snap) => {
+            if(snap.val() && (!key || !iv)) {
+                key = snap.val().key || {};
+                iv = snap.val().iv || {};
+            }
+            let privateKey, publicKey;
         
-        //  // Encrypt contents of comments
-        //  let cipher = forge.cipher.createCipher('AES-CBC', key);
-        //  cipher.start({iv: iv});
-        //  cipher.update(forge.util.createBuffer(comment.text));
-        //  cipher.finish();
-        //  encryptedComment.text = forge.util.encode64(cipher.output.getBytes()); 
+         // Encrypt contents of comments
+         let cipher = forge.cipher.createCipher('AES-CBC', key);
+         cipher.start({iv: iv});
+         cipher.update(forge.util.createBuffer(comment.text));
+         cipher.finish();
+         encryptedComment.text = forge.util.encode64(cipher.output.getBytes()); 
         // debugger;
 
         // Save encrypted comment to firebase
         let commentRef = firebaseRef.child(`postComments/${newComment.postId}`).push(encryptedComment);
-        // dispatch(addComment(
-        //     {
-        //         comment,
-        //         postId: newComment.postId,
-        //         id: commentRef.key,
-        //         editorStatus: false
-        //     }));
+        dispatch(addComment(
+            {
+                comment,
+                postId: newComment.postId,
+                id: commentRef.key,
+                editorStatus: false
+            }));
         // debugger;
-            return commentRef.then(() => {
-                dispatch(addComment(
-                    {
-                        comment,
-                        postId: newComment.postId,
-                        id: commentRef.key,
-                        editorStatus: false
-                    }));
+          
             callBack();
             dispatch(globalActions.hideTopLoading());
 
@@ -86,7 +86,6 @@ export const dbAddComment = (newComment, callBack) => {
 
 // Get all comments from database
 export const dbGetComments = () => {
-    console.log('in function dbGetComments()')
     return (dispatch, getState) => {
         // let key, iv, decipher;
         let uid = getState().authorize.uid;
@@ -94,43 +93,43 @@ export const dbGetComments = () => {
             let commentsRef = firebaseRef.child(`postComments`);
             let comments;
             return commentsRef.on('value', (snapshot) => {
+                console.log('in function dbGetComments()')
                 comments = snapshot.val() || {};
-                
-                // // Decrypt comments 
-                // Object.keys(comments).forEach((postId) => {
-                //     let singleComment = [];
-                //     // For each post, decrypt its comments
-                //     Object.keys(comments[postId]).forEach((commentId) => {
-                //         // Look up key and iv to decipher post
-                //         let key, iv;
-                //         let postUid = comments[postId][commentId].userId;
-                //         let keysRef = firebaseRef.child(`keys/${postUid}`);
-                //         keysRef.once('value').then((snap) => {
-                //                 key = snap.val().key || {};
-                //                 iv = snap.val().iv || {};
-                //                 if(key && iv) {
-                //                     let decipher = forge.cipher.createDecipher('AES-CBC', key);
-                //                     decipher.start({iv: iv});
-                //                     decipher.update(forge.util.createBuffer(forge.util.decode64(comments[postId][commentId].text)));
-                //                     decipher.finish();
-                //                     let input = comments[postId][commentId].text
-                //                     console.log(`cipher is ${comments[postId][commentId].text} and`)
-                //                     let output = decipher.output;
-                //                     debugger;
-                //                     let decipheredText = decipher.output.toString();
-                //                     debugger;
-                //                     console.log(`plaintext is ${decipheredText}`)
-                //                     comments[postId][commentId].text = decipheredText;
-                //                 }
-                //         });
-                //     });
-                    
-                // })
-                // debugger;
-
-                dispatch(addCommentList(comments));
-            });
-        }
+                // Get reference to all keys in db
+                let keysRef = firebaseRef.child(`keys`);
+                keysRef.once('value', (keySnapshot) => {
+                    let x = keySnapshot.val();
+                    // For each post, look up its comments
+                    Object.keys(comments).forEach((postId) => {
+                        // For each comment of a post, decrypt its contents
+                        Object.keys(comments[postId]).forEach((commentId) => {
+                            // Reference to current comment
+                            let currComment = comments[postId][commentId] 
+                            // Look up key and iv to decipher comment
+                            let key = keySnapshot.val()[currComment.userId].key || {};
+                            let iv = keySnapshot.val()[currComment.userId].iv || {};
+                            if(key && iv) {
+                                // decipher comment
+                                let decipher = forge.cipher.createDecipher('AES-CBC', key);
+                                decipher.start({iv: iv});
+                                decipher.update(forge.util.createBuffer(forge.util.decode64(currComment.text)));
+                                let pass = decipher.finish();
+                                let input = currComment.text
+                                console.log(`cipher is ${currComment.text} and`)
+                                // debugger;
+                                if (pass) {
+                                    let decipheredText = decipher.output.toString();
+                                    // debugger;
+                                    console.log(`plaintext is ${decipheredText}`)
+                                    comments[postId][commentId].text = decipheredText;
+                                }
+                            }
+                            });
+                        });
+                        dispatch(addCommentList(comments));
+                    });
+                });
+            }
     }
 }
 
