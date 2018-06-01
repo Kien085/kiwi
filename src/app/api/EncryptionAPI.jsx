@@ -37,12 +37,12 @@ const decrypt = (ciphertext, key, iv) => {
     decipher.start({iv: iv});
     decipher.update(forge.util.createBuffer(data));
     let pass = decipher.finish();
-    // return pass ? decipher.output.toString() : ciphertext;
-    if (pass) {
-        return decipher.output.toString();
-    }
-    console.error('Decryption failed');
-    return ciphertext;
+    return pass ? decipher.output.toString() : ciphertext;
+    // if (pass) {
+    //     return decipher.output.toString();
+    // }
+    // console.error('Decryption failed');
+    // return ciphertext;
 }
 
 /**
