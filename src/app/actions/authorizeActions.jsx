@@ -32,7 +32,6 @@ export var dbLogin = (email, password) => {
                 if (email.localeCompare(info.email) === 0) {
                     if(info.password) {
                         password = bcrypt.compareSync(password, info.password) ? info.password : password;
-                        debugger;
                     }
                     break;
                 };
@@ -110,8 +109,8 @@ export var dbSignup = (user) => {
                     localStorage.setItem('pubPair', publicKey);
                     // Generate a public key for symmetric encryption
                     // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
-                    let key = forge.random.getBytesSync(16);
-                    let iv = forge.random.getBytesSync(16);
+                    let key = forge.random.getBytesSync(32);
+                    let iv = forge.random.getBytesSync(32);
                     localStorage.setItem('PUBkey', key);
                     localStorage.setItem('PUBiv', iv);
             

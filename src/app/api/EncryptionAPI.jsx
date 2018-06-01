@@ -10,7 +10,6 @@ import forge from 'node-forge';
  * @returns encrypted message
  */
 const encrypt = (plaintext, key, iv) => {
-    // encrypt some bytes using AES
     const cipher = forge.cipher.createCipher('AES-CBC', key);
     cipher.start({iv: iv});
     cipher.update(forge.util.createBuffer(plaintext));
