@@ -184,7 +184,7 @@ export const dbResetPassword = (email) => {
 /* _____________ CRUD State _____________ */
 
 /**
- * Loing user
+ * Login user
  * @param {string} uid 
  */
 export var login = (uid) => {
