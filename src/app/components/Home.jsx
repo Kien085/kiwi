@@ -119,7 +119,7 @@ export class Home extends Component {
                     </SidebarMain>
                 </Sidebar>
 
-                {/*<Messenger/>*/}
+                <Messenger/>
             </div>
         )
     }
