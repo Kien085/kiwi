@@ -17,6 +17,8 @@ import * as PostAPI from 'PostAPI';
 
 // - Import actions
 import * as globalActions from 'globalActions';
+import { AdPost } from 'AdPost';
+import { AdSky } from 'AdSky';
 
 export class Blog extends Component {
     /**
@@ -29,7 +31,7 @@ export class Blog extends Component {
         this.state = {
             // It's true if we want to have two column of posts.
             divided: false,
-            
+
             // If it's true comment will be disabled on post.
             disableComments: this.props.disableComments,
 
@@ -40,7 +42,18 @@ export class Blog extends Component {
             openPostWrite: false,
 
             // The title of home header.
-            homeTitle: ''
+            homeTitle: '',
+
+            // Whether or not ads on the side are present
+            adSky: true,
+
+            // Whether or not ads in the posts are present
+            adPost: true,
+
+            // Which ads to display
+            rand : Math.floor(Math.random() * 4),
+            rand2 : Math.floor(Math.random() * 4),
+            rand3 : Math.floor(Math.random() * 4),
         };
     }
 
@@ -97,10 +110,10 @@ export class Blog extends Component {
             const sortedPosts = PostAPI.sortObjectsDate(parsedPosts);
 
             if (sortedPosts.length > 6) {
-                postBack.divided = true;
+                // postBack.divided = true;
 
-            } 
-            
+            }
+
             else {
                 postBack.divided = false;
             }
@@ -138,7 +151,58 @@ export class Blog extends Component {
                 else {
                     postBack.evenPostList.push(newPost);
                 }
-            })
+            });
+
+            if (postBack.evenPostList.length >= 10) {
+                for (let i = 10; i < postBack.evenPostList.length; i++) {
+                    let img = "";
+                    switch (this.state.rand) {
+                        case 0:
+                            img = "images/postAds/yourAdHere.jpg";
+                            break;
+                        case 1:
+                            img = "images/postAds/chase.jpg";
+                            break;
+                        case 2:
+                            img = "images/postAds/Allstate.png";
+                            break;
+                        case 3:
+                            img = "images/postAds/AT&T.png";
+                            break;
+                    }
+                    let ad = (
+                        <div key={i}>
+                            <div style={{ height: "16px" }}></div>
+                            <AdPost image={img} />
+                        </div>
+                    );
+                    this.state.adPost ? postBack.evenPostList.splice(i, 0, ad) : '';
+                }
+            } else {
+                let halfway = postBack.evenPostList.length / 2;
+                let img = "";
+                switch (this.state.rand) {
+                    case 0:
+                        img = "images/postAds/yourAdHere.jpg";
+                        break;
+                    case 1:
+                        img = "images/postAds/chase.jpg";
+                        break;
+                    case 2:
+                        img = "images/postAds/Allstate.png";
+                        break;
+                    case 3:
+                        img = "images/postAds/AT&T.png";
+                        break;
+                }
+                let ad = (
+                    <div key={halfway}>
+                        <div style={{ height: "16px" }}></div>
+                        <AdPost image={img} />
+                    </div>
+                );
+                this.state.adPost ? postBack.evenPostList.splice(halfway, 0, ad) : '';
+            }
 
             return postBack;
         }
@@ -149,17 +213,47 @@ export class Blog extends Component {
     }
 
     /**
-     * Reneder component DOM
-     * @return {react element} return the DOM which rendered by component
+     * Render component DOM
+     * @return {react element} return the DOM which is rendered by component
      */
     render() {
 
         const postList = this.postLoad();
-
+        let img = "";
+        switch (this.state.rand2) {
+            case 0:
+                img = "images/skyAds/toyota.png";
+                break;
+            case 1:
+                img = "images/skyAds/coupon.jpg";
+                break;
+            case 2:
+                img = "images/skyAds/tide.jpg";
+                break;
+            case 3:
+                img = "images/skyAds/advertise.jpg";
+                break;
+        }
+        let img2 = "";
+        switch (this.state.rand3) {
+            case 0:
+                img2 = "images/skyAds/toyota.png";
+                break;
+            case 1:
+                img2 = "images/skyAds/coupon.jpg";
+                break;
+            case 2:
+                img2 = "images/skyAds/tide.jpg";
+                break;
+            case 3:
+                img2 = "images/skyAds/advertise.jpg";
+                break;
+        }
         const { tag, displayWriting, } = this.props;
-
         return (
             <div >
+                {this.state.adSky ? <AdSky left={false} image={img}/> : ''}
+                {this.state.adSky ? <AdSky left={true} image={img2} /> : ''}
                 <div className='grid grid__gutters grid__1of2 grid__space-around animate-top'>
                     <div className='grid-cell animate-top' style={{ maxWidth: '530px', minWidth: '280px' }}>
                         {displayWriting && !tag
@@ -168,7 +262,7 @@ export class Blog extends Component {
                                     <ListItem
                                         primaryText={<span style={{ color: grey400, cursor: "text" }}>What's new with you?</span>}
                                         leftAvatar={<UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} size={36} />}
-                                        rightIcon={<svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M10.133 15.239H3.84L8.533 9.92l2.995 3.393 3.939-5.438 5.226 7.364h-10.56zM1.742 0h20.516c.606 0 .826.063 1.047.181.221.119.395.293.514.514.118.221.181.441.181 1.047v14.516c0 .606-.063.826-.181 1.047a1.234 1.234 0 0 1-.514.514c-.221.118-.441.181-1.047.181H1.742c-.606 0-.826-.063-1.047-.181a1.234 1.234 0 0 1-.514-.514C.063 17.084 0 16.864 0 16.258V1.742C0 1.136.063.916.181.695.3.474.474.3.695.181.916.063 1.136 0 1.742 0zm.391 2.25v13.5h19.734V2.25H2.133zM6.72 7.875c-1.084 0-1.92-.801-1.92-1.739 0-1.04.836-1.84 1.92-1.84.978 0 1.813.8 1.813 1.84 0 .938-.835 1.739-1.813 1.739z" fill="#7ED321"/></svg>}
+                                        rightIcon={<svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M10.133 15.239H3.84L8.533 9.92l2.995 3.393 3.939-5.438 5.226 7.364h-10.56zM1.742 0h20.516c.606 0 .826.063 1.047.181.221.119.395.293.514.514.118.221.181.441.181 1.047v14.516c0 .606-.063.826-.181 1.047a1.234 1.234 0 0 1-.514.514c-.221.118-.441.181-1.047.181H1.742c-.606 0-.826-.063-1.047-.181a1.234 1.234 0 0 1-.514-.514C.063 17.084 0 16.864 0 16.258V1.742C0 1.136.063.916.181.695.3.474.474.3.695.181.916.063 1.136 0 1.742 0zm.391 2.25v13.5h19.734V2.25H2.133zM6.72 7.875c-1.084 0-1.92-.801-1.92-1.739 0-1.04.836-1.84 1.92-1.84.978 0 1.813.8 1.813 1.84 0 .938-.835 1.739-1.813 1.739z" fill="#7ED321" /></svg>}
                                         style={{ padding: "7px 0px" }}
                                         onTouchTap={this.handleOpenPostWrite}
                                     />
