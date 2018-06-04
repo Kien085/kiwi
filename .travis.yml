@@ -2,47 +2,30 @@ language: node_js
 
 node_js: stable
 
-# whitelist
-branches:
-  only:
-    - master
-    - staging
-    - production
-   
-# blacklist
+# safelist: we only allow these branches to run on travis
 # branches:
-#   except:
-#     - development
-
-
-# cache:
-#   directories:
-#     - node_modules
+#   only:
+#     - master
+#     - staging
+#     - production
 
 install:
   - npm install -g firebase-tools
 
 script:
+  - echo "Deploying!"
   # Run Regression Tests
-  #- npm install
-  #- npm run test:stagingRegression
-  #- npm run test:stagingUpdate
+  - cd src
+  - npm install
+  - npm run build
+  - cp public/* ~/public
+  - cd ../
 
-  # TODO Handle how to push app to firebase
-  # Build and pushes to firebase
-  #- npm run build
-  #- mv build ../../../
-  #- cd ../../../
-  #- rm -rf public
-  #- mv build public
-  # PRODUCTION SPECIFIC INSTRUCTIONS: DO NOT CHANGE THESE BELOW
-  #- firebase deploy --token "$FIREBASE_TOKEN_PROD" -P "kiwi-prod"
-  #- npm install
-  #- npm test
 
-  #- cd ../
-  # Runs esdoc command to document this build after Travis checks it
-  #- ./node_modules/.bin/esdoc
+after_success:
+  # STAGING SPECIFIC INSTRUCTIONS: DO NOT CHANGE THESE BELOW
+  - firebase deploy --token "$FIREBASE_TOKEN_STAGING" -P "kiwi-staging"
+
 
 env:
   global:
