@@ -67,12 +67,9 @@ export var dbAddFriendRequest = (userFriend) => {
             let userRef = snapshot.val() || {};
             console.error('Change occurred in my friend request')
             // Add to friends if user accepts friend request
-            if (userRef.approved === 'accepted') {
+            if(userRef.acknowledged && userRef.approved) 
                 dbAddFriend(userFriend)
-            } else if (userRef.approved === 'rejected') {
-                dbDeleteFriendRequest(userFriend.userId)
-                // dispatch(deleteFriendUser(uid, friendId))
-            }
+            // TODO: delete req if denied
         });
     }
 
@@ -96,9 +93,9 @@ export var dbHandleFriendRequests = () => {
                 let user = snapshot.val()[userId];
 
                 // TODO: Remove from request branch
-                if (user.approved === 'accepted') {
+                if (user.approved) {
                     dispatch(addFriendUser(uid, userId, ));
-                } else if (user.approved === 'rejected') {
+                } else {
                     dispatch(deleteFriendUser(uid, userId))
                 }
                
