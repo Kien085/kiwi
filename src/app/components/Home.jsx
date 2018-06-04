@@ -119,7 +119,8 @@ export class Home extends Component {
                     </SidebarMain>
                 </Sidebar>
 
-                <Messenger/>
+
+                <Messenger uid={this.props.uid}/>
             </div>
         )
     }
@@ -146,6 +147,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  */
 const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize
+
     let mergedPosts = {}
     const circles = state.circle ? (state.circle.userCircles[uid] || {}) : {}
     const followingUsers = CircleAPI.getFollowingUsers(circles)
