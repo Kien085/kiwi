@@ -12,7 +12,6 @@ branches:
 # blacklist
 # branches:
 #   except:
-#     - development
 
 
 # cache:
@@ -24,21 +23,15 @@ install:
 
 script:
   # Run Regression Tests
-  #- npm install
   #- npm run test:stagingRegression
   #- npm run test:stagingUpdate
 
   # TODO Handle how to push app to firebase
   # Build and pushes to firebase
-  #- npm run build
-  #- mv build ../../../
-  #- cd ../../../
-  #- rm -rf public
-  #- mv build public
+
   # PRODUCTION SPECIFIC INSTRUCTIONS: DO NOT CHANGE THESE BELOW
-  #- firebase deploy --token "$FIREBASE_TOKEN_PROD" -P "kiwi-prod"
-  #- npm install
-  #- npm test
+  cd src/
+  - firebase deploy --token "$FIREBASE_TOKEN_STAGING" -P "kiwi-staging"
 
   #- cd ../
   # Runs esdoc command to document this build after Travis checks it

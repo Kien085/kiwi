@@ -364,7 +364,6 @@ export class PostWrite extends Component {
                     open={this.state.galleryOpen}
                     contentStyle={styles.dialog}
                     onRequestClose={this.handleCloseGallery}
-                    overlayStyle={{ background: "rgba(0,0,0,0.12)" }}
                     autoDetectWindowHeight={false}
                 >
                     <ImageGallery set={this.onRequestSetImage} close={this.handleCloseGallery} />
