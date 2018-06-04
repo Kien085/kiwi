@@ -28,10 +28,8 @@ script:
 
 after_success:
   - echo "Tests are passing!"
-  - echo "Deploying current build to firebase staging"
   # STAGING SPECIFIC INSTRUCTIONS: DO NOT CHANGE THESE BELOW
-  # - cd src
-  - firebase deploy --token "$FIREBASE_TOKEN_STAGING" -P "kiwi-staging"
+  # We do not deploy for developer (ie "master") branch. 
 
 env:
   global:
