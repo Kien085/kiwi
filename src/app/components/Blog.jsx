@@ -44,12 +44,6 @@ export class Blog extends Component {
             // The title of home header.
             homeTitle: '',
 
-            // Whether or not ads on the side are present
-            adSky: true,
-
-            // Whether or not ads in the posts are present
-            adPost: true,
-
             // Which ads to display
             rand : Math.floor(Math.random() * 4),
             rand2 : Math.floor(Math.random() * 4),
@@ -176,7 +170,7 @@ export class Blog extends Component {
                             <AdPost image={img} />
                         </div>
                     );
-                    this.state.adPost ? postBack.evenPostList.splice(i, 0, ad) : '';
+                    this.props.adPost ? postBack.evenPostList.splice(i, 0, ad) : '';
                 }
             } else {
                 let halfway = postBack.evenPostList.length / 2;
@@ -201,7 +195,7 @@ export class Blog extends Component {
                         <AdPost image={img} />
                     </div>
                 );
-                this.state.adPost ? postBack.evenPostList.splice(halfway, 0, ad) : '';
+                this.props.adPost ? postBack.evenPostList.splice(halfway, 0, ad) : '';
             }
 
             return postBack;
@@ -217,7 +211,7 @@ export class Blog extends Component {
      * @return {react element} return the DOM which is rendered by component
      */
     render() {
-
+        const { tag, displayWriting, adSky, adPost} = this.props;
         const postList = this.postLoad();
         let img = "";
         switch (this.state.rand2) {
@@ -249,11 +243,10 @@ export class Blog extends Component {
                 img2 = "images/skyAds/advertise.jpg";
                 break;
         }
-        const { tag, displayWriting, } = this.props;
         return (
             <div >
-                {this.state.adSky ? <AdSky left={false} image={img}/> : ''}
-                {this.state.adSky ? <AdSky left={true} image={img2} /> : ''}
+                {adSky ? <AdSky left={false} image={img}/> : ''}
+                {adSky ? <AdSky left={true} image={img2} /> : ''}
                 <div className='grid grid__gutters grid__1of2 grid__space-around animate-top'>
                     <div className='grid-cell animate-top' style={{ maxWidth: '530px', minWidth: '280px' }}>
                         {displayWriting && !tag
