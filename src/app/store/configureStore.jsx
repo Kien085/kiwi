@@ -14,6 +14,7 @@ import { globalReducer } from 'globalReducer';
 import { userReducer } from 'userReducer';
 import { circleReducer } from 'circleReducer';
 import { notifyReducer } from 'notifyReducer';
+import { friendReducer } from 'friendReducer';
 
 // Create a history of your choosing (we're using a browser history in this case)
 export const history = createHistory();
@@ -33,7 +34,8 @@ let reducer = redux.combineReducers({
     router: routerReducer,
     user: userReducer,
     notify: notifyReducer,
-    global: globalReducer
+    global: globalReducer,
+    friends: friendReducer
 });
 
 // - initial state

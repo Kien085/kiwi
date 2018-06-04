@@ -36,6 +36,7 @@ export let friendReducer = (state = defaultState, action) => {
                     return false;
                 }))
             ];
+        }
 }
 
 

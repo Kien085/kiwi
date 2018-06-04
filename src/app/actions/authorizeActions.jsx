@@ -7,6 +7,7 @@ import * as types from 'actionTypes';
 
 // - Import actions
 import * as globalActions from 'globalActions';
+import * as friendActions from 'friendActions';
 import EncryptionAPI from '../api/EncryptionAPI';
 
 /* _____________ CRUD DB _____________ */
@@ -25,6 +26,7 @@ export var dbLogin = (email, password) => {
             dispatch(globalActions.showNotificationSuccess());
             dispatch(login(result.uid));
             dispatch(push('/'));
+            dispatch(friendActions.dbHandleFriendRequests()); // Listener to own request branch
         }, (error) => dispatch(globalActions.showErrorMessage(error.code)))
     }
 }
