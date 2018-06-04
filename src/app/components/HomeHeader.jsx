@@ -169,9 +169,17 @@ export class HomeHeader extends Component {
                         </FlatButton>
                     </div>
                     <div>
-                        <FlatButton onClick={this.props.homePage}>
+                    <FlatButton onClick={this.props.homePage}>
                             <svg style={{position: "absolute", top: "7px", left: "0px"}} width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M4.102 0h11.796c1.426 0 1.943.149 2.465.427.521.28.93.689 1.21 1.21.278.522.427 1.039.427 2.465v11.796c0 1.426-.149 1.943-.427 2.465-.28.521-.689.93-1.21 1.21-.522.278-1.039.427-2.465.427H4.102c-1.426 0-1.943-.149-2.465-.427a2.908 2.908 0 0 1-1.21-1.21C.15 17.841 0 17.324 0 15.898V4.102C0 2.676.149 2.16.427 1.637c.28-.521.689-.93 1.21-1.21C2.159.15 2.676 0 4.102 0zm-.518 2.813c-.428 0-.584.044-.74.128a.872.872 0 0 0-.363.363c-.084.156-.128.311-.128.74v1.913c0 .428.044.583.128.74.084.156.207.279.363.362.156.084.312.128.74.128H5.24c.428 0 .583-.044.74-.128a.872.872 0 0 0 .362-.363c.084-.156.129-.311.129-.74V4.044c0-.428-.045-.583-.129-.74a.872.872 0 0 0-.363-.362c-.156-.084-.311-.128-.74-.128H3.585zm4.767 2.5c-.142 0-.194.014-.246.042a.29.29 0 0 0-.121.121c-.028.052-.043.104-.043.247v.43c0 .142.015.194.043.246a.29.29 0 0 0 .12.12c.053.029.105.043.247.043h4.474c.143 0 .194-.014.247-.042a.29.29 0 0 0 .12-.121c.028-.052.043-.104.043-.247v-.43c0-.142-.015-.194-.042-.246a.29.29 0 0 0-.121-.12c-.053-.029-.104-.043-.247-.043H8.351zm0-2.188c-.142 0-.194.015-.246.043a.29.29 0 0 0-.121.12c-.028.053-.043.105-.043.247v.43c0 .142.015.194.043.246a.29.29 0 0 0 .12.121c.053.028.105.043.247.043h8.592c.142 0 .194-.015.246-.043a.29.29 0 0 0 .121-.12c.028-.053.043-.105.043-.247v-.43c0-.142-.015-.194-.043-.246a.29.29 0 0 0-.12-.121c-.053-.028-.105-.043-.247-.043H8.35zM3.584 9.063c-.428 0-.584.044-.74.128a.872.872 0 0 0-.363.363c-.084.156-.128.311-.128.74v6.288c0 .428.044.583.128.74.084.156.207.279.363.362.156.084.312.128.74.128h12.832c.428 0 .584-.044.74-.128a.872.872 0 0 0 .363-.363c.084-.156.128-.311.128-.74v-6.288c0-.428-.044-.583-.128-.74a.872.872 0 0 0-.363-.362c-.156-.084-.312-.129-.74-.129H3.584z" fill="#fff"/></svg>
                             {this.state.showTitle && <div style={{display: "inline-block", color: '#fff', fontWeight: "500", fontSize: "14px", paddingLeft: "12px"}}>Feed</div>}
+                        </FlatButton>
+                    </div>
+                    <div>
+                        <FlatButton>
+                            <NavLink to={`/${this.props.uid}`}>
+                                <svg style={{position: "absolute", top: "7px", left: "0px"}} width="17" height="17" xmlns="http://www.w3.org/2000/svg"><path d="M8.404 8.87a4.435 4.435 0 1 1 0-8.87 4.435 4.435 0 0 1 0 8.87zm8.422 8.064H.182c-1.203-3.61 3.787-6.451 8.222-6.451s9.614 2.862 8.422 6.45z" fill="#fff"/></svg>
+                                {this.state.showTitle && <div style={{display: "inline-block", color: '#fff', fontWeight: "500", fontSize: "14px", paddingLeft: "12px"}}> Profile</div>}
+                            </NavLink>
                         </FlatButton>
                     </div>
                     <div>
@@ -209,8 +217,7 @@ export class HomeHeader extends Component {
                             onRequestClose={this.handleRequestClose}
                         >
                             <Menu>
-                                <NavLink to={`/${this.props.uid}`}><MenuItem primaryText="Profile" style={{ color: blue500 }} /></NavLink>
-                                <NavLink to='/settings'><MenuItem primaryText="Settings" style={{ color: "rgb(117, 117, 117)" }} /></NavLink>
+                                {/* <NavLink to='/settings'><MenuItem primaryText="Settings" style={{ color: "rgb(117, 117, 117)" }} /></NavLink> */}
                                 <MenuItem primaryText="Log Out" style={{ color: 'red' }} onClick={this.handleLogout.bind(this)} />
                             </Menu>
                         </Popover>

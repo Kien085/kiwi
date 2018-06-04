@@ -25,7 +25,6 @@ export const dbGetUserInfo = () => {
                     fullName: userInfo.fullName,
                     banner: userInfo.banner,
                     tagLine: userInfo.tagLine,
-                    password: userInfo.password
                 }));
             }, error => console.log(error));
         }
@@ -50,7 +49,6 @@ export const dbGetUserInfoByUserId = (uid, sw) => {
                     fullName: userInfo.fullName,
                     banner: userInfo.banner,
                     tagLine: userInfo.tagLine,
-                    password: userInfo.password
                 }));
                 switch (sw) {
                     case 'header':
@@ -84,7 +82,6 @@ export const dbUpdateUserInfo = (newInfo) => {
             email: newInfo.email || info.email || '',
             fullName: newInfo.fullName || info.fullName || '',
             tagLine: newInfo.tagLine || info.tagLine || '',
-            password: info.password || ''
         };
 
         updates[`users/${uid}/info`] = updatedInfo;
@@ -120,7 +117,6 @@ export const dbGetPeopleInfo = () => {
                             fullName: userInfo.fullName,
                             banner: userInfo.banner,
                             tagLine: userInfo.tagLine,
-                            password: userInfo.password
                         };
                     }
                 });

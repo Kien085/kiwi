@@ -9,6 +9,11 @@ node_js: stable
 #     - staging
 #     - production
 
+
+# cache:
+#   directories:
+#     - node_modules
+
 install:
   - npm install -g firebase-tools
 
@@ -24,8 +29,8 @@ script:
 
 after_success:
   # STAGING SPECIFIC INSTRUCTIONS: DO NOT CHANGE THESE BELOW
+  # - cd src
   - firebase deploy --token "$FIREBASE_TOKEN_STAGING" -P "kiwi-staging"
-
 
 env:
   global:

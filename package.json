@@ -29,8 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-//    "test": "jest PeterTest.test.js",
-    "test": "pwd",
+    "test": "",
     "test:localRegression": "jest index.test.js --runInBand",
     "test:localUpdate": "jest index.test.js --updateSnapshot --runInBand",
     "test:stagingRegression": "jest regressionStaging.test.js --runInBand",

@@ -20,30 +20,13 @@ import forge from 'node-forge';
 export var dbLogin = (email, password) => {
     return (dispatch, getState) => {
         dispatch(globalActions.showNotificationRequest());
-
-        // Encrypt password input to compare with that stored in db
-        let bcrypt = require('bcryptjs');
-        let ref = firebase.database().ref('/users');
-        ref.once('value', (snapshot) => {
-            // Find info of user with proper email
-            let key;
-            for (key in snapshot.val()) {
-                let info = snapshot.val()[key]['info'];
-                if (email.localeCompare(info.email) === 0) {
-                    if(info.password) {
-                        password = bcrypt.compareSync(password, info.password) ? info.password : password;
-                        debugger;
-                    }
-                    break;
-                };
-            }
-            // Log in user if input matches credentials in db
-            return firebaseAuth().signInWithEmailAndPassword(email, password).then((result) => {
-                dispatch(globalActions.showNotificationSuccess());
-                dispatch(login(result.uid));
-                dispatch(push('/'));
-            }, (error) => dispatch(globalActions.showErrorMessage(error.code)))
-        });
+     
+        // Log in user if input matches credentials in db
+        return firebaseAuth().signInWithEmailAndPassword(email, password).then((result) => {
+            dispatch(globalActions.showNotificationSuccess());
+            dispatch(login(result.uid));
+            dispatch(push('/'));
+        }, (error) => dispatch(globalActions.showErrorMessage(error.code)))
     }
 }
 
@@ -62,7 +45,6 @@ export var dbLoginWithOAuth = (provider) => {
         // The signed-in user info.
         // var user = result.user;
         dispatch(globalActions.showNotificationSuccess());
-        // console.log(result);
         dispatch(login(result.uid));
         dispatch(push('/'));
         })
@@ -110,8 +92,8 @@ export var dbSignup = (user) => {
                     localStorage.setItem('pubPair', publicKey);
                     // Generate a public key for symmetric encryption
                     // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
-                    let key = forge.random.getBytesSync(16);
-                    let iv = forge.random.getBytesSync(16);
+                    let key = forge.random.getBytesSync(32);
+                    let iv = forge.random.getBytesSync(32);
                     localStorage.setItem('PUBkey', key);
                     localStorage.setItem('PUBiv', iv);
             
@@ -126,6 +108,9 @@ export var dbSignup = (user) => {
                     
                 }
             });
+
+            // Prevent password from being stored
+            delete user.password;
             firebaseRef.child(`users/${signupResult.uid}/info`).set({
                 ...user,
                 avatar: 'noImage'
@@ -199,7 +184,7 @@ export const dbResetPassword = (email) => {
 /* _____________ CRUD State _____________ */
 
 /**
- * Loing user
+ * Login user
  * @param {string} uid 
  */
 export var login = (uid) => {
