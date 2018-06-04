@@ -58,6 +58,10 @@ export const CLOSE_CIRCLE_SETTINGS = 'CLOSE_CIRCLE_SETTINGS';
 export const ADD_FOLLOWING_USER = 'ADD_FOLLOWING_USER';
 export const DELETE_FOLLOWING_USER = 'DELETE_FOLLOWING_USER';
 
+/* friend actions */
+export const ADD_FRIEND = 'ADD_FRIEND';
+export const DELETE_FRIEND = 'DELETE_FRIEND';
+
 /* notify actions */
 export const ADD_NOTIFY = 'ADD_NOTIFY';
 export const ADD_NOTIFY_LIST = 'ADD_NOTIFY_LIST';

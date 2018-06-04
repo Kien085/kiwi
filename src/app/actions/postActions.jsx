@@ -11,6 +11,7 @@ import * as globalActions from 'globalActions';
 
 // - Import app API
 import EncryptionAPI from '../api/EncryptionAPI';
+// import Store from '../store/configureStore'
 
 /* _____________ CRUD DB _____________ */
 
@@ -24,6 +25,7 @@ export var dbAddPost = (newPost, callBack) => {
         dispatch(globalActions.showTopLoading());
 
         let uid = getState().authorize.uid;
+        
         let post = {
             postTypeId: 0,
             creationDate: moment().unix(),
@@ -83,10 +85,14 @@ export var dbAddPost = (newPost, callBack) => {
  * @param {function} callBack 
  */
 export const dbAddImagePost = (newPost, callBack) => {
+    // let userId = Store.store.getState().authorize.uid;
+    // let userName = Store.store.getState().user.info[userId].fullName;
+    // let userEmail = store.getState().user.info[userId].email;
+    // debugger;
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
-        
         let uid = getState().authorize.uid;
+        
         let post = {
             postTypeId: 1,
             creationDate: moment().unix(),

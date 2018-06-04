@@ -16,6 +16,7 @@ import CircleAPI from 'CircleAPI';
 
 // - Import actions
 import * as circleActions from 'circleActions';
+import * as friendActions from 'friendActions';
 
 export class UserBox extends Component {
 
@@ -38,34 +39,21 @@ export class UserBox extends Component {
         };
     }
 
-    handleFollowUser = (checked, cid) => {
+
+    handleFollowUser = (evt) => {
+        // This prevents ghost click.
+        event.preventDefault();
         const { userId, user } = this.props;
         const { avatar, fullName } = user;
 
-        if (checked) {
-            this.props.addFollowingUser(cid, { avatar, userId, fullName });
-        } else {
-            this.props.deleteFollowingUser(cid, userId);
-        }
+        // if (checked) {
+            this.props.addFriendRequest({ avatar, userId, fullName });
+        // } else {
+        //     this.props.deleteFriend(userId);
+        // }
     }
 
-    /**
-     * Handle create circle
-     * 
-     * @memberof UserBox
-     */
-    handleCreateCricle = () => {
-        const { circleName } = this.state;
-
-        if (circleName && circleName.trim() !== '') {
-            this.props.createCircle(circleName);
-
-            this.setState({
-                circleName: '',
-                disabledAddCircle: true
-            });
-        }
-    }
+   
 
     /**
      * Handle change group name input to the state
@@ -121,7 +109,7 @@ export class UserBox extends Component {
                             whiteSpace: 'nowrap',
                             width: '100%'
                         }}
-                        onCheck={(evt, checked) => this.handleFollowUser(checked, key)}
+                        onCheck={(evt, checked) => this.handleFollowUser(checked)}
                         checked={isBelong}
                     />);
                 }
@@ -179,39 +167,10 @@ export class UserBox extends Component {
                             label={(this.props.belongCirclesCount && this.props.belongCirclesCount < 1) ? 'Follow'
                                 : (this.props.belongCirclesCount > 1 ? `${this.props.belongCirclesCount} Circles` : ((this.props.firstBelongCircle) ? this.props.firstBelongCircle.name : 'Follow'))}
                             primary={true}
-                            onTouchTap={this.handleTouchTap}
+                            onTouchTap={this.handleFollowUser}
                         />
                     </div>
                 </div>
-                <Popover
-                    open={this.state.open}
-                    anchorEl={this.state.anchorEl}
-                    anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-                    targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-                    onRequestClose={this.handleRequestClose}
-                    animation={PopoverAnimationVertical}
-                >
-                    <Menu >
-                        <div style={{
-                            position: 'relative',
-                            display: 'block',
-                            maxHeight: '220px'
-                        }}>
-                            <div style={{ overflowY: 'auto', height: '100%' }}>
-                                {this.circleList()}
-
-                            </div>
-                        </div>
-                        <div style={{ padding: '10px' }}>
-                            <TextField
-                                hintText="Group name"
-                                onChange={this.handleChangeName}
-                                value={this.state.circleName}
-                            /><br />
-                            <FlatButton label="ADD" primary={true} disabled={this.state.disabledAddCircle} onClick={this.handleCreateCricle} />
-                        </div>
-                    </Menu>
-                </Popover>
             </Paper>
         );
     }
@@ -227,8 +186,8 @@ export class UserBox extends Component {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         createCircle: (name) => dispatch(circleActions.dbAddCircle(name)),
-        addFollowingUser: (cid, user) => dispatch(circleActions.dbAddFollowingUser(cid, user)),
-        deleteFollowingUser: (cid, followingId) => dispatch(circleActions.dbDeleteFollowingUser(cid, followingId)),
+        addFriendRequest: (user) => dispatch(friendActions.dbAddFriendRequest(user)),
+        deleteFriend: (followingId) => dispatch(friendActions.dbDeleteFriend(followingId)),
         goTo: (url) => dispatch(push(url))
 
     }

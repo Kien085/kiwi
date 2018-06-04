@@ -69,7 +69,9 @@ export const dbAddComment = (newComment, callBack) => {
                     {
                         description: 'Add comment on your post.',
                         url: `/${newComment.ownerPostUserId}/posts/${newComment.postId}`,
-                        notifyRecieverUserId: newComment.ownerPostUserId, notifierUserId: uid,
+                        notifyRecieverUserId: newComment.ownerPostUserId, 
+                        notifierUserId: uid,
+                        isRequest: false,
                     }));
             }, (error) => {
                 dispatch(globalActions.showErrorMessage(error.message));

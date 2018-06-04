@@ -11,7 +11,7 @@ import * as userActions from 'userActions';
 /* _____________ CRUD DB _____________ */
 
 /**
- *  Add notificaition to database
+ *  Add notification to database
  * @param  {object} newNotify user notificaition
  */
 export const dbAddNotify = (newNotify) => {
@@ -21,7 +21,8 @@ export const dbAddNotify = (newNotify) => {
             description: newNotify.description,
             url: newNotify.url,
             notifierUserId: newNotify.notifierUserId,
-            isSeen: false
+            isSeen: false,
+            isRequest: newNotify.isRequest,
         };
 
         let notifyRef = firebaseRef.child(`userNotifies/${newNotify.notifyRecieverUserId}`).push(notify);
@@ -86,7 +87,8 @@ export const dbSeenNotify = (id) => {
             description: notify.description,
             url: notify.url,
             notifierUserId: notify.notifierUserId,
-            isSeen: true
+            isSeen: true,
+            isRequest: notify.isRequest,
         };
 
         // Write the new data simultaneously in the list
@@ -98,6 +100,23 @@ export const dbSeenNotify = (id) => {
         }, (error) => dispatch(globalActions.showErrorMessage(error.message)));
     };
 }
+
+// export const dbHandleRequest = (id) => {
+//     console.error('Clicking friend request')
+//     return (dispatch, getState) => {
+
+//         // Get current user id
+//         let uid = getState().authorize.uid;
+
+//         // Write the new data simultaneously in the list
+//         let updates = {};
+//         updates[`userRequests/${uid}/${id}`] = null;
+
+//         return firebaseRef.update(updates).then((result) => {
+//             dispatch(deleteNotify(id))
+//         }, (error) => dispatch(globalActions.showErrorMessage(error.message)));
+//     }; 
+// }
 
 /* _____________ CRUD State _____________ */
 

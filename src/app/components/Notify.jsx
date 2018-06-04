@@ -27,6 +27,7 @@ export class Notify extends Component {
                         id={key}
                         isSeen={(notifications[key] ? notifications[key].isSeen || false : false)}
                         url={(notifications[key] ? notifications[key].url || '' : '')}
+                        isRequest={notifications[key].isRequest}
                         notifierUserId={notifierUserId}
                         closeNotify={onRequestClose}
                     />

@@ -48,38 +48,130 @@ export var dbAddFollowingUser = (cid, userFollowing) => {
         let uid = getState().authorize.uid;
         let user = getState().user.info[uid];
 
+
         let userCircle = {
             creationDate: moment().unix(),
             fullName: userFollowing.fullName,
             avatar: userFollowing.avatar || ''
         };
 
+        let userFriend = {
+            creationDate: moment().unix(),
+            fullName: userFollowing.fullName,
+            avatar: userFollowing.avatar || '',
+        };
+
         let userFollower = {
             creationDate: moment().unix(),
             fullName: user.fullName,
             avatar: user.avatar || '',
-            approved: false
         };
 
         let updates = {};
-        updates[`userCircles/${uid}/circles/${cid}/users/${userFollowing.userId}`] = userCircle;
-        updates[`userCircles/${userFollowing.userId}/circles/-Followers/users/${uid}`] = userFollower;
+        updates[`userRequests/${uid}/${userFollowing.userId}/approved`] = 'accepted';
+        updates[`userFriends/${uid}/${userFollowing.userId}`] = userFriend;
+        // updates[`userFriends/${uid}/${userFollowing.userId}`] = userFollower;
         return firebaseRef.update(updates).then((result) => {
             dispatch(addFollowingUser(uid, cid, userFollowing.userId, { ...userCircle }));
-
             dispatch(notifyActions.dbAddNotify(
                 {
-                    description: `${user.fullName} follow you.`,
+                    description: `${user.fullName} became friends with you.`,
                     url: `/${uid}`,
-                    notifyRecieverUserId: userFollowing.userId, notifierUserId: uid
+                    notifyRecieverUserId: userFriending.userId,
+                    notifierUserId: uid,
+                    isRequest: false,
                 }));
-
         }, (error) => {
             dispatch(globalActions.showErrorMessage(error.message));
         })
     }
 }
 
+
+// Send friend request to user
+export var dbAddFriendRequest = (cid, userFriending) => {
+    return (dispatch, getState) => {
+        let uid = getState().authorize.uid;
+        let user = getState().user.info[uid];
+
+        let userCircle = {
+            creationDate: moment().unix(),
+            fullName: userFriending.fullName,
+            avatar: userFriending.avatar || ''
+        };
+
+        let userReq = {
+            creationDate: moment().unix(),
+            fullName: user.fullName,
+            avatar: user.avatar || '',
+            approved: 'pending',
+            userId: uid,
+        };
+
+        let updates = {};
+        updates[`userRequests/${userFriending.userId}/${uid}`] = userReq;
+        return firebaseRef.update(updates).then((result) => {
+
+            dispatch(notifyActions.dbAddNotify(
+                {
+                    description: `${user.fullName} wants to be friends with you.`,
+                    url: `/${uid}`,
+                    notifyRecieverUserId: userFriending.userId,
+                    notifierUserId: uid,
+                    isRequest: true,
+                }));
+
+            // Add to friends if user accepts friend request
+            let requestRef = firebaseRef.child(`userRequests/${userFriending.userId}/${uid}`);
+            requestRef.on('value', (snapshot) => {
+
+                if (snapshot.val().approved === 'accepted') {
+                    dispatch(addFollowingUser(uid, cid, userFollowing.userId, { ...userCircle }));
+                } else if (snapshot.val().approved === 'rejected') {
+                    dispatch(deleteFollowingUser(uid, cid, followingId))
+                }
+
+            });
+
+        }, (error) => {
+            dispatch(globalActions.showErrorMessage(error.message));
+        })
+    }
+
+}
+
+
+// // Handles your own state when others request you as friend
+export var dbHandleFriendRequests = () => {
+    console.error('Listening for friend requests')
+    return (dispatch, getState) => {
+        let uid = getState().authorize.uid;
+
+        let requestRef = firebaseRef.child(`userRequests/${uid}`);
+        requestRef.on('child_changed', (snapshot) => {
+            console.error('Change occurred in my request branch')
+            let requests = snapshot.val() || {};
+            Object.keys(requests).forEach((userId) => {
+                let user = snapshot.val()[userId];
+                // TODO: Remove from request branch
+                if (user.approved === 'accepted') {
+                    dispatch(addFollowingUser(uid, cid, userFollowing.userId, { ...userCircle }));
+                } else if (user.approved === 'rejected') {
+                    dispatch(deleteFollowingUser(uid, cid, followingId))
+                }
+                // // Remove from request branch
+                // let updates = {};
+                // updates[`userRequests/${uid}/${followingId}`] = null;
+                // return firebaseRef.update(updates).then((result) => {
+                //     dispatch(deleteFollowingUser(uid, cid, followingId))
+                // }, (error) => {
+                //     dispatch(globalActions.showErrorMessage(error.message))
+                //     })
+                // });
+            });
+        });
+    }
+}
 
 /**
  * Delete a user from a circle
@@ -90,8 +182,9 @@ export var dbDeleteFollowingUser = (cid, followingId) => {
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
         let updates = {};
-        updates[`userCircles/${uid}/circles/${cid}/users/${followingId}`] = null;
-        updates[`userCircles/${followingId}/circles/-Followers/users/${uid}`] = null;
+        updates[`userRequests/${uid}/${followingId}`] = null;
+        // updates[`userCircles/${uid}/circles/${cid}/users/${followingId}`] = null;
+        // updates[`userCircles/${followingId}/circles/-Followers/users/${uid}`] = null;
         return firebaseRef.update(updates).then((result) => {
             dispatch(deleteFollowingUser(uid, cid, followingId))
         }, (error) => {
