@@ -3,7 +3,7 @@ let path = require('path');
 let envFile = require('node-env-file');
 process.noDeprecation = true;
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 console.log(process.env.NODE_ENV);
 
@@ -28,12 +28,12 @@ module.exports = {
         publicPath: '/'
     },
     plugins: (process.env.NODE_ENV === 'production') ? [
-        new webpack.optimize.UglifyJsPlugin({
-            minimize: true,
-            compressor: {
-                warnings: false
-            }
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     minimize: true,
+        //     compressor: {
+        //         warnings: false
+        //     }
+        // }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
