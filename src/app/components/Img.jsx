@@ -14,7 +14,7 @@ export class Img extends Component {
     constructor(props) {
         super(props);
 
-        //Defaul state
+        //Default state
         this.state = {
             isImageLoaded: false
         };
