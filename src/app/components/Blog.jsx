@@ -147,8 +147,8 @@ export class Blog extends Component {
                 }
             });
 
-            if (postBack.evenPostList.length >= 10) {
-                for (let i = 10; i < postBack.evenPostList.length; i++) {
+            if (postBack.evenPostList.length > 10) {
+                for (var i = 10; i < postBack.evenPostList.length; i = i + 10) {
                     let img = "";
                     switch (this.state.rand) {
                         case 0:
@@ -166,9 +166,9 @@ export class Blog extends Component {
                     }
                     let ad = (
                         <div key={i}>
-                        {i !== 0 ? <div style={{ height: "16px" }}></div>: ''}
-                        <AdPost image={img} />
-                        {i === 0 ? <div style={{ height: "16px" }}></div>: ''}
+                            {i !== 0 ? <div style={{ height: "16px" }}></div>: ''}
+                            <AdPost image={img} />
+                            {i === 0 ? <div style={{ height: "16px" }}></div>: ''}
                         </div>
                     );
                     this.props.adPost ? postBack.evenPostList.splice(i, 0, ad) : '';
