@@ -33,7 +33,7 @@ export class Profile extends Component {
                             {this.props.name}'s posts
                         </div>
                         <div style={{ height: '24px' }}></div>
-                        <Blog posts={this.props.posts} displayWriting={false} />
+                        <Blog posts={this.props.posts} displayWriting={false} adSky={false} adPost={false}/>
                     </div>) : 
                     
                     (<div className='profile__title'>
