@@ -46,6 +46,45 @@ const decrypt = (ciphertext, key, iv) => {
 }
 
 /**
+ * Generate public/private key pair and data key for hybrid encryption
+ * @param {string} userId
+ */
+const generateKeys = (userId) => {
+    let rsa = forge.pki.rsa;
+    // generate an RSA key pair asynchronously (uses web workers if available)
+    // use workers: -1 to run a fast core estimator to optimize # of workers
+    rsa.generateKeyPair({bits: 2048, workers: -1}, function(err, keypair) {
+        if(err) {
+            console.error(err)
+        } else {
+            let localStorage = window.localStorage;
+            let privateKey = keypair.privateKey;
+            let publicKey = keypair.publicKey;
+    
+            // Save privateKey locally
+            localStorage.setItem('privPair', privateKey);
+            localStorage.setItem('pubPair', publicKey);
+            // Generate a public key for symmetric encryption
+            // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
+            let key = forge.random.getBytesSync(32);
+            let iv = forge.random.getBytesSync(32);
+            localStorage.setItem('dataKey', key);
+            localStorage.setItem('dataIV', iv);
+    
+            
+            firebaseRef.child(`keys/${userId}/`).set({
+                key: key,
+                iv: iv
+            }).then((result) => {
+                dispatch(globalActions.showNotificationSuccess())
+            }, (error) => dispatch(globalActions.showErrorMessage(error.code)));
+            
+            
+        }
+    });
+}
+
+/**
  * Returns key and iv of user stored in firebase
  * @param {string} userId
  * @returns decrypted message as a String
@@ -65,5 +104,6 @@ const decrypt = (ciphertext, key, iv) => {
 export default {
     encrypt,
     decrypt,
+    generateKeys,
     // getKeys
 }

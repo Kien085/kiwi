@@ -10,7 +10,7 @@ import * as notifyActions from 'notifyActions';
 
 // - Import app API
 import EncryptionAPI from '../api/EncryptionAPI';
-import forge from 'node-forge';
+
 /* _____________ CRUD DB _____________ */
 
 /**
@@ -38,8 +38,8 @@ export const dbAddComment = (newComment, callBack) => {
          let encryptedComment = JSON.parse(JSON.stringify(comment));
 
          // Get own public key
-        let key = localStorage.getItem('PUBkey');
-        let iv = localStorage.getItem('PUBiv');
+        let key = localStorage.getItem('dataKey');
+        let iv = localStorage.getItem('dataIV');
         // let privateKey, publicKey;
         let keysRef = firebaseRef.child(`keys/${uid}`);
         keysRef.once('value',(snap) => {
@@ -132,8 +132,8 @@ export const dbUpdateComment = (id, postId, text) => {
          let encryptedText = JSON.parse(JSON.stringify(text));
 
          // Get own public key
-         let key = localStorage.getItem('PUBkey');
-         let iv = localStorage.getItem('PUBiv');
+         let key = localStorage.getItem('dataKey');
+         let iv = localStorage.getItem('dataIV');
          // let privateKey, publicKey;
          let keysRef = firebaseRef.child(`keys/${uid}`);
          keysRef.once('value',(snap) => {
