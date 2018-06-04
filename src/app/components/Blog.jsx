@@ -166,14 +166,16 @@ export class Blog extends Component {
                     }
                     let ad = (
                         <div key={i}>
-                            <div style={{ height: "16px" }}></div>
-                            <AdPost image={img} />
+                        {i !== 0 ? <div style={{ height: "16px" }}></div>: ''}
+                        <AdPost image={img} />
+                        {i === 0 ? <div style={{ height: "16px" }}></div>: ''}
                         </div>
                     );
                     this.props.adPost ? postBack.evenPostList.splice(i, 0, ad) : '';
                 }
             } else {
-                let halfway = postBack.evenPostList.length / 2;
+                let halfway = Math.floor(postBack.evenPostList.length / 2);
+                console.log(halfway);
                 let img = "";
                 switch (this.state.rand) {
                     case 0:
@@ -191,8 +193,9 @@ export class Blog extends Component {
                 }
                 let ad = (
                     <div key={halfway}>
-                        <div style={{ height: "16px" }}></div>
+                        {halfway !== 0 ? <div style={{ height: "16px" }}></div>: ''}
                         <AdPost image={img} />
+                        {halfway === 0 ? <div style={{ height: "16px" }}></div>: ''}
                     </div>
                 );
                 this.props.adPost ? postBack.evenPostList.splice(halfway, 0, ad) : '';
