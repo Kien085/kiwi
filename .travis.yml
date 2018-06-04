@@ -26,9 +26,9 @@ script:
 
 after_success:
   - echo "Tests are passing!"
-  # STAGING SPECIFIC INSTRUCTIONS: DO NOT CHANGE THESE BELOW
-  - echo "Deploying current build to firebase staging..."
-  - firebase deploy --token "$FIREBASE_TOKEN_STAGING" -P "kiwi-staging"
+  # PRODUCTION SPECIFIC INSTRUCTIONS: DO NOT CHANGE THESE BELOW
+  - echo "Deploying current build to firebase production..."
+  - firebase deploy --token "$FIREBASE_TOKEN_PROD" -P "kiwi-prod"
 
 env:
   global:
