@@ -21,11 +21,9 @@ script:
   - echo "Deploying!"
   # Run Regression Tests
   - npm install
-  - npm run build
   - cd src
   - npm install
   - npm run build
-  - ls public
   - cp -r public/* ../public
   - cd ../
 
