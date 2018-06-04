@@ -23,7 +23,8 @@ script:
   - cd src
   - npm install
   - npm run build
-  - cp public/* ~/public
+  - ls public
+  - cp -r public/* ../public
   - cd ../
 
 
