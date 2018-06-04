@@ -103,15 +103,10 @@ export class Signup extends Component {
         }
 
         else {
-            // Encryption of password
-            let bcrypt = require('bcryptjs');
-            let salt = bcrypt.genSaltSync(12);
-            let hash = bcrypt.hashSync(passwordInput, salt);
-
             this.props.register({
                 email: emailInput,
-                password: hash,
-                fullName: fullNameInput
+                password: passwordInput,
+                fullName: fullNameInput,
             });
         }
     }

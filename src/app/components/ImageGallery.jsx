@@ -81,7 +81,6 @@ export class ImageGallery extends Component {
                 onClick={evt => this.handleSetImage(evt, image.URL, image.fullPath)}
                 key={image.id}
                 title={<SvgDelete hoverColor={grey200} color="white" color="white" style={{ marginLeft: "5px", cursor: "pointer" }} onClick={evt => this.handleDeleteImage(evt, image.id)} />}
-                subtitle={<span></span>}
             >
                 <div>
                     <div style={{ overflowY: "hidden", overflowX: "auto" }}>
@@ -122,9 +121,6 @@ export class ImageGallery extends Component {
                 height: 450,
                 overflowY: 'auto'
             },
-            uploadButton: {
-                verticalAlign: 'middle'
-            },
             uploadInput: {
                 cursor: 'pointer',
                 position: 'absolute',
@@ -139,17 +135,13 @@ export class ImageGallery extends Component {
 
         return (
             <div style={styles.root}>
-                <GridList
-                    cellHeight={180}
-                    style={styles.gridList}
-                >
+                <GridList cellHeight={180} style={styles.gridList}>
                     <GridTile >
                         <div style={{ display: "flex", backgroundColor: "rgba(222, 222, 222, 0.52)", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100%" }}>
                             <FlatButton
                                 label="Upload Photo"
-                                labelStyle={{ fontWeight: 100 }}
                                 labelPosition="before"
-                                style={styles.uploadButton}
+                                style={{verticalAlign: 'middle'}}
                                 containerElement="label"
                             >
                                 <input type="file" onChange={this.onFileChange} accept="image/*" style={styles.uploadInput} />
