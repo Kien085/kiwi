@@ -61,8 +61,8 @@ export const DELETE_FOLLOWING_USER = 'DELETE_FOLLOWING_USER';
 /* friend actions */
 export const ADD_FRIEND = 'ADD_FRIEND';
 export const DELETE_FRIEND = 'DELETE_FRIEND';
-export const SENT_REQUESTS = 'SENT_REQUESTS';
-export const RECEIVED_REQUESTS = 'RECEIVED_REQUESTS';
+export const SENT_REQUESTS = 'UPDATE_SENT_REQUESTS';
+export const RECEIVED_REQUESTS = 'UPDATE_RECEIVED_REQUESTS';
 
 /* notify actions */
 export const ADD_NOTIFY = 'ADD_NOTIFY';

@@ -213,7 +213,7 @@ export var dbGetSentRequests = () => {
                 parsedRequests.push(sentRequests[reqId]);
             });
 
-            dispatch(addSentRequestList(parsedRequests));
+            dispatch(updateSentRequestList(parsedRequests));
         });
     }
 
@@ -234,7 +234,7 @@ export var dbGetReceivedRequests = () => {
             Object.keys(receivedRequests).forEach((reqId) => {
                 parsedRequests.push(receivedRequests[reqId]);
             });
-            dispatch(addReceivedRequestList(parsedRequests));
+            dispatch(updateReceivedRequestList(parsedRequests));
         });
     }
 }
@@ -270,9 +270,9 @@ export const deleteFriendUser = (friendId) => {
  * Add list of friend request sent by current user
  * @param {string} parsedRequest list of requests sent
  */
-export const addSentRequestList = (parsedRequests) => {
+export const updateSentRequestList = (parsedRequests) => {
     return {
-        type: types.SENT_REQUESTS,
+        type: types.UPDATE_SENT_REQUESTS,
         payload: { parsedRequests }
     };
 }
@@ -281,9 +281,9 @@ export const addSentRequestList = (parsedRequests) => {
  * Add list of friend request sent by current user
  * @param {string} parsedRequest list of requests sent
  */
-export const addReceivedRequestList = (parsedRequests) => {
+export const updateReceivedRequestList = (parsedRequests) => {
     return {
-        type: types.RECEIVED_REQUESTS,
+        type: types.UPDATE_RECEIVED_REQUESTS,
         payload: { parsedRequests }
     };
 }
