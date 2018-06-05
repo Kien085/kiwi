@@ -5,5 +5,11 @@
   "background_color": "#002855",
   "display": "standalone",
   "theme_color": "#002855",
-  "start_url": "index.html"
+  "start_url": "index.html",
+  "icons": [
+    {
+      "src": "images/oasis.svg",
+      "sizes": "48x48 72x72 96x96 128x128 256x256 512x512"
+    }
+  ]
 }
