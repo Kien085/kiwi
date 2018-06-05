@@ -100,7 +100,7 @@ export class Home extends Component {
 
                                 return (
                                     this.props.authed
-                                        ? <div className="blog"><Blog displayWriting={false} homeTitle={`#${match.params.tag}`} posts={this.props.mergedPosts} /></div>
+                                        ? <div className="blog"><Blog displayWriting={false} homeTitle={`#${match.params.tag}`} posts={this.props.mergedPosts}/></div>
                                         : <Redirect to="/login" />
                                 )
                             }} />
@@ -111,7 +111,7 @@ export class Home extends Component {
 
                                 return (
                                     this.props.authed
-                                        ? <div className="blog"><Blog homeTitle='Home' posts={this.props.mergedPosts} displayWriting={true} /></div>
+                                        ? <div className="blog"><Blog homeTitle='Home' posts={this.props.mergedPosts} displayWriting={true}/></div>
                                         : <Redirect to="/login" />
                                 )
                             }} />
@@ -119,7 +119,8 @@ export class Home extends Component {
                     </SidebarMain>
                 </Sidebar>
 
-                <Messenger/>
+
+                <Messenger uid={this.props.uid}/>
             </div>
         )
     }
@@ -146,6 +147,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  */
 const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize
+
     let mergedPosts = {}
     const circles = state.circle ? (state.circle.userCircles[uid] || {}) : {}
     const followingUsers = CircleAPI.getFollowingUsers(circles)
