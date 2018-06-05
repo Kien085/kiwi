@@ -44,10 +44,16 @@ export class Blog extends Component {
             // The title of home header.
             homeTitle: '',
 
+            // adSky: true,
+
+            // adPost: true,
+
+            // displaySelfAd: true,
+
             // Which ads to display
             rand : Math.floor(Math.random() * 4),
             rand2 : Math.floor(Math.random() * 4),
-            rand3 : Math.floor(Math.random() * 4),
+            rand3 : Math.floor(Math.random() * 4)
         };
     }
 
@@ -171,12 +177,13 @@ export class Blog extends Component {
                             {i === 0 ? <div style={{ height: "16px" }}></div>: ''}
                         </div>
                     );
-                    this.props.adPost ? postBack.evenPostList.splice(i, 0, ad) : '';
+                    this.state.adPost ? postBack.evenPostList.splice(i, 0, ad) : '';
                 }
             } else {
                 let halfway = Math.floor(postBack.evenPostList.length / 2);
                 console.log(halfway);
                 let img = "";
+                
                 switch (this.state.rand) {
                     case 0:
                         img = "images/postAds/yourAdHere.jpg";
@@ -198,7 +205,7 @@ export class Blog extends Component {
                         {halfway === 0 ? <div style={{ height: "16px" }}></div>: ''}
                     </div>
                 );
-                this.props.adPost ? postBack.evenPostList.splice(halfway, 0, ad) : '';
+                this.state.adPost ? postBack.evenPostList.splice(halfway, 0, ad) : '';
             }
 
             return postBack;
@@ -214,42 +221,53 @@ export class Blog extends Component {
      * @return {react element} return the DOM which is rendered by component
      */
     render() {
-        const { tag, displayWriting, adSky, adPost} = this.props;
+        const { tag, displayWriting } = this.props;
         const postList = this.postLoad();
+
         let img = "";
-        switch (this.state.rand2) {
-            case 0:
-                img = "images/skyAds/toyota.png";
-                break;
-            case 1:
-                img = "images/skyAds/coupon.jpg";
-                break;
-            case 2:
-                img = "images/skyAds/tide.jpg";
-                break;
-            case 3:
-                img = "images/skyAds/advertise.jpg";
-                break;
-        }
         let img2 = "";
-        switch (this.state.rand3) {
-            case 0:
-                img2 = "images/skyAds/toyota.png";
-                break;
-            case 1:
-                img2 = "images/skyAds/coupon.jpg";
-                break;
-            case 2:
-                img2 = "images/skyAds/tide.jpg";
-                break;
-            case 3:
-                img2 = "images/skyAds/advertise.jpg";
-                break;
+
+        if (this.state.displaySelfAd) {
+            img = "images/skyAds/oasis.png";
+            img2 = "images/skyAds/oasis.png";
         }
+
+        else {
+            switch (this.state.rand2) {
+                case 0:
+                    img = "images/skyAds/toyota.png";
+                    break;
+                case 1:
+                    img = "images/skyAds/coupon.jpg";
+                    break;
+                case 2:
+                    img = "images/skyAds/tide.jpg";
+                    break;
+                case 3:
+                    img = "images/skyAds/advertise.jpg";
+                    break;
+            }
+            
+            switch (this.state.rand3) {
+                case 0:
+                    img2 = "images/skyAds/toyota.png";
+                    break;
+                case 1:
+                    img2 = "images/skyAds/coupon.jpg";
+                    break;
+                case 2:
+                    img2 = "images/skyAds/tide.jpg";
+                    break;
+                case 3:
+                    img2 = "images/skyAds/advertise.jpg";
+                    break;
+            }
+        }
+
         return (
             <div >
-                {adSky ? <AdSky left={false} image={img}/> : ''}
-                {adSky ? <AdSky left={true} image={img2} /> : ''}
+                {/* {this.state.adSky ? <AdSky left={false} image={img}/> : ''} */}
+                {this.state.adSky ? <AdSky left={true} image={img2} /> : ''}
                 <div className='grid grid__gutters grid__1of2 grid__space-around animate-top'>
                     <div className='grid-cell animate-top' style={{ maxWidth: '530px', minWidth: '280px' }}>
                         {displayWriting && !tag
