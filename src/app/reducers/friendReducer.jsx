@@ -3,7 +3,6 @@ import * as types from 'actionTypes';
 
 // Default state
 let defaultState = {
-    postComments: {},
     loaded: false
 };
 
@@ -22,43 +21,45 @@ export let friendReducer = (state = defaultState, action) => {
             return [
                 ...state,
                 {
-                    uid: payload.uid,
-                    avatar: payload.avatar,
-                    fullName: payload.fullName
+                    uid: payload.userFriend.userId,
+                    avatar: payload.userFriend.avatar,
+                    fullName: payload.userFriend.fullName
                 }
             ];
         case types.DELETE_FRIEND:
             return [
                 ...(state.filter((friend) => {
-                    if ( friend.uid != payload.followingId) {
+                    if (friend.uid != payload.friendId) {
                         return true;
                     }
                     return false;
                 }))
             ];
-        }
+        default:
+            return state;
+    }
 }
 
 
 /**
- * Add following user in a circle
- * @param {string} uid user identifire who want to follow the following user
- * @param {string} followingId following user identifier
+ * Add user to friend list
+ * @param {string} uid friend user identifier
+ * @param {object} userFriend info of user's friend
  */
-export const addFriendUser = (uid, followingId) => {
+export const addFriendUser = (uid, userFriend) => {
     return {
         type: types.ADD_FRIEND,
-        payload: { uid, followingId }
+        payload: { uid, userFriend }
     };
 }
+
 /**
- * Delete following user from a circle
- * @param {string} uid user identifire who want to follow the following user
- * @param {string} followingId following user identifier
+ * Delete user from friend list
+ * @param {string} friendId friend user identifier
  */
-export const deleteFriendUser = (uid, followingId) => {
+export const deleteFriendUser = (friendId) => {
     return {
         type: types.DELETE_FRIEND,
-        payload: { uid, followingId }
+        payload: { friendId }
     };
 }

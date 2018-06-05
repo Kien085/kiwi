@@ -10,31 +10,39 @@ export class YourFriends extends Component {
     // Get list of friends
     friendList = () => {
         // TODO: Retrieve all friends
-        
+        const { friends, uid } = this.props;
+        let parsedFriends = [];
+
+        if (friends) {
+            Object.keys(friends).map((key, index) => {
+                parsedFriends.push(friends[index])
+            })
+        }
+        return parsedFriends;
     }
 
     /**
      * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
-    render() {
-        const friendItems = this.friendList();
+    // render() {
+    //     const friendItems = this.friendList();
 
-        return (
-            <div style={{maxWidth: '800px', margin: '40px auto'}}>
-                {(friendItems && friendItems.length !== 0) ? 
-                    (<div>
-                        <div className='profile__title'>
-                            Your friends
-                        </div>
-                        <List>
-                            {friendItems}
-                        </List>
-                        <div style={{ height: '24px' }}></div>
-                    </div>) : ''}
-            </div>
-        );
-    }
+    //     return (
+    //         <div style={{maxWidth: '800px', margin: '40px auto'}}>
+    //             {(friendItems && friendItems.length !== 0) ? 
+    //                 (<div>
+    //                     <div className='profile__title'>
+    //                         Your friends
+    //                     </div>
+    //                     <List>
+    //                         {friendItems}
+    //                     </List>
+    //                     <div style={{ height: '24px' }}></div>
+    //                 </div>) : ''}
+    //         </div>
+    //     );
+    // }
 }
 
 
@@ -45,7 +53,6 @@ export class YourFriends extends Component {
  * @return {object}          props of component
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
-    const { uid } = ownProps;
     return {
     };
 }
@@ -61,7 +68,7 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
         uid,
-        friends: state.friends ? state.friends.userFriends[uid] : {},
+        friends: state.friends ? state.friends : {},
     };
 }
 

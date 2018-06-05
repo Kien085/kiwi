@@ -60,7 +60,7 @@ export class NotifyItem extends Component {
                             </div>
                         </NavLink>
                     </div>
-                    <div className='close' onClick={() => handleRequest({userId: notifierUserId, fullName, avatar})}>
+                    <div className='close' onClick={() => {deleteNotiy(notifierUserId); handleRequest({userId: notifierUserId, fullName, avatar})}}>
                         <SvgClose hoverColor={grey400} style={{ cursor: 'pointer' }} />
                     </div>
                 </div>

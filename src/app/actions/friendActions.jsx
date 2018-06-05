@@ -23,24 +23,25 @@ export var dbAddFriendRequest = (userFriend) => {
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
         let user = getState().user.info[uid];
-
-        
         let requestId = firebaseRef.child(`userRequests/${uid}/sent`).push().key;
+
+        // Store userFriend details 
         let userSentReq = {
             creationDate: moment().unix(),
-            fullName: user.fullName,
-            avatar: user.avatar || '',
+            fullName: userFriend.fullName,
+            avatar: userFriend.avatar || '',
             approved: false,
             acknowledged: false,
-            userId: uid,
+            uid: userFriend.userId,
             requestId,
         };
+
+        // Send your user details to userFriend
         let userReceivedReq = {
             creationDate: moment().unix(),
             fullName: user.fullName,
             avatar: user.avatar || '',
-            userId: uid,
-            requestId,
+            uid,
         };
 
         // Add to userFriend's request branch
@@ -48,6 +49,8 @@ export var dbAddFriendRequest = (userFriend) => {
         updates[`userRequests/${uid}/sent/${requestId}`] = userSentReq;
         updates[`userRequests/${userFriend.userId}/received/${uid}`] = userReceivedReq;
         firebaseRef.update(updates).then((result) => {
+            // Update list of sent requests`
+            dbGetSentRequests();
             dispatch(notifyActions.dbAddNotify(
                 {
                     description: `${user.fullName} wants to be friends with you.`,
@@ -59,17 +62,22 @@ export var dbAddFriendRequest = (userFriend) => {
         }, (error) => {
             dispatch(globalActions.showErrorMessage(error.message));
         })
-                
-                
+
         // Attach listener to request sent by user
-        let requestRef = firebaseRef.child(`userRequests/${userFriend.userId}/received/${requestId}`);
+        let requestRef = firebaseRef.child(`userRequests/${userFriend.userd}/received/${requestId}`);
         return requestRef.on('value', (snapshot) => {
             let userRef = snapshot.val() || {};
             console.error('Change occurred in my friend request')
-            // Add to friends if user accepts friend request
-            if(userRef.acknowledged && userRef.approved) 
-                dbAddFriend(userFriend)
-            // TODO: delete req if denied
+
+            // Add to friends if userFriend accepts friend request
+            if (userRef.acknowledged && userRef.approved) { 
+                dbAddFriend(userFriend);
+            }
+
+            // Remove request if other user rejects friend request
+            if (userRef.acknowledged && !userRef.approved) {
+                dbCancelFriendRequest(userFriend);
+            }
         });
     }
 
@@ -87,19 +95,19 @@ export var dbHandleFriendRequests = () => {
         // Listen for friend requests from other users 
         let requestRef = firebaseRef.child(`userRequests/${uid}/received`);
         return requestRef.on('value', (snapshot) => {
-            console.error('Change occurred in my request branch')
-            let requests = snapshot.val() || {};
-            Object.keys(requests).forEach((userId) => {
-                let user = snapshot.val()[userId];
+            // Update list of received requests
+            dbGetReceivedRequests();
+            console.error('Change occurred in my request branch');
 
-                // TODO: Remove from request branch
-                if (user.approved) {
-                    dispatch(addFriendUser(uid, userId, ));
-                } else {
-                    dispatch(deleteFriendUser(uid, userId))
-                }
-               
-            });
+            // let requests = snapshot.val() || {};
+            // Object.keys(requests).forEach((userId) => {
+            //     let userFriend = snapshot.val()[userId];
+            //     // TODO: Add friend request
+            //     if (userFriend.acknowledged) {
+            //         userFriend.approved ? dispatch(addFriendUser(uId, userFriend)) 
+            //         : dispatch(deleteFriendUser(uid, userId));
+            //     }
+            // });
         });
     }
 }
@@ -108,7 +116,7 @@ export var dbHandleFriendRequests = () => {
 
 /**
  * Add a user to friend list
- * @param {object} user is the user for following
+ * @param {object} userFriend is the user to add to friend's list
  */
 export var dbAddFriend = (userFriend) => {
     return (dispatch, getState) => {
@@ -119,37 +127,21 @@ export var dbAddFriend = (userFriend) => {
             creationDate: moment().unix(),
             fullName: userFriend.fullName,
             avatar: userFriend.avatar || '',
+            uid: userFriend.userId,
         };
 
-        let userSelf = {
-            creationDate: moment().unix(),
-            fullName: user.fullName,
-            avatar: user.avatar || '',
-        };
-
-        // Remove from request branch
-       // let updates = {};
-       // updates[`userRequests/${uid}/${friendId}`] = null;
-       // return firebaseRef.update(updates).then((result) => {
-       //     dispatch(deleteFriendUser(uid, cid, friendId))
-       // }, (error) => {
-       //     dispatch(globalActions.showErrorMessage(error.message))
-       //     })
-       // });
-
-       // TODO: Encrypt your data key in friend's public key
-
-        // Add user to friend list
+        // TODO: Encrypt your data key in friend's public key
         let requestId = firebaseRef.child(`userRequests/${uid}/received/${userFriend.userId}`).requestId;
         let updates = {};
-        updates[`userRequests/${userFriend.userId}/received/${uid}/approved`] = true;
-        updates[`userRequests/${userFriend.userId}/received/${uid}/acknowledged`] = true;
-        updates[`userRequests/${uid}/sent/${requestId}`] = null;
+        updates[`userRequests/${userFriend.userId}/send/${uid}/approved`] = true;
+        updates[`userRequests/${userFriend.userId}/send/${uid}/acknowledged`] = true;
+        updates[`userRequests/${uid}/received/${requestId}`] = null;
         updates[`userFriends/${uid}/${userFriend.userId}`] = friend;
         // updates[`userFriends/${uid}/${userFriend.userId}`] = userFollower;
         return firebaseRef.update(updates).then((result) => {
-            dispatch(addFriendUser(uid, userFriend.userId, ));
-            console.error('Friend added');
+            console.error('ADDING FRIEND')
+            // Add user to friend list
+            dispatch(addFriendUser(uid, userFriend));
             dispatch(notifyActions.dbAddNotify(
                 {
                     description: `${user.fullName} became friends with you.`,
@@ -165,6 +157,26 @@ export var dbAddFriend = (userFriend) => {
 }
 
 
+/**
+ * Cancel a friend request sent
+ * @param {object} userFriend is the user whom to cancel the request to
+ */
+export var dbCancelFriendRequest = (userFriend) => {
+    return (dispatch, getState) => {
+        let uid = getState().authorize.uid;
+        let user = getState().user.info[uid];
+
+        // Remove sent request from self and received request from userFriend
+        let requestId = firebaseRef.child(`userRequests/${uid}/received/${userFriend.userId}`).requestId;
+        let updates = {};
+        updates[`userRequests/${userFriend.userId}/received/${uid}`] = null;
+        updates[`userRequests/${uid}/sent/${requestId}`] = null;
+        return firebaseRef.update(updates).then((result) => {
+        }, (error) => {
+            dispatch(globalActions.showErrorMessage(error.message));
+        })
+    }
+}
 
 /**
  * Remove a user from friend list
@@ -185,28 +197,93 @@ export var dbDeleteFriend = (friendId) => {
     }
 }
 
+
+/**
+ * Read all friend requests that current user has sent
+ */
+export var dbGetSentRequests = () => {
+    return (dispatch, getState) => {
+        let uid = getState().authorize.uid;
+
+        let requestRef = firebaseRef.child(`userRequests/${uid}/sent`);
+        return requestRef.once('value', (snapshot) => {
+            let sentRequests = snapshot.val() || {};
+            let parsedRequests = [];
+            Object.keys(sentRequests).forEach((reqId) => {
+                parsedRequests.push(sentRequests[reqId]);
+            });
+
+            dispatch(addSentRequestList(parsedRequests));
+        });
+    }
+
+}
+
+
+/**
+ * Read all friend requests that current user has receive
+ */
+export var dbGetReceivedRequests = () => {
+    return (dispatch, getState) => {
+        let uid = getState().authorize.uid;
+
+        let requestRef = firebaseRef.child(`userRequests/${uid}/received`);
+        return requestRef.once('value', (snapshot) => {
+            let receivedRequests = snapshot.val() || {};
+            let parsedRequests = [];
+            Object.keys(receivedRequests).forEach((reqId) => {
+                parsedRequests.push(receivedRequests[reqId]);
+            });
+            dispatch(addReceivedRequestList(parsedRequests));
+        });
+    }
+}
+
+
+
 /* _____________ CRUD State _____________ */
 
 /**
  * Add user to friend list
- * @param {string} uid user identifier
- * @param {string} followingId friend user identifier
+ * @param {string} uid friend user identifier
+ * @param {object} userFriend info of user's friend
  */
-export const addFriendUser = (uid, followingId) => {
+export const addFriendUser = (uid, userFriend) => {
     return {
         type: types.ADD_FRIEND,
-        payload: { uid, followingId }
+        payload: { uid, userFriend }
     };
 }
 
 /**
  * Delete user from friend list
- * @param {string} uid user identifier 
- * @param {string} followingId friend user identifier
+ * @param {string} friendId friend user identifier
  */
-export const deleteFriendUser = (uid, followingId) => {
+export const deleteFriendUser = (friendId) => {
     return {
         type: types.DELETE_FRIEND,
-        payload: { uid, followingId }
+        payload: { friendId }
+    };
+}
+
+/**
+ * Add list of friend request sent by current user
+ * @param {string} parsedRequest list of requests sent
+ */
+export const addSentRequestList = (parsedRequests) => {
+    return {
+        type: types.SENT_REQUESTS,
+        payload: { parsedRequests }
+    };
+}
+
+/**
+ * Add list of friend request sent by current user
+ * @param {string} parsedRequest list of requests sent
+ */
+export const addReceivedRequestList = (parsedRequests) => {
+    return {
+        type: types.RECEIVED_REQUESTS,
+        payload: { parsedRequests }
     };
 }
