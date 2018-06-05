@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { push } from 'react-router-redux';
 import moment from 'moment';
-import { createAction as action } from 'redux-actions';
 import Linkify from 'react-linkify';
 
 // - Material UI
