@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import {withRouter} from "react-router-dom";
 import { firebaseRef, firebaseAuth } from 'app/firebase/';
 import moment from 'moment';
-import uuid from 'uuid';
+import {push} from "react-router-redux";
+import {connect} from "react-redux";
 
 // - Import app components
 import { Widget, addResponseMessage} from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
+
+
+// - Import actions
+import * as voteActions from 'voteActions';
+import * as postActions from 'postActions';
+import * as globalActions from 'globalActions';
+import {addImageList} from "../actions/imageGalleryActions";
 
 export class Messenger extends Component {
 
@@ -18,24 +27,25 @@ export class Messenger extends Component {
      */
     componentWillMount() {
         console.log("Mounting messenger");
-        // TODO fix 'user doesn't have permissions' when reading from db
-        firebaseRef.child("userMessages/").once('value').then(function (snapshot) {
-            console.log(snapshot.val());
 
-            this.props = {
-                messages: snapshot.val()
-            };
-        })
+        //TODO Switch to this line when conversation ids have been made
+        //firebaseRef.child(`userMessages/${this.props.convoID}`).once('value').then((snapshot) => {
+        firebaseRef.child(`userMessages/messageList`).once('value').then((snapshot) => {
+                let message = snapshot.val() || {};
 
-        console.log("Loading messages " + this.props.messages);
+                if (message && message.message) {
+                    addResponseMessage(message.message);
+                }
+            });
 
-        if (this.props && this.props.messages) {
-            for (let message in this.props.messages) {
-                // TODO uncomment to load previous messages to widget
-                //addResponseMessage(message);
-                console.log(message);
-            }
-        }
+
+        // firebaseRef.child("userMessages/").once('value').then(function (snapshot) {
+        //     console.log(snapshot.val());
+        //
+        //     this.props = {
+        //         messages: snapshot.val()
+        //     };
+        // })
     }
 
     /**
@@ -43,18 +53,17 @@ export class Messenger extends Component {
      * @param {String} string of message to send
      */
     handleNewUserMessage = (newMessage) => {
-        //TODO send message to a specific conversation key
+
         let toUploadMsg = {
             message: newMessage,
-            sender: uuid,
-            timeSent: moment.unix()
+            sender: this.props.uid,
+            timeStamp: moment().unix()
         }
 
-        //TODO Refine how messages are written for ease of future reads
+        console.log(toUploadMsg);
 
-        console.log(`About to upload : ${toUploadMsg}`)
-        // TODO Fix writing to db
-        let convoRef = firebaseRef.child(`userMessages/`).push(toUploadMsg);
+        //TODO send message to a specific conversation key
+        let convoRef = firebaseRef.child(`userMessages/messageList`).push(toUploadMsg);
     }
 
     /**
@@ -67,7 +76,7 @@ export class Messenger extends Component {
             <div id="messenger">
                 <Widget
                     handleNewUserMessage = {this.handleNewUserMessage}
-                    title = {`'s Chat`}
+                    title = {`${this.props.name}'s Chat`}
                     subtitle = {""}
                 />
             </div>
@@ -75,5 +84,39 @@ export class Messenger extends Component {
     }
 }
 
+/**
+ * Map dispatch to props
+ * @param  {func} dispatch is the function to dispatch action to reducers
+ * @param  {object} ownProps is the props belong to component
+ * @return {object}          props of component
+ */
+const mapDispatchToProps = (dispatch, ownProps) => {
+    const { userId } = ownProps.uid
+    console.log("mapDispatch");
+    return {
+        loadUserInfo: () => dispatch(userActions.dbGetUserInfoByUserId(userId, 'header'))
+
+    }
+}
+
+/**
+ * Map state to props
+ * @param  {object} state is the obeject from redux store
+ * @param  {object} ownProps is the props belong to component
+ * @return {object}          props of component
+ */
+const mapStateToProps = (state, ownProps) => {
+    const { userId } = ownProps.uid
+    const { uid } = state.authorize
+
+    console.log(state);
+
+    return {
+        avatar: state.user.info && state.user.info[userId] ? state.user.info[userId].avatar || '' : '',
+        name: state.user.info && state.user.info[userId] ? state.user.info[userId].fullName || '' : '',
+        isAuthedUser: userId === uid,
+        userId
+    }
+}
 // - Connect component to redux store
-export default (Messenger)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Messenger))
