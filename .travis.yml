@@ -9,7 +9,6 @@ branches:
     - staging
     - production
 
-
 install:
   - npm install -g firebase-tools
 
@@ -23,13 +22,13 @@ script:
   - cd ../
   - echo "Running tests..."
   # Run Regression Tests
-  - echo "Running tests..."
 
 
 after_success:
   - echo "Tests are passing!"
   # STAGING SPECIFIC INSTRUCTIONS: DO NOT CHANGE THESE BELOW
-  # We do not deploy for developer (ie "master") branch. 
+  - echo "Deploying current build to firebase staging..."
+  - firebase deploy --token "$FIREBASE_TOKEN_STAGING" -P "kiwi-staging"
 
 env:
   global:
