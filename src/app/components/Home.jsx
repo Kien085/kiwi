@@ -100,7 +100,7 @@ export class Home extends Component {
 
                                 return (
                                     this.props.authed
-                                        ? <div className="blog"><Blog displayWriting={false} homeTitle={`#${match.params.tag}`} posts={this.props.mergedPosts} adSky={true} adPost={true}/></div>
+                                        ? <div className="blog"><Blog displayWriting={false} homeTitle={`#${match.params.tag}`} posts={this.props.mergedPosts}/></div>
                                         : <Redirect to="/login" />
                                 )
                             }} />
@@ -111,7 +111,7 @@ export class Home extends Component {
 
                                 return (
                                     this.props.authed
-                                        ? <div className="blog"><Blog homeTitle='Home' posts={this.props.mergedPosts} displayWriting={true} adSky={true} adPost={true}/></div>
+                                        ? <div className="blog"><Blog homeTitle='Home' posts={this.props.mergedPosts} displayWriting={true}/></div>
                                         : <Redirect to="/login" />
                                 )
                             }} />
