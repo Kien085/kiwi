@@ -27,6 +27,7 @@ import * as userActions from 'userActions';
 import * as globalActions from 'globalActions';
 import * as circleActions from 'circleActions';
 import * as notifyActions from 'notifyActions';
+import * as friendActions from 'friendActions';
 
 export class Master extends Component {
 

@@ -2,6 +2,8 @@ import firebase, { firebaseRef } from 'app/firebase/';
 
 import forge from 'node-forge';
 
+import * as globalActions from '../actions/globalActions';
+
 /**
  * Encrypt message with AES given a key and iv
  * @param {string} plaintext 

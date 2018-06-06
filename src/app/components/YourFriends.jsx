@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { List } from 'material-ui/List';
-
-// Import app component
-import Friend from 'Friend';
+import { List, ListItem, ListItemText } from 'material-ui/List';
 
 export class YourFriends extends Component {
 
@@ -15,7 +12,10 @@ export class YourFriends extends Component {
 
         if (friends) {
             Object.keys(friends).map((key, index) => {
-                parsedFriends.push(friends[index])
+                parsedFriends.push(
+                    <ListItem button>
+                        <ListItemText inset primary={friends[key].fullName} />
+                    </ListItem>)
             })
         }
         return parsedFriends;
@@ -25,24 +25,24 @@ export class YourFriends extends Component {
      * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
-    // render() {
-    //     const friendItems = this.friendList();
+    render() {
+        const friendItems = this.friendList();
 
-    //     return (
-    //         <div style={{maxWidth: '800px', margin: '40px auto'}}>
-    //             {(friendItems && friendItems.length !== 0) ? 
-    //                 (<div>
-    //                     <div className='profile__title'>
-    //                         Your friends
-    //                     </div>
-    //                     <List>
-    //                         {friendItems}
-    //                     </List>
-    //                     <div style={{ height: '24px' }}></div>
-    //                 </div>) : ''}
-    //         </div>
-    //     );
-    // }
+        return (
+            <div style={{maxWidth: '800px', margin: '40px auto'}}>
+                {(friendItems && friendItems.length !== 0) ? 
+                    (<div>
+                        <div className='profile__title'>
+                            Your friends
+                        </div>
+                        <List>
+                            {friendItems}
+                        </List>
+                        <div style={{ height: '24px' }}></div>
+                    </div>) : ''}
+            </div>
+        );
+    }
 }
 
 
