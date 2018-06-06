@@ -18,6 +18,22 @@ export let friendReducer = (state = defaultState, action) => {
 
     switch (action.type) {
         /* _____________ CRUD _____________ */
+        // case types.ADD_FRIEND:
+        //     return [
+        //         ...state,
+        //         {
+        //             uid: payload.userFriend.userId,
+        //             avatar: payload.userFriend.avatar,
+        //             fullName: payload.userFriend.fullName
+        //         }
+        //     ];
+        // case types.DELETE_FRIEND:
+        //     return [
+        //         ...(state.filter((friend) => {
+        //             if (friend.uid != payload.friendId) {
+        //                 return true;
+        //             }
+        //         ];
         case types.ADD_FRIEND:
             return {
                 ...state,
