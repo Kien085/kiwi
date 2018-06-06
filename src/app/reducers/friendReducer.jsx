@@ -3,6 +3,7 @@ import * as types from 'actionTypes';
 
 // Default state
 let defaultState = {
+    friendsList: {},
     loaded: false
 };
 
@@ -18,23 +19,29 @@ export let friendReducer = (state = defaultState, action) => {
     switch (action.type) {
         /* _____________ CRUD _____________ */
         case types.ADD_FRIEND:
-            return [
+            return {
                 ...state,
-                {
-                    uid: payload.userFriend.userId,
-                    avatar: payload.userFriend.avatar,
-                    fullName: payload.userFriend.fullName
-                }
-            ];
-        case types.DELETE_FRIEND:
-            return [
-                ...(state.filter((friend) => {
-                    if (friend.uid != payload.friendId) {
-                        return true;
+                friendsList: {
+                    ...state.friendsList,
+                    [payload.userFriend.userId]: {
+                        avatar: payload.userFriend.avatar,
+                        fullName: payload.userFriend.fullName
                     }
-                    return false;
-                }))
-            ];
+                }
+            };
+        case types.DELETE_FRIEND:
+            let filteredFriends = {};
+            Object.keys(state.friendsList).map((key) => {
+                if (key !== payload.friendId) {
+                    return _.merge(filteredFriends, { [key]: { ...state.friendsList[key] } });
+                }
+            });
+            return {
+                ...state,
+                friendsList : {
+                    ...filteredFriends,
+                }
+            };
         default:
             return state;
     }

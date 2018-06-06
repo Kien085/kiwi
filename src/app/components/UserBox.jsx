@@ -15,7 +15,6 @@ import UserAvatar from 'UserAvatar';
 import CircleAPI from 'CircleAPI';
 
 // - Import actions
-import * as circleActions from 'circleActions';
 import * as friendActions from 'friendActions';
 
 export class UserBox extends Component {
@@ -31,41 +30,24 @@ export class UserBox extends Component {
             // It will be true if user follow popover is open
             open: false,
 
-            // The value of circle input
-            circleName: '',
+            // It will be true if the two users are friends
+            isFriend: false,
 
-            // It will be true if the text field for adding group is empty
-            disabledAddCircle: true
         };
     }
 
 
-    handleFollowUser = (evt) => {
+    handleFriendUser = (evt) => {
         // This prevents ghost click.
         event.preventDefault();
         const { userId, user } = this.props;
         const { avatar, fullName } = user;
 
-        // if (checked) {
-            this.props.addFriendRequest({ avatar, userId, fullName });
-        // } else {
-        //     this.props.deleteFriend(userId);
-        // }
+        this.props.addFriendRequest({ avatar, userId, fullName });
     }
 
    
 
-    /**
-     * Handle change group name input to the state
-     * 
-     * @memberof UserBox
-     */
-    handleChangeName = (evt) => {
-        this.setState({
-            circleName: evt.target.value,
-            disabledAddCircle: (evt.target.value === undefined || evt.target.value.trim() === '')
-        });
-    }
 
     /**
      * Handle touch tab on follow popover
@@ -89,32 +71,6 @@ export class UserBox extends Component {
      */
     handleRequestClose = () => {
         this.setState({ open: false });
-    }
-
-    circleList = () => {
-        const { circles, _, userBelongCircles } = this.props;
-
-        if (circles) {
-            return Object.keys(circles).map((key, index) => {
-                if (key.trim() !== '-Followers') {
-                    const isBelong = userBelongCircles.indexOf(key) > -1;
-
-                    return (<Checkbox
-                        key={key}
-                        style={{ padding: '10px' }}
-                        label={circles[key].name}
-                        labelStyle={{
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
-                            width: '100%'
-                        }}
-                        onCheck={(evt, checked) => this.handleFollowUser(checked)}
-                        checked={isBelong}
-                    />);
-                }
-            });
-        }
     }
 
     /**
@@ -164,10 +120,9 @@ export class UserBox extends Component {
                     </div>
                     <div style={styles.followButton}>
                         <FlatButton
-                            label={(this.props.belongCirclesCount && this.props.belongCirclesCount < 1) ? 'Follow'
-                                : (this.props.belongCirclesCount > 1 ? `${this.props.belongCirclesCount} Circles` : ((this.props.firstBelongCircle) ? this.props.firstBelongCircle.name : 'Follow'))}
+                            label={'Add Friend'}
                             primary={true}
-                            onTouchTap={this.handleFollowUser}
+                            onTouchTap={this.handleFriendUser}
                         />
                     </div>
                 </div>
@@ -185,7 +140,6 @@ export class UserBox extends Component {
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        createCircle: (name) => dispatch(circleActions.dbAddCircle(name)),
         addFriendRequest: (user) => dispatch(friendActions.dbAddFriendRequest(user)),
         deleteFriend: (followingId) => dispatch(friendActions.dbDeleteFriend(followingId)),
         goTo: (url) => dispatch(push(url))
@@ -200,15 +154,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  * @return {object}          props of component
  */
 const mapStateToProps = (state, ownProps) => {
-    const { uid } = state.authorize
-    const circles = state.circle ? (state.circle.userCircles[uid] || {}) : {}
-    const userBelongCircles = CircleAPI.getUserBelongCircles(circles, ownProps.userId)
+    const { uid } = state.authorize;
+    const friends = state.friends;
 
     return {
-        circles: circles,
-        userBelongCircles: userBelongCircles || [],
-        belongCirclesCount: userBelongCircles.length || 0,
-        firstBelongCircle: userBelongCircles ? (circles ? circles[userBelongCircles[0]] : {}) : {},
+        friends: friends,
         avatar: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].avatar || '' : '',
         fullName: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].fullName || '' : ''
     }

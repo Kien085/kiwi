@@ -17,17 +17,17 @@ export class Following extends Component {
     render() {
         return (
             <div>
-                {(this.props.followingUsers && Object.keys(this.props.followingUsers).length !== 0) ? 
+                {(this.props.friends && Object.keys(this.props.friends).length !== 0) ? 
                     (<div>
                         <div className='profile__title'>
-                            Following
+                            Friends
                         </div>
-                        <UserBoxList users={this.props.followingUsers} />
+                        <UserBoxList users={this.props.friends} />
                         <div style={{ height: '24px' }}></div>
                     </div>) : 
                     
                     (<div className='g__title-center'>
-                        No following user!
+                        No friends!
                     </div>)
                 }
             </div>
@@ -55,13 +55,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  */
 const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize
-    const circles = state.circle ? state.circle.userCircles[uid] : {}
-    const followingUsers = CircleAPI.getFollowingUsers(circles)
+    const friends = state.friends ? state.friends : {};
     return {
         uid,
-        circles,
-        followingUsers,
-
+        friends: state.friends ? state.friends.friendsList : {},
     }
 }
 

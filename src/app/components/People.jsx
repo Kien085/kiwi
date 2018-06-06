@@ -10,6 +10,7 @@ import FindPeople from 'FindPeople';
 import Following from 'Following';
 import Followers from 'Followers';
 import YourCircles from 'YourCircles';
+import YourFriends from 'YourFriends';
 
 // - Import actions
 import * as circleActions from 'circleActions';
@@ -89,7 +90,7 @@ export class People extends Component {
                         this.props.setHeaderTitle('Circles')
                     }} >
                         {circlesLoaded ? <Following /> : ''}
-                        {circlesLoaded ? <YourCircles /> : ''}
+                        {/* {circlesLoaded ? <YourCircles /> : ''} */}
                     </Tab>
                     <Tab label="Followers" onActive={() => {
                         this.props.goTo('/people/followers')

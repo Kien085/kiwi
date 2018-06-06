@@ -10,7 +10,6 @@ import UserAvatar from 'UserAvatar';
 
 // - Import actions
 import * as notifyActions from 'notifyActions';
-import * as circleActions from 'circleActions';
 import * as friendActions from 'friendActions';
 
 export class NotifyItem extends Component {
@@ -34,7 +33,7 @@ export class NotifyItem extends Component {
      * @return {react element} return the DOM which rendered by component
      */
     render() {
-        const { description, fullName, avatar, isSeen, id, goTo, closeNotify, notifierUserId, url, deleteNotiy, isRequest, handleRequest} = this.props;
+        const { description, fullName, avatar, isSeen, id, goTo, closeNotify, notifierUserId, url, deleteNotify, isRequest, acceptRequest, rejectRequest} = this.props;
         if( isRequest ) {
             return (
                 <div className='item' style={isSeen ? { opacity: 0.6 } : {}} key={id}>
@@ -60,8 +59,9 @@ export class NotifyItem extends Component {
                             </div>
                         </NavLink>
                     </div>
-                    <div className='close' onClick={() => {deleteNotiy(notifierUserId); handleRequest({userId: notifierUserId, fullName, avatar})}}>
-                        <SvgClose hoverColor={grey400} style={{ cursor: 'pointer' }} />
+                    <div>
+                        <button onClick={() => {acceptRequest({userId: notifierUserId, fullName, avatar}); deleteNotify(notifierUserId)}}>Confirm</button>
+                        <button onClick={() => {rejectRequest({userId: notifierUserId, fullName, avatar}); deleteNotify(notifierUserId)}}>Reject</button>
                     </div>
                 </div>
             )   
@@ -91,7 +91,7 @@ export class NotifyItem extends Component {
                         </div>
                     </NavLink>
                 </div>
-                <div className='close' onClick={() => deleteNotiy(notifierUserId)}>
+                <div className='close' onClick={() => deleteNotify(notifierUserId)}>
                     <SvgClose hoverColor={grey400} style={{ cursor: 'pointer' }} />
                 </div>
             </div>
@@ -109,8 +109,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         goTo: (url) => dispatch(push(url)),
         seenNotify: (id) => dispatch(notifyActions.dbSeenNotify(id)),
-        deleteNotiy: (id) => dispatch(notifyActions.dbDeleteNotify(id)),
-        handleRequest: (user) => dispatch(friendActions.dbAddFriend(user)),
+        deleteNotify: (id) => dispatch(notifyActions.dbDeleteNotify(id)),
+        acceptRequest: (user) => dispatch(friendActions.dbAcceptFriendRequest(user)),
+        rejectRequest: (user) => dispatch(friendActions.dbCancelFriendRequest(user)),
     }
 }
 
