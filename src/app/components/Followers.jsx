@@ -52,7 +52,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize
     const friends = state.friends ? state.friends : {};
-    debugger;
     return {
         friends: state.friends ? state.friends.friendsList : {},
     }

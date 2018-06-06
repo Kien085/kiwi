@@ -35,6 +35,7 @@ export class NotifyItem extends Component {
     render() {
         const { description, fullName, avatar, isSeen, id, goTo, closeNotify, notifierUserId, url, deleteNotify, isRequest, acceptRequest, rejectRequest} = this.props;
         if( isRequest ) {
+            // Friend Request notification
             return (
                 <div className='item' style={isSeen ? { opacity: 0.6 } : {}} key={id}>
                     <div className='avatar'>
@@ -60,13 +61,14 @@ export class NotifyItem extends Component {
                         </NavLink>
                     </div>
                     <div>
-                        <button onClick={() => {acceptRequest({userId: notifierUserId, fullName, avatar}); deleteNotify(notifierUserId)}}>Confirm</button>
-                        <button onClick={() => {rejectRequest({userId: notifierUserId, fullName, avatar}); deleteNotify(notifierUserId)}}>Reject</button>
+                        <button onClick={() => {acceptRequest({userId: notifierUserId, fullName, avatar}); deleteNotify(notifierUserId);}}>Confirm</button>
+                        <button onClick={() => {rejectRequest({userId: notifierUserId, fullName, avatar}); deleteNotify(notifierUserId);}}>Reject</button>
                     </div>
                 </div>
             )   
         }
         
+        // Normal notification
         return (
             <div className='item' style={isSeen ? { opacity: 0.6 } : {}} key={id}>
                 <div className='avatar'>

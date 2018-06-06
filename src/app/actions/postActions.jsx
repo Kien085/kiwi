@@ -88,7 +88,6 @@ export const dbAddImagePost = (newPost, callBack) => {
     // let userId = Store.store.getState().authorize.uid;
     // let userName = Store.store.getState().user.info[userId].fullName;
     // let userEmail = store.getState().user.info[userId].email;
-    // debugger;
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
         let uid = getState().authorize.uid;
