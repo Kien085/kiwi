@@ -1,5 +1,5 @@
 {
   "projects": {
-    "default": "kiwi-staging"
+    "default": "kiwi-prod"
   }
 }
