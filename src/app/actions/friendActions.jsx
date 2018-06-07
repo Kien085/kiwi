@@ -215,6 +215,7 @@ export var dbGetSentRequests = () => {
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
 
+        debugger;
         // Attach listener to request sent by user
         let requestRef = firebaseRef.child(`userRequests/${uid}/sent`);
         return requestRef.on('value', (snapshot) => {
@@ -225,7 +226,10 @@ export var dbGetSentRequests = () => {
                 parsedRequests.push({myReqId: reqId, request: sentRequests[reqId]});
             });
 
-            for (let pendingRequest in parsedRequests) {
+            debugger;
+
+            parsedRequests.forEach( pendingRequest => {
+                debugger;
                 let userFriend = 
                     {
                         userId: pendingRequest.request.uid, 
@@ -242,7 +246,9 @@ export var dbGetSentRequests = () => {
                 if (pendingRequest.request.acknowledged && !pendingRequest.request.approved) {
                     dispatch(dbFriendRequestDenied(userFriend, pendingRequest.myReqId));
                 }
-            }
+            });
+
+            debugger;
 
             dispatch(updateSentRequestList(parsedRequests));
 
