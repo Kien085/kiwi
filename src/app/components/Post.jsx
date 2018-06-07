@@ -20,16 +20,16 @@ import IconMenu from 'material-ui/IconMenu';
 import reactStringReplace from 'react-string-replace';
 
 // - Import app components
-import CommentGroup from 'CommentGroup';
-import PostWrite from 'PostWrite';
-import Img from 'Img';
-import IconButtonElement from 'IconButtonElement';
-import UserAvatar from 'UserAvatar';
+import CommentGroup from './CommentGroup';
+import PostWrite from './PostWrite';
+import Img from './Img';
+import IconButtonElement from '../layouts/IconButtonElement';
+import UserAvatar from './UserAvatar';
 
 // - Import actions
-import * as voteActions from 'voteActions';
-import * as postActions from 'postActions';
-import * as globalActions from 'globalActions';
+import * as voteActions from '../actions/voteActions';
+import * as postActions from '../actions/postActions';
+import * as globalActions from '../actions/globalActions';
 
 export class Post extends Component {
     /**
@@ -74,7 +74,7 @@ export class Post extends Component {
      * Toggle on show/hide comment
      * @param  {event} evt passed by clicking on comment slide show
      */
-    handleOpenComments = (evt) => {
+    handleOpenComments(evt) {
         this.setState({ openComments: !this.state.openComments });
     }
 
@@ -83,7 +83,7 @@ export class Post extends Component {
      * 
      * @memberof Blog
      */
-    handleOpenPostWrite = () => {
+    handleOpenPostWrite() {
         this.setState({ openPostWrite: true });
     }
 
@@ -92,7 +92,7 @@ export class Post extends Component {
      * 
      * @memberof Blog
      */
-    handleClosePostWrite = () => {
+    handleClosePostWrite() {
         this.setState({ openPostWrite: false });
     }
 
@@ -101,7 +101,7 @@ export class Post extends Component {
      * 
      * @memberof Post
      */
-    handleDelete = () => {
+    handleDelete() {
         this.props.delete(this.props.id);
     }
 
@@ -110,7 +110,7 @@ export class Post extends Component {
      * 
      * @memberof Post
      */
-    handleCopyLink = () => {
+    handleCopyLink() {
         this.setState({
             openCopyLink: true,
             shareTitle: 'Copy Link'
@@ -122,7 +122,7 @@ export class Post extends Component {
      * 
      * @memberof Post
      */
-    handleOpenShare = (event) => {
+    handleOpenShare(event) {
         this.setState({ shareOpen: true });
 
         const text = `${location.origin}/${this.props.ownerUserId}/posts/${this.props.id}`;
@@ -152,7 +152,7 @@ export class Post extends Component {
      * 
      * @memberof Post
      */
-    handleCloseShare = () => {
+    handleCloseShare() {
         this.setState({
             shareOpen: false,
             shareTitle: 'Share On',
@@ -165,7 +165,7 @@ export class Post extends Component {
      * 
      * @memberof Post
      */
-    handleVote = () => {
+    handleVote() {
         if (this.props.userVoteStatus) {
             this.props.unvote();
         }
@@ -179,7 +179,7 @@ export class Post extends Component {
      * Set open comment group function on state which passed by CommentGroup component
      * @param  {function} open the function to open comment list
      */
-    getOpenCommentGroup = (open) => {
+    getOpenCommentGroup(open) {
         this.setState({ openCommentGroup: open });
     }
 

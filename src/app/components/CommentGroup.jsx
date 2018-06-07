@@ -7,12 +7,12 @@ import Divider from 'material-ui/Divider';
 import { ListItem } from 'material-ui/List';
 
 // - Import actions
-import * as commentActions from 'commentActions';
+import * as commentActions from '../actions/commentActions';
 
 // - Import app components
-import CommentList from 'CommentList';
-import CommentWrite from 'CommentWrite';
-import UserAvatar from 'UserAvatar';
+import CommentList from './CommentList';
+import CommentWrite from './CommentWrite';
+import UserAvatar from './UserAvatar';
 
 export class CommentGroup extends Component {
     /**
@@ -29,7 +29,7 @@ export class CommentGroup extends Component {
     }
 
     // Clear comment text field
-    clearCommentWrite = () => {
+    clearCommentWrite() {
         this.setState({
             commentText: '',
             postDisable: false
@@ -37,7 +37,7 @@ export class CommentGroup extends Component {
     }
 
     // Post comment
-    handlePostComment = () => {
+    handlePostComment() {
         this.props.send(this.state.commentText, this.props.postId, this.clearCommentWrite);
     }
 
@@ -46,7 +46,7 @@ export class CommentGroup extends Component {
      * @param  {event} evt is an event passed by change comment text callback funciton
      * @param  {string} data is the comment text which user writes
      */
-    handleOnChange = (evt, data) => {
+    handleOnChange(evt, data) {
         this.setState({ commentText: data });
 
         if (data.length === 0 || data.trim() === '') {
@@ -68,7 +68,7 @@ export class CommentGroup extends Component {
      * Get comments' DOM
      * @return {DOM} list of comments' DOM
      */
-    commentList = () => {
+    commentList() {
         let comments = this.props.comments;
 
         if (comments) {

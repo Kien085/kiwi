@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // - Import actions
-import * as commentActions from 'commentActions';
+import * as commentActions from '../actions/commentActions';
 
 export class CommentWrite extends Component {
     constructor(props) {
@@ -17,19 +17,19 @@ export class CommentWrite extends Component {
         this.focus = this.focus.bind(this);
     }
 
-    handleOnChange = (evt) => {
+    handleOnChange(evt) {
         this.setState({ inputValue: evt.target.value });
     }
 
-    handleRef = (ref) => {
+    handleRef(ref) {
         this.inputRef = ref;
     }
 
-    focus = () => {
+    focus() {
         this.inputRef.focus();
     };
 
-    handleAddComment = (evt) => {
+    handleAddComment(evt) {
         this.props.send(this.state.inputValue, this.props.postId, this.props.close);
     };
 

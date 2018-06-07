@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 // - Import image gallery action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // Default state for reducer
 let defaultState = {

@@ -7,18 +7,18 @@ import SvgCamera from 'material-ui/svg-icons/image/photo-camera';
 import { List, ListItem } from 'material-ui/List';
 
 // - Import app components
-import Post from 'Post';
-import PostWrite from 'PostWrite';
-import UserAvatar from 'UserAvatar';
+import Post from './Post';
+import PostWrite from './PostWrite';
+import UserAvatar from './UserAvatar';
+import { AdPost } from './AdPost';
+import { AdSky } from './AdSky';
 
 // - Import API
-import * as AuthAPI from 'AuthAPI';
-import * as PostAPI from 'PostAPI';
+import * as AuthAPI from '../api/AuthAPI';
+import * as PostAPI from '../api/PostAPI';
 
 // - Import actions
-import * as globalActions from 'globalActions';
-import { AdPost } from 'AdPost';
-import { AdSky } from 'AdSky';
+import * as globalActions from '../actions/globalActions';
 
 export class Blog extends Component {
     /**
@@ -62,7 +62,10 @@ export class Blog extends Component {
      * 
      * @memberof Blog
      */
-    handleOpenPostWrite = () => {
+    // handleOpenPostWrite = () => {
+    //     this.setState({ openPostWrite: true });
+    // }
+    handleOpenPostWrite() {
         this.setState({ openPostWrite: true });
     }
 
@@ -71,7 +74,10 @@ export class Blog extends Component {
      * 
      * @memberof Blog
      */
-    handleClosePostWrite = () => {
+    // handleClosePostWrite = () => {
+    //     this.setState({ openPostWrite: false });
+    // }
+    handleClosePostWrite() {
         this.setState({ openPostWrite: false });
     }
 
@@ -79,7 +85,8 @@ export class Blog extends Component {
      * Create a list of posts
      * @return {DOM} posts
      */
-    postLoad = () => {
+    // postLoad = () => {
+    postLoad() {
         const { posts, match } = this.props;
         let { tag } = match.params;
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Avatar from 'material-ui/Avatar';
 
 // - Import actions
-import * as imageGalleryActions from 'imageGalleryActions'
+import * as imageGalleryActions from '../actions/imageGalleryActions'
 
 export class UserAvatar extends Component {
     /**

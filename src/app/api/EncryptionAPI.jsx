@@ -1,4 +1,4 @@
-import firebase, { firebaseRef } from 'app/firebase/';
+import firebase, { firebaseRef } from '../firebase/';
 
 import forge from 'node-forge';
 

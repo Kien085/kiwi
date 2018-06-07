@@ -15,14 +15,14 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 
 // - Import app components
-import UserAvatar from 'UserAvatar';
+import UserAvatar from './UserAvatar';
 
 // - Import action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // - Import actions
-import * as commentActions from 'commentActions';
-import * as userActions from 'userActions';
+import * as commentActions from '../actions/commentActions';
+import * as userActions from '../actions/userActions';
 
 export class Comment extends Component {
 
@@ -56,7 +56,7 @@ export class Comment extends Component {
      * Handle show edit comment
      * @param  {event} evt is an event passed by clicking on edit button
      */
-    handleEditComment = (evt) => {
+    handleEditComment(evt) {
         this.inputText.style.height = this.divComment.clientHeight + 'px';
         this.props.openEditor();
     }
@@ -65,7 +65,7 @@ export class Comment extends Component {
      * Handle cancel edit
      * @param  {event} evt is an event passed by clicking on cancel button
      */
-    handleCancelEdit = (evt) => {
+    handleCancelEdit(evt) {
         this.setState({ text: this.state.initialText });
         this.props.closeEditor();
     }
@@ -74,7 +74,7 @@ export class Comment extends Component {
      * Handle edit comment
      * @param  {event} evt is an event passed by clicking on post button
      */
-    handleUpdateComment = (evt) => {
+    handleUpdateComment(evt) {
         this.props.update(this.props.comment.id, this.props.comment.postId, this.state.text);
         this.setState({ initialText: this.state.text });
     }
@@ -84,7 +84,7 @@ export class Comment extends Component {
      * @param  {event} evt is an event passed by change comment text callback funciton
      * @param  {string} data is the comment text which user writes
      */
-    handleOnChange = (evt) => {
+    handleOnChange(evt) {
         const data = evt.target.value;
         this.inputText.style.height = evt.target.scrollHeight + 'px';
 
@@ -110,7 +110,7 @@ export class Comment extends Component {
      * @param  {string} id     comment identifire
      * @param  {string} postId post identifier which comment belong to
      */
-    handleDelete = (evt, id, postId) => {
+    handleDelete(evt, id, postId) {
         this.props.delete(id, postId);
     }
 

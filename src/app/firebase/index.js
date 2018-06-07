@@ -7,11 +7,15 @@ try {
         databaseURL: DATABASE_URL,
         projectId: PROJECT_ID,
         storageBucket: STORAGE_BUCKET,
+<<<<<<< Updated upstream
         messagingSenderId: MESSAGING_SENDER_ID
+=======
+        messagingSenderId: MESSAGING_SENDER_ID,
+>>>>>>> Stashed changes
     };
-
+    console.log("HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     firebase.initializeApp(config);
-} catch (e) {}
+} catch (e) { }
 
 // - Storage reference
 export let storageRef = firebase.storage().ref();

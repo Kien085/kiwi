@@ -13,17 +13,17 @@ import IconMenu from 'material-ui/IconMenu';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 // - Import app components
-import ImageGallery from 'ImageGallery';
-import Img from 'Img';
-import UserAvatar from 'UserAvatar';
+import ImageGallery from './ImageGallery';
+import Img from './Img';
+import UserAvatar from './UserAvatar';
 
 // - Import API
-import * as AuthAPI from 'AuthAPI';
-import * as PostAPI from 'PostAPI';
+import * as AuthAPI from '../api/AuthAPI';
+import * as PostAPI from '../api/PostAPI';
 
 // - Import actions
-import * as imageGalleryActions from 'imageGalleryActions';
-import * as postActions from 'postActions';
+import * as imageGalleryActions from '../actions/imageGalleryActions';
+import * as postActions from '../actions/postActions';
 
 import forge from 'node-forge';
 
@@ -64,7 +64,7 @@ export class PostWrite extends Component {
      * 
      * @memberof PostWrite
      */
-    handleToggleComments = () => {
+    handleToggleComments() {
         this.setState({
             disableComments: !this.state.disableComments,
             disabledPost: false
@@ -76,7 +76,7 @@ export class PostWrite extends Component {
      * 
      * @memberof PostWrite
      */
-    handleToggleSharing = () => {
+    handleToggleSharing() {
         this.setState({
             disableSharing: !this.state.disableSharing,
             disabledPost: false
@@ -88,7 +88,7 @@ export class PostWrite extends Component {
      * 
      * @memberof PostWrite
      */
-    handleRemoveImage = () => {
+    handleRemoveImage() {
         this.setState({
             image: '',
             imageFullPath: '',
@@ -100,7 +100,7 @@ export class PostWrite extends Component {
      * Handle send post to the server
      * @param  {event} evt passed by clicking on the post button
      */
-    handlePost = (evt) => {
+    handlePost(evt) {
         const {
             image,
             imageFullPath,
@@ -157,7 +157,7 @@ export class PostWrite extends Component {
     }
 
     // Set post image url
-    onRequestSetImage = (url, fullPath) => {
+    onRequestSetImage(url, fullPath) {
         this.setState({
             image: url,
             imageFullPath: fullPath,
@@ -170,7 +170,7 @@ export class PostWrite extends Component {
      * @param  {event} evt is an event passed by change post text callback funciton
      * @param  {string} data is the post content which user writes
      */
-    handleOnChange = (evt, data) => {
+    handleOnChange(evt, data) {
         if (data.length === 0 || data.trim() === '' || (this.props.edit && data.trim() === this.props.text)) {
             this.setState({
                 postText: data,
@@ -187,12 +187,12 @@ export class PostWrite extends Component {
     }
 
     // Close image gallery
-    handleCloseGallery = () => {
+    handleCloseGallery() {
         this.setState({ galleryOpen: false });
     }
 
     // Open image gallery
-    handleOpenGallery = () => {
+    handleOpenGallery() {
         this.setState({ galleryOpen: true });
     }
 

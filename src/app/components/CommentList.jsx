@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { List } from 'material-ui/List';
 
 // - Import app components
-import Comment from 'Comment';
-import * as PostAPI from 'PostAPI';
+import Comment from './Comment';
+import * as PostAPI from '../api/PostAPI';
 
 export class CommentList extends Component {
 
@@ -12,7 +12,7 @@ export class CommentList extends Component {
      * Get comments' DOM
      * @return {DOM} list of comments' DOM
      */
-    commentList = () => {
+    commentList() {
         const comments = this.props.comments;
 
         if (comments) {

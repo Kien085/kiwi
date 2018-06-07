@@ -1,5 +1,5 @@
-import { firebaseAuth, firebaseRef } from 'app/firebase/';
-import store from 'configureStore';
+import { firebaseAuth, firebaseRef } from '../firebase/';
+import store from '../store/configureStore';
 
 // - Check user if is authorized
 export let isAuthorized = () => {
