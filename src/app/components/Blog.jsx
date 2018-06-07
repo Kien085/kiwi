@@ -10,6 +10,7 @@ import { List, ListItem } from 'material-ui/List';
 import Post from 'Post';
 import PostWrite from 'PostWrite';
 import UserAvatar from 'UserAvatar';
+import FriendRequests from 'FriendRequests';
 
 // - Import API
 import * as AuthAPI from 'AuthAPI';
@@ -287,14 +288,26 @@ export class Blog extends Component {
                             </PostWrite>)
                             : ''}
 
+                        {this.props.receivedRequests.map( receivedRequest => {
+                            return (<div style={{backgroundColor: 'black', width: '100px', height: '100px'}}> <button>Receive Request</button> </div>)
+                        } )}
+                        {this.props.sentRequests.map( sentRequest => {
+                            return (<div style={{backgroundColor: 'black', width: '100px', height: '100px'}}> 
+                            <button>Sent Request</button></div>)
+                        } )}
+
                         <List>
+                            
                             <ListItem>Hello World!</ListItem>
                             {Object.keys(this.props.allUsers ? this.props.allUsers : {}).map( userKey => {
                                 let user = this.props.allUsers[userKey];
                                 console.log("Printing this user");
-                                console.log(user.fullName);
+                                console.log(user);
                                 // return (<div style={{backgroundColor: 'black', height: '100px', width: '100px'}}>{}</div>);
-                                return (<ListItem style={{backgroundColor: 'black', height: '100px', weight: '100px'}}>{user.fullName}</ListItem>);
+                                return (<ListItem style={{ height: '100px', weight: '100px'}}>
+                                    {user.fullName}
+                                    <FriendRequests uid={userKey} fullName={user.fullName} avatar={user.avatar}/>
+                                    </ListItem>);
                                 // (<ListItem primaryText={user.fullName}
                                 //                 leftAvatar={<UserAvatar fullName={user.fullName} fileName={user.avatar} size={36} />}
                                 //                 style={{ backgroundColor: 'black',padding: "7px 0px", height: "100px", width: "100px" }}/>)
@@ -343,10 +356,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  * @return {object}          props of component
  */
 const mapStateToProps = (state, ownProps) => {
+    console.log(state);
     return {
         avatar: state.user.info && state.user.info[state.authorize.uid] ? state.user.info[state.authorize.uid].avatar : '',
         fullName: state.user.info && state.user.info[state.authorize.uid] ? state.user.info[state.authorize.uid].fullName : '',
-        allUsers: state.user.info
+        allUsers: state.user.info,
+        receivedRequests: state.receivedFriendRequests,
+        sentRequests: state.sentFriendRequests
     }
 }
 
