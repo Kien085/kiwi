@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
+import {Button} from 'material-ui';
 
 // - Import actions
 import * as friendActions from 'friendActions';
@@ -46,19 +46,21 @@ export class FriendRequests extends Component {
         let hasSentReq = this.hasSentRequest();
         let myRequestId, theirRequestId;
 
-        if (hasSentReq) {
-            <div>
-                <Button variant="contained" size="medium" color="primary" onClick={() => addFriendRequest(user)}>
-                    Send Friend Request
-                </Button>
-            </div>
+        if (!hasSentReq) {
+            return (
+                <button onClick={() => this.props.addFriendRequest(user)}>Send Friend Request</button>
+                // <Button variant="contained" size="medium" color="primary" onClick={() => addFriendRequest(user)}>
+                //     Send Friend Request
+                // </Button>
+            )
         } else {
             myRequestId, theirRequestId = this.getRequestIds(uid);
-            <div>
-                <Button variant="contained" size="medium" color="primary" onClick={() => cancelFriendRequest(user)}>
-                    Cancel Friend Request
-                </Button>
-            </div>
+            return (
+                <button>Cancel Friend Request</button>
+                // <Button variant="contained" size="medium" color="primary" onClick={() => cancelFriendRequest(user)}>
+                //     Cancel Friend Request
+                // </Button>
+            )
         }
     }
 
@@ -86,7 +88,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  * @return {object}          props of component
  */
 const mapStateToProps = (state, ownProps) => {
-    let { uid, fullName, avatar } = this.ownProps;
+    let { uid, fullName, avatar } = ownProps;
     const sentRequests = state.sentFriendRequests;
 
     return {
