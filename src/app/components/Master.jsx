@@ -145,6 +145,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(voteActions.dbGetVotes())
             dispatch(notifyActions.dbGetNotifies())
             dispatch(circleActions.dbGetCircles())
+            dispatch(friendActions.dbGetFriendList())
+            dispatch(friendActions.dbGetSentRequests())
+            dispatch(friendActions.dbGetReceivedRequests())
 
         },
         clearData: () => {

@@ -7,16 +7,16 @@ export class YourFriends extends Component {
     // Get list of friends
     friendList = () => {
         // TODO: Retrieve all friends
-        const { friends, uid } = this.props;
+        const { friendList, uid } = this.props;
         let parsedFriends = [];
 
-        if (friends) {
-            Object.keys(friends).map((key, index) => {
+        if (friendList && friendList.length > 0) {
+            for (aFriend in friendList) {
                 parsedFriends.push(
                     <ListItem button>
-                        <ListItemText inset primary={friends[key].fullName} />
-                    </ListItem>)
-            })
+                        <ListItemText inset primary={aFriend.fullName} />
+                    </ListItem>);
+            }
         }
         return parsedFriends;
     }
@@ -68,7 +68,7 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
         uid,
-        friends: state.friends ? state.friends : {},
+        friendList: state.friendList ? state.friendList : [],
     };
 }
 

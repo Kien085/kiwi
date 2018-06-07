@@ -23,6 +23,7 @@ import CircleAPI from 'CircleAPI';
 
 // - Import actions
 import * as globalActions from 'globalActions';
+import { YourFriends } from './YourFriends';
 
 export class Home extends Component {
     constructor(props) {
@@ -100,7 +101,7 @@ export class Home extends Component {
 
                                 return (
                                     this.props.authed
-                                        ? <div className="blog"><Blog displayWriting={false} homeTitle={`#${match.params.tag}`} posts={this.props.mergedPosts} adSky={true} adPost={true}/></div>
+                                        ? <div className="blog"><Blog displayWriting={false} homeTitle={`#${match.params.tag}`} posts={this.props.mergedPosts}/></div>
                                         : <Redirect to="/login" />
                                 )
                             }} />
@@ -111,7 +112,7 @@ export class Home extends Component {
 
                                 return (
                                     this.props.authed
-                                        ? <div className="blog"><Blog homeTitle='Home' posts={this.props.mergedPosts} displayWriting={true} adSky={true} adPost={true}/></div>
+                                        ? <div className="blog"><Blog homeTitle='Home' posts={this.props.mergedPosts} displayWriting={true}/></div>
                                         : <Redirect to="/login" />
                                 )
                             }} />
@@ -119,7 +120,9 @@ export class Home extends Component {
                     </SidebarMain>
                 </Sidebar>
 
-                <Messenger/>
+
+                <Messenger uid={this.props.uid}/>
+                <YourFriends/>
             </div>
         )
     }
@@ -146,6 +149,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  */
 const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize
+
     let mergedPosts = {}
     const friendsList = state.friends ? (state.friends || {}): {}
     // const circles = state.circle ? (state.circle.userCircles[uid] || {}) : {}
