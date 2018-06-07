@@ -134,84 +134,18 @@ export class UserBox extends Component {
      * @return {react element} return the DOM which rendered by component
      */
     render() {
-        const styles = {
-            paper: {
-                height: 254,
-                width: 243,
-                margin: 10,
-                textAlign: 'center',
-                maxWidth: '257px'
-            },
-            followButton: {
-                position: 'absolute',
-                bottom: '8px',
-                left: 0,
-                right: 0
-            }
-        };
-
         return (
-            <Paper style={styles.paper} zDepth={1} className='grid-cell'>
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'flex-start',
-                    height: '100%',
-                    position: 'relative',
-                    padding: '30px'
-
-                }}>
+            <Paper style={{height: '100px', width: '100%', margin: '10', textAlign: 'center'}} zDepth={1} className='grid-cell'>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', height: '100%', position: 'relative', padding: '30px'}}>
                     <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{ cursor: 'pointer' }}>
-                        <UserAvatar
-                            fullName={this.props.fullName}
-                            fileName={this.props.avatar}
-                            size={90}
-                        />
+                        <UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} size={60}/>
                     </div>
-                    <div onClick={() => this.props.goTo(`/${this.props.userId}`)} className='people__name' style={{ cursor: 'pointer' }}>
-                        <div>
+                    <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{cursor: 'pointer', display: 'flex', wordBreak: 'break-word', maxWidth: '100%', alignItems: 'center', padding: '10px', justifyContent: 'center'}}>
+                        <div style={{color: 'black', fontSize: '20px', lineHeight: '20px', maxWidth: '100%', overflow: 'hidden', textOverflow: 'ellipsis', wordBreak: 'break-word', overflow: 'hidden', textOverflow: 'ellipsis', maxHeight: '40px'}}>
                             {this.props.user.fullName}
                         </div>
                     </div>
-                    <div style={styles.followButton}>
-                        <FlatButton
-                            label={(this.props.belongCirclesCount && this.props.belongCirclesCount < 1) ? 'Follow'
-                                : (this.props.belongCirclesCount > 1 ? `${this.props.belongCirclesCount} Circles` : ((this.props.firstBelongCircle) ? this.props.firstBelongCircle.name : 'Follow'))}
-                            primary={true}
-                            onTouchTap={this.handleTouchTap}
-                        />
-                    </div>
                 </div>
-                <Popover
-                    open={this.state.open}
-                    anchorEl={this.state.anchorEl}
-                    anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-                    targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-                    onRequestClose={this.handleRequestClose}
-                    animation={PopoverAnimationVertical}
-                >
-                    <Menu >
-                        <div style={{
-                            position: 'relative',
-                            display: 'block',
-                            maxHeight: '220px'
-                        }}>
-                            <div style={{ overflowY: 'auto', height: '100%' }}>
-                                {this.circleList()}
-
-                            </div>
-                        </div>
-                        <div style={{ padding: '10px' }}>
-                            <TextField
-                                hintText="Group name"
-                                onChange={this.handleChangeName}
-                                value={this.state.circleName}
-                            /><br />
-                            <FlatButton label="ADD" primary={true} disabled={this.state.disabledAddCircle} onClick={this.handleCreateCricle} />
-                        </div>
-                    </Menu>
-                </Popover>
             </Paper>
         );
     }
