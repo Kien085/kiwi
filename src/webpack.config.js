@@ -47,18 +47,28 @@ module.exports = {
             }
         })
     ] : [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-                API_KEY: JSON.stringify(process.env.API_KEY),
-                AUTH_DOMAIN: JSON.stringify(process.env.AUTH_DOMAIN),
-                DATABASE_URL: JSON.stringify(process.env.DATABASE_URL),
-                STORAGE_BUCKET: JSON.stringify(process.env.STORAGE_BUCKET),
-                PROJECT_ID: JSON.stringify(process.env.PROJECT_ID),
-                MESSAGING_SENDER_ID: JSON.stringify(process.env.MESSAGING_SENDER_ID),
-                HOST_URL: JSON.stringify(process.env.HOST_URL)
-            }
-        }),
+        // new webpack.DefinePlugin({
+        //     'process.env': {
+        //         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        //         API_KEY: JSON.stringify(process.env.API_KEY),
+        //         AUTH_DOMAIN: JSON.stringify(process.env.AUTH_DOMAIN),
+        //         DATABASE_URL: JSON.stringify(process.env.DATABASE_URL),
+        //         STORAGE_BUCKET: JSON.stringify(process.env.STORAGE_BUCKET),
+        //         PROJECT_ID: JSON.stringify(process.env.PROJECT_ID),
+        //         MESSAGING_SENDER_ID: JSON.stringify(process.env.MESSAGING_SENDER_ID),
+        //         HOST_URL: JSON.stringify(process.env.HOST_URL)
+        //     }
+        // }),
+        new webpack.DefinePlugin({NODE_ENV: JSON.stringify(process.env.NODE_ENV)}),
+        new webpack.DefinePlugin({API_KEY: JSON.stringify(process.env.API_KEY)}),
+        new webpack.DefinePlugin({AUTH_DOMAIN: JSON.stringify(process.env.AUTH_DOMAIN)}),
+        new webpack.DefinePlugin({DATABASE_URL: JSON.stringify(process.env.DATABASE_URL)}),
+        new webpack.DefinePlugin({STORAGE_BUCKET: JSON.stringify(process.env.STORAGE_BUCKET)}),
+        new webpack.DefinePlugin({PROJECT_ID: JSON.stringify(process.env.PROJECT_ID)}),
+        new webpack.DefinePlugin({MESSAGING_SENDER_ID: JSON.stringify(process.env.MESSAGING_SENDER_ID)}),
+        new webpack.DefinePlugin({HOST_URL: JSON.stringify(process.env.HOST_URL)}),
+        //     }
+        // }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ],
