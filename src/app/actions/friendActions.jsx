@@ -72,26 +72,6 @@ export var dbAddFriendRequest = (userFriend) => {
 }
 
 
-// /**
-//  * Handles your own state when others request you as friend
-//  * */
-// export var dbHandleFriendRequests = () => {
-//     console.error('Listening for friend requests')
-//     return (dispatch, getState) => {
-//         let uid = getState().authorize.uid;
-        
-//         // Listen for friend requests from other users 
-//         let requestRef = firebaseRef.child(`userRequests/${uid}/received`);
-//         return requestRef.on('value', (snapshot) => {
-//             // Update list of received requests
-//             dispatch(dbGetReceivedRequests());
-//             console.error('Change occurred in my request branch');
-//         });
-//     }
-// }
-    
-    
-    
 /**
  * Accept friend request
  * @param string myReqId the id of the received request
@@ -245,7 +225,7 @@ export var dbGetSentRequests = () => {
                 parsedRequests.push({myReqId: reqId, request: sentRequests[reqId]});
             });
 
-            for (pendingRequest in parsedRequests) {
+            for (let pendingRequest in parsedRequests) {
                 let userFriend = 
                     {
                         userId: pendingRequest.request.uid, 
@@ -312,7 +292,7 @@ export var dbGetFriendList = () => {
             let userFriends = snapshot.val() || {};
             let friendList = [];
             Object.keys(userFriends).forEach((friendId) => {
-                friendList.push(userFriend[friendId]);
+                friendList.push(userFriends[friendId]);
             });
             dispatch(updateFriendList(friendList));
         });

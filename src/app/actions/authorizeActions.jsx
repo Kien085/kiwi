@@ -26,7 +26,8 @@ export var dbLogin = (email, password) => {
             dispatch(globalActions.showNotificationSuccess());
             dispatch(login(result.uid));
             dispatch(push('/'));
-            dispatch(friendActions.dbHandleFriendRequests()); // Listener to own request branch
+            // dispatch(friendActions.dbHandleSentRequest()); // Listener to own request branch
+            // dispatch(friendActions.dbHandleReceivedRequest()); // Listener to own request branch
         }, (error) => dispatch(globalActions.showErrorMessage(error.code)))
     }
 }
