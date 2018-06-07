@@ -15,7 +15,6 @@ export class YourCircles extends Component {
             Object.keys(circles).map((key, index) => {
                 if (key.trim() !== '-Followers')
                     parsedCircles.push(<Circle key={key} circle={circles[key]} id={key} uid={uid} />)
-
             })
         }
 
@@ -54,8 +53,7 @@ export class YourCircles extends Component {
  * @return {object}          props of component
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-    }
+    return {}
 }
 
 /**
@@ -69,7 +67,6 @@ const mapStateToProps = (state, ownProps) => {
     return {
         uid,
         circles: state.circle ? state.circle.userCircles[uid] : {},
-
     }
 }
 
