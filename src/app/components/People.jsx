@@ -81,6 +81,15 @@ export class People extends Component {
                     <Tab label="Find People" onActive={() => {
                         this.props.goTo('/people')
                         this.props.setHeaderTitle('People')
+                    }}>
+                        {circlesLoaded ? <FindPeople /> : ''}
+                    </Tab>
+                </Tabs>
+
+                {/* <Tabs inkBarStyle={{ backgroundColor: grey50 }} initialSelectedIndex={tabIndex} >
+                    <Tab label="Find People" onActive={() => {
+                        this.props.goTo('/people')
+                        this.props.setHeaderTitle('People')
                     }} >
                         {circlesLoaded ? <FindPeople /> : ''}
                     </Tab>
@@ -97,7 +106,7 @@ export class People extends Component {
                     }}>
                         {circlesLoaded ? <Followers /> : ''}
                     </Tab>
-                </Tabs>
+                </Tabs> */}
             </div>
         )
     }
