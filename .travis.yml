@@ -15,12 +15,12 @@ install:
 
 script:
   - echo "Building application"
-  - npm install
+  #- npm install
   - cd src
   - npm install
   - npm run build
-  - cp -r public/* ../public
-  - cd ../
+  #- cp -r public/* ../public
+  #- cd ../
   - echo "Running tests..."
   # Run Regression Tests
   - echo "Running tests..."
@@ -28,6 +28,7 @@ script:
 
 after_success:
   - echo "Tests are passing!"
+  - echo "DEPLOY!"
   # FIREBASE SPECIFIC DEPLOYMENT LOGIC
   - if [ $TRAVIS_BRANCH = 'staging' ]; then firebase deploy --token "$FIREBASE_TOKEN_STAGING" -P "kiwi-staging"; fi 
   - if [ $TRAVIS_BRANCH = 'production' ]; then firebase deploy --token "$FIREBASE_TOKEN_PROD" -P "kiwi-prod"; fi
