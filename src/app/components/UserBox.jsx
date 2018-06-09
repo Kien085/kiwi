@@ -107,9 +107,11 @@ export class UserBox extends Component {
      * @return {react element} return the DOM which rendered by component
      */
     render() {
-        const { friendId, friendAvatar, friendFullName } = this.props;
-        let userFriend = {friendId, friendAvatar, friendFullName};
-        let requestIds =  this.getRequestIds(friendId);
+        let userId = this.props.friendId;
+        let avatar = this.props.friendAvatar;
+        let fullName = this.props.friendFullName;
+        let userFriend = {userId, avatar, fullName};
+        let requestIds =  this.getRequestIds(userId);
         let myRequestId, friendRequest;
         if(!requestIds) {
             myRequestId, friendRequest = myRequestId;
@@ -127,10 +129,10 @@ export class UserBox extends Component {
                     </div>
                     <div>
                         <FlatButton onClick={ () => this.props.addFriendRequest(userFriend)}>Add friend</FlatButton>
-                        <FlatButton onClick={ () => this.props.cancelFriendRequest(useFriend, myRequestId, friendRequest.reqId)}>Cancel request</FlatButton>
+                        <FlatButton onClick={ () => this.props.cancelFriendRequest(userFriend, myRequestId, friendRequest.reqId)}>Cancel request</FlatButton>
                         <FlatButton onClick={ () => this.props.acceptFriend(myRequestId, friendRequest)}>Approve</FlatButton>
                         <FlatButton onClick={ () => this.props.denyFriend(myRequestId, friendRequest)}>Deny</FlatButton>
-                        <FlatButton onClick={ () => this.props.deleteFriend(friendId)}>Unfriend</FlatButton>
+                        <FlatButton onClick={ () => this.props.deleteFriend(userId)}>Unfriend</FlatButton>
                     </div>
                 </div>
             </Paper>
