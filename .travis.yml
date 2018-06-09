@@ -19,9 +19,10 @@ script:
   - npm install
   - npm run build
   #- cp -r public/* ../public
-  #- cd ../
+  - cd ../
   - echo "Running tests..."
-  # Run Regression Tests
+  # Run Tests
+  - npm test -- -u
 
 
 after_success:
