@@ -140,8 +140,8 @@ export class UserBox extends Component {
                     <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{ cursor: 'pointer' }}>
                         <UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} size={60}/>
                     </div>
-                    <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{cursor: 'pointer', display: 'flex', wordBreak: 'break-word', maxWidth: '100%', alignItems: 'center', padding: '10px', justifyContent: 'center'}}>
-                        <div style={{color: 'black', fontSize: '20px', lineHeight: '20px', maxWidth: '100%', overflow: 'hidden', textOverflow: 'ellipsis', wordBreak: 'break-word', overflow: 'hidden', textOverflow: 'ellipsis', maxHeight: '40px'}}>
+                    <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{cursor: 'pointer', wordBreak: 'break-word', padding: '10px'}}>
+                        <div style={{color: 'black', fontSize: '20px', lineHeight: '20px', marginLeft: '20px', overflow: 'hidden', textOverflow: 'ellipsis', wordBreak: 'break-word', overflow: 'hidden', textOverflow: 'ellipsis'}}>
                             {this.props.user.fullName}
                         </div>
                     </div>
