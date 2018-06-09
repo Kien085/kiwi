@@ -145,6 +145,13 @@ export class UserBox extends Component {
                             {this.props.user.fullName}
                         </div>
                     </div>
+                    <div>
+                        <FlatButton>Add friend</FlatButton>
+                        <FlatButton>Cancel request</FlatButton>
+                        <FlatButton>Approve</FlatButton>
+                        <FlatButton>Deny</FlatButton>
+                        <FlatButton>Unfriend</FlatButton>
+                    </div>
                 </div>
             </Paper>
         );
