@@ -274,7 +274,7 @@ export class Post extends Component {
                     </CardMedia>) : ''}
 
                 <CardActions>
-                    <div style={{ margin: "16px 8px", display: 'flex', justifyContent: 'space-between' }}>
+                    <div style={{ margin: "16px 8px", border: '0px', display: 'flex', justifyContent: 'space-between' }}>
                         <div style={{ display: 'flex' }}>
                             <div className='g__circle' onClick={this.handleVote}>
                                 <Checkbox
@@ -293,17 +293,26 @@ export class Post extends Component {
                                         this.props.commentCount === 1 ? 
                                             this.props.commentCount + " comment" : ''}
                                 </div>
-                                <span className='g__circle' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0' }}>
-                                    <svg onClick={this.handleOpenComments} style={{ marginTop: '2px' }} width="20" height="21" xmlns="http://www.w3.org/2000/svg"><path d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z" fill={(this.props.commentCount > 0) ? '#4E7FF7' : '#757575'} />
-                                        <rect x="4" y="4" width="12" height="2" fill={(this.props.commentCount > 0) ? '#4E7FF7' : '#fff'}></rect>
-                                        <rect x="4" y="7" width="12" height="2" fill={(this.props.commentCount > 0) ? '#4E7FF7' : '#fff'}></rect>
-                                        <rect x="4" y="10" width="12" height="2" fill={(this.props.commentCount > 0) ? '#4E7FF7' : '#fff'}></rect>
-                                    </svg>
-                                </span>
+                                <div className='g__circle' onClick={this.handleOpenComments} style={{ display: 'flex'}}>
+                                    <Checkbox
+                                        checkedIcon={
+                                            <svg style={{ marginTop: '2px', marginLeft: "2px" }} width="20" height="21" xmlns="http://www.w3.org/2000/svg"><path d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z" fill='#4E7FF7' />
+                                                <rect x="4" y="4" width="12" height="2" fill='#4E7FF7'></rect>
+                                                <rect x="4" y="7" width="12" height="2" fill='#4E7FF7'></rect>
+                                                <rect x="4" y="10" width="12" height="2" fill='#4E7FF7'></rect>
+                                            </svg>
+                                        }
+                                        uncheckedIcon={
+                                            <svg style={{ marginTop: '2px', marginLeft: "2px" }} width="20" height="21" xmlns="http://www.w3.org/2000/svg"><path d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z" fill="#757575" /></svg>
+                                        }
+                                        defaultChecked={this.props.commentCount > 0}
+                                        style={{ transform: 'translate(6px, 6px)' }}
+                                    />
+                                </div>
                             </div>) : ''}
                             {!this.props.disableSharing ?
                                 <div className='g__circle' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <svg onClick={this.handleOpenShare} style={{marginBottom: '1px'}} width="20" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z" fill="#757575"/></svg>
+                                    <svg onClick={this.handleOpenShare} style={{marginBottom: '2px'}} width="20" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z" fill="#757575"/></svg>
                                 </div>
                                 : ''}
                         </div>
