@@ -18,7 +18,6 @@ export let sentFriendRequestsReducer = (state = defaultState, action) => {
         // get the lastest sent requests from the database
         case types.UPDATE_SENT_REQUESTS:
             return [
-                ...state,
                 ...payload
             ]
             
