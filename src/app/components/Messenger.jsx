@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
-import {withRouter} from "react-router-dom";
 import { firebaseRef, firebaseAuth } from 'app/firebase/';
 import moment from 'moment';
+import uuid from 'uuid';
 import {connect} from "react-redux";
 
 // - Import app components
 import { Widget, addResponseMessage} from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
-
-
-// - Import actions
-import * as voteActions from 'voteActions';
-import * as postActions from 'postActions';
-import * as globalActions from 'globalActions';
-import {addImageList} from "../actions/imageGalleryActions";
 
 export class Messenger extends Component {
 
@@ -22,8 +15,7 @@ export class Messenger extends Component {
     }
 
     /**
-     * Runs when the component loads
-     * Fetches the messages of a specific conversation
+     * Loads previous messages in conversation from firebase
      */
     componentWillMount() {
         //TODO Switch to this line when conversation ids have been made
@@ -41,11 +33,11 @@ export class Messenger extends Component {
      * @param {String} string of message to send
      */
     handleNewUserMessage = (newMessage) => {
-
+        //TODO send message to a specific conversation key
         let toUploadMsg = {
             message: newMessage,
-            sender: this.props.uid,
-            timeStamp: moment().unix()
+            sender: uuid,
+            timeSent: moment.unix()
         }
 
         //TODO send message to a specific conversation key
@@ -103,4 +95,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 // - Connect component to redux store
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Messenger))
+export default (Messenger)

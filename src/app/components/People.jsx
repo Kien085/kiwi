@@ -10,6 +10,7 @@ import FindPeople from 'FindPeople';
 import Following from 'Following';
 import Followers from 'Followers';
 import YourCircles from 'YourCircles';
+import YourFriends from 'YourFriends';
 
 // - Import actions
 import * as circleActions from 'circleActions';
@@ -95,6 +96,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         goTo: (url) => dispatch(push(url)),
         setHeaderTitle: (title) => dispatch(globalActions.setHeaderTitle(title))
+
+
     }
 }
 
@@ -109,6 +112,9 @@ const mapStateToProps = (state, ownProps) => {
     return {
         uid: state.authorize.uid,
         circlesLoaded: state.circle.loaded
+
+
+
     }
 }
 

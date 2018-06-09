@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+// import { withStyles } from '@material-ui/core/styles';
+// import Card from '@material-ui/core/Card';
+// import FlatButton from 'material-ui/Button';
+// import Typography from '@material-ui/core/Typography';
 import { Card, CardActions, CardHeader, CardMedia, CardText } from 'material-ui/Card';
 
 export class AdPost extends Component {

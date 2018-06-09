@@ -1,6 +1,6 @@
 {
   "source": "./src/app/",
-  "destination": "./esdocs",
+  "destination": "./docs",
   "index": "./README.md",
   "includes": [".*\\.jsx", ".*\\.js"],
   "plugins": [{"name": "esdoc-standard-plugin"},

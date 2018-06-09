@@ -12,17 +12,17 @@ export class Followers extends Component {
     render() {
         return (
             <div>
-                {(this.props.followers && Object.keys(this.props.followers).length !== 0) ?
+                {(this.props.friends && Object.keys(this.props.friends).length !== 0) ?
                     (<div>
                         <div className='profile__title'>
-                            Followers
+                            Friends
                         </div>
-                        <UserBoxList users={this.props.followers} />
+                        <UserBoxList users={this.props.friends} />
                         <div style={{ height: '24px' }}></div>
                     </div>) :
                     
                     (<div className='g__title-center'>
-                        No followers!
+                        No friends!
                     </div>)
                 }
             </div>
@@ -51,9 +51,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  */
 const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize
-    const circles = state.circle ? state.circle.userCircles[uid] : {}
+    const friends = state.friends ? state.friends : {};
     return {
-        followers: circles ? (circles['-Followers'] ? circles['-Followers'].users || {} : {}) : {}
+        friends: state.friends ? state.friends.friendsList : {},
     }
 }
 

@@ -60,6 +60,15 @@ select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
 }
 
+.g__dialog-title {
+    margin: 0px;
+    padding: 24px 24px 20px;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 400;
+}
+
 .g__circle-black {
     color: rgba(0, 0, 0, 0.87);
     background: rgba(0, 0, 0, 0.26);
@@ -122,29 +131,57 @@ select:-webkit-autofill:focus {
     @extend .g__title
 }
 
+.g__greenColor {
+    color: #4CAF50;
+}
+
+.g__greenBox {
+    background-color: #5574F7 !important;
+}
+
+.glob__shadow {
+    box-shadow: $glob-box-shadow;
+}
+
+.global__color-teal {
+    color: $teal;
+}
+
+.global__color-gold {
+    color: $gold;
+}
+
+.global__color-lightGrey {
+    color: $light-grey3;
+}
+
 input[type="file"] {
     display: none;
 }
 
-// .global__scroll-CH::-webkit-scrollbar {
-//     width: 5px;
-// }
+.global__hidden {
+    display: none;
+}
 
-// .global__scroll-CH::-webkit-scrollbar-track {
-//     background: #ddd;
-// }
+.global__scroll-CH::-webkit-scrollbar {
+    width: 5px;
+}
 
-// .global__scroll-CH::-webkit-scrollbar-thumb {
-//     background: #666;
-// }
+.global__scroll-CH::-webkit-scrollbar-track {
+    background: #ddd;
+}
 
-// .global__scroll-IE {
-//     scrollbar-base-color: #C0C0C0;
-//     scrollbar-base-color: #C0C0C0;
-//     scrollbar-dlight-color: #C0C0C0;
-//     scrollbar-highlight-color: #C0C0C0;
-//     scrollbar-track-color: #EBEBEB;
-//     scrollbar-arrow-color: black;
-//     scrollbar-shadow-color: #C0C0C0;
-//     scrollbar-dark-shadow-color: #C0C0C0;
-// }
+.global__scroll-CH::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+.global__scroll-IE {
+    scrollbar-base-color: #C0C0C0;
+    scrollbar-base-color: #C0C0C0;
+    scrollbar-dlight-color: #C0C0C0;
+    scrollbar-highlight-color: #C0C0C0;
+    scrollbar-track-color: #EBEBEB;
+    scrollbar-arrow-color: black;
+    scrollbar-shadow-color: #C0C0C0;
+    scrollbar-dark-shadow-color: #C0C0C0;
+}

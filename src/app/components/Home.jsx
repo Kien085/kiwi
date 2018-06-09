@@ -23,6 +23,7 @@ import CircleAPI from 'CircleAPI';
 
 // - Import actions
 import * as globalActions from 'globalActions';
+import { YourFriends } from './YourFriends';
 
 export class Home extends Component {
     constructor(props) {
@@ -120,10 +121,8 @@ export class Home extends Component {
                 </Sidebar>
 
 
-                {
-                    //TODO Finish messenger implementation; postponed at 6.6.18
-                    /*<Messenger uid={this.props.uid}/>*/
-                }
+                <Messenger uid={this.props.uid}/>
+                <YourFriends/>
             </div>
         )
     }
@@ -152,10 +151,12 @@ const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize
 
     let mergedPosts = {}
-    const circles = state.circle ? (state.circle.userCircles[uid] || {}) : {}
-    const followingUsers = CircleAPI.getFollowingUsers(circles)
+    const friendsList = state.friends ? (state.friends || {}): {}
+    // const circles = state.circle ? (state.circle.userCircles[uid] || {}) : {}
+    // const followingUsers = CircleAPI.getFollowingUsers(circles)
     const posts = state.post.userPosts ? state.post.userPosts[state.authorize.uid] : {}
-    Object.keys(followingUsers).forEach((userId) => {
+    Object.keys(friendsList).forEach((index) => {
+        let userId = friendsList[index].uid
         let newPosts = state.post.userPosts ? state.post.userPosts[userId] : {}
         _.merge(mergedPosts, newPosts)
     })

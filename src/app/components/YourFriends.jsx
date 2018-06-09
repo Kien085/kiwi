@@ -1,43 +1,42 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { List } from 'material-ui/List';
+import { List, ListItem, ListItemText } from 'material-ui/List';
 
-// - Import app components
-import Circle from 'Circle';
+export class YourFriends extends Component {
 
-export class YourCircles extends Component {
+    // Get list of friends
+    friendList = () => {
+        // TODO: Retrieve all friends
+        const { friendList, uid } = this.props;
+        let parsedFriends = [];
 
-    circleList = () => {
-        const { circles, uid } = this.props;
-        let parsedCircles = []
-
-        if (circles) {
-            Object.keys(circles).map((key, index) => {
-                if (key.trim() !== '-Followers')
-                    parsedCircles.push(<Circle key={key} circle={circles[key]} id={key} uid={uid} />)
-
-            })
+        if (friendList && friendList.length > 0) {
+            for (aFriend in friendList) {
+                parsedFriends.push(
+                    <ListItem button>
+                        <ListItemText inset primary={aFriend.fullName} />
+                    </ListItem>);
+            }
         }
-
-        return parsedCircles;
+        return parsedFriends;
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
-        const circleItems = this.circleList();
+        const friendItems = this.friendList();
 
         return (
             <div style={{maxWidth: '800px', margin: '40px auto'}}>
-                {(circleItems && circleItems.length !== 0) ? 
+                {(friendItems && friendItems.length !== 0) ? 
                     (<div>
                         <div className='profile__title'>
-                            Your circles
+                            Your friends
                         </div>
                         <List>
-                            {circleItems}
+                            {friendItems}
                         </List>
                         <div style={{ height: '24px' }}></div>
                     </div>) : ''}
@@ -55,7 +54,7 @@ export class YourCircles extends Component {
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-    }
+    };
 }
 
 /**
@@ -65,13 +64,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  * @return {object}          props of component
  */
 const mapStateToProps = (state, ownProps) => {
-    const { uid } = state.authorize
+    const { uid } = state.authorize;
+
     return {
         uid,
-        circles: state.circle ? state.circle.userCircles[uid] : {},
-
-    }
+        friendList: state.friendList ? state.friendList : [],
+    };
 }
 
 // - Connect component to redux store
-export default connect(mapStateToProps, mapDispatchToProps)(YourCircles)
+export default connect(mapStateToProps, mapDispatchToProps)(YourFriends)

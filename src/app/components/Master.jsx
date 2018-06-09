@@ -27,6 +27,7 @@ import * as userActions from 'userActions';
 import * as globalActions from 'globalActions';
 import * as circleActions from 'circleActions';
 import * as notifyActions from 'notifyActions';
+import * as friendActions from 'friendActions';
 
 export class Master extends Component {
 
@@ -110,6 +111,7 @@ export class Master extends Component {
                         <Route path="/settings" component={Settings} />
                         <Route path="/resetpassword" component={ResetPassword} />
                         <Route path="/login" render={() => {
+                            // console.log('this.props.authed: ', this.props.authed, "this.props: ", this.props)
                             return (
                                 this.props.authed
                                     ? <Redirect to="/" />
@@ -143,6 +145,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(voteActions.dbGetVotes())
             dispatch(notifyActions.dbGetNotifies())
             dispatch(circleActions.dbGetCircles())
+            dispatch(friendActions.dbGetFriendList())
+            dispatch(friendActions.dbGetSentRequests())
+            dispatch(friendActions.dbGetReceivedRequests())
 
         },
         clearData: () => {
