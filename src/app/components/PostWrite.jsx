@@ -282,7 +282,10 @@ export class PostWrite extends Component {
         const styles = {
             dialog: {
                 width: '',
-                maxWidth: '530px'
+                maxWidth: '530px',
+                border: '1px solid #aaa',
+                borderRadius: '7px', 
+                overflow: 'auto'
             }
         };
 
@@ -295,7 +298,7 @@ export class PostWrite extends Component {
                     open={this.props.open}
                     contentStyle={styles.dialog}
                     onRequestClose={this.props.onRequestClose}
-                    overlayStyle={{ background: "rgba(0,0,0,0.12)" }}
+                    overlayStyle={{ background: "rgba(0,0,0,0.5)" }}
                     bodyStyle={{ padding: 0 }}
                     autoDetectWindowHeight={false}
                 >
@@ -345,13 +348,16 @@ export class PostWrite extends Component {
                                 </div>) : ''}
                         </div>
                         <div style={{ flexShrink: 0, boxFlex: 0, flexGrow: 0, maxHeight: "48px", width: "100%" }}>
-                            <div style={{ flexDirection: "row", display: "flex", alignItems: 'center', justifyContent: 'space-between' }}>
-                                <div onClick={this.handleOpenGallery} style={{ outline: "none", width: "48px", zIndex: 0, overflow: "hidden", position: "relative", textAlign: "center", transition: "background .3s", border: 0, borderRadius: "50%", display: "inlineBlock", height: "48px" }}>
-                                    <span style={{ top: "13px", position: "relative", cursor: "pointer" }}>
-                                        <SvgCamera color="grey" />
-                                    </span>
+                            <div style={{ flexDirection: "row", display: "flex", justifyContent: 'space-between', backgroundColor: '#eee' }}>
+                                <div onClick={this.handleOpenGallery} style={{display: "flex", alignItems: 'center', cursor: 'pointer'}}>
+                                    <div style={{ outline: "none", width: "48px", zIndex: 0, overflow: "hidden", position: "relative", textAlign: "center", transition: "background .3s", border: 0, borderRadius: "50%", display: "inlineBlock", height: "48px" }}>
+                                        <span style={{ top: "13px", position: "relative", cursor: "pointer" }}>
+                                            <SvgCamera color="grey" />
+                                        </span>
+                                    </div>
+                                    <div>{"Insert a picture"}</div>
                                 </div>
-                                <div>
+                                <div style={{display: "flex", alignItems: 'center'}}>
                                     {writeActions}
                                 </div>
                             </div>
