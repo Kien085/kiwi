@@ -122,53 +122,23 @@ export class UserBox extends Component {
      * @return {react element} return the DOM which rendered by component
      */
     render() {
-        const styles = {
-            paper: {
-                height: 254,
-                width: 243,
-                margin: 10,
-                textAlign: 'center',
-                maxWidth: '257px'
-            },
-            followButton: {
-                position: 'absolute',
-                bottom: '8px',
-                left: 0,
-                right: 0
-            }
-        };
-
         return (
-            <Paper style={styles.paper} zDepth={1} className='grid-cell'>
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'flex-start',
-                    height: '100%',
-                    position: 'relative',
-                    padding: '30px'
-
-                }}>
+            <Paper style={{height: '100px', width: '100%', margin: '10', textAlign: 'center'}} zDepth={1} className='grid-cell'>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', height: '100%', position: 'relative', padding: '30px'}}>
                     <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{ cursor: 'pointer' }}>
-                        <UserAvatar
-                            fullName={this.props.fullName}
-                            fileName={this.props.avatar}
-                            size={90}
-                        />
+                        <UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} size={60}/>
                     </div>
-                    <div onClick={() => this.props.goTo(`/${this.props.userId}`)} className='people__name' style={{ cursor: 'pointer' }}>
-                        <div>
+                    <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{cursor: 'pointer', wordBreak: 'break-word', padding: '10px'}}>
+                        <div style={{color: 'black', fontSize: '20px', lineHeight: '20px', marginLeft: '20px', overflow: 'hidden', textOverflow: 'ellipsis', wordBreak: 'break-word', overflow: 'hidden', textOverflow: 'ellipsis'}}>
                             {this.props.user.fullName}
                         </div>
                     </div>
-                    <div style={styles.followButton}>
-                        <FlatButton
-                            label={(this.props.belongCirclesCount && this.props.belongCirclesCount < 1) ? 'Follow'
-                                : (this.props.belongCirclesCount > 1 ? `${this.props.belongCirclesCount} Circles` : ((this.props.firstBelongCircle) ? this.props.firstBelongCircle.name : 'Follow'))}
-                            primary={true}
-                            onTouchTap={this.handleFollowUser}
-                        />
+                    <div>
+                        <FlatButton>Add friend</FlatButton>
+                        <FlatButton>Cancel request</FlatButton>
+                        <FlatButton>Approve</FlatButton>
+                        <FlatButton>Deny</FlatButton>
+                        <FlatButton>Unfriend</FlatButton>
                     </div>
                 </div>
             </Paper>
