@@ -5,7 +5,6 @@ import createHistory from 'history/createBrowserHistory';
 import { createLogger } from 'redux-logger';;
 
 // - Import reducers
-<<<<<<< HEAD
 import { imageGalleryReducer } from 'imageGalleryReducer';
 import { postReducer } from 'postReducer';
 import { commentReducer } from 'commentReducer';
@@ -18,17 +17,6 @@ import { notifyReducer } from 'notifyReducer';
 import { friendListReducer } from 'friendListReducer';
 import { receivedFriendRequestsReducer } from 'receivedFriendRequestsReducer';
 import { sentFriendRequestsReducer } from 'sentFriendRequestsReducer';
-=======
-import { imageGalleryReducer } from '../reducers/imageGalleryReducer';
-import { postReducer } from '../reducers/postReducer';
-import { commentReducer } from '../reducers/commentReducer';
-import { voteReducer } from '../reducers/voteReducer';
-import { authorizeReducer } from '../reducers/authorizeReducer';
-import { globalReducer } from '../reducers/globalReducer';
-import { userReducer } from '../reducers/userReducer';
-import { circleReducer } from '../reducers/circleReducer';
-import { notifyReducer } from '../reducers/notifyReducer';
->>>>>>> 44e19fbc5d0a28c745cf183f3c61d1e0c3e16037
 
 // Create a history of your choosing (we're using a browser history in this case)
 export const history = createHistory();
