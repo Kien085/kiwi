@@ -104,9 +104,9 @@ export var dbDenyFriendRequest = (myReqId, request) => {
                 userId: request.uid
             };
         let updates = {}
-        updates[`userRequests/${myReqId}/sent`] = null;
-        updates[`userRequests/${uid}/received/${request.reqId}/acknowledged`] = true;
-        updates[`userRequests/${uid}/received/${request.reqId}/approved`] = false;
+        updates[`userRequests/${uid}/received/${myReqId}`] = null;
+        updates[`userRequests/${userFriend.userId}/sent/${request.reqId}/acknowledged`] = true;
+        updates[`userRequests/${userFriend.userId}/sent/${request.reqId}/approved`] = false;
         return firebaseRef.update(updates).then((result) => {
 
         });
