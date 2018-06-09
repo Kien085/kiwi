@@ -30,13 +30,6 @@ describe("Component: Blog", () => {
         expect(tree).toMatchSnapshot();
     });
 
-    it("has correct default state for divided", () => {
-        const wrapper = Enzyme.mount(<Blog setHomeTitle={() => { }} match={{ params: "" }} />);
-        expect(
-            String(wrapper.state("divided")) === "false"
-        ).toEqual(true);
-    });
-
     it("has correct default state for disableComments", () => {
         const wrapper = Enzyme.mount(<Blog setHomeTitle={() => { }} match={{ params: "" }} />);
         expect(
