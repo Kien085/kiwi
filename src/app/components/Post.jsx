@@ -284,7 +284,9 @@ export class Post extends Component {
                                     style={{ transform: 'translate(6px, 6px)' }}
                                 />
                             </div>
-                            <div style={styles.counter}> {this.props.voteCount > 0 ? this.props.voteCount : ''} </div>
+                            <div style={styles.counter}> {this.props.voteCount > 0 ? 
+                                this.props.voteCount > 1 ? 
+                                    this.props.voteCount + " people likes this" : this.props.voteCount + " person likes this" : ''} </div>
                         </div>
                         <div style={{ display: 'flex' }}>
                             {!this.props.disableComments ? (<div style={{ display: 'flex', alignItems: 'center' }}>
@@ -315,8 +317,12 @@ export class Post extends Component {
                                 </div>
                             </div>) : ''}
                             {!this.props.disableSharing ?
-                                <div className='g__circle' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <svg onClick={this.handleOpenShare} style={{marginBottom: '2px'}} width="20" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z" fill="#757575"/></svg>
+                                <div className='g__circle' onClick={this.handleOpenShare} style={{ display: 'flex' }}>
+                                    <Checkbox
+                                        checkedIcon={<svg style={{marginTop: '2px', marginLeft: '1px'}} width="20" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z" fill="#757575"/></svg>}
+                                        uncheckedIcon={<svg style={{marginTop: '2px', marginLeft: '1px'}} width="20" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z" fill="#757575"/></svg>}
+                                        style={{ transform: 'translate(6px, 6px)' }}
+                                    />
                                 </div>
                                 : ''}
                         </div>
