@@ -3,12 +3,6 @@
     width: 90%;
 }
 
-.blog__right-list {
-    @media (min-width: 993px) {
-        margin-left: 2%;
-    }
-}
-
 @media screen and (max-width: 825px) {
     .adSky {
         display: none;

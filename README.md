@@ -68,7 +68,7 @@ technology.
 # Use of Third Party Integration Tools
 
 ## Codacy
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8569c562e69145308e896348639cf8b7)](https://app.codacy.com/app/kiwi/kiwi?utm_source=github.com&utm_medium=referral&utm_content=aabadill/kiwi&utm_campaign=badger)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/91749d291e594933b326ac0059920459)](https://www.codacy.com/app/kiwi/kiwi_2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KiwiCSE112/kiwi&amp;utm_campaign=Badge_Grade)
 
 We use a static code analysis tool called Codacy in order to 
 keep our code consistent and as simple as possible.
@@ -165,7 +165,7 @@ The following file structure roughly represents how we have organized our reposi
       under development as well as components that have reached
       production
     - docs are able to be viewed via a browser
-
+    
 # License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -175,4 +175,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-

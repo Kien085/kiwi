@@ -9,7 +9,6 @@ branches:
     - staging
     - production
 
-
 install:
   - npm install -g firebase-tools
 
@@ -19,17 +18,18 @@ script:
   - cd src
   - npm install
   - npm run build
-  - cp -r public/* ../public
-  - cd ../
+  #- cp -r public/* ../public
+  #- cd ../
   - echo "Running tests..."
   # Run Regression Tests
-  - echo "Running tests..."
 
 
 after_success:
   - echo "Tests are passing!"
-  # STAGING SPECIFIC INSTRUCTIONS: DO NOT CHANGE THESE BELOW
-  # We do not deploy for developer (ie "master") branch. 
+  - echo "DEPLOY!"
+  # FIREBASE SPECIFIC DEPLOYMENT LOGIC
+  - if [ $TRAVIS_BRANCH = 'staging' ]; then firebase deploy --token "$FIREBASE_TOKEN_STAGING" -P "kiwi-staging"; fi 
+  - if [ $TRAVIS_BRANCH = 'production' ]; then firebase deploy --token "$FIREBASE_TOKEN_PROD" -P "kiwi-prod"; fi
 
 env:
   global:

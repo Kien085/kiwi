@@ -7,8 +7,7 @@ import * as types from 'actionTypes';
 
 // - Import actions
 import * as globalActions from 'globalActions';
-
-import forge from 'node-forge';
+import EncryptionAPI from '../api/EncryptionAPI';
 
 /* _____________ CRUD DB _____________ */
 
@@ -76,38 +75,8 @@ export var dbSignup = (user) => {
     return (dispatch, getState) => {
         dispatch(globalActions.showNotificationRequest());
         return firebaseAuth().createUserWithEmailAndPassword(user.email, user.password).then((signupResult) => {
-            let rsa = forge.pki.rsa;
-            // generate an RSA key pair asynchronously (uses web workers if available)
-            // use workers: -1 to run a fast core estimator to optimize # of workers
-            rsa.generateKeyPair({bits: 2048, workers: -1}, function(err, keypair) {
-                if(err) {
-                    console.error(err)
-                } else {
-                    let localStorage = window.localStorage;
-                    let privateKey = keypair.privateKey;
-                    let publicKey = keypair.publicKey;
-            
-                    // Save privateKey locally
-                    localStorage.setItem('privPair', privateKey);
-                    localStorage.setItem('pubPair', publicKey);
-                    // Generate a public key for symmetric encryption
-                    // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
-                    let key = forge.random.getBytesSync(32);
-                    let iv = forge.random.getBytesSync(32);
-                    localStorage.setItem('PUBkey', key);
-                    localStorage.setItem('PUBiv', iv);
-            
-                    
-                    firebaseRef.child(`keys/${signupResult.uid}/`).set({
-                        key: key,
-                        iv: iv
-                    }).then((result) => {
-                        dispatch(globalActions.showNotificationSuccess())
-                    }, (error) => dispatch(globalActions.showErrorMessage(error.code)));
-                    
-                    
-                }
-            });
+            // Generate keys for encryption
+            EncryptionAPI.generateKeys(signupResult.uid);
 
             // Prevent password from being stored
             delete user.password;

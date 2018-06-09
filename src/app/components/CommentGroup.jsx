@@ -125,7 +125,7 @@ export class CommentGroup extends Component {
                     <div style={!this.props.open ? { display: "block" } : { display: "none" }}>
                     {/* <Paper zDepth={0} className="animate-top" style={!this.props.open ? { display: "block" } : { display: "none" }}> */}
                         <div style={{ position: "relative", height: "60px", borderRadius: '0 0 7px 7px' }} >
-                            {/* <FlatButton label=" " style={{ height: "60px", zIndex: 5, borderRadius: '0 0 7px 7px' }} fullWidth={true} onClick={this.props.onToggleRequest} /> */}
+                            <FlatButton label=" " style={{ height: "60px", zIndex: 5, borderRadius: '0 0 7px 7px' }} fullWidth={true} onClick={this.props.onToggleRequest} />
 
                             <div className="comment__list-show">
                                 {this.commentList()}
@@ -139,8 +139,7 @@ export class CommentGroup extends Component {
                         </Paper>) : ''}
                 </div>
 
-                {!this.props.disableComments ? (<div>
-                    <Divider />
+                {!this.props.disableComments ? (<div id={"innerCommentGroupDiv"}>
                     <Paper zDepth={0} className="animate2-top10" style={{ position: "relative", overflowY: "auto", padding: "12px 16px", display: (this.props.open ? "block" : "none"), borderRadius: "0 0 7px 7px" }}>
                         <div style={{ display: "flex" }}>
                             <UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} style={{ flex: "none", margin: "4px 0px" }} size={36} />
