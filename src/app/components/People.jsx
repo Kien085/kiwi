@@ -77,27 +77,7 @@ export class People extends Component {
 
         return (
             <div style={styles.people}>
-                <Tabs inkBarStyle={{ backgroundColor: grey50 }} initialSelectedIndex={tabIndex} >
-                    <Tab label="Find People" onActive={() => {
-                        this.props.goTo('/people')
-                        this.props.setHeaderTitle('People')
-                    }} >
-                        {circlesLoaded ? <FindPeople /> : ''}
-                    </Tab>
-                    <Tab label="Following" onActive={() => {
-                        this.props.goTo('/people/circles')
-                        this.props.setHeaderTitle('Circles')
-                    }} >
-                        {circlesLoaded ? <Following /> : ''}
-                        {circlesLoaded ? <YourCircles /> : ''}
-                    </Tab>
-                    <Tab label="Followers" onActive={() => {
-                        this.props.goTo('/people/followers')
-                        this.props.setHeaderTitle('Followers')
-                    }}>
-                        {circlesLoaded ? <Followers /> : ''}
-                    </Tab>
-                </Tabs>
+                <FindPeople />
             </div>
         )
     }
@@ -115,8 +95,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         goTo: (url) => dispatch(push(url)),
         setHeaderTitle: (title) => dispatch(globalActions.setHeaderTitle(title))
-
-
     }
 }
 
@@ -131,9 +109,6 @@ const mapStateToProps = (state, ownProps) => {
     return {
         uid: state.authorize.uid,
         circlesLoaded: state.circle.loaded
-
-
-
     }
 }
 

@@ -29,9 +29,6 @@ export class Blog extends Component {
         super(props);
 
         this.state = {
-            // It's true if we want to have two column of posts.
-            divided: false,
-
             // If it's true comment will be disabled on post.
             disableComments: this.props.disableComments,
 
@@ -99,7 +96,7 @@ export class Blog extends Component {
         }
 
         else {
-            let postBack = { oddPostList: [], evenPostList: [] };
+            let postBack = [];
             let parsedPosts = [];
 
             Object.keys(posts).forEach((postId) => {
@@ -116,20 +113,9 @@ export class Blog extends Component {
 
             const sortedPosts = PostAPI.sortObjectsDate(parsedPosts);
 
-            if (sortedPosts.length > 6) {
-                // postBack.divided = true;
-
-            }
-
-            else {
-                postBack.divided = false;
-            }
-
             sortedPosts.forEach((post, index) => {
                 let newPost = (
                     <div key={post.id}>
-
-                        {index > 1 || (!postBack.divided && index > 0) ? <div style={{ height: "16px" }}></div> : ''}
                         <Post
                             body={post.body}
                             commentCounter={post.commentCounter}
@@ -148,20 +134,16 @@ export class Blog extends Component {
                             disableSharing={post.disableSharing}
                             viewCount={posts.viewCount}
                             pictureState={true} />
+                        <div style={{ height: "16px" }}></div>
                     </div>
                 )
 
-                if ((index % 2) === 1 && postBack.divided) {
-                    postBack.oddPostList.push(newPost);
-                }
 
-                else {
-                    postBack.evenPostList.push(newPost);
-                }
+                postBack.push(newPost);
             });
 
-            if (postBack.evenPostList.length > 10) {
-                for (var i = 10; i < postBack.evenPostList.length; i = i + 10) {
+            if (postBack.length > 10) {
+                for (let i = 10; i < postBack.length; i = i + 10) {
                     let img = "";
                     switch (this.state.rand) {
                         case 0:
@@ -184,11 +166,10 @@ export class Blog extends Component {
                             {i === 0 ? <div style={{ height: "16px" }}></div>: ''}
                         </div>
                     );
-                    this.state.adPost ? postBack.evenPostList.splice(i, 0, ad) : '';
+                    this.state.adPost ? postBack.splice(i, 0, ad) : '';
                 }
             } else {
-                let halfway = Math.floor(postBack.evenPostList.length / 2);
-                console.log(halfway);
+                let halfway = Math.floor(postBack.length / 2);
                 let img = "";
                 
                 switch (this.state.rand) {
@@ -212,7 +193,7 @@ export class Blog extends Component {
                         {halfway === 0 ? <div style={{ height: "16px" }}></div>: ''}
                     </div>
                 );
-                this.state.adPost ? postBack.evenPostList.splice(halfway, 0, ad) : '';
+                this.state.adPost ? postBack.splice(halfway, 0, ad) : '';
             }
 
             return postBack;
@@ -292,17 +273,9 @@ export class Blog extends Component {
                             </PostWrite>)
                             : ''}
 
-                        {postList.evenPostList}
+                        {postList}
                         <div style={{ height: "16px" }}></div>
                     </div>
-                    {postList.divided
-                        ? (<div className='grid-cell animate-top' style={{ maxWidth: '530px', minWidth: '280px' }}>
-                            <div className="blog__right-list">
-                                {postList.oddPostList}
-                                <div style={{ height: "16px" }}></div>
-                            </div>
-                        </div>)
-                        : ''}
                 </div>
             </div>
         )

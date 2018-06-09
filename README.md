@@ -68,7 +68,7 @@ technology.
 # Use of Third Party Integration Tools
 
 ## Codacy
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8569c562e69145308e896348639cf8b7)](https://app.codacy.com/app/kiwi/kiwi?utm_source=github.com&utm_medium=referral&utm_content=aabadill/kiwi&utm_campaign=badger)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/91749d291e594933b326ac0059920459)](https://www.codacy.com/app/kiwi/kiwi_2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KiwiCSE112/kiwi&amp;utm_campaign=Badge_Grade)
 
 We use a static code analysis tool called Codacy in order to 
 keep our code consistent and as simple as possible.

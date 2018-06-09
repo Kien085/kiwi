@@ -21,9 +21,6 @@ export class FindPeople extends Component {
             <div>
                 {this.props.peopleInfo && Object.keys(this.props.peopleInfo).length !== 0 ?  
                     (<div>
-                        <div className='profile__title'>
-                            Suggestions for you
-                        </div>
                         <UserBoxList users={this.props.peopleInfo}/>
                         <div style={{ height: '24px' }}></div>
                     </div>) :

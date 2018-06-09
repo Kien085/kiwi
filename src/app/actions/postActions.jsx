@@ -11,7 +11,6 @@ import * as globalActions from './globalActions';
 
 // - Import app API
 import EncryptionAPI from '../api/EncryptionAPI';
-import forge from 'node-forge';
 
 /* _____________ CRUD DB _____________ */
 
