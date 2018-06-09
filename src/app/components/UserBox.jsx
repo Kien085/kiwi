@@ -73,27 +73,47 @@ export class UserBox extends Component {
         this.setState({ open: false });
     }
 
+       /**
+     * Check if a friend request has already been sent to user
+     * @return {boolean} true if friend request has been sent, false if not
+     */
+    hasSentRequest = () => {
+        const { sentRequests, uid } = this.props;
+        
+        Object.keys(sentRequests).forEach((index) => {
+            if (sentRequests[index].uid = uid) return true;
+        });
+        return false;
+    }
+    
+
+    /**
+     * Retrieve requestId of own sent request and and other user's received request 
+     * @param {string} userFriendId user authenticator id of friend
+     * @return {Array} returns array where first element is requestId of own sent request
+     *                                     second element is requestId of other user's received request
+     */
+    getRequestIds = (userFriendId) => {
+        const { sentRequests } = this.props;
+        Object.keys(sentRequests).forEach((index) => {
+            if(sentRequests[index].request.uid === userFriendId)
+                return [sentRequests[index].myReqId, sentRequests[index].request]
+        });
+        return null;
+    }
+
     /**
      * Reneder component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
-        const styles = {
-            paper: {
-                height: 254,
-                width: 243,
-                margin: 10,
-                textAlign: 'center',
-                maxWidth: '257px'
-            },
-            followButton: {
-                position: 'absolute',
-                bottom: '8px',
-                left: 0,
-                right: 0
-            }
-        };
-
+        const { friendId, friendAvatar, friendFullName } = this.props;
+        let userFriend = {friendId, friendAvatar, friendFullName};
+        let requestIds =  this.getRequestIds(friendId);
+        let myRequestId, friendRequest;
+        if(!requestIds) {
+            myRequestId, friendRequest = myRequestId;
+        }
         return (
             <Paper style={styles.paper} zDepth={1} className='grid-cell'>
                 <div style={{
@@ -118,6 +138,13 @@ export class UserBox extends Component {
                             {this.props.user.fullName}
                         </div>
                     </div>
+                    <div>
+                        <FlatButton onClick={ () => this.props.addFriendRequest(userFriend)}>Add friend</FlatButton>
+                        <FlatButton onClick={ () => this.props.cancelFriendRequest(useFriend, myRequestId, friendRequest.reqId)}>Cancel request</FlatButton>
+                        <FlatButton onClick={ () => this.props.acceptFriend(myRequestId, friendRequest)}>Approve</FlatButton>
+                        <FlatButton onClick={ () => this.props.denyFriend(myRequestId, friendRequest)}>Deny</FlatButton>
+                        <FlatButton onClick={ () => this.props.deleteFriend(friendId)}>Unfriend</FlatButton>
+                    </div>
                 </div>
             </Paper>
         );
@@ -134,7 +161,10 @@ export class UserBox extends Component {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         addFriendRequest: (user) => dispatch(friendActions.dbAddFriendRequest(user)),
-        deleteFriend: (followingId) => dispatch(friendActions.dbDeleteFriend(followingId)),
+        cancelFriendRequest: (userFriend, myRequestId, theirRequestId) => dispatch(friendActions.dbCancelFriendRequest(userFriend, myRequestId, theirRequestId)),
+        acceptFriend: (myRequestId, request) => dispatch(friendActions.dbAcceptFriendRequests(myReqId, request)),
+        denyFriend: (myRequestId, request) => dispatch(friendActions.dbDenyFriendRequest(myRequestId, request)),
+        deleteFriend: (friendId) => dispatch(friendActions.dbDeleteFriends(friendId)),
         goTo: (url) => dispatch(push(url))
 
     }
@@ -149,11 +179,18 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize;
     const friends = state.friends;
+    const sentRequests = state.sentFriendRequests;
+    const { userId } = ownProps;
+    const { avatar, fullName } = ownProps.user;
 
     return {
+        friendId: userId,
+        friendAvatar: avatar,
+        friendFullName: fullName,
         friends: friends,
         avatar: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].avatar || '' : '',
-        fullName: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].fullName || '' : ''
+        fullName: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].fullName || '' : '',
+        sentRequests: state.sentFriendRequests ? state.sentFriendRequests : [],
     }
 }
 

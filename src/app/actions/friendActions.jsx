@@ -93,6 +93,24 @@ export var dbAcceptFriendRequest = (myReqId, request) => {
 }
     
 
+export var dbDenyFriendRequest = (myReqId, request) => {
+    return (dispatch, getState) => {
+
+        let userFriend = 
+            {
+                fullName: request.fullName,
+                avatar: request.avatar,
+                userId: request.uid
+            };
+        updates[`userRequests/${myReqId}/sent`] = true;
+        updates[`userRequests/${uid}/received/${request.reqId}/acknowledged`] = true;
+        updates[`userRequests/${uid}/received/${request.reqId}/approved`] = false;
+        return firebaseRef.update(updates).then((result) => {
+
+        });
+    }
+}
+
     /**
  * Add a user to friend list
  * @param {object} userFriend is the user to add to friend's list
@@ -125,7 +143,6 @@ export var dbAddFriend = (userFriend, myRequestId, theirRequestId, fromUser) => 
         } 
         updates[`userFriends/${uid}/${userFriend.userId}`] = friend;
         return firebaseRef.update(updates).then((result) => {
-            console.error('ADDING FRIEND')
             // Add user to friend list
             // dispatch(addFriendUser(uid, userFriend));
             dispatch(notifyActions.dbAddNotify(
