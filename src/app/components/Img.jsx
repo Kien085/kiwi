@@ -25,7 +25,7 @@ export class Img extends Component {
      * 
      * @memberof Img
      */
-    handleLoadImage() {
+    handleLoadImage = () => {
         this.setState({ isImageLoaded: true });
     }
 

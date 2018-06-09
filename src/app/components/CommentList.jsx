@@ -12,7 +12,7 @@ export class CommentList extends Component {
      * Get comments' DOM
      * @return {DOM} list of comments' DOM
      */
-    commentList() {
+    commentList = () => {
         const comments = this.props.comments;
 
         if (comments) {

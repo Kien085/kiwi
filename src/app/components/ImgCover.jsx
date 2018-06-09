@@ -25,7 +25,7 @@ export class ImgCover extends Component {
      * 
      * @memberof Img
      */
-    handleLoadImage() {
+    handleLoadImage = () => {
         this.setState({ isImageLoaded: true });
     }
 

@@ -13,7 +13,7 @@ import * as notifyActions from '../actions/notifyActions';
 
 export class NotifyItem extends Component {
 
-    handleSeenNotify(evt) {
+    handleSeenNotify = (evt) => {
         evt.preventDefault();
         const { seenNotify, id, url, goTo, isSeen, closeNotify } = this.props;
 

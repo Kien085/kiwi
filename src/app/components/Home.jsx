@@ -36,7 +36,7 @@ export class Home extends Component {
     }
 
     // handle close sidebar
-    handleCloseSidebar() {
+    handleCloseSidebar = () => {
         this.state.sidebarOpen(false, 'overlay');
     }
 
@@ -44,7 +44,7 @@ export class Home extends Component {
      * Change sidebar overlay status
      * @param  {boolean} status if is true, the sidebar is on overlay status
      */
-    sidebarOverlay(status) {
+    sidebarOverlay = (status) => {
         this.setState({ sidebarOverlay: status });
     }
 
@@ -53,7 +53,7 @@ export class Home extends Component {
      * Pass function to change sidebar status
      * @param  {boolean} open  is a function callback to change sidebar status out of sidebar component
      */
-    sidebar(open) {
+    sidebar = (open) => {
         this.setState({ sidebarOpen: open });
     }
 
@@ -62,7 +62,7 @@ export class Home extends Component {
      * Change sidebar status if is open or not
      * @param  {boolean} status is true, if the sidebar is open
      */
-    sidebarStatus(status) {
+    sidebarStatus = (status) => {
         this.setState({ sidebarStatus: status });
     }
 

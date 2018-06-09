@@ -17,7 +17,7 @@ import * as globalActions from '../actions/globalActions';
 
 export class People extends Component {
 
-    componentWillMount() {
+    componentWillMount = () => {
         // Tab
         switch (this.props.match.params) {
             case undefined:
@@ -36,7 +36,7 @@ export class People extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

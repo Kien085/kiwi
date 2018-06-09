@@ -8,7 +8,7 @@ import UserBoxList from './UserBoxList';
 import * as userActions from '../actions/userActions';
 
 export class FindPeople extends Component {
-    componentWillMount() {
+    componentWillMount = () => {
         this.props.loadPeople();
     }
 

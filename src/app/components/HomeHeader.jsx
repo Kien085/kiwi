@@ -47,13 +47,13 @@ export class HomeHeader extends Component {
      * 
      * @memberof HomeHeader
      */
-    handleCloseNotify() {
+    handleCloseNotify = () => {
         this.setState({ openNotifyMenu: false });
     }
 
 
     // On click toggle sidebar
-    onToggleSidebar () {
+    onToggleSidebar = () => {
         if (this.props.sidebarStatus) {
             this.props.sidebar(false);
         } 
@@ -68,7 +68,7 @@ export class HomeHeader extends Component {
      * 
      * @memberof HomeHeader
      */
-    handleNotifyTouchTap(event) {
+    handleNotifyTouchTap = (event) => {
         // This prevents ghost click.
         event.preventDefault();
 
@@ -83,7 +83,7 @@ export class HomeHeader extends Component {
      * 
      * @memberof HomeHeader
      */
-    handleAvatarTouchTap(event) {
+    handleAvatarTouchTap = (event) => {
         // This prevents ghost click.
         event.preventDefault();
 
@@ -98,7 +98,7 @@ export class HomeHeader extends Component {
      * 
      * @memberof HomeHeader
      */
-    handleLogout() {
+    handleLogout = () => {
         this.props.logout();
     }
 
@@ -107,7 +107,7 @@ export class HomeHeader extends Component {
      * 
      * @memberof HomeHeader
      */
-    handleRequestClose() {
+    handleRequestClose = () => {
         this.setState({ openAvatarMenu: false });
     };
 
@@ -116,7 +116,7 @@ export class HomeHeader extends Component {
      * Handle resize event for window to manipulate home header status
      * @param  {event} evt is the event is passed by winodw resize event
      */
-    handleResize(evt) {
+    handleResize = (evt) => {
         const width = window.innerWidth;
 
         if (width >= 600 && !this.state.showTitle) {
@@ -128,7 +128,7 @@ export class HomeHeader extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.handleResize();
     }
 

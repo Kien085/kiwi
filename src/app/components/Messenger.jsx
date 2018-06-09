@@ -25,7 +25,7 @@ export class Messenger extends Component {
      * Runs when the component loads
      * Fetches the messages of a specific conversation
      */
-    componentWillMount() {
+    componentWillMount = () => {
         //TODO Switch to this line when conversation ids have been made
         firebaseRef.child(`userMessages/messageList`).once('value').then((snapshot) => {
                 let message = snapshot.val() || {};

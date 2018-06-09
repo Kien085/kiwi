@@ -10,7 +10,7 @@ import * as userActions from '../actions/userActions';
 
 export class Notify extends Component {
 
-    notifyItemList() {
+    notifyItemList = () => {
         const { notifications, info, onRequestClose } = this.props;
         let parsedDOM = [];
 

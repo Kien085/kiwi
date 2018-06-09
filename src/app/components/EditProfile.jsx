@@ -62,37 +62,37 @@ export class EditProfile extends Component {
     }
 
     // Close image gallery of banner
-    handleCloseBannerGallery() {
+    handleCloseBannerGallery = () => {
         this.setState({ openBanner: false });
     }
 
     // Open image gallery of banner
-    handleOpenBannerGallery() {
+    handleOpenBannerGallery = () => {
         this.setState({ openBanner: true });
     }
 
     // Close image gallery of avatar
-    handleCloseAvatarGallery() {
+    handleCloseAvatarGallery = () => {
         this.setState({ openAvatar: false });
     }
 
     // Open image gallery of avatar
-    handleOpenAvatarGallery() {
+    handleOpenAvatarGallery = () => {
         this.setState({ openAvatar: true });
     }
 
     // Set banner image url
-    handleRequestSetBanner(url) {
+    handleRequestSetBanner = (url) => {
         this.setState({ banner: url });
     }
 
     // Set avatar image url
-    handleRequestSetAvatar(fileName) {
+    handleRequestSetAvatar = (fileName) => {
         this.setState({ avatar: fileName });
     }
 
     // Handle change date
-    handleChangeDate(evt, date) {
+    handleChangeDate = (evt, date) => {
         this.setState({ birthdayInput: date });
     }
 
@@ -101,7 +101,7 @@ export class EditProfile extends Component {
      * 
      * @memberof EditProfile
      */
-    handleUpdate() {
+    handleUpdate = () => {
         const {fullNameInput, tagLineInput, avatar, banner} = this.state;
         
         if (this.state.fullNameInput.trim() === '') {
@@ -124,7 +124,7 @@ export class EditProfile extends Component {
      * Handle data on input change
      * @param  {event} evt is an event of inputs of element on change
      */
-    handleInputChange(evt) {
+    handleInputChange = (evt) => {
         const target = evt.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
 
@@ -135,7 +135,7 @@ export class EditProfile extends Component {
       * Handle resize event for window to change sidebar status
       * @param  {event} evt is the event is passed by winodw resize event
       */
-    handleResize(evt) {
+    handleResize = (evt) => {
         const width = window.innerWidth;
 
         if (width > 900) {
@@ -148,7 +148,7 @@ export class EditProfile extends Component {
     }
 
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.handleResize();
     }
 

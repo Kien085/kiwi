@@ -62,7 +62,7 @@ export class Blog extends Component {
     // handleOpenPostWrite = () => {
     //     this.setState({ openPostWrite: true });
     // }
-    handleOpenPostWrite() {
+    handleOpenPostWrite = () => {
         this.setState({ openPostWrite: true });
     }
 
@@ -74,7 +74,7 @@ export class Blog extends Component {
     // handleClosePostWrite = () => {
     //     this.setState({ openPostWrite: false });
     // }
-    handleClosePostWrite() {
+    handleClosePostWrite = () => {
         this.setState({ openPostWrite: false });
     }
 
@@ -82,8 +82,7 @@ export class Blog extends Component {
      * Create a list of posts
      * @return {DOM} posts
      */
-    // postLoad = () => {
-    postLoad() {
+    postLoad = () => {
         const { posts, match } = this.props;
         let { tag } = match.params;
 
@@ -200,7 +199,7 @@ export class Blog extends Component {
         }
     }
 
-    componentWillMount() {
+    componentWillMount = () => {
         this.props.setHomeTitle();
     }
 

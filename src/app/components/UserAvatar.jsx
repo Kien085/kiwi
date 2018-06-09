@@ -7,7 +7,7 @@ import * as imageGalleryActions from '../actions/imageGalleryActions'
 
 export class UserAvatar extends Component {
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

@@ -45,7 +45,7 @@ export class Circle extends Component {
      * 
      * @memberof Circle
      */
-    handleChangeCircleName(evt) {
+    handleChangeCircleName = (evt) => {
         const { value } = evt.target;
 
         this.setState({
@@ -59,7 +59,7 @@ export class Circle extends Component {
      * 
      * @memberof Circle
      */
-    handleUpdateCircle() {
+    handleUpdateCircle = () => {
         const { circleName } = this.state;
 
         if (circleName && circleName.trim() !== '') {
@@ -72,7 +72,7 @@ export class Circle extends Component {
      * 
      * @memberof Circle
      */
-    handleDeleteCircle() {
+    handleDeleteCircle = () => {
         this.props.deleteCircle(this.props.id);
     }
 
@@ -81,11 +81,11 @@ export class Circle extends Component {
      * 
      * @memberof Circle
      */
-    handleToggleCircle() {
+    handleToggleCircle = () => {
         this.setState({ open: !this.state.open });
     }
 
-    userList() {
+    userList = () => {
         const { users } = this.props.circle;
         const { userInfo } = this.props;
         let usersParsed = [];

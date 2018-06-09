@@ -24,7 +24,7 @@ export class ImageGallery extends Component {
      * @param  {event} evt  passed by on click event on add image
      * @param  {string} name is the name of the image
      */
-    handleSetImage(evt, URL, fullPath) {
+    handleSetImage = (evt, URL, fullPath) => {
         this.props.set(URL, fullPath);
         this.close();
     }
@@ -34,15 +34,15 @@ export class ImageGallery extends Component {
      * @param  {event} evt  passed by on click event on delete image
      * @param  {integer} id is the image identifier which selected to delete
      */
-    handleDeleteImage(evt, id) {
+    handleDeleteImage = (evt, id) => {
         this.props.deleteImage(id);
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         window.addEventListener("onSendResizedImage", this.handleSendResizedImage);
     }
 
-    componentWillUnmount() {
+    componentWillUnmount = () => {
         window.removeEventListener("onSendResizedImage", this.handleSendResizedImage);
     }
 
@@ -51,7 +51,7 @@ export class ImageGallery extends Component {
      * 
      * @memberof ImageGallery
      */
-    handleSendResizedImage(event) {
+    handleSendResizedImage = (event) => {
         const { resizedImage, fileName } = event.detail;
 
         FileAPI.uploadImage(resizedImage, fileName, (percent, status) => {
@@ -63,18 +63,18 @@ export class ImageGallery extends Component {
     }
 
     // Handle on change file upload
-    onFileChange(evt) {
+    onFileChange = (evt) => {
         const extension = FileAPI.getExtension(evt.target.files[0].name);
         const fileName = (`${uuid()}.${extension}`);
         const image = FileAPI.constraintImage(evt.target.files[0], fileName);
     }
 
     // Hide image gallery
-    close() {
+    close = () => {
         this.props.close();
     }
 
-    imageList() {
+    imageList = () => {
         return this.props.images.map((image, index) => {
             return (<GridTile
                 style={{cursor: 'pointer'}}

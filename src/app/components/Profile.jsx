@@ -12,7 +12,7 @@ import * as globalActions from '../actions/globalActions';
 
 export class Profile extends Component {
 
-    componentWillMount() {
+    componentWillMount = () => {
         this.props.loadPosts();
         this.props.loadUserInfo();
     }
