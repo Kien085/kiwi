@@ -118,13 +118,6 @@ export class UserBox extends Component {
                             {this.props.user.fullName}
                         </div>
                     </div>
-                    <div style={styles.followButton}>
-                        <FlatButton
-                            label={'Add Friend'}
-                            primary={true}
-                            onTouchTap={this.handleFriendUser}
-                        />
-                    </div>
                 </div>
             </Paper>
         );
