@@ -121,8 +121,11 @@ export class Home extends Component {
                 </Sidebar>
 
 
-                <Messenger uid={this.props.uid}/>
-                <YourFriends/>
+                {
+                    //TODO Finish messenger implementation; postponed at 6.6.18
+                    /*<Messenger uid={this.props.uid}/>*/
+                    // <YourFriends />
+                }
             </div>
         )
     }

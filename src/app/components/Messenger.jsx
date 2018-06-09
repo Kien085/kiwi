@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { firebaseRef, firebaseAuth } from 'app/firebase/';
 import moment from 'moment';
-import uuid from 'uuid';
+import {connect} from "react-redux";
 
 // - Import app components
 import { Widget, addResponseMessage} from 'react-chat-widget';
@@ -14,28 +14,18 @@ export class Messenger extends Component {
     }
 
     /**
-     * Loads previous messages in conversation from firebase
+     * Runs when the component loads
+     * Fetches the messages of a specific conversation
      */
     componentWillMount() {
-        console.log("Mounting messenger");
-        // TODO fix 'user doesn't have permissions' when reading from db
-        firebaseRef.child("userMessages/").once('value').then(function (snapshot) {
-            console.log(snapshot.val());
+        //TODO Switch to this line when conversation ids have been made
+        firebaseRef.child(`userMessages/messageList`).once('value').then((snapshot) => {
+                let message = snapshot.val() || {};
 
-            this.props = {
-                messages: snapshot.val()
-            };
-        })
-
-        console.log("Loading messages " + this.props.messages);
-
-        if (this.props && this.props.messages) {
-            for (let message in this.props.messages) {
-                // TODO uncomment to load previous messages to widget
-                //addResponseMessage(message);
-                console.log(message);
-            }
-        }
+                if (message && message.message) {
+                    addResponseMessage(message.message);
+                }
+            });
     }
 
     /**
@@ -50,11 +40,8 @@ export class Messenger extends Component {
             timeSent: moment.unix()
         }
 
-        //TODO Refine how messages are written for ease of future reads
-
-        console.log(`About to upload : ${toUploadMsg}`)
-        // TODO Fix writing to db
-        let convoRef = firebaseRef.child(`userMessages/`).push(toUploadMsg);
+        //TODO send message to a specific conversation key
+        let convoRef = firebaseRef.child(`userMessages/messageList`).push(toUploadMsg);
     }
 
     /**
@@ -67,7 +54,7 @@ export class Messenger extends Component {
             <div id="messenger">
                 <Widget
                     handleNewUserMessage = {this.handleNewUserMessage}
-                    title = {`'s Chat`}
+                    title = {`Chat Title`}
                     subtitle = {""}
                 />
             </div>
@@ -75,5 +62,37 @@ export class Messenger extends Component {
     }
 }
 
+/**
+ * Map dispatch to props
+ * @param  {func} dispatch is the function to dispatch action to reducers
+ * @param  {object} ownProps is the props belong to component
+ * @return {object}          props of component
+ */
+const mapDispatchToProps = (dispatch, ownProps) => {
+    const { userId } = ownProps.uid
+
+    return {
+        loadUserInfo: () => dispatch(userActions.dbGetUserInfoByUserId(userId, 'header'))
+
+    }
+}
+
+/**
+ * Map state to props
+ * @param  {object} state is the obeject from redux store
+ * @param  {object} ownProps is the props belong to component
+ * @return {object}          props of component
+ */
+const mapStateToProps = (state, ownProps) => {
+    const { userId } = ownProps.uid
+    const { uid } = state.authorize
+
+    return {
+        avatar: state.user.info && state.user.info[userId] ? state.user.info[userId].avatar || '' : '',
+        name: state.user.info && state.user.info[userId] ? state.user.info[userId].fullName || '' : '',
+        isAuthedUser: userId === uid,
+        userId
+    }
+}
 // - Connect component to redux store
 export default (Messenger)
