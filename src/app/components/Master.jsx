@@ -56,7 +56,7 @@ export class Master extends Component {
         });
     }
 
-    componentWillMount() {
+    componentWillMount = () => {
         firebaseAuth().onAuthStateChanged((user) => {
             if (user) {
                 this.props.login(user);

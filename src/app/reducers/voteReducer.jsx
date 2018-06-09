@@ -2,7 +2,7 @@ import moment from 'moment';
 import _ from 'lodash';
 
 // - Import action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 //  Default state
 let defaultState = {

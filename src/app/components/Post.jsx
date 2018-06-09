@@ -20,16 +20,16 @@ import IconMenu from 'material-ui/IconMenu';
 import reactStringReplace from 'react-string-replace';
 
 // - Import app components
-import CommentGroup from 'CommentGroup';
-import PostWrite from 'PostWrite';
-import Img from 'Img';
-import IconButtonElement from 'IconButtonElement';
-import UserAvatar from 'UserAvatar';
+import CommentGroup from './CommentGroup';
+import PostWrite from './PostWrite';
+import Img from './Img';
+import IconButtonElement from '../layouts/IconButtonElement';
+import UserAvatar from './UserAvatar';
 
 // - Import actions
-import * as voteActions from 'voteActions';
-import * as postActions from 'postActions';
-import * as globalActions from 'globalActions';
+import * as voteActions from '../actions/voteActions';
+import * as postActions from '../actions/postActions';
+import * as globalActions from '../actions/globalActions';
 
 export class Post extends Component {
     /**
@@ -187,7 +187,7 @@ export class Post extends Component {
      * Handle read more event
      * @param  {event} evt  is the event passed by click on read more
      */
-    handleReadMore(evt) {
+    handleReadMore = (evt) => {
         this.setState({ readMoreState: !this.state.readMoreState });
     }
 
@@ -237,7 +237,7 @@ export class Post extends Component {
             <div style={{ backgroundColor: '#fff', border: '1px solid #dddfe2', borderRadius: '7px' }}>
                 <CardHeader
                     title={
-                        <NavLink style={{display: 'flex'}} to={`/${ownerUserId}`}>
+                        <NavLink title="User is secure :)" style={{display: 'flex'}} to={`/${ownerUserId}`}>
                             <div>{ownerDisplayName}</div>
                             <svg style={{marginLeft: '7px', marginTop: '1px'}} width="11" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M9.323 6.705h.99c.38 0 .687.32.687.715v6.866a.701.701 0 0 1-.688.714H.688A.701.701 0 0 1 0 14.286V7.42c0-.395.308-.715.688-.715h.989V3.86h1.475v2.845h4.696V3.86h1.475v2.845zm0-2.845H1.677C1.677 1.728 3.389 0 5.5 0c2.111 0 3.823 1.728 3.823 3.86zm-1.475 0A2.359 2.359 0 0 0 5.5 1.49a2.359 2.359 0 0 0-2.348 2.37h4.696z" fill="#7ED321"/></svg>
                         </NavLink>}

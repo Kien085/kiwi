@@ -7,17 +7,17 @@ import SvgGroup from 'material-ui/svg-icons/action/group-work';
 import IconMenu from 'material-ui/IconMenu';
 import TextField from 'material-ui/TextField';
 import MenuItem from 'material-ui/MenuItem';
-import IconButtonElement from 'IconButtonElement';
+import IconButtonElement from '../layouts/IconButtonElement';
 import Dialog from 'material-ui/Dialog';
 import Divider from 'material-ui/Divider';
 import FlatButton from 'material-ui/FlatButton';
 import SvgClose from 'material-ui/svg-icons/navigation/close';
 
 // - Import app components
-import UserAvatar from 'UserAvatar';
+import UserAvatar from './UserAvatar';
 
 // - Import actions
-import * as circleActions from 'circleActions';
+import * as circleActions from '../actions/circleActions';
 
 export class Circle extends Component {
 
@@ -108,23 +108,19 @@ export class Circle extends Component {
             return usersParsed;
         }
     }
-    /**
-     * Right icon menue of circle
-     * 
-     * @memberof Circle
-     */
-    rightIconMenu = (
-        <IconMenu iconButtonElement={IconButtonElement} style={{ display: "block", position: "absolute", top: "0px", right: "12px" }}>
-            <MenuItem primaryText="Delete circle" onClick={this.handleDeleteCircle} />
-            <MenuItem primaryText="Circle settings" onClick={this.props.openCircleSettings} />
-        </IconMenu>
-    )
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
+        const rightIconMenu = (
+            <IconMenu iconButtonElement={IconButtonElement} style={{ display: "block", position: "absolute", top: "0px", right: "12px" }}>
+                <MenuItem primaryText="Delete circle" onClick={this.handleDeleteCircle} />
+                <MenuItem primaryText="Circle settings" onClick={this.props.openCircleSettings} />
+            </IconMenu>
+        )
+
         const circleTitle = (
             <div>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: "space-between" }}>
@@ -153,7 +149,7 @@ export class Circle extends Component {
                     style={{ backgroundColor: '#fff', borderBottom: '1px solid rgba(0,0,0,0.12)', height: '72px', padding: '12px 0' }}
                     primaryText={<span style={{ color: 'rgba(0,0,0,0.87)', fontSize: '16px', marginRight: '8px', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>{this.props.circle.name}</span>}
                     leftIcon={<SvgGroup style={{ width: '40px', height: '40px', transform: 'translate(0px, -9px)', fill: '#bdbdbd' }} />}
-                    rightIconButton={this.rightIconMenu}
+                    rightIconButton={rightIconMenu}
                     initiallyOpen={false}
                     onClick={this.handleToggleCircle}
                     open={this.state.open}

@@ -8,21 +8,21 @@ import Divider from 'material-ui/Divider';
 import SvgArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 
 // - Import app components
-import Sidebar from 'Sidebar';
-import Blog from 'Blog';
-import HomeHeader from 'HomeHeader';
-import SidebarContent from 'SidebarContent';
-import SidebarMain from 'SidebarMain';
-import Profile from 'Profile';
-import PostPage from 'PostPage';
-import People from 'People';
-import Messenger from 'Messenger';
+import Sidebar from './Sidebar';
+import Blog from './Blog';
+import HomeHeader from './HomeHeader';
+// import SidebarContent from './SidebarContent';
+import SidebarMain from './SidebarMain';
+import Profile from './Profile';
+import PostPage from './PostPage';
+import People from './People';
+import Messenger from './Messenger';
 
 // - Import API
-import CircleAPI from 'CircleAPI';
+import CircleAPI from '../api/CircleAPI';
 
 // - Import actions
-import * as globalActions from 'globalActions';
+import * as globalActions from '../actions/globalActions';
 
 export class Home extends Component {
     constructor(props) {

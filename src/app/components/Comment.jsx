@@ -15,14 +15,14 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 
 // - Import app components
-import UserAvatar from 'UserAvatar';
+import UserAvatar from './UserAvatar';
 
 // - Import action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // - Import actions
-import * as commentActions from 'commentActions';
-import * as userActions from 'userActions';
+import * as commentActions from '../actions/commentActions';
+import * as userActions from '../actions/userActions';
 
 export class Comment extends Component {
 
@@ -114,7 +114,7 @@ export class Comment extends Component {
         this.props.delete(id, postId);
     }
 
-    componentWillMount() {
+    componentWillMount = () => {
         const { userId } = this.props.comment;
 
         if (!this.props.isCommentOwner && !this.props.info[userId]) {
@@ -123,7 +123,7 @@ export class Comment extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

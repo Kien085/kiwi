@@ -14,12 +14,12 @@ import SvgPeople from 'material-ui/svg-icons/social/people';
 import EventListener, { withOptions } from 'react-event-listener';
 
 // - Import components
-import UserAvatar from 'UserAvatar';
-import Notify from 'Notify';
+import UserAvatar from './UserAvatar';
+import Notify from './Notify';
 
 // - Import actions
-import * as globalActions from 'globalActions';
-import * as authorizeActions from 'authorizeActions';
+import * as globalActions from '../actions/globalActions';
+import * as authorizeActions from '../actions/authorizeActions';
 
 export class HomeHeader extends Component {
 

@@ -9,10 +9,10 @@ import Checkbox from 'material-ui/Checkbox';
 import TextField from 'material-ui/TextField';
 
 // - Import app components
-import UserAvatar from 'UserAvatar';
+import UserAvatar from './UserAvatar';
 
 // - Import API
-import CircleAPI from 'CircleAPI';
+import CircleAPI from '../api/CircleAPI';
 
 // - Import actions
 import * as friendActions from 'friendActions';
@@ -123,7 +123,7 @@ export class UserBox extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

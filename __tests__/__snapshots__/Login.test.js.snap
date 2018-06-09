@@ -1,0 +1,1867 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Login renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Login />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        style={
+          Object {
+            "backgroundColor": "white",
+            "borderRadius": "10px",
+            "textAlign": "center",
+            "width": "450px",
+          }
+        }
+      >
+        <h1>
+          Sign in
+        </h1>
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "justifyContent": "space-around",
+              "paddingBottom": 10,
+            }
+          }
+        >
+          <IconButton
+            className="iconbutton"
+            disableTouchRipple={false}
+            disabled={false}
+            iconStyle={Object {}}
+            onClick={[Function]}
+            tooltipPosition="bottom-center"
+            touch={false}
+          >
+            <div
+              className="icon-fb icon"
+            />
+          </IconButton>
+          <IconButton
+            className="iconbutton"
+            disableTouchRipple={false}
+            disabled={false}
+            iconStyle={Object {}}
+            onClick={[Function]}
+            tooltipPosition="bottom-center"
+            touch={false}
+          >
+            <div
+              className="icon-google icon"
+            />
+          </IconButton>
+          <IconButton
+            className="iconbutton"
+            disableTouchRipple={false}
+            disabled={false}
+            iconStyle={Object {}}
+            onClick={[Function]}
+            tooltipPosition="bottom-center"
+            touch={false}
+          >
+            <div
+              className="icon-github icon"
+            />
+          </IconButton>
+        </div>
+        <hr
+          style={
+            Object {
+              "borderColor": "rgba(0, 0, 0, 0.12)",
+              "width": "75%",
+            }
+          }
+        />
+        <TextField
+          disabled={false}
+          errorText=""
+          floatingLabelFixed={false}
+          floatingLabelStyle={
+            Object {
+              "fontSize": "15px",
+            }
+          }
+          floatingLabelText="Email"
+          fullWidth={false}
+          multiLine={false}
+          name="emailInput"
+          onChange={[Function]}
+          rows={1}
+          type="email"
+          underlineShow={true}
+        />
+        <br />
+        <TextField
+          disabled={false}
+          errorText=""
+          floatingLabelFixed={false}
+          floatingLabelStyle={
+            Object {
+              "fontSize": "15px",
+            }
+          }
+          floatingLabelText="Password"
+          fullWidth={false}
+          multiLine={false}
+          name="passwordInput"
+          onChange={[Function]}
+          rows={1}
+          type="password"
+          underlineShow={true}
+        />
+        <br />
+        <br />
+        <div
+          className="login__button-box"
+        >
+          <div>
+            <FlatButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              labelStyle={Object {}}
+              onClick={undefined}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={false}
+              secondary={false}
+              style={
+                Object {
+                  "padding": "0 5px 0 5px",
+                }
+              }
+            >
+              <svg
+                height="15"
+                style={
+                  Object {
+                    "marginRight": "10px",
+                  }
+                }
+                width="15"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                  fill="#A2A2A2"
+                />
+              </svg>
+              Create an account
+            </FlatButton>
+          </div>
+          <div>
+            <RaisedButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              onClick={[Function]}
+              primary={false}
+              secondary={false}
+            >
+              Login
+            </RaisedButton>
+          </div>
+        </div>
+        <span
+          style={
+            Object {
+              "display": "inherit",
+              "fontSize": "small",
+              "marginBottom": "25px",
+              "marginTop": "50px",
+            }
+          }
+        >
+          Forgot your password? 
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="alink"
+            style={
+              Object {
+                "color": "#0095ff",
+                "display": "inline-block",
+              }
+            }
+            to="/resetpassword"
+          >
+            Reset it here
+          </NavLink>
+        </span>
+      </div>,
+      "style": Object {
+        "alignItems": "center",
+        "display": "flex",
+        "height": "100vh",
+        "justifyContent": "center",
+        "width": "100vw",
+      },
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Sign in
+          </h1>,
+          <div
+            style={
+              Object {
+                "display": "flex",
+                "justifyContent": "space-around",
+                "paddingBottom": 10,
+              }
+            }
+          >
+            <IconButton
+              className="iconbutton"
+              disableTouchRipple={false}
+              disabled={false}
+              iconStyle={Object {}}
+              onClick={[Function]}
+              tooltipPosition="bottom-center"
+              touch={false}
+            >
+              <div
+                className="icon-fb icon"
+              />
+            </IconButton>
+            <IconButton
+              className="iconbutton"
+              disableTouchRipple={false}
+              disabled={false}
+              iconStyle={Object {}}
+              onClick={[Function]}
+              tooltipPosition="bottom-center"
+              touch={false}
+            >
+              <div
+                className="icon-google icon"
+              />
+            </IconButton>
+            <IconButton
+              className="iconbutton"
+              disableTouchRipple={false}
+              disabled={false}
+              iconStyle={Object {}}
+              onClick={[Function]}
+              tooltipPosition="bottom-center"
+              touch={false}
+            >
+              <div
+                className="icon-github icon"
+              />
+            </IconButton>
+          </div>,
+          <hr
+            style={
+              Object {
+                "borderColor": "rgba(0, 0, 0, 0.12)",
+                "width": "75%",
+              }
+            }
+          />,
+          <TextField
+            disabled={false}
+            errorText=""
+            floatingLabelFixed={false}
+            floatingLabelStyle={
+              Object {
+                "fontSize": "15px",
+              }
+            }
+            floatingLabelText="Email"
+            fullWidth={false}
+            multiLine={false}
+            name="emailInput"
+            onChange={[Function]}
+            rows={1}
+            type="email"
+            underlineShow={true}
+          />,
+          <br />,
+          <TextField
+            disabled={false}
+            errorText=""
+            floatingLabelFixed={false}
+            floatingLabelStyle={
+              Object {
+                "fontSize": "15px",
+              }
+            }
+            floatingLabelText="Password"
+            fullWidth={false}
+            multiLine={false}
+            name="passwordInput"
+            onChange={[Function]}
+            rows={1}
+            type="password"
+            underlineShow={true}
+          />,
+          <br />,
+          <br />,
+          <div
+            className="login__button-box"
+          >
+            <div>
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onClick={undefined}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+                style={
+                  Object {
+                    "padding": "0 5px 0 5px",
+                  }
+                }
+              >
+                <svg
+                  height="15"
+                  style={
+                    Object {
+                      "marginRight": "10px",
+                    }
+                  }
+                  width="15"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                    fill="#A2A2A2"
+                  />
+                </svg>
+                Create an account
+              </FlatButton>
+            </div>
+            <div>
+              <RaisedButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Login
+              </RaisedButton>
+            </div>
+          </div>,
+          <span
+            style={
+              Object {
+                "display": "inherit",
+                "fontSize": "small",
+                "marginBottom": "25px",
+                "marginTop": "50px",
+              }
+            }
+          >
+            Forgot your password? 
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              className="alink"
+              style={
+                Object {
+                  "color": "#0095ff",
+                  "display": "inline-block",
+                }
+              }
+              to="/resetpassword"
+            >
+              Reset it here
+            </NavLink>
+          </span>,
+        ],
+        "style": Object {
+          "backgroundColor": "white",
+          "borderRadius": "10px",
+          "textAlign": "center",
+          "width": "450px",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sign in",
+          },
+          "ref": null,
+          "rendered": "Sign in",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <IconButton
+                className="iconbutton"
+                disableTouchRipple={false}
+                disabled={false}
+                iconStyle={Object {}}
+                onClick={[Function]}
+                tooltipPosition="bottom-center"
+                touch={false}
+              >
+                <div
+                  className="icon-fb icon"
+                />
+              </IconButton>,
+              <IconButton
+                className="iconbutton"
+                disableTouchRipple={false}
+                disabled={false}
+                iconStyle={Object {}}
+                onClick={[Function]}
+                tooltipPosition="bottom-center"
+                touch={false}
+              >
+                <div
+                  className="icon-google icon"
+                />
+              </IconButton>,
+              <IconButton
+                className="iconbutton"
+                disableTouchRipple={false}
+                disabled={false}
+                iconStyle={Object {}}
+                onClick={[Function]}
+                tooltipPosition="bottom-center"
+                touch={false}
+              >
+                <div
+                  className="icon-github icon"
+                />
+              </IconButton>,
+            ],
+            "style": Object {
+              "display": "flex",
+              "justifyContent": "space-around",
+              "paddingBottom": 10,
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <div
+                  className="icon-fb icon"
+                />,
+                "className": "iconbutton",
+                "disableTouchRipple": false,
+                "disabled": false,
+                "iconStyle": Object {},
+                "onClick": [Function],
+                "tooltipPosition": "bottom-center",
+                "touch": false,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "icon-fb icon",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <div
+                  className="icon-google icon"
+                />,
+                "className": "iconbutton",
+                "disableTouchRipple": false,
+                "disabled": false,
+                "iconStyle": Object {},
+                "onClick": [Function],
+                "tooltipPosition": "bottom-center",
+                "touch": false,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "icon-google icon",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <div
+                  className="icon-github icon"
+                />,
+                "className": "iconbutton",
+                "disableTouchRipple": false,
+                "disabled": false,
+                "iconStyle": Object {},
+                "onClick": [Function],
+                "tooltipPosition": "bottom-center",
+                "touch": false,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "icon-github icon",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "style": Object {
+              "borderColor": "rgba(0, 0, 0, 0.12)",
+              "width": "75%",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "hr",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "disabled": false,
+            "errorText": "",
+            "floatingLabelFixed": false,
+            "floatingLabelStyle": Object {
+              "fontSize": "15px",
+            },
+            "floatingLabelText": "Email",
+            "fullWidth": false,
+            "multiLine": false,
+            "name": "emailInput",
+            "onChange": [Function],
+            "rows": 1,
+            "type": "email",
+            "underlineShow": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "disabled": false,
+            "errorText": "",
+            "floatingLabelFixed": false,
+            "floatingLabelStyle": Object {
+              "fontSize": "15px",
+            },
+            "floatingLabelText": "Password",
+            "fullWidth": false,
+            "multiLine": false,
+            "name": "passwordInput",
+            "onChange": [Function],
+            "rows": 1,
+            "type": "password",
+            "underlineShow": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div>
+                <FlatButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  labelStyle={Object {}}
+                  onClick={undefined}
+                  onKeyboardFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onTouchStart={[Function]}
+                  primary={false}
+                  secondary={false}
+                  style={
+                    Object {
+                      "padding": "0 5px 0 5px",
+                    }
+                  }
+                >
+                  <svg
+                    height="15"
+                    style={
+                      Object {
+                        "marginRight": "10px",
+                      }
+                    }
+                    width="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                      fill="#A2A2A2"
+                    />
+                  </svg>
+                  Create an account
+                </FlatButton>
+              </div>,
+              <div>
+                <RaisedButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                >
+                  Login
+                </RaisedButton>
+              </div>,
+            ],
+            "className": "login__button-box",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <FlatButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  labelStyle={Object {}}
+                  onClick={undefined}
+                  onKeyboardFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onTouchStart={[Function]}
+                  primary={false}
+                  secondary={false}
+                  style={
+                    Object {
+                      "padding": "0 5px 0 5px",
+                    }
+                  }
+                >
+                  <svg
+                    height="15"
+                    style={
+                      Object {
+                        "marginRight": "10px",
+                      }
+                    }
+                    width="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                      fill="#A2A2A2"
+                    />
+                  </svg>
+                  Create an account
+                </FlatButton>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <svg
+                      height="15"
+                      style={
+                        Object {
+                          "marginRight": "10px",
+                        }
+                      }
+                      width="15"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                        fill="#A2A2A2"
+                      />
+                    </svg>,
+                    "Create an account",
+                  ],
+                  "disabled": false,
+                  "fullWidth": false,
+                  "labelPosition": "after",
+                  "labelStyle": Object {},
+                  "onClick": undefined,
+                  "onKeyboardFocus": [Function],
+                  "onMouseEnter": [Function],
+                  "onMouseLeave": [Function],
+                  "onTouchStart": [Function],
+                  "primary": false,
+                  "secondary": false,
+                  "style": Object {
+                    "padding": "0 5px 0 5px",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <path
+                        d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                        fill="#A2A2A2"
+                      />,
+                      "height": "15",
+                      "style": Object {
+                        "marginRight": "10px",
+                      },
+                      "width": "15",
+                      "xmlns": "http://www.w3.org/2000/svg",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "d": "M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z",
+                        "fill": "#A2A2A2",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "path",
+                    },
+                    "type": "svg",
+                  },
+                  "Create an account",
+                ],
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <RaisedButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                >
+                  Login
+                </RaisedButton>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Login",
+                  "disabled": false,
+                  "fullWidth": false,
+                  "labelPosition": "after",
+                  "onClick": [Function],
+                  "primary": false,
+                  "secondary": false,
+                },
+                "ref": null,
+                "rendered": "Login",
+                "type": [Function],
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Forgot your password? ",
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                className="alink"
+                style={
+                  Object {
+                    "color": "#0095ff",
+                    "display": "inline-block",
+                  }
+                }
+                to="/resetpassword"
+              >
+                Reset it here
+              </NavLink>,
+            ],
+            "style": Object {
+              "display": "inherit",
+              "fontSize": "small",
+              "marginBottom": "25px",
+              "marginTop": "50px",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            "Forgot your password? ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": "Reset it here",
+                "className": "alink",
+                "style": Object {
+                  "color": "#0095ff",
+                  "display": "inline-block",
+                },
+                "to": "/resetpassword",
+              },
+              "ref": null,
+              "rendered": "Reset it here",
+              "type": [Function],
+            },
+          ],
+          "type": "span",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          style={
+            Object {
+              "backgroundColor": "white",
+              "borderRadius": "10px",
+              "textAlign": "center",
+              "width": "450px",
+            }
+          }
+        >
+          <h1>
+            Sign in
+          </h1>
+          <div
+            style={
+              Object {
+                "display": "flex",
+                "justifyContent": "space-around",
+                "paddingBottom": 10,
+              }
+            }
+          >
+            <IconButton
+              className="iconbutton"
+              disableTouchRipple={false}
+              disabled={false}
+              iconStyle={Object {}}
+              onClick={[Function]}
+              tooltipPosition="bottom-center"
+              touch={false}
+            >
+              <div
+                className="icon-fb icon"
+              />
+            </IconButton>
+            <IconButton
+              className="iconbutton"
+              disableTouchRipple={false}
+              disabled={false}
+              iconStyle={Object {}}
+              onClick={[Function]}
+              tooltipPosition="bottom-center"
+              touch={false}
+            >
+              <div
+                className="icon-google icon"
+              />
+            </IconButton>
+            <IconButton
+              className="iconbutton"
+              disableTouchRipple={false}
+              disabled={false}
+              iconStyle={Object {}}
+              onClick={[Function]}
+              tooltipPosition="bottom-center"
+              touch={false}
+            >
+              <div
+                className="icon-github icon"
+              />
+            </IconButton>
+          </div>
+          <hr
+            style={
+              Object {
+                "borderColor": "rgba(0, 0, 0, 0.12)",
+                "width": "75%",
+              }
+            }
+          />
+          <TextField
+            disabled={false}
+            errorText=""
+            floatingLabelFixed={false}
+            floatingLabelStyle={
+              Object {
+                "fontSize": "15px",
+              }
+            }
+            floatingLabelText="Email"
+            fullWidth={false}
+            multiLine={false}
+            name="emailInput"
+            onChange={[Function]}
+            rows={1}
+            type="email"
+            underlineShow={true}
+          />
+          <br />
+          <TextField
+            disabled={false}
+            errorText=""
+            floatingLabelFixed={false}
+            floatingLabelStyle={
+              Object {
+                "fontSize": "15px",
+              }
+            }
+            floatingLabelText="Password"
+            fullWidth={false}
+            multiLine={false}
+            name="passwordInput"
+            onChange={[Function]}
+            rows={1}
+            type="password"
+            underlineShow={true}
+          />
+          <br />
+          <br />
+          <div
+            className="login__button-box"
+          >
+            <div>
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onClick={undefined}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+                style={
+                  Object {
+                    "padding": "0 5px 0 5px",
+                  }
+                }
+              >
+                <svg
+                  height="15"
+                  style={
+                    Object {
+                      "marginRight": "10px",
+                    }
+                  }
+                  width="15"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                    fill="#A2A2A2"
+                  />
+                </svg>
+                Create an account
+              </FlatButton>
+            </div>
+            <div>
+              <RaisedButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Login
+              </RaisedButton>
+            </div>
+          </div>
+          <span
+            style={
+              Object {
+                "display": "inherit",
+                "fontSize": "small",
+                "marginBottom": "25px",
+                "marginTop": "50px",
+              }
+            }
+          >
+            Forgot your password? 
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              className="alink"
+              style={
+                Object {
+                  "color": "#0095ff",
+                  "display": "inline-block",
+                }
+              }
+              to="/resetpassword"
+            >
+              Reset it here
+            </NavLink>
+          </span>
+        </div>,
+        "style": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": "100vh",
+          "justifyContent": "center",
+          "width": "100vw",
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1>
+              Sign in
+            </h1>,
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                  "justifyContent": "space-around",
+                  "paddingBottom": 10,
+                }
+              }
+            >
+              <IconButton
+                className="iconbutton"
+                disableTouchRipple={false}
+                disabled={false}
+                iconStyle={Object {}}
+                onClick={[Function]}
+                tooltipPosition="bottom-center"
+                touch={false}
+              >
+                <div
+                  className="icon-fb icon"
+                />
+              </IconButton>
+              <IconButton
+                className="iconbutton"
+                disableTouchRipple={false}
+                disabled={false}
+                iconStyle={Object {}}
+                onClick={[Function]}
+                tooltipPosition="bottom-center"
+                touch={false}
+              >
+                <div
+                  className="icon-google icon"
+                />
+              </IconButton>
+              <IconButton
+                className="iconbutton"
+                disableTouchRipple={false}
+                disabled={false}
+                iconStyle={Object {}}
+                onClick={[Function]}
+                tooltipPosition="bottom-center"
+                touch={false}
+              >
+                <div
+                  className="icon-github icon"
+                />
+              </IconButton>
+            </div>,
+            <hr
+              style={
+                Object {
+                  "borderColor": "rgba(0, 0, 0, 0.12)",
+                  "width": "75%",
+                }
+              }
+            />,
+            <TextField
+              disabled={false}
+              errorText=""
+              floatingLabelFixed={false}
+              floatingLabelStyle={
+                Object {
+                  "fontSize": "15px",
+                }
+              }
+              floatingLabelText="Email"
+              fullWidth={false}
+              multiLine={false}
+              name="emailInput"
+              onChange={[Function]}
+              rows={1}
+              type="email"
+              underlineShow={true}
+            />,
+            <br />,
+            <TextField
+              disabled={false}
+              errorText=""
+              floatingLabelFixed={false}
+              floatingLabelStyle={
+                Object {
+                  "fontSize": "15px",
+                }
+              }
+              floatingLabelText="Password"
+              fullWidth={false}
+              multiLine={false}
+              name="passwordInput"
+              onChange={[Function]}
+              rows={1}
+              type="password"
+              underlineShow={true}
+            />,
+            <br />,
+            <br />,
+            <div
+              className="login__button-box"
+            >
+              <div>
+                <FlatButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  labelStyle={Object {}}
+                  onClick={undefined}
+                  onKeyboardFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onTouchStart={[Function]}
+                  primary={false}
+                  secondary={false}
+                  style={
+                    Object {
+                      "padding": "0 5px 0 5px",
+                    }
+                  }
+                >
+                  <svg
+                    height="15"
+                    style={
+                      Object {
+                        "marginRight": "10px",
+                      }
+                    }
+                    width="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                      fill="#A2A2A2"
+                    />
+                  </svg>
+                  Create an account
+                </FlatButton>
+              </div>
+              <div>
+                <RaisedButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                >
+                  Login
+                </RaisedButton>
+              </div>
+            </div>,
+            <span
+              style={
+                Object {
+                  "display": "inherit",
+                  "fontSize": "small",
+                  "marginBottom": "25px",
+                  "marginTop": "50px",
+                }
+              }
+            >
+              Forgot your password? 
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                className="alink"
+                style={
+                  Object {
+                    "color": "#0095ff",
+                    "display": "inline-block",
+                  }
+                }
+                to="/resetpassword"
+              >
+                Reset it here
+              </NavLink>
+            </span>,
+          ],
+          "style": Object {
+            "backgroundColor": "white",
+            "borderRadius": "10px",
+            "textAlign": "center",
+            "width": "450px",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Sign in",
+            },
+            "ref": null,
+            "rendered": "Sign in",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <IconButton
+                  className="iconbutton"
+                  disableTouchRipple={false}
+                  disabled={false}
+                  iconStyle={Object {}}
+                  onClick={[Function]}
+                  tooltipPosition="bottom-center"
+                  touch={false}
+                >
+                  <div
+                    className="icon-fb icon"
+                  />
+                </IconButton>,
+                <IconButton
+                  className="iconbutton"
+                  disableTouchRipple={false}
+                  disabled={false}
+                  iconStyle={Object {}}
+                  onClick={[Function]}
+                  tooltipPosition="bottom-center"
+                  touch={false}
+                >
+                  <div
+                    className="icon-google icon"
+                  />
+                </IconButton>,
+                <IconButton
+                  className="iconbutton"
+                  disableTouchRipple={false}
+                  disabled={false}
+                  iconStyle={Object {}}
+                  onClick={[Function]}
+                  tooltipPosition="bottom-center"
+                  touch={false}
+                >
+                  <div
+                    className="icon-github icon"
+                  />
+                </IconButton>,
+              ],
+              "style": Object {
+                "display": "flex",
+                "justifyContent": "space-around",
+                "paddingBottom": 10,
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <div
+                    className="icon-fb icon"
+                  />,
+                  "className": "iconbutton",
+                  "disableTouchRipple": false,
+                  "disabled": false,
+                  "iconStyle": Object {},
+                  "onClick": [Function],
+                  "tooltipPosition": "bottom-center",
+                  "touch": false,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "icon-fb icon",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <div
+                    className="icon-google icon"
+                  />,
+                  "className": "iconbutton",
+                  "disableTouchRipple": false,
+                  "disabled": false,
+                  "iconStyle": Object {},
+                  "onClick": [Function],
+                  "tooltipPosition": "bottom-center",
+                  "touch": false,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "icon-google icon",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <div
+                    className="icon-github icon"
+                  />,
+                  "className": "iconbutton",
+                  "disableTouchRipple": false,
+                  "disabled": false,
+                  "iconStyle": Object {},
+                  "onClick": [Function],
+                  "tooltipPosition": "bottom-center",
+                  "touch": false,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "icon-github icon",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "style": Object {
+                "borderColor": "rgba(0, 0, 0, 0.12)",
+                "width": "75%",
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "hr",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "disabled": false,
+              "errorText": "",
+              "floatingLabelFixed": false,
+              "floatingLabelStyle": Object {
+                "fontSize": "15px",
+              },
+              "floatingLabelText": "Email",
+              "fullWidth": false,
+              "multiLine": false,
+              "name": "emailInput",
+              "onChange": [Function],
+              "rows": 1,
+              "type": "email",
+              "underlineShow": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "disabled": false,
+              "errorText": "",
+              "floatingLabelFixed": false,
+              "floatingLabelStyle": Object {
+                "fontSize": "15px",
+              },
+              "floatingLabelText": "Password",
+              "fullWidth": false,
+              "multiLine": false,
+              "name": "passwordInput",
+              "onChange": [Function],
+              "rows": 1,
+              "type": "password",
+              "underlineShow": true,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "br",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div>
+                  <FlatButton
+                    disabled={false}
+                    fullWidth={false}
+                    labelPosition="after"
+                    labelStyle={Object {}}
+                    onClick={undefined}
+                    onKeyboardFocus={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    onTouchStart={[Function]}
+                    primary={false}
+                    secondary={false}
+                    style={
+                      Object {
+                        "padding": "0 5px 0 5px",
+                      }
+                    }
+                  >
+                    <svg
+                      height="15"
+                      style={
+                        Object {
+                          "marginRight": "10px",
+                        }
+                      }
+                      width="15"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                        fill="#A2A2A2"
+                      />
+                    </svg>
+                    Create an account
+                  </FlatButton>
+                </div>,
+                <div>
+                  <RaisedButton
+                    disabled={false}
+                    fullWidth={false}
+                    labelPosition="after"
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                  >
+                    Login
+                  </RaisedButton>
+                </div>,
+              ],
+              "className": "login__button-box",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <FlatButton
+                    disabled={false}
+                    fullWidth={false}
+                    labelPosition="after"
+                    labelStyle={Object {}}
+                    onClick={undefined}
+                    onKeyboardFocus={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    onTouchStart={[Function]}
+                    primary={false}
+                    secondary={false}
+                    style={
+                      Object {
+                        "padding": "0 5px 0 5px",
+                      }
+                    }
+                  >
+                    <svg
+                      height="15"
+                      style={
+                        Object {
+                          "marginRight": "10px",
+                        }
+                      }
+                      width="15"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                        fill="#A2A2A2"
+                      />
+                    </svg>
+                    Create an account
+                  </FlatButton>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      <svg
+                        height="15"
+                        style={
+                          Object {
+                            "marginRight": "10px",
+                          }
+                        }
+                        width="15"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                          fill="#A2A2A2"
+                        />
+                      </svg>,
+                      "Create an account",
+                    ],
+                    "disabled": false,
+                    "fullWidth": false,
+                    "labelPosition": "after",
+                    "labelStyle": Object {},
+                    "onClick": undefined,
+                    "onKeyboardFocus": [Function],
+                    "onMouseEnter": [Function],
+                    "onMouseLeave": [Function],
+                    "onTouchStart": [Function],
+                    "primary": false,
+                    "secondary": false,
+                    "style": Object {
+                      "padding": "0 5px 0 5px",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <path
+                          d="M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z"
+                          fill="#A2A2A2"
+                        />,
+                        "height": "15",
+                        "style": Object {
+                          "marginRight": "10px",
+                        },
+                        "width": "15",
+                        "xmlns": "http://www.w3.org/2000/svg",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "d": "M8 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.847 7H.16c-1.062-3.357 3.341-6 7.255-6 3.913 0 8.483 2.662 7.43 6z",
+                          "fill": "#A2A2A2",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "path",
+                      },
+                      "type": "svg",
+                    },
+                    "Create an account",
+                  ],
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <RaisedButton
+                    disabled={false}
+                    fullWidth={false}
+                    labelPosition="after"
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                  >
+                    Login
+                  </RaisedButton>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Login",
+                    "disabled": false,
+                    "fullWidth": false,
+                    "labelPosition": "after",
+                    "onClick": [Function],
+                    "primary": false,
+                    "secondary": false,
+                  },
+                  "ref": null,
+                  "rendered": "Login",
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Forgot your password? ",
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  className="alink"
+                  style={
+                    Object {
+                      "color": "#0095ff",
+                      "display": "inline-block",
+                    }
+                  }
+                  to="/resetpassword"
+                >
+                  Reset it here
+                </NavLink>,
+              ],
+              "style": Object {
+                "display": "inherit",
+                "fontSize": "small",
+                "marginBottom": "25px",
+                "marginTop": "50px",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              "Forgot your password? ",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": "Reset it here",
+                  "className": "alink",
+                  "style": Object {
+                    "color": "#0095ff",
+                    "display": "inline-block",
+                  },
+                  "to": "/resetpassword",
+                },
+                "ref": null,
+                "rendered": "Reset it here",
+                "type": [Function],
+              },
+            ],
+            "type": "span",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

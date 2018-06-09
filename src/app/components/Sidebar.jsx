@@ -5,11 +5,11 @@ import EventListener, { withOptions } from 'react-event-listener';
 import keycode from 'keycode';
 
 // - Import API
-import * as AuthAPI from 'AuthAPI';
+import * as AuthAPI from '../api/AuthAPI';
 
 // - Import actions
-import * as authorizeActions from 'authorizeActions';
-import * as globalActions from 'globalActions';
+import * as authorizeActions from '../actions/authorizeActions';
+import * as globalActions from '../actions/globalActions';
 
 // - Fields
 const sizeCondition = (width) => (width >= 750);
@@ -212,7 +212,7 @@ export class Sidebar extends Component {
     }
 
     /**
-    * Reneder component DOM
+    * Render component DOM
     * @return {react element} return the DOM which rendered by component
     */
     render() {

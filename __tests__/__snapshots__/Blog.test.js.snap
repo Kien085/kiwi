@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Blog renders correctly 1`] = `
+<div>
+  
+  
+  <div
+    className="grid grid__gutters grid__1of2 grid__space-around animate-top"
+  >
+    <div
+      className="grid-cell animate-top"
+      style={
+        Object {
+          "maxWidth": "530px",
+          "minWidth": "280px",
+        }
+      }
+    >
+      
+      <h1>
+        'Nothing has shared.'
+      </h1>
+      <div
+        style={
+          Object {
+            "height": "16px",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

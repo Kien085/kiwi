@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class SidebarContent extends Component {
-    static qcName = 'SidebarContent'
+    static qcName = 'SidebarContent';
 
     /**
      * Handle click on cover of sidebar
@@ -12,7 +12,7 @@ export default class SidebarContent extends Component {
     }
 
     /**
-   * Reneder component DOM
+   * Render component DOM
    * @return {react element} return the DOM which rendered by component
    */
     render() {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // - Import app components
-import UserBoxList from 'UserBoxList';
+import UserBoxList from './UserBoxList';
 
 export class Followers extends Component {
     /**

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import Popover, { PopoverAnimationVertical } from 'material-ui/Popover';
 
 // - Import app components
-import NotifyItem from 'NotifyItem';
+import NotifyItem from './NotifyItem';
 
 // - Import actions
-import * as userActions from 'userActions';
+import * as userActions from '../actions/userActions';
 
 export class Notify extends Component {
 

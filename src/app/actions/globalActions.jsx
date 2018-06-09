@@ -1,9 +1,9 @@
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // - Import actions
-import * as postActions from 'postActions';
-import * as commentActions from 'commentActions';
-import * as userActions from 'userActions';
+import * as postActions from './postActions';
+import * as commentActions from './commentActions';
+import * as userActions from './userActions';
 
 /**
  * Progress change

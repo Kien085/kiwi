@@ -1,13 +1,13 @@
-import firebase, { firebaseRef } from 'app/firebase/';
+import firebase, { firebaseRef } from '../firebase/';
 
 // - Import utility components
 import moment from 'moment';
 
 // - Import action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // - Import actions
-import * as globalActions from 'globalActions';
+import * as globalActions from './globalActions';
 
 // - Import app API
 import EncryptionAPI from '../api/EncryptionAPI';

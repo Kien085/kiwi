@@ -1,11 +1,11 @@
-import { firebaseRef } from 'app/firebase/';
+import { firebaseRef } from '../firebase/';
 
 // - Import action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // - Import actions 
-import *  as globalActions from 'globalActions';
-import * as userActions from 'userActions';
+import *  as globalActions from './globalActions';
+import * as userActions from './userActions';
 
 /* _____________ CRUD DB _____________ */
 
