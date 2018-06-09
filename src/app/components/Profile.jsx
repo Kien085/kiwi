@@ -18,28 +18,55 @@ export class Profile extends Component {
     }
 
     /**
+     * Check if user should be able to view posts of this profile
+     * That is, the profile must be of the own user or a friend.
+     * @returns true if profile is own or a friend's, false otherwise
+     */
+    allowViewPosts = () => {
+        let { friendList, userId, isAuthedUser } = this.props;
+        let hasProfileAccess = isAuthedUser;
+        Object.keys(friendList).forEach((index) => {
+            if (friendList[index].uid === userId)
+                hasProfileAccess = true;
+        });
+        return hasProfileAccess
+    }
+    /**
      * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
+        if (this.allowViewPosts() ){
+            return (
+                <div style={{ margin: '0 auto', width: '90%' }}>
+                    <div>
+                        <ProfileHead avatar={this.props.avatar} isAuthedUser={this.props.isAuthedUser} banner={this.props.banner} fullName={this.props.name} followerCount={0} userId={this.props.userId} />
+                    </div>
+                    {this.props.posts && Object.keys(this.props.posts).length !== 0 ?
+                        (<div>
+                            <div className='profile__title'>
+                                {this.props.name}'s posts
+                            </div>
+                            <div style={{ height: '24px' }}></div>
+                            <Blog posts={this.props.posts} displayWriting={false} adSky={false} adPost={false} />
+                        </div>) :
+
+                        (<div className='profile__title'>
+                            Nothing shared
+                            </div>)
+                    }
+                </div>
+            );
+        }
         return (
-            <div style={{margin: '0 auto', width: '90%'}}>
+            <div style={{ margin: '0 auto', width: '90%' }}>
                 <div>
                     <ProfileHead avatar={this.props.avatar} isAuthedUser={this.props.isAuthedUser} banner={this.props.banner} fullName={this.props.name} followerCount={0} userId={this.props.userId} />
                 </div>
-                {this.props.posts && Object.keys(this.props.posts).length !== 0 ? 
-                    (<div>
-                        <div className='profile__title'>
-                            {this.props.name}'s posts
-                        </div>
-                        <div style={{ height: '24px' }}></div>
-                        <Blog posts={this.props.posts} displayWriting={false} adSky={false} adPost={false}/>
-                    </div>) : 
-                    
-                    (<div className='profile__title'>
-                        Nothing shared
-                    </div>)
-                }
+
+                <div className='profile__title'>
+                    You must be friends in order to view posts!
+                </div>
             </div>
         );
     }
@@ -76,9 +103,10 @@ const mapStateToProps = (state, ownProps) => {
         banner: state.user.info && state.user.info[userId] ? state.user.info[userId].banner || '' : '',
         posts: state.post.userPosts ? state.post.userPosts[userId] : {},
         isAuthedUser: userId === uid,
-        userId
+        userId,
+        friendList: state.friendList ? state.friendList : [],
     }
 }
 
 // - Connect component to redux store
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)  
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)
