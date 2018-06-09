@@ -35,6 +35,7 @@ export class ImageGallery extends Component {
      * @param  {integer} id is the image identifier which selected to delete
      */
     handleDeleteImage = (evt, id) => {
+        evt.preventDefault();
         this.props.deleteImage(id);
     }
 
