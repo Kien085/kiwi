@@ -96,6 +96,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         goTo: (url) => dispatch(push(url)),
         setHeaderTitle: (title) => dispatch(globalActions.setHeaderTitle(title))
+
+
     }
 }
 
@@ -110,6 +112,9 @@ const mapStateToProps = (state, ownProps) => {
     return {
         uid: state.authorize.uid,
         circlesLoaded: state.circle.loaded
+
+
+
     }
 }
 

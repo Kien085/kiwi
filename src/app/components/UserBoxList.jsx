@@ -22,7 +22,7 @@ export class UserBoxList extends Component {
      */
     render() {
         return (
-            <div>
+            <div className='grid grid__1of4 grid__space-around'>
                 {this.userList()}
             </div>
         );

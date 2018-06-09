@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { firebaseRef, firebaseAuth } from 'app/firebase/';
 import moment from 'moment';
+import uuid from 'uuid';
 import {connect} from "react-redux";
 
 // - Import app components
@@ -14,8 +15,7 @@ export class Messenger extends Component {
     }
 
     /**
-     * Runs when the component loads
-     * Fetches the messages of a specific conversation
+     * Loads previous messages in conversation from firebase
      */
     componentWillMount() {
         //TODO Switch to this line when conversation ids have been made

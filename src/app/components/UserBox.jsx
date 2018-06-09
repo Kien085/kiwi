@@ -115,13 +115,26 @@ export class UserBox extends Component {
             myRequestId, friendRequest = myRequestId;
         }
         return (
-            <Paper style={{height: '100px', width: '100%', margin: '10', textAlign: 'center'}} zDepth={1} className='grid-cell'>
-                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', height: '100%', position: 'relative', padding: '30px'}}>
+            <Paper style={styles.paper} zDepth={1} className='grid-cell'>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    height: '100%',
+                    position: 'relative',
+                    padding: '30px'
+
+                }}>
                     <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{ cursor: 'pointer' }}>
-                        <UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} size={60}/>
+                        <UserAvatar
+                            fullName={this.props.fullName}
+                            fileName={this.props.avatar}
+                            size={90}
+                        />
                     </div>
-                    <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{cursor: 'pointer', wordBreak: 'break-word', padding: '10px'}}>
-                        <div style={{color: 'black', fontSize: '20px', lineHeight: '20px', marginLeft: '20px', overflow: 'hidden', textOverflow: 'ellipsis', wordBreak: 'break-word', overflow: 'hidden', textOverflow: 'ellipsis'}}>
+                    <div onClick={() => this.props.goTo(`/${this.props.userId}`)} className='people__name' style={{ cursor: 'pointer' }}>
+                        <div>
                             {this.props.user.fullName}
                         </div>
                     </div>
