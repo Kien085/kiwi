@@ -37,7 +37,7 @@ let reducer = redux.combineReducers({
     user: userReducer,
     notify: notifyReducer,
     global: globalReducer,
-    friendlist: friendListReducer,
+    friendList: friendListReducer,
     receivedFriendRequests: receivedFriendRequestsReducer,
     sentFriendRequests: sentFriendRequestsReducer
 });

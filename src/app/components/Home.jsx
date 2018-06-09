@@ -152,10 +152,10 @@ const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize
 
     let mergedPosts = {}
-    const circles = state.circle ? (state.circle.userCircles[uid] || {}) : {}
-    const followingUsers = CircleAPI.getFollowingUsers(circles)
+    const friendList = state.friendList;
     const posts = state.post.userPosts ? state.post.userPosts[state.authorize.uid] : {}
-    Object.keys(followingUsers).forEach((userId) => {
+    Object.keys(friendList).forEach((index) => {
+        let userId = friendList[index].uid;
         let newPosts = state.post.userPosts ? state.post.userPosts[userId] : {}
         _.merge(mergedPosts, newPosts)
     })
