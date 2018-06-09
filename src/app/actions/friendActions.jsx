@@ -187,6 +187,7 @@ export var dbFriendRequestDenied = (userFriend, myRequestId) => {
  * @param {object} userFriend is the user whom to cancel the request to
  */
 export var dbCancelFriendRequest = (userFriend, myRequestId, theirRequestId) => {
+    debugger;
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
         let user = getState().user.info[uid];

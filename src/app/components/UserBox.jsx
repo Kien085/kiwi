@@ -95,11 +95,13 @@ export class UserBox extends Component {
      */
     getRequestIds = (userFriendId) => {
         const { sentRequests } = this.props;
+        let retVal = null;
         Object.keys(sentRequests).forEach((index) => {
-            if(sentRequests[index].request.uid === userFriendId)
-                return [sentRequests[index].myReqId, sentRequests[index].request]
+            if(sentRequests[index].request.uid === userFriendId) {
+                retVal = [sentRequests[index].myReqId, sentRequests[index].request]
+            }
         });
-        return null;
+        return retVal;
     }
 
     /**
@@ -112,9 +114,11 @@ export class UserBox extends Component {
         let fullName = this.props.friendFullName;
         let userFriend = {userId, avatar, fullName};
         let requestIds =  this.getRequestIds(userId);
-        let myRequestId, friendRequest;
-        if(!requestIds) {
-            myRequestId, friendRequest = myRequestId;
+        let myRequestId =  undefined;
+        let friendRequest = null;
+        if(requestIds !== null) {
+            myRequestId = requestIds[0];
+            friendRequest = requestIds[1];
         }
         return (
             <Paper style={{height: '100px', width: '100%', margin: '10', textAlign: 'center'}} zDepth={1} className='grid-cell'>
@@ -129,7 +133,7 @@ export class UserBox extends Component {
                     </div>
                     <div>
                         <FlatButton onClick={ () => this.props.addFriendRequest(userFriend)}>Add friend</FlatButton>
-                        <FlatButton onClick={ () => this.props.cancelFriendRequest(userFriend, myRequestId, friendRequest.reqId)}>Cancel request</FlatButton>
+                        <FlatButton onClick={ () => this.props.cancelFriendRequest(userFriend, myRequestId, friendRequest === null ? friendRequest: friendRequest.reqId)}>Cancel request</FlatButton>
                         <FlatButton onClick={ () => this.props.acceptFriend(myRequestId, friendRequest)}>Approve</FlatButton>
                         <FlatButton onClick={ () => this.props.denyFriend(myRequestId, friendRequest)}>Deny</FlatButton>
                         <FlatButton onClick={ () => this.props.deleteFriend(userId)}>Unfriend</FlatButton>
