@@ -23,13 +23,562 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": Array [
+      "children": <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "flexDirection": "row",
+            "height": "100%",
+            "justifyContent": "flex-start",
+            "padding": "30px",
+            "position": "relative",
+          }
+        }
+      >
         <div
+          onClick={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          <Connect(UserAvatar)
+            fileName={undefined}
+            fullName={undefined}
+            size={60}
+          />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+              "padding": "10px",
+              "wordBreak": "break-word",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "color": "black",
+                "fontSize": "20px",
+                "lineHeight": "20px",
+                "marginLeft": "20px",
+                "overflow": "hidden",
+                "textOverflow": "ellipsis",
+                "wordBreak": "break-word",
+              }
+            }
+          >
+            John Doe
+          </div>
+        </div>
+        <div>
+          <FlatButton
+            disabled={false}
+            fullWidth={false}
+            labelPosition="after"
+            labelStyle={Object {}}
+            onKeyboardFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onTouchStart={[Function]}
+            primary={false}
+            secondary={false}
+          >
+            Add friend
+          </FlatButton>
+          <FlatButton
+            disabled={false}
+            fullWidth={false}
+            labelPosition="after"
+            labelStyle={Object {}}
+            onKeyboardFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onTouchStart={[Function]}
+            primary={false}
+            secondary={false}
+          >
+            Cancel request
+          </FlatButton>
+          <FlatButton
+            disabled={false}
+            fullWidth={false}
+            labelPosition="after"
+            labelStyle={Object {}}
+            onKeyboardFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onTouchStart={[Function]}
+            primary={false}
+            secondary={false}
+          >
+            Approve
+          </FlatButton>
+          <FlatButton
+            disabled={false}
+            fullWidth={false}
+            labelPosition="after"
+            labelStyle={Object {}}
+            onKeyboardFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onTouchStart={[Function]}
+            primary={false}
+            secondary={false}
+          >
+            Deny
+          </FlatButton>
+          <FlatButton
+            disabled={false}
+            fullWidth={false}
+            labelPosition="after"
+            labelStyle={Object {}}
+            onKeyboardFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onTouchStart={[Function]}
+            primary={false}
+            secondary={false}
+          >
+            Unfriend
+          </FlatButton>
+        </div>
+      </div>,
+      "circle": false,
+      "className": "grid-cell",
+      "rounded": true,
+      "style": Object {
+        "height": "100px",
+        "margin": "10",
+        "textAlign": "center",
+        "width": "100%",
+      },
+      "transitionEnabled": true,
+      "zDepth": 1,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            onClick={[Function]}
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+          >
+            <Connect(UserAvatar)
+              fileName={undefined}
+              fullName={undefined}
+              size={60}
+            />
+          </div>,
+          <div
+            onClick={[Function]}
+            style={
+              Object {
+                "cursor": "pointer",
+                "padding": "10px",
+                "wordBreak": "break-word",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "color": "black",
+                  "fontSize": "20px",
+                  "lineHeight": "20px",
+                  "marginLeft": "20px",
+                  "overflow": "hidden",
+                  "textOverflow": "ellipsis",
+                  "wordBreak": "break-word",
+                }
+              }
+            >
+              John Doe
+            </div>
+          </div>,
+          <div>
+            <FlatButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              labelStyle={Object {}}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={false}
+              secondary={false}
+            >
+              Add friend
+            </FlatButton>
+            <FlatButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              labelStyle={Object {}}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={false}
+              secondary={false}
+            >
+              Cancel request
+            </FlatButton>
+            <FlatButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              labelStyle={Object {}}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={false}
+              secondary={false}
+            >
+              Approve
+            </FlatButton>
+            <FlatButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              labelStyle={Object {}}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={false}
+              secondary={false}
+            >
+              Deny
+            </FlatButton>
+            <FlatButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              labelStyle={Object {}}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={false}
+              secondary={false}
+            >
+              Unfriend
+            </FlatButton>
+          </div>,
+        ],
+        "style": Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+          "height": "100%",
+          "justifyContent": "flex-start",
+          "padding": "30px",
+          "position": "relative",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Connect(UserAvatar)
+              fileName={undefined}
+              fullName={undefined}
+              size={60}
+            />,
+            "onClick": [Function],
+            "style": Object {
+              "cursor": "pointer",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "fileName": undefined,
+              "fullName": undefined,
+              "size": 60,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              style={
+                Object {
+                  "color": "black",
+                  "fontSize": "20px",
+                  "lineHeight": "20px",
+                  "marginLeft": "20px",
+                  "overflow": "hidden",
+                  "textOverflow": "ellipsis",
+                  "wordBreak": "break-word",
+                }
+              }
+            >
+              John Doe
+            </div>,
+            "onClick": [Function],
+            "style": Object {
+              "cursor": "pointer",
+              "padding": "10px",
+              "wordBreak": "break-word",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "John Doe",
+              "style": Object {
+                "color": "black",
+                "fontSize": "20px",
+                "lineHeight": "20px",
+                "marginLeft": "20px",
+                "overflow": "hidden",
+                "textOverflow": "ellipsis",
+                "wordBreak": "break-word",
+              },
+            },
+            "ref": null,
+            "rendered": "John Doe",
+            "type": "div",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Add friend
+              </FlatButton>,
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Cancel request
+              </FlatButton>,
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Approve
+              </FlatButton>,
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Deny
+              </FlatButton>,
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Unfriend
+              </FlatButton>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Add friend",
+                "disabled": false,
+                "fullWidth": false,
+                "labelPosition": "after",
+                "labelStyle": Object {},
+                "onKeyboardFocus": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+                "onTouchStart": [Function],
+                "primary": false,
+                "secondary": false,
+              },
+              "ref": null,
+              "rendered": "Add friend",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Cancel request",
+                "disabled": false,
+                "fullWidth": false,
+                "labelPosition": "after",
+                "labelStyle": Object {},
+                "onKeyboardFocus": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+                "onTouchStart": [Function],
+                "primary": false,
+                "secondary": false,
+              },
+              "ref": null,
+              "rendered": "Cancel request",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Approve",
+                "disabled": false,
+                "fullWidth": false,
+                "labelPosition": "after",
+                "labelStyle": Object {},
+                "onKeyboardFocus": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+                "onTouchStart": [Function],
+                "primary": false,
+                "secondary": false,
+              },
+              "ref": null,
+              "rendered": "Approve",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Deny",
+                "disabled": false,
+                "fullWidth": false,
+                "labelPosition": "after",
+                "labelStyle": Object {},
+                "onKeyboardFocus": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+                "onTouchStart": [Function],
+                "primary": false,
+                "secondary": false,
+              },
+              "ref": null,
+              "rendered": "Deny",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Unfriend",
+                "disabled": false,
+                "fullWidth": false,
+                "labelPosition": "after",
+                "labelStyle": Object {},
+                "onKeyboardFocus": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+                "onTouchStart": [Function],
+                "primary": false,
+                "secondary": false,
+              },
+              "ref": null,
+              "rendered": "Unfriend",
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <div
           style={
             Object {
               "alignItems": "center",
               "display": "flex",
-              "flexDirection": "column",
+              "flexDirection": "row",
               "height": "100%",
               "justifyContent": "flex-start",
               "padding": "30px",
@@ -48,161 +597,122 @@ ShallowWrapper {
             <Connect(UserAvatar)
               fileName={undefined}
               fullName={undefined}
-              size={90}
+              size={60}
             />
           </div>
           <div
-            className="people__name"
             onClick={[Function]}
             style={
               Object {
                 "cursor": "pointer",
+                "padding": "10px",
+                "wordBreak": "break-word",
               }
             }
           >
-            <div>
+            <div
+              style={
+                Object {
+                  "color": "black",
+                  "fontSize": "20px",
+                  "lineHeight": "20px",
+                  "marginLeft": "20px",
+                  "overflow": "hidden",
+                  "textOverflow": "ellipsis",
+                  "wordBreak": "break-word",
+                }
+              }
+            >
               John Doe
             </div>
           </div>
-          <div
-            style={
-              Object {
-                "bottom": "8px",
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-              }
-            }
-          >
+          <div>
             <FlatButton
               disabled={false}
               fullWidth={false}
-              label="Follow"
               labelPosition="after"
               labelStyle={Object {}}
               onKeyboardFocus={[Function]}
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
               onTouchStart={[Function]}
-              onTouchTap={[Function]}
-              primary={true}
+              primary={false}
               secondary={false}
-            />
+            >
+              Add friend
+            </FlatButton>
+            <FlatButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              labelStyle={Object {}}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={false}
+              secondary={false}
+            >
+              Cancel request
+            </FlatButton>
+            <FlatButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              labelStyle={Object {}}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={false}
+              secondary={false}
+            >
+              Approve
+            </FlatButton>
+            <FlatButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              labelStyle={Object {}}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={false}
+              secondary={false}
+            >
+              Deny
+            </FlatButton>
+            <FlatButton
+              disabled={false}
+              fullWidth={false}
+              labelPosition="after"
+              labelStyle={Object {}}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={false}
+              secondary={false}
+            >
+              Unfriend
+            </FlatButton>
           </div>
         </div>,
-        <Popover
-          anchorEl={undefined}
-          anchorOrigin={
-            Object {
-              "horizontal": "left",
-              "vertical": "bottom",
-            }
-          }
-          animated={true}
-          animation={[Function]}
-          autoCloseWhenOffScreen={true}
-          canAutoPosition={true}
-          onRequestClose={[Function]}
-          open={false}
-          scrollableContainer="window"
-          style={
-            Object {
-              "overflowY": "auto",
-            }
-          }
-          targetOrigin={
-            Object {
-              "horizontal": "left",
-              "vertical": "top",
-            }
-          }
-          useLayerForClickAway={true}
-          zDepth={1}
-        >
-          <Menu
-            autoWidth={true}
-            desktop={false}
-            disableAutoFocus={false}
-            initiallyKeyboardFocused={false}
-            maxHeight={null}
-            multiple={false}
-            onChange={[Function]}
-            onEscKeyDown={[Function]}
-            onItemTouchTap={[Function]}
-            onKeyDown={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "display": "block",
-                  "maxHeight": "220px",
-                  "position": "relative",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "100%",
-                    "overflowY": "auto",
-                  }
-                }
-              />
-            </div>
-            <div
-              style={
-                Object {
-                  "padding": "10px",
-                }
-              }
-            >
-              <TextField
-                disabled={false}
-                floatingLabelFixed={false}
-                fullWidth={false}
-                hintText="Group name"
-                multiLine={false}
-                onChange={[Function]}
-                rows={1}
-                type="text"
-                underlineShow={true}
-                value=""
-              />
-              <br />
-              <FlatButton
-                disabled={true}
-                fullWidth={false}
-                label="ADD"
-                labelPosition="after"
-                labelStyle={Object {}}
-                onClick={[Function]}
-                onKeyboardFocus={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onTouchStart={[Function]}
-                primary={true}
-                secondary={false}
-              />
-            </div>
-          </Menu>
-        </Popover>,
-      ],
-      "circle": false,
-      "className": "grid-cell",
-      "rounded": true,
-      "style": Object {
-        "height": 254,
-        "margin": 10,
-        "maxWidth": "257px",
-        "textAlign": "center",
-        "width": 243,
+        "circle": false,
+        "className": "grid-cell",
+        "rounded": true,
+        "style": Object {
+          "height": "100px",
+          "margin": "10",
+          "textAlign": "center",
+          "width": "100%",
+        },
+        "transitionEnabled": true,
+        "zDepth": 1,
       },
-      "transitionEnabled": true,
-      "zDepth": 1,
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
+      "ref": null,
+      "rendered": Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
@@ -219,52 +729,112 @@ ShallowWrapper {
               <Connect(UserAvatar)
                 fileName={undefined}
                 fullName={undefined}
-                size={90}
+                size={60}
               />
             </div>,
             <div
-              className="people__name"
               onClick={[Function]}
               style={
                 Object {
                   "cursor": "pointer",
+                  "padding": "10px",
+                  "wordBreak": "break-word",
                 }
               }
             >
-              <div>
+              <div
+                style={
+                  Object {
+                    "color": "black",
+                    "fontSize": "20px",
+                    "lineHeight": "20px",
+                    "marginLeft": "20px",
+                    "overflow": "hidden",
+                    "textOverflow": "ellipsis",
+                    "wordBreak": "break-word",
+                  }
+                }
+              >
                 John Doe
               </div>
             </div>,
-            <div
-              style={
-                Object {
-                  "bottom": "8px",
-                  "left": 0,
-                  "position": "absolute",
-                  "right": 0,
-                }
-              }
-            >
+            <div>
               <FlatButton
                 disabled={false}
                 fullWidth={false}
-                label="Follow"
                 labelPosition="after"
                 labelStyle={Object {}}
                 onKeyboardFocus={[Function]}
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
                 onTouchStart={[Function]}
-                onTouchTap={[Function]}
-                primary={true}
+                primary={false}
                 secondary={false}
-              />
+              >
+                Add friend
+              </FlatButton>
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Cancel request
+              </FlatButton>
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Approve
+              </FlatButton>
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Deny
+              </FlatButton>
+              <FlatButton
+                disabled={false}
+                fullWidth={false}
+                labelPosition="after"
+                labelStyle={Object {}}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={false}
+                secondary={false}
+              >
+                Unfriend
+              </FlatButton>
             </div>,
           ],
           "style": Object {
             "alignItems": "center",
             "display": "flex",
-            "flexDirection": "column",
+            "flexDirection": "row",
             "height": "100%",
             "justifyContent": "flex-start",
             "padding": "30px",
@@ -281,7 +851,7 @@ ShallowWrapper {
               "children": <Connect(UserAvatar)
                 fileName={undefined}
                 fullName={undefined}
-                size={90}
+                size={60}
               />,
               "onClick": [Function],
               "style": Object {
@@ -296,7 +866,7 @@ ShallowWrapper {
               "props": Object {
                 "fileName": undefined,
                 "fullName": undefined,
-                "size": 90,
+                "size": 60,
               },
               "ref": null,
               "rendered": null,
@@ -309,13 +879,26 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <div>
+              "children": <div
+                style={
+                  Object {
+                    "color": "black",
+                    "fontSize": "20px",
+                    "lineHeight": "20px",
+                    "marginLeft": "20px",
+                    "overflow": "hidden",
+                    "textOverflow": "ellipsis",
+                    "wordBreak": "break-word",
+                  }
+                }
+              >
                 John Doe
               </div>,
-              "className": "people__name",
               "onClick": [Function],
               "style": Object {
                 "cursor": "pointer",
+                "padding": "10px",
+                "wordBreak": "break-word",
               },
             },
             "ref": null,
@@ -325,6 +908,15 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "John Doe",
+                "style": Object {
+                  "color": "black",
+                  "fontSize": "20px",
+                  "lineHeight": "20px",
+                  "marginLeft": "20px",
+                  "overflow": "hidden",
+                  "textOverflow": "ellipsis",
+                  "wordBreak": "break-word",
+                },
               },
               "ref": null,
               "rendered": "John Doe",
@@ -337,1034 +929,192 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <FlatButton
-                disabled={false}
-                fullWidth={false}
-                label="Follow"
-                labelPosition="after"
-                labelStyle={Object {}}
-                onKeyboardFocus={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onTouchStart={[Function]}
-                onTouchTap={[Function]}
-                primary={true}
-                secondary={false}
-              />,
-              "style": Object {
-                "bottom": "8px",
-                "left": 0,
-                "position": "absolute",
-                "right": 0,
-              },
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "disabled": false,
-                "fullWidth": false,
-                "label": "Follow",
-                "labelPosition": "after",
-                "labelStyle": Object {},
-                "onKeyboardFocus": [Function],
-                "onMouseEnter": [Function],
-                "onMouseLeave": [Function],
-                "onTouchStart": [Function],
-                "onTouchTap": [Function],
-                "primary": true,
-                "secondary": false,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            "type": "div",
-          },
-        ],
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "anchorEl": undefined,
-          "anchorOrigin": Object {
-            "horizontal": "left",
-            "vertical": "bottom",
-          },
-          "animated": true,
-          "animation": [Function],
-          "autoCloseWhenOffScreen": true,
-          "canAutoPosition": true,
-          "children": <Menu
-            autoWidth={true}
-            desktop={false}
-            disableAutoFocus={false}
-            initiallyKeyboardFocused={false}
-            maxHeight={null}
-            multiple={false}
-            onChange={[Function]}
-            onEscKeyDown={[Function]}
-            onItemTouchTap={[Function]}
-            onKeyDown={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "display": "block",
-                  "maxHeight": "220px",
-                  "position": "relative",
-                }
-              }
-            >
-              <div
-                style={
-                  Object {
-                    "height": "100%",
-                    "overflowY": "auto",
-                  }
-                }
-              />
-            </div>
-            <div
-              style={
-                Object {
-                  "padding": "10px",
-                }
-              }
-            >
-              <TextField
-                disabled={false}
-                floatingLabelFixed={false}
-                fullWidth={false}
-                hintText="Group name"
-                multiLine={false}
-                onChange={[Function]}
-                rows={1}
-                type="text"
-                underlineShow={true}
-                value=""
-              />
-              <br />
-              <FlatButton
-                disabled={true}
-                fullWidth={false}
-                label="ADD"
-                labelPosition="after"
-                labelStyle={Object {}}
-                onClick={[Function]}
-                onKeyboardFocus={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onTouchStart={[Function]}
-                primary={true}
-                secondary={false}
-              />
-            </div>
-          </Menu>,
-          "onRequestClose": [Function],
-          "open": false,
-          "scrollableContainer": "window",
-          "style": Object {
-            "overflowY": "auto",
-          },
-          "targetOrigin": Object {
-            "horizontal": "left",
-            "vertical": "top",
-          },
-          "useLayerForClickAway": true,
-          "zDepth": 1,
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "autoWidth": true,
-            "children": Array [
-              <div
-                style={
-                  Object {
-                    "display": "block",
-                    "maxHeight": "220px",
-                    "position": "relative",
-                  }
-                }
-              >
-                <div
-                  style={
-                    Object {
-                      "height": "100%",
-                      "overflowY": "auto",
-                    }
-                  }
-                />
-              </div>,
-              <div
-                style={
-                  Object {
-                    "padding": "10px",
-                  }
-                }
-              >
-                <TextField
-                  disabled={false}
-                  floatingLabelFixed={false}
-                  fullWidth={false}
-                  hintText="Group name"
-                  multiLine={false}
-                  onChange={[Function]}
-                  rows={1}
-                  type="text"
-                  underlineShow={true}
-                  value=""
-                />
-                <br />
-                <FlatButton
-                  disabled={true}
-                  fullWidth={false}
-                  label="ADD"
-                  labelPosition="after"
-                  labelStyle={Object {}}
-                  onClick={[Function]}
-                  onKeyboardFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onTouchStart={[Function]}
-                  primary={true}
-                  secondary={false}
-                />
-              </div>,
-            ],
-            "desktop": false,
-            "disableAutoFocus": false,
-            "initiallyKeyboardFocused": false,
-            "maxHeight": null,
-            "multiple": false,
-            "onChange": [Function],
-            "onEscKeyDown": [Function],
-            "onItemTouchTap": [Function],
-            "onKeyDown": [Function],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <div
-                  style={
-                    Object {
-                      "height": "100%",
-                      "overflowY": "auto",
-                    }
-                  }
-                />,
-                "style": Object {
-                  "display": "block",
-                  "maxHeight": "220px",
-                  "position": "relative",
-                },
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": undefined,
-                  "style": Object {
-                    "height": "100%",
-                    "overflowY": "auto",
-                  },
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "div",
-              },
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <TextField
-                    disabled={false}
-                    floatingLabelFixed={false}
-                    fullWidth={false}
-                    hintText="Group name"
-                    multiLine={false}
-                    onChange={[Function]}
-                    rows={1}
-                    type="text"
-                    underlineShow={true}
-                    value=""
-                  />,
-                  <br />,
-                  <FlatButton
-                    disabled={true}
-                    fullWidth={false}
-                    label="ADD"
-                    labelPosition="after"
-                    labelStyle={Object {}}
-                    onClick={[Function]}
-                    onKeyboardFocus={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onTouchStart={[Function]}
-                    primary={true}
-                    secondary={false}
-                  />,
-                ],
-                "style": Object {
-                  "padding": "10px",
-                },
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "disabled": false,
-                    "floatingLabelFixed": false,
-                    "fullWidth": false,
-                    "hintText": "Group name",
-                    "multiLine": false,
-                    "onChange": [Function],
-                    "rows": 1,
-                    "type": "text",
-                    "underlineShow": true,
-                    "value": "",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": "br",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "disabled": true,
-                    "fullWidth": false,
-                    "label": "ADD",
-                    "labelPosition": "after",
-                    "labelStyle": Object {},
-                    "onClick": [Function],
-                    "onKeyboardFocus": [Function],
-                    "onMouseEnter": [Function],
-                    "onMouseLeave": [Function],
-                    "onTouchStart": [Function],
-                    "primary": true,
-                    "secondary": false,
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-              ],
-              "type": "div",
-            },
-          ],
-          "type": [Function],
-        },
-        "type": [Function],
-      },
-    ],
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          <div
-            style={
-              Object {
-                "alignItems": "center",
-                "display": "flex",
-                "flexDirection": "column",
-                "height": "100%",
-                "justifyContent": "flex-start",
-                "padding": "30px",
-                "position": "relative",
-              }
-            }
-          >
-            <div
-              onClick={[Function]}
-              style={
-                Object {
-                  "cursor": "pointer",
-                }
-              }
-            >
-              <Connect(UserAvatar)
-                fileName={undefined}
-                fullName={undefined}
-                size={90}
-              />
-            </div>
-            <div
-              className="people__name"
-              onClick={[Function]}
-              style={
-                Object {
-                  "cursor": "pointer",
-                }
-              }
-            >
-              <div>
-                John Doe
-              </div>
-            </div>
-            <div
-              style={
-                Object {
-                  "bottom": "8px",
-                  "left": 0,
-                  "position": "absolute",
-                  "right": 0,
-                }
-              }
-            >
-              <FlatButton
-                disabled={false}
-                fullWidth={false}
-                label="Follow"
-                labelPosition="after"
-                labelStyle={Object {}}
-                onKeyboardFocus={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onTouchStart={[Function]}
-                onTouchTap={[Function]}
-                primary={true}
-                secondary={false}
-              />
-            </div>
-          </div>,
-          <Popover
-            anchorEl={undefined}
-            anchorOrigin={
-              Object {
-                "horizontal": "left",
-                "vertical": "bottom",
-              }
-            }
-            animated={true}
-            animation={[Function]}
-            autoCloseWhenOffScreen={true}
-            canAutoPosition={true}
-            onRequestClose={[Function]}
-            open={false}
-            scrollableContainer="window"
-            style={
-              Object {
-                "overflowY": "auto",
-              }
-            }
-            targetOrigin={
-              Object {
-                "horizontal": "left",
-                "vertical": "top",
-              }
-            }
-            useLayerForClickAway={true}
-            zDepth={1}
-          >
-            <Menu
-              autoWidth={true}
-              desktop={false}
-              disableAutoFocus={false}
-              initiallyKeyboardFocused={false}
-              maxHeight={null}
-              multiple={false}
-              onChange={[Function]}
-              onEscKeyDown={[Function]}
-              onItemTouchTap={[Function]}
-              onKeyDown={[Function]}
-            >
-              <div
-                style={
-                  Object {
-                    "display": "block",
-                    "maxHeight": "220px",
-                    "position": "relative",
-                  }
-                }
-              >
-                <div
-                  style={
-                    Object {
-                      "height": "100%",
-                      "overflowY": "auto",
-                    }
-                  }
-                />
-              </div>
-              <div
-                style={
-                  Object {
-                    "padding": "10px",
-                  }
-                }
-              >
-                <TextField
-                  disabled={false}
-                  floatingLabelFixed={false}
-                  fullWidth={false}
-                  hintText="Group name"
-                  multiLine={false}
-                  onChange={[Function]}
-                  rows={1}
-                  type="text"
-                  underlineShow={true}
-                  value=""
-                />
-                <br />
-                <FlatButton
-                  disabled={true}
-                  fullWidth={false}
-                  label="ADD"
-                  labelPosition="after"
-                  labelStyle={Object {}}
-                  onClick={[Function]}
-                  onKeyboardFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onTouchStart={[Function]}
-                  primary={true}
-                  secondary={false}
-                />
-              </div>
-            </Menu>
-          </Popover>,
-        ],
-        "circle": false,
-        "className": "grid-cell",
-        "rounded": true,
-        "style": Object {
-          "height": 254,
-          "margin": 10,
-          "maxWidth": "257px",
-          "textAlign": "center",
-          "width": 243,
-        },
-        "transitionEnabled": true,
-        "zDepth": 1,
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <div
-                onClick={[Function]}
-                style={
-                  Object {
-                    "cursor": "pointer",
-                  }
-                }
-              >
-                <Connect(UserAvatar)
-                  fileName={undefined}
-                  fullName={undefined}
-                  size={90}
-                />
-              </div>,
-              <div
-                className="people__name"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "cursor": "pointer",
-                  }
-                }
-              >
-                <div>
-                  John Doe
-                </div>
-              </div>,
-              <div
-                style={
-                  Object {
-                    "bottom": "8px",
-                    "left": 0,
-                    "position": "absolute",
-                    "right": 0,
-                  }
-                }
-              >
-                <FlatButton
-                  disabled={false}
-                  fullWidth={false}
-                  label="Follow"
-                  labelPosition="after"
-                  labelStyle={Object {}}
-                  onKeyboardFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onTouchStart={[Function]}
-                  onTouchTap={[Function]}
-                  primary={true}
-                  secondary={false}
-                />
-              </div>,
-            ],
-            "style": Object {
-              "alignItems": "center",
-              "display": "flex",
-              "flexDirection": "column",
-              "height": "100%",
-              "justifyContent": "flex-start",
-              "padding": "30px",
-              "position": "relative",
-            },
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <Connect(UserAvatar)
-                  fileName={undefined}
-                  fullName={undefined}
-                  size={90}
-                />,
-                "onClick": [Function],
-                "style": Object {
-                  "cursor": "pointer",
-                },
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "fileName": undefined,
-                  "fullName": undefined,
-                  "size": 90,
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <div>
-                  John Doe
-                </div>,
-                "className": "people__name",
-                "onClick": [Function],
-                "style": Object {
-                  "cursor": "pointer",
-                },
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "John Doe",
-                },
-                "ref": null,
-                "rendered": "John Doe",
-                "type": "div",
-              },
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <FlatButton
-                  disabled={false}
-                  fullWidth={false}
-                  label="Follow"
-                  labelPosition="after"
-                  labelStyle={Object {}}
-                  onKeyboardFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onTouchStart={[Function]}
-                  onTouchTap={[Function]}
-                  primary={true}
-                  secondary={false}
-                />,
-                "style": Object {
-                  "bottom": "8px",
-                  "left": 0,
-                  "position": "absolute",
-                  "right": 0,
-                },
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "disabled": false,
-                  "fullWidth": false,
-                  "label": "Follow",
-                  "labelPosition": "after",
-                  "labelStyle": Object {},
-                  "onKeyboardFocus": [Function],
-                  "onMouseEnter": [Function],
-                  "onMouseLeave": [Function],
-                  "onTouchStart": [Function],
-                  "onTouchTap": [Function],
-                  "primary": true,
-                  "secondary": false,
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              "type": "div",
-            },
-          ],
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "anchorEl": undefined,
-            "anchorOrigin": Object {
-              "horizontal": "left",
-              "vertical": "bottom",
-            },
-            "animated": true,
-            "animation": [Function],
-            "autoCloseWhenOffScreen": true,
-            "canAutoPosition": true,
-            "children": <Menu
-              autoWidth={true}
-              desktop={false}
-              disableAutoFocus={false}
-              initiallyKeyboardFocused={false}
-              maxHeight={null}
-              multiple={false}
-              onChange={[Function]}
-              onEscKeyDown={[Function]}
-              onItemTouchTap={[Function]}
-              onKeyDown={[Function]}
-            >
-              <div
-                style={
-                  Object {
-                    "display": "block",
-                    "maxHeight": "220px",
-                    "position": "relative",
-                  }
-                }
-              >
-                <div
-                  style={
-                    Object {
-                      "height": "100%",
-                      "overflowY": "auto",
-                    }
-                  }
-                />
-              </div>
-              <div
-                style={
-                  Object {
-                    "padding": "10px",
-                  }
-                }
-              >
-                <TextField
-                  disabled={false}
-                  floatingLabelFixed={false}
-                  fullWidth={false}
-                  hintText="Group name"
-                  multiLine={false}
-                  onChange={[Function]}
-                  rows={1}
-                  type="text"
-                  underlineShow={true}
-                  value=""
-                />
-                <br />
-                <FlatButton
-                  disabled={true}
-                  fullWidth={false}
-                  label="ADD"
-                  labelPosition="after"
-                  labelStyle={Object {}}
-                  onClick={[Function]}
-                  onKeyboardFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onTouchStart={[Function]}
-                  primary={true}
-                  secondary={false}
-                />
-              </div>
-            </Menu>,
-            "onRequestClose": [Function],
-            "open": false,
-            "scrollableContainer": "window",
-            "style": Object {
-              "overflowY": "auto",
-            },
-            "targetOrigin": Object {
-              "horizontal": "left",
-              "vertical": "top",
-            },
-            "useLayerForClickAway": true,
-            "zDepth": 1,
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "autoWidth": true,
               "children": Array [
-                <div
-                  style={
-                    Object {
-                      "display": "block",
-                      "maxHeight": "220px",
-                      "position": "relative",
-                    }
-                  }
+                <FlatButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  labelStyle={Object {}}
+                  onKeyboardFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onTouchStart={[Function]}
+                  primary={false}
+                  secondary={false}
                 >
-                  <div
-                    style={
-                      Object {
-                        "height": "100%",
-                        "overflowY": "auto",
-                      }
-                    }
-                  />
-                </div>,
-                <div
-                  style={
-                    Object {
-                      "padding": "10px",
-                    }
-                  }
+                  Add friend
+                </FlatButton>,
+                <FlatButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  labelStyle={Object {}}
+                  onKeyboardFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onTouchStart={[Function]}
+                  primary={false}
+                  secondary={false}
                 >
-                  <TextField
-                    disabled={false}
-                    floatingLabelFixed={false}
-                    fullWidth={false}
-                    hintText="Group name"
-                    multiLine={false}
-                    onChange={[Function]}
-                    rows={1}
-                    type="text"
-                    underlineShow={true}
-                    value=""
-                  />
-                  <br />
-                  <FlatButton
-                    disabled={true}
-                    fullWidth={false}
-                    label="ADD"
-                    labelPosition="after"
-                    labelStyle={Object {}}
-                    onClick={[Function]}
-                    onKeyboardFocus={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onTouchStart={[Function]}
-                    primary={true}
-                    secondary={false}
-                  />
-                </div>,
+                  Cancel request
+                </FlatButton>,
+                <FlatButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  labelStyle={Object {}}
+                  onKeyboardFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onTouchStart={[Function]}
+                  primary={false}
+                  secondary={false}
+                >
+                  Approve
+                </FlatButton>,
+                <FlatButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  labelStyle={Object {}}
+                  onKeyboardFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onTouchStart={[Function]}
+                  primary={false}
+                  secondary={false}
+                >
+                  Deny
+                </FlatButton>,
+                <FlatButton
+                  disabled={false}
+                  fullWidth={false}
+                  labelPosition="after"
+                  labelStyle={Object {}}
+                  onKeyboardFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onTouchStart={[Function]}
+                  primary={false}
+                  secondary={false}
+                >
+                  Unfriend
+                </FlatButton>,
               ],
-              "desktop": false,
-              "disableAutoFocus": false,
-              "initiallyKeyboardFocused": false,
-              "maxHeight": null,
-              "multiple": false,
-              "onChange": [Function],
-              "onEscKeyDown": [Function],
-              "onItemTouchTap": [Function],
-              "onKeyDown": [Function],
             },
             "ref": null,
             "rendered": Array [
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
-                  "children": <div
-                    style={
-                      Object {
-                        "height": "100%",
-                        "overflowY": "auto",
-                      }
-                    }
-                  />,
-                  "style": Object {
-                    "display": "block",
-                    "maxHeight": "220px",
-                    "position": "relative",
-                  },
+                  "children": "Add friend",
+                  "disabled": false,
+                  "fullWidth": false,
+                  "labelPosition": "after",
+                  "labelStyle": Object {},
+                  "onKeyboardFocus": [Function],
+                  "onMouseEnter": [Function],
+                  "onMouseLeave": [Function],
+                  "onTouchStart": [Function],
+                  "primary": false,
+                  "secondary": false,
                 },
                 "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": undefined,
-                    "style": Object {
-                      "height": "100%",
-                      "overflowY": "auto",
-                    },
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "div",
-                },
-                "type": "div",
+                "rendered": "Add friend",
+                "type": [Function],
               },
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "host",
+                "nodeType": "class",
                 "props": Object {
-                  "children": Array [
-                    <TextField
-                      disabled={false}
-                      floatingLabelFixed={false}
-                      fullWidth={false}
-                      hintText="Group name"
-                      multiLine={false}
-                      onChange={[Function]}
-                      rows={1}
-                      type="text"
-                      underlineShow={true}
-                      value=""
-                    />,
-                    <br />,
-                    <FlatButton
-                      disabled={true}
-                      fullWidth={false}
-                      label="ADD"
-                      labelPosition="after"
-                      labelStyle={Object {}}
-                      onClick={[Function]}
-                      onKeyboardFocus={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
-                      onTouchStart={[Function]}
-                      primary={true}
-                      secondary={false}
-                    />,
-                  ],
-                  "style": Object {
-                    "padding": "10px",
-                  },
+                  "children": "Cancel request",
+                  "disabled": false,
+                  "fullWidth": false,
+                  "labelPosition": "after",
+                  "labelStyle": Object {},
+                  "onKeyboardFocus": [Function],
+                  "onMouseEnter": [Function],
+                  "onMouseLeave": [Function],
+                  "onTouchStart": [Function],
+                  "primary": false,
+                  "secondary": false,
                 },
                 "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "disabled": false,
-                      "floatingLabelFixed": false,
-                      "fullWidth": false,
-                      "hintText": "Group name",
-                      "multiLine": false,
-                      "onChange": [Function],
-                      "rows": 1,
-                      "type": "text",
-                      "underlineShow": true,
-                      "value": "",
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {},
-                    "ref": null,
-                    "rendered": null,
-                    "type": "br",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "class",
-                    "props": Object {
-                      "disabled": true,
-                      "fullWidth": false,
-                      "label": "ADD",
-                      "labelPosition": "after",
-                      "labelStyle": Object {},
-                      "onClick": [Function],
-                      "onKeyboardFocus": [Function],
-                      "onMouseEnter": [Function],
-                      "onMouseLeave": [Function],
-                      "onTouchStart": [Function],
-                      "primary": true,
-                      "secondary": false,
-                    },
-                    "ref": null,
-                    "rendered": null,
-                    "type": [Function],
-                  },
-                ],
-                "type": "div",
+                "rendered": "Cancel request",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Approve",
+                  "disabled": false,
+                  "fullWidth": false,
+                  "labelPosition": "after",
+                  "labelStyle": Object {},
+                  "onKeyboardFocus": [Function],
+                  "onMouseEnter": [Function],
+                  "onMouseLeave": [Function],
+                  "onTouchStart": [Function],
+                  "primary": false,
+                  "secondary": false,
+                },
+                "ref": null,
+                "rendered": "Approve",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Deny",
+                  "disabled": false,
+                  "fullWidth": false,
+                  "labelPosition": "after",
+                  "labelStyle": Object {},
+                  "onKeyboardFocus": [Function],
+                  "onMouseEnter": [Function],
+                  "onMouseLeave": [Function],
+                  "onTouchStart": [Function],
+                  "primary": false,
+                  "secondary": false,
+                },
+                "ref": null,
+                "rendered": "Deny",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Unfriend",
+                  "disabled": false,
+                  "fullWidth": false,
+                  "labelPosition": "after",
+                  "labelStyle": Object {},
+                  "onKeyboardFocus": [Function],
+                  "onMouseEnter": [Function],
+                  "onMouseLeave": [Function],
+                  "onTouchStart": [Function],
+                  "primary": false,
+                  "secondary": false,
+                },
+                "ref": null,
+                "rendered": "Unfriend",
+                "type": [Function],
               },
             ],
-            "type": [Function],
+            "type": "div",
           },
-          "type": [Function],
-        },
-      ],
+        ],
+        "type": "div",
+      },
       "type": [Function],
     },
   ],

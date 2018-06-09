@@ -257,7 +257,7 @@ export class PostWrite extends Component {
                 primary={true}
                 keyboardFocused={false}
                 onTouchTap={this.props.onRequestClose}
-                style={{ color: grey800 }}
+                style={{ color: "red", backgroundColor: 'pink', borderRadius: '7px', marginRight: '10px' }}
             />,
             <FlatButton
                 key='post'
@@ -266,6 +266,7 @@ export class PostWrite extends Component {
                 keyboardFocused={false}
                 onTouchTap={this.handlePost}
                 disabled={this.state.disabledPost}
+                style={{color: this.state.disabledPost ? '' : "blue", backgroundColor: this.state.disabledPost ? "lightgrey" : "lightblue", borderRadius: '7px', marginRight: '10px'}}
             />
         ];
 
@@ -347,9 +348,9 @@ export class PostWrite extends Component {
                                     </div>
                                 </div>) : ''}
                         </div>
-                        <div style={{ flexShrink: 0, boxFlex: 0, flexGrow: 0, maxHeight: "48px", width: "100%" }}>
-                            <div style={{ flexDirection: "row", display: "flex", justifyContent: 'space-between', backgroundColor: '#eee' }}>
-                                <div onClick={this.handleOpenGallery} style={{display: "flex", alignItems: 'center', cursor: 'pointer'}}>
+                        <div style={{ flexShrink: 0, boxFlex: 0, flexGrow: 0, maxHeight: "48px", width: "100%", backgroundColor: '#eee' }}>
+                            <div style={{ flexDirection: "row", display: "flex", justifyContent: 'space-between' }}>
+                                <div onClick={this.handleOpenGallery} style={{display: "flex", alignItems: 'center', cursor: 'pointer', borderRadius: '7px' }}>
                                     <div style={{ outline: "none", width: "48px", zIndex: 0, overflow: "hidden", position: "relative", textAlign: "center", transition: "background .3s", border: 0, borderRadius: "50%", display: "inlineBlock", height: "48px" }}>
                                         <span style={{ top: "13px", position: "relative", cursor: "pointer" }}>
                                             <SvgCamera color="grey" />

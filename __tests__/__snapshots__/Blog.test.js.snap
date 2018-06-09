@@ -17,6 +17,9 @@ exports[`Component: Blog renders correctly 1`] = `
       }
     >
       
+      <h1>
+        'Nothing has shared.'
+      </h1>
       <div
         style={
           Object {
@@ -25,7 +28,6 @@ exports[`Component: Blog renders correctly 1`] = `
         }
       />
     </div>
-    
   </div>
 </div>
 `;

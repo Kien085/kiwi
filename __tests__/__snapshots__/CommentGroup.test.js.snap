@@ -72,10 +72,9 @@ ShallowWrapper {
           </div>
           
         </div>,
-        <div>
-          <Divider
-            inset={false}
-          />
+        <div
+          id="innerCommentGroupDiv"
+        >
           <Paper
             circle={false}
             className="animate2-top10"
@@ -387,26 +386,115 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [
-            <Divider
-              inset={false}
-            />,
-            <Paper
-              circle={false}
-              className="animate2-top10"
-              rounded={true}
+          "children": <Paper
+            circle={false}
+            className="animate2-top10"
+            rounded={true}
+            style={
+              Object {
+                "borderRadius": "0 0 7px 7px",
+                "display": "none",
+                "overflowY": "auto",
+                "padding": "12px 16px",
+                "position": "relative",
+              }
+            }
+            transitionEnabled={true}
+            zDepth={0}
+          >
+            <div
               style={
                 Object {
-                  "borderRadius": "0 0 7px 7px",
-                  "display": "none",
-                  "overflowY": "auto",
-                  "padding": "12px 16px",
-                  "position": "relative",
+                  "display": "flex",
                 }
               }
-              transitionEnabled={true}
-              zDepth={0}
             >
+              <Connect(UserAvatar)
+                fileName={undefined}
+                fullName={undefined}
+                size={36}
+                style={
+                  Object {
+                    "flex": "none",
+                    "margin": "4px 0px",
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "flex": "auto",
+                    "flexGrow": 1,
+                    "marginLeft": "16px",
+                    "outline": "none",
+                  }
+                }
+              >
+                <TextField
+                  disabled={false}
+                  floatingLabelFixed={false}
+                  fullWidth={false}
+                  hintStyle={
+                    Object {
+                      "fontSize": "14px",
+                      "fontWeight": 100,
+                    }
+                  }
+                  hintText="Add a comment..."
+                  multiLine={true}
+                  onChange={[Function]}
+                  rows={1}
+                  rowsMax={4}
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
+                  textareaStyle={
+                    Object {
+                      "fontSize": "14px",
+                      "fontWeight": 100,
+                    }
+                  }
+                  type="text"
+                  underlineShow={false}
+                  value=""
+                />
+              </div>
+            </div>
+            <FlatButton
+              disabled={true}
+              fullWidth={false}
+              label="Post"
+              labelPosition="after"
+              labelStyle={Object {}}
+              onClick={[Function]}
+              onKeyboardFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onTouchStart={[Function]}
+              primary={true}
+              secondary={false}
+              style={
+                Object {
+                  "clear": "both",
+                  "float": "right",
+                  "fontWeight": 400,
+                  "margin": "0px 5px 5px 0px",
+                  "zIndex": 5,
+                }
+              }
+            />
+          </Paper>,
+          "id": "innerCommentGroupDiv",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
               <div
                 style={
                   Object {
@@ -466,7 +554,7 @@ ShallowWrapper {
                     value=""
                   />
                 </div>
-              </div>
+              </div>,
               <FlatButton
                 disabled={true}
                 fullWidth={false}
@@ -489,36 +577,29 @@ ShallowWrapper {
                     "zIndex": 5,
                   }
                 }
-              />
-            </Paper>,
-          ],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "inset": false,
+              />,
+            ],
+            "circle": false,
+            "className": "animate2-top10",
+            "rounded": true,
+            "style": Object {
+              "borderRadius": "0 0 7px 7px",
+              "display": "none",
+              "overflowY": "auto",
+              "padding": "12px 16px",
+              "position": "relative",
             },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
+            "transitionEnabled": true,
+            "zDepth": 0,
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": Array [
-                <div
-                  style={
-                    Object {
-                      "display": "flex",
-                    }
-                  }
-                >
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
                   <Connect(UserAvatar)
                     fileName={undefined}
                     fullName={undefined}
@@ -529,7 +610,7 @@ ShallowWrapper {
                         "margin": "4px 0px",
                       }
                     }
-                  />
+                  />,
                   <div
                     style={
                       Object {
@@ -570,242 +651,143 @@ ShallowWrapper {
                       underlineShow={false}
                       value=""
                     />
-                  </div>
-                </div>,
-                <FlatButton
-                  disabled={true}
-                  fullWidth={false}
-                  label="Post"
-                  labelPosition="after"
-                  labelStyle={Object {}}
-                  onClick={[Function]}
-                  onKeyboardFocus={[Function]}
-                  onMouseEnter={[Function]}
-                  onMouseLeave={[Function]}
-                  onTouchStart={[Function]}
-                  primary={true}
-                  secondary={false}
-                  style={
-                    Object {
-                      "clear": "both",
-                      "float": "right",
-                      "fontWeight": 400,
-                      "margin": "0px 5px 5px 0px",
-                      "zIndex": 5,
-                    }
-                  }
-                />,
-              ],
-              "circle": false,
-              "className": "animate2-top10",
-              "rounded": true,
-              "style": Object {
-                "borderRadius": "0 0 7px 7px",
-                "display": "none",
-                "overflowY": "auto",
-                "padding": "12px 16px",
-                "position": "relative",
-              },
-              "transitionEnabled": true,
-              "zDepth": 0,
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <Connect(UserAvatar)
-                      fileName={undefined}
-                      fullName={undefined}
-                      size={36}
-                      style={
-                        Object {
-                          "flex": "none",
-                          "margin": "4px 0px",
-                        }
-                      }
-                    />,
-                    <div
-                      style={
-                        Object {
-                          "flex": "auto",
-                          "flexGrow": 1,
-                          "marginLeft": "16px",
-                          "outline": "none",
-                        }
-                      }
-                    >
-                      <TextField
-                        disabled={false}
-                        floatingLabelFixed={false}
-                        fullWidth={false}
-                        hintStyle={
-                          Object {
-                            "fontSize": "14px",
-                            "fontWeight": 100,
-                          }
-                        }
-                        hintText="Add a comment..."
-                        multiLine={true}
-                        onChange={[Function]}
-                        rows={1}
-                        rowsMax={4}
-                        style={
-                          Object {
-                            "width": "100%",
-                          }
-                        }
-                        textareaStyle={
-                          Object {
-                            "fontSize": "14px",
-                            "fontWeight": 100,
-                          }
-                        }
-                        type="text"
-                        underlineShow={false}
-                        value=""
-                      />
-                    </div>,
-                  ],
-                  "style": Object {
-                    "display": "flex",
-                  },
+                  </div>,
+                ],
+                "style": Object {
+                  "display": "flex",
                 },
-                "ref": null,
-                "rendered": Array [
-                  Object {
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "fileName": undefined,
+                    "fullName": undefined,
+                    "size": 36,
+                    "style": Object {
+                      "flex": "none",
+                      "margin": "4px 0px",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <TextField
+                      disabled={false}
+                      floatingLabelFixed={false}
+                      fullWidth={false}
+                      hintStyle={
+                        Object {
+                          "fontSize": "14px",
+                          "fontWeight": 100,
+                        }
+                      }
+                      hintText="Add a comment..."
+                      multiLine={true}
+                      onChange={[Function]}
+                      rows={1}
+                      rowsMax={4}
+                      style={
+                        Object {
+                          "width": "100%",
+                        }
+                      }
+                      textareaStyle={
+                        Object {
+                          "fontSize": "14px",
+                          "fontWeight": 100,
+                        }
+                      }
+                      type="text"
+                      underlineShow={false}
+                      value=""
+                    />,
+                    "style": Object {
+                      "flex": "auto",
+                      "flexGrow": 1,
+                      "marginLeft": "16px",
+                      "outline": "none",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "fileName": undefined,
-                      "fullName": undefined,
-                      "size": 36,
-                      "style": Object {
-                        "flex": "none",
-                        "margin": "4px 0px",
+                      "disabled": false,
+                      "floatingLabelFixed": false,
+                      "fullWidth": false,
+                      "hintStyle": Object {
+                        "fontSize": "14px",
+                        "fontWeight": 100,
                       },
+                      "hintText": "Add a comment...",
+                      "multiLine": true,
+                      "onChange": [Function],
+                      "rows": 1,
+                      "rowsMax": 4,
+                      "style": Object {
+                        "width": "100%",
+                      },
+                      "textareaStyle": Object {
+                        "fontSize": "14px",
+                        "fontWeight": 100,
+                      },
+                      "type": "text",
+                      "underlineShow": false,
+                      "value": "",
                     },
                     "ref": null,
                     "rendered": null,
                     "type": [Function],
                   },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": <TextField
-                        disabled={false}
-                        floatingLabelFixed={false}
-                        fullWidth={false}
-                        hintStyle={
-                          Object {
-                            "fontSize": "14px",
-                            "fontWeight": 100,
-                          }
-                        }
-                        hintText="Add a comment..."
-                        multiLine={true}
-                        onChange={[Function]}
-                        rows={1}
-                        rowsMax={4}
-                        style={
-                          Object {
-                            "width": "100%",
-                          }
-                        }
-                        textareaStyle={
-                          Object {
-                            "fontSize": "14px",
-                            "fontWeight": 100,
-                          }
-                        }
-                        type="text"
-                        underlineShow={false}
-                        value=""
-                      />,
-                      "style": Object {
-                        "flex": "auto",
-                        "flexGrow": 1,
-                        "marginLeft": "16px",
-                        "outline": "none",
-                      },
-                    },
-                    "ref": null,
-                    "rendered": Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "class",
-                      "props": Object {
-                        "disabled": false,
-                        "floatingLabelFixed": false,
-                        "fullWidth": false,
-                        "hintStyle": Object {
-                          "fontSize": "14px",
-                          "fontWeight": 100,
-                        },
-                        "hintText": "Add a comment...",
-                        "multiLine": true,
-                        "onChange": [Function],
-                        "rows": 1,
-                        "rowsMax": 4,
-                        "style": Object {
-                          "width": "100%",
-                        },
-                        "textareaStyle": Object {
-                          "fontSize": "14px",
-                          "fontWeight": 100,
-                        },
-                        "type": "text",
-                        "underlineShow": false,
-                        "value": "",
-                      },
-                      "ref": null,
-                      "rendered": null,
-                      "type": [Function],
-                    },
-                    "type": "div",
-                  },
-                ],
-                "type": "div",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "disabled": true,
-                  "fullWidth": false,
-                  "label": "Post",
-                  "labelPosition": "after",
-                  "labelStyle": Object {},
-                  "onClick": [Function],
-                  "onKeyboardFocus": [Function],
-                  "onMouseEnter": [Function],
-                  "onMouseLeave": [Function],
-                  "onTouchStart": [Function],
-                  "primary": true,
-                  "secondary": false,
-                  "style": Object {
-                    "clear": "both",
-                    "float": "right",
-                    "fontWeight": 400,
-                    "margin": "0px 5px 5px 0px",
-                    "zIndex": 5,
-                  },
+                  "type": "div",
                 },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "disabled": true,
+                "fullWidth": false,
+                "label": "Post",
+                "labelPosition": "after",
+                "labelStyle": Object {},
+                "onClick": [Function],
+                "onKeyboardFocus": [Function],
+                "onMouseEnter": [Function],
+                "onMouseLeave": [Function],
+                "onTouchStart": [Function],
+                "primary": true,
+                "secondary": false,
+                "style": Object {
+                  "clear": "both",
+                  "float": "right",
+                  "fontWeight": 400,
+                  "margin": "0px 5px 5px 0px",
+                  "zIndex": 5,
+                },
               },
-            ],
-            "type": [Function],
-          },
-        ],
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
         "type": "div",
       },
     ],
@@ -872,10 +854,9 @@ ShallowWrapper {
             </div>
             
           </div>,
-          <div>
-            <Divider
-              inset={false}
-            />
+          <div
+            id="innerCommentGroupDiv"
+          >
             <Paper
               circle={false}
               className="animate2-top10"
@@ -1187,26 +1168,115 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              <Divider
-                inset={false}
-              />,
-              <Paper
-                circle={false}
-                className="animate2-top10"
-                rounded={true}
+            "children": <Paper
+              circle={false}
+              className="animate2-top10"
+              rounded={true}
+              style={
+                Object {
+                  "borderRadius": "0 0 7px 7px",
+                  "display": "none",
+                  "overflowY": "auto",
+                  "padding": "12px 16px",
+                  "position": "relative",
+                }
+              }
+              transitionEnabled={true}
+              zDepth={0}
+            >
+              <div
                 style={
                   Object {
-                    "borderRadius": "0 0 7px 7px",
-                    "display": "none",
-                    "overflowY": "auto",
-                    "padding": "12px 16px",
-                    "position": "relative",
+                    "display": "flex",
                   }
                 }
-                transitionEnabled={true}
-                zDepth={0}
               >
+                <Connect(UserAvatar)
+                  fileName={undefined}
+                  fullName={undefined}
+                  size={36}
+                  style={
+                    Object {
+                      "flex": "none",
+                      "margin": "4px 0px",
+                    }
+                  }
+                />
+                <div
+                  style={
+                    Object {
+                      "flex": "auto",
+                      "flexGrow": 1,
+                      "marginLeft": "16px",
+                      "outline": "none",
+                    }
+                  }
+                >
+                  <TextField
+                    disabled={false}
+                    floatingLabelFixed={false}
+                    fullWidth={false}
+                    hintStyle={
+                      Object {
+                        "fontSize": "14px",
+                        "fontWeight": 100,
+                      }
+                    }
+                    hintText="Add a comment..."
+                    multiLine={true}
+                    onChange={[Function]}
+                    rows={1}
+                    rowsMax={4}
+                    style={
+                      Object {
+                        "width": "100%",
+                      }
+                    }
+                    textareaStyle={
+                      Object {
+                        "fontSize": "14px",
+                        "fontWeight": 100,
+                      }
+                    }
+                    type="text"
+                    underlineShow={false}
+                    value=""
+                  />
+                </div>
+              </div>
+              <FlatButton
+                disabled={true}
+                fullWidth={false}
+                label="Post"
+                labelPosition="after"
+                labelStyle={Object {}}
+                onClick={[Function]}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onTouchStart={[Function]}
+                primary={true}
+                secondary={false}
+                style={
+                  Object {
+                    "clear": "both",
+                    "float": "right",
+                    "fontWeight": 400,
+                    "margin": "0px 5px 5px 0px",
+                    "zIndex": 5,
+                  }
+                }
+              />
+            </Paper>,
+            "id": "innerCommentGroupDiv",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
                 <div
                   style={
                     Object {
@@ -1266,7 +1336,7 @@ ShallowWrapper {
                       value=""
                     />
                   </div>
-                </div>
+                </div>,
                 <FlatButton
                   disabled={true}
                   fullWidth={false}
@@ -1289,36 +1359,29 @@ ShallowWrapper {
                       "zIndex": 5,
                     }
                   }
-                />
-              </Paper>,
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "inset": false,
+                />,
+              ],
+              "circle": false,
+              "className": "animate2-top10",
+              "rounded": true,
+              "style": Object {
+                "borderRadius": "0 0 7px 7px",
+                "display": "none",
+                "overflowY": "auto",
+                "padding": "12px 16px",
+                "position": "relative",
               },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
+              "transitionEnabled": true,
+              "zDepth": 0,
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "children": Array [
-                  <div
-                    style={
-                      Object {
-                        "display": "flex",
-                      }
-                    }
-                  >
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
                     <Connect(UserAvatar)
                       fileName={undefined}
                       fullName={undefined}
@@ -1329,7 +1392,7 @@ ShallowWrapper {
                           "margin": "4px 0px",
                         }
                       }
-                    />
+                    />,
                     <div
                       style={
                         Object {
@@ -1370,242 +1433,143 @@ ShallowWrapper {
                         underlineShow={false}
                         value=""
                       />
-                    </div>
-                  </div>,
-                  <FlatButton
-                    disabled={true}
-                    fullWidth={false}
-                    label="Post"
-                    labelPosition="after"
-                    labelStyle={Object {}}
-                    onClick={[Function]}
-                    onKeyboardFocus={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onTouchStart={[Function]}
-                    primary={true}
-                    secondary={false}
-                    style={
-                      Object {
-                        "clear": "both",
-                        "float": "right",
-                        "fontWeight": 400,
-                        "margin": "0px 5px 5px 0px",
-                        "zIndex": 5,
-                      }
-                    }
-                  />,
-                ],
-                "circle": false,
-                "className": "animate2-top10",
-                "rounded": true,
-                "style": Object {
-                  "borderRadius": "0 0 7px 7px",
-                  "display": "none",
-                  "overflowY": "auto",
-                  "padding": "12px 16px",
-                  "position": "relative",
-                },
-                "transitionEnabled": true,
-                "zDepth": 0,
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      <Connect(UserAvatar)
-                        fileName={undefined}
-                        fullName={undefined}
-                        size={36}
-                        style={
-                          Object {
-                            "flex": "none",
-                            "margin": "4px 0px",
-                          }
-                        }
-                      />,
-                      <div
-                        style={
-                          Object {
-                            "flex": "auto",
-                            "flexGrow": 1,
-                            "marginLeft": "16px",
-                            "outline": "none",
-                          }
-                        }
-                      >
-                        <TextField
-                          disabled={false}
-                          floatingLabelFixed={false}
-                          fullWidth={false}
-                          hintStyle={
-                            Object {
-                              "fontSize": "14px",
-                              "fontWeight": 100,
-                            }
-                          }
-                          hintText="Add a comment..."
-                          multiLine={true}
-                          onChange={[Function]}
-                          rows={1}
-                          rowsMax={4}
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                          textareaStyle={
-                            Object {
-                              "fontSize": "14px",
-                              "fontWeight": 100,
-                            }
-                          }
-                          type="text"
-                          underlineShow={false}
-                          value=""
-                        />
-                      </div>,
-                    ],
-                    "style": Object {
-                      "display": "flex",
-                    },
+                    </div>,
+                  ],
+                  "style": Object {
+                    "display": "flex",
                   },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "fileName": undefined,
+                      "fullName": undefined,
+                      "size": 36,
+                      "style": Object {
+                        "flex": "none",
+                        "margin": "4px 0px",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <TextField
+                        disabled={false}
+                        floatingLabelFixed={false}
+                        fullWidth={false}
+                        hintStyle={
+                          Object {
+                            "fontSize": "14px",
+                            "fontWeight": 100,
+                          }
+                        }
+                        hintText="Add a comment..."
+                        multiLine={true}
+                        onChange={[Function]}
+                        rows={1}
+                        rowsMax={4}
+                        style={
+                          Object {
+                            "width": "100%",
+                          }
+                        }
+                        textareaStyle={
+                          Object {
+                            "fontSize": "14px",
+                            "fontWeight": 100,
+                          }
+                        }
+                        type="text"
+                        underlineShow={false}
+                        value=""
+                      />,
+                      "style": Object {
+                        "flex": "auto",
+                        "flexGrow": 1,
+                        "marginLeft": "16px",
+                        "outline": "none",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": Object {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "class",
                       "props": Object {
-                        "fileName": undefined,
-                        "fullName": undefined,
-                        "size": 36,
-                        "style": Object {
-                          "flex": "none",
-                          "margin": "4px 0px",
+                        "disabled": false,
+                        "floatingLabelFixed": false,
+                        "fullWidth": false,
+                        "hintStyle": Object {
+                          "fontSize": "14px",
+                          "fontWeight": 100,
                         },
+                        "hintText": "Add a comment...",
+                        "multiLine": true,
+                        "onChange": [Function],
+                        "rows": 1,
+                        "rowsMax": 4,
+                        "style": Object {
+                          "width": "100%",
+                        },
+                        "textareaStyle": Object {
+                          "fontSize": "14px",
+                          "fontWeight": 100,
+                        },
+                        "type": "text",
+                        "underlineShow": false,
+                        "value": "",
                       },
                       "ref": null,
                       "rendered": null,
                       "type": [Function],
                     },
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": <TextField
-                          disabled={false}
-                          floatingLabelFixed={false}
-                          fullWidth={false}
-                          hintStyle={
-                            Object {
-                              "fontSize": "14px",
-                              "fontWeight": 100,
-                            }
-                          }
-                          hintText="Add a comment..."
-                          multiLine={true}
-                          onChange={[Function]}
-                          rows={1}
-                          rowsMax={4}
-                          style={
-                            Object {
-                              "width": "100%",
-                            }
-                          }
-                          textareaStyle={
-                            Object {
-                              "fontSize": "14px",
-                              "fontWeight": 100,
-                            }
-                          }
-                          type="text"
-                          underlineShow={false}
-                          value=""
-                        />,
-                        "style": Object {
-                          "flex": "auto",
-                          "flexGrow": 1,
-                          "marginLeft": "16px",
-                          "outline": "none",
-                        },
-                      },
-                      "ref": null,
-                      "rendered": Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "class",
-                        "props": Object {
-                          "disabled": false,
-                          "floatingLabelFixed": false,
-                          "fullWidth": false,
-                          "hintStyle": Object {
-                            "fontSize": "14px",
-                            "fontWeight": 100,
-                          },
-                          "hintText": "Add a comment...",
-                          "multiLine": true,
-                          "onChange": [Function],
-                          "rows": 1,
-                          "rowsMax": 4,
-                          "style": Object {
-                            "width": "100%",
-                          },
-                          "textareaStyle": Object {
-                            "fontSize": "14px",
-                            "fontWeight": 100,
-                          },
-                          "type": "text",
-                          "underlineShow": false,
-                          "value": "",
-                        },
-                        "ref": null,
-                        "rendered": null,
-                        "type": [Function],
-                      },
-                      "type": "div",
-                    },
-                  ],
-                  "type": "div",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "disabled": true,
-                    "fullWidth": false,
-                    "label": "Post",
-                    "labelPosition": "after",
-                    "labelStyle": Object {},
-                    "onClick": [Function],
-                    "onKeyboardFocus": [Function],
-                    "onMouseEnter": [Function],
-                    "onMouseLeave": [Function],
-                    "onTouchStart": [Function],
-                    "primary": true,
-                    "secondary": false,
-                    "style": Object {
-                      "clear": "both",
-                      "float": "right",
-                      "fontWeight": 400,
-                      "margin": "0px 5px 5px 0px",
-                      "zIndex": 5,
-                    },
+                    "type": "div",
                   },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "disabled": true,
+                  "fullWidth": false,
+                  "label": "Post",
+                  "labelPosition": "after",
+                  "labelStyle": Object {},
+                  "onClick": [Function],
+                  "onKeyboardFocus": [Function],
+                  "onMouseEnter": [Function],
+                  "onMouseLeave": [Function],
+                  "onTouchStart": [Function],
+                  "primary": true,
+                  "secondary": false,
+                  "style": Object {
+                    "clear": "both",
+                    "float": "right",
+                    "fontWeight": 400,
+                    "margin": "0px 5px 5px 0px",
+                    "zIndex": 5,
+                  },
                 },
-              ],
-              "type": [Function],
-            },
-          ],
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
           "type": "div",
         },
       ],

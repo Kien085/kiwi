@@ -53,9 +53,6 @@ ShallowWrapper {
             </Switch>
           </SidebarMain>
         </Connect(Sidebar)>,
-        <withRouter(Connect(Messenger))
-          uid={undefined}
-        />,
       ],
       "id": "home",
     },
@@ -234,17 +231,6 @@ ShallowWrapper {
         },
         "type": [Function],
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "uid": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
     ],
     "type": "div",
   },
@@ -290,9 +276,6 @@ ShallowWrapper {
               </Switch>
             </SidebarMain>
           </Connect(Sidebar)>,
-          <withRouter(Connect(Messenger))
-            uid={undefined}
-          />,
         ],
         "id": "home",
       },
@@ -469,17 +452,6 @@ ShallowWrapper {
             },
             "type": [Function],
           },
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "uid": undefined,
-          },
-          "ref": null,
-          "rendered": null,
           "type": [Function],
         },
       ],
