@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { List } from 'material-ui/List';
 
 // - Import app components
-import Circle from 'Circle';
+import Circle from './Circle';
 
 export class YourCircles extends Component {
 
@@ -22,7 +22,7 @@ export class YourCircles extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

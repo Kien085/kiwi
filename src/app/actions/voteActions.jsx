@@ -1,13 +1,13 @@
 import { createAction as action } from 'redux-actions';
 import moment from 'moment';
-import { firebaseRef } from 'app/firebase/';
+import { firebaseRef } from '../firebase/';
 
 // - Import action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // - Import actions
-import * as globalActions from 'globalActions';
-import * as notifyActions from 'notifyActions';
+import * as globalActions from './globalActions';
+import * as notifyActions from './notifyActions';
 
 /* _____________ CRUD DB _____________ */
 

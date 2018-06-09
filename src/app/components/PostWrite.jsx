@@ -13,17 +13,17 @@ import IconMenu from 'material-ui/IconMenu';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 // - Import app components
-import ImageGallery from 'ImageGallery';
-import Img from 'Img';
-import UserAvatar from 'UserAvatar';
+import ImageGallery from './ImageGallery';
+import Img from './Img';
+import UserAvatar from './UserAvatar';
 
 // - Import API
-import * as AuthAPI from 'AuthAPI';
-import * as PostAPI from 'PostAPI';
+import * as AuthAPI from '../api/AuthAPI';
+import * as PostAPI from '../api/PostAPI';
 
 // - Import actions
-import * as imageGalleryActions from 'imageGalleryActions';
-import * as postActions from 'postActions';
+import * as imageGalleryActions from '../actions/imageGalleryActions';
+import * as postActions from '../actions/postActions';
 
 import forge from 'node-forge';
 
@@ -196,7 +196,7 @@ export class PostWrite extends Component {
         this.setState({ galleryOpen: true });
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps = (nextProps) => {
         if (!nextProps.open) {
             this.setState({
                 // Post text

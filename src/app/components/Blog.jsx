@@ -7,18 +7,18 @@ import SvgCamera from 'material-ui/svg-icons/image/photo-camera';
 import { List, ListItem } from 'material-ui/List';
 
 // - Import app components
-import Post from 'Post';
-import PostWrite from 'PostWrite';
-import UserAvatar from 'UserAvatar';
+import Post from './Post';
+import PostWrite from './PostWrite';
+import UserAvatar from './UserAvatar';
+import { AdPost } from './AdPost';
+import { AdSky } from './AdSky';
 
 // - Import API
-import * as AuthAPI from 'AuthAPI';
-import * as PostAPI from 'PostAPI';
+import * as AuthAPI from '../api/AuthAPI';
+import * as PostAPI from '../api/PostAPI';
 
 // - Import actions
-import * as globalActions from 'globalActions';
-import { AdPost } from 'AdPost';
-import { AdSky } from 'AdSky';
+import * as globalActions from '../actions/globalActions';
 
 export class Blog extends Component {
     /**
@@ -41,11 +41,11 @@ export class Blog extends Component {
             // The title of home header.
             homeTitle: '',
 
-            // adSky: true,
+            adSky: false,
 
-            // adPost: true,
+            adPost: false,
 
-            // displaySelfAd: true,
+            displaySelfAd: false,
 
             // Which ads to display
             rand : Math.floor(Math.random() * 4),
@@ -59,6 +59,9 @@ export class Blog extends Component {
      * 
      * @memberof Blog
      */
+    // handleOpenPostWrite = () => {
+    //     this.setState({ openPostWrite: true });
+    // }
     handleOpenPostWrite = () => {
         this.setState({ openPostWrite: true });
     }
@@ -68,6 +71,9 @@ export class Blog extends Component {
      * 
      * @memberof Blog
      */
+    // handleClosePostWrite = () => {
+    //     this.setState({ openPostWrite: false });
+    // }
     handleClosePostWrite = () => {
         this.setState({ openPostWrite: false });
     }
@@ -193,7 +199,7 @@ export class Blog extends Component {
         }
     }
 
-    componentWillMount() {
+    componentWillMount = () => {
         this.props.setHomeTitle();
     }
 
@@ -247,7 +253,7 @@ export class Blog extends Component {
 
         return (
             <div >
-                {/* {this.state.adSky ? <AdSky left={false} image={img}/> : ''} */}
+                {this.state.adSky ? <AdSky left={false} image={img}/> : ''}
                 {this.state.adSky ? <AdSky left={true} image={img2} /> : ''}
                 <div className='grid grid__gutters grid__1of2 grid__space-around animate-top'>
                     <div className='grid-cell animate-top' style={{ maxWidth: '530px', minWidth: '280px' }}>

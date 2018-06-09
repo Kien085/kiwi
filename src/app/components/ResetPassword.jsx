@@ -2,18 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink, withRouter } from 'react-router-dom'
 import { push } from 'react-router-redux'
-// import config from 'src/config'
-// import { getTranslate, getActiveLanguage } from 'react-localize-redux'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
-import { withStyles } from 'material-ui/styles'
-// import Typography from 'material-ui/Typography'
-// import { Grid } from 'material-ui/core'
-import * as authorizeActions from 'authorizeActions'
-// import { IResetPasswordComponentProps } from './IResetPasswordComponentProps'
-// import { IResetPasswordComponentState } from './IResetPasswordComponentState'
+import * as authorizeActions from '../actions/authorizeActions'
 
 
 
@@ -101,7 +94,7 @@ export class ResetPassword extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
@@ -109,11 +102,7 @@ export class ResetPassword extends Component {
         const { classes, translate } = this.props
 
         return (
-            //   <Grid container spacing={24}>
-            //   <Grid item xs={12} className={classes.contain}>
             <div style={{ height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-
-                {/* <h1 className='g__app-name'>{config.settings.appName}</h1> */}
 
                 <div className='animate-bottom'>
                     <Paper style={this.styles.paper} elevation={1}>
@@ -127,14 +116,6 @@ export class ResetPassword extends Component {
                             </div>
 
                             <TextField
-                                // style={this.styles.textField}
-                                // autoFocus
-                                // onChange={this.handleInputChange}
-                                // helperText={this.state.emailInputError}
-                                // error={this.state.emailInputError.trim() !== ''}
-                                // name='emailInput'
-                                // label='Email'
-                                // type='email'
                                 onChange={this.handleInputChange}
                                 errorText={this.state.emailInputError}
                                 name="emailInput"

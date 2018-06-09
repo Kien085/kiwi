@@ -6,18 +6,18 @@ import { grey50 } from 'material-ui/styles/colors';
 import { push } from 'react-router-redux';
 
 // - Import app components
-import FindPeople from 'FindPeople';
-import Following from 'Following';
-import Followers from 'Followers';
-import YourCircles from 'YourCircles';
+import FindPeople from './FindPeople';
+import Following from './Following';
+import Followers from './Followers';
+import YourCircles from './YourCircles';
 
 // - Import actions
-import * as circleActions from 'circleActions';
-import * as globalActions from 'globalActions';
+import * as circleActions from '../actions/circleActions';
+import * as globalActions from '../actions/globalActions';
 
 export class People extends Component {
 
-    componentWillMount() {
+    componentWillMount = () => {
         // Tab
         switch (this.props.match.params) {
             case undefined:
@@ -36,7 +36,7 @@ export class People extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

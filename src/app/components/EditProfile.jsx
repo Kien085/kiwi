@@ -14,16 +14,16 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 
 // - Import app components
-import ImgCover from 'ImgCover';
-import DialogTitle from 'DialogTitle';
-import ImageGallery from 'ImageGallery';
-import FileAPI from 'FileAPI';
-import UserAvatar from 'UserAvatar';
+import ImgCover from './ImgCover';
+import DialogTitle from '../layouts/DialogTitle';
+import ImageGallery from './ImageGallery';
+import FileAPI from '../api/FileAPI';
+import UserAvatar from './UserAvatar';
 
 // - Import actions
-import * as userActions from 'userActions';
-import * as globalActions from 'globalActions';
-import * as imageGalleryActions from 'imageGalleryActions';
+import * as userActions from '../actions/userActions';
+import * as globalActions from '../actions/globalActions';
+import * as imageGalleryActions from '../actions/imageGalleryActions';
 
 export class EditProfile extends Component {
 

@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
-import { firebaseRef, firebaseAuth } from 'app/firebase/';
+import { firebaseRef, firebaseAuth } from '../firebase/';
 import moment from 'moment';
 import {connect} from "react-redux";
 
 // - Import app components
 import { Widget, addResponseMessage} from 'react-chat-widget';
-import 'react-chat-widget/lib/styles.css';
+// import 'react-chat-widget/lib/styles.css';
 
 
 // - Import actions
-import * as voteActions from 'voteActions';
-import * as postActions from 'postActions';
-import * as globalActions from 'globalActions';
+import * as voteActions from '../actions/voteActions';
+import * as postActions from '../actions/postActions';
+import * as globalActions from '../actions/globalActions';
 import {addImageList} from "../actions/imageGalleryActions";
 
 export class Messenger extends Component {
@@ -25,7 +25,7 @@ export class Messenger extends Component {
      * Runs when the component loads
      * Fetches the messages of a specific conversation
      */
-    componentWillMount() {
+    componentWillMount = () => {
         //TODO Switch to this line when conversation ids have been made
         firebaseRef.child(`userMessages/messageList`).once('value').then((snapshot) => {
                 let message = snapshot.val() || {};

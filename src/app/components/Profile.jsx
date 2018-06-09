@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // - Import app components
-import ProfileHead from 'ProfileHead';
-import Blog from 'Blog';
+import ProfileHead from './ProfileHead';
+import Blog from './Blog';
 
 // - Import actions
-import * as postActions from 'postActions';
-import * as userActions from 'userActions';
-import * as globalActions from 'globalActions';
+import * as postActions from '../actions/postActions';
+import * as userActions from '../actions/userActions';
+import * as globalActions from '../actions/globalActions';
 
 export class Profile extends Component {
 
-    componentWillMount() {
+    componentWillMount = () => {
         this.props.loadPosts();
         this.props.loadUserInfo();
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

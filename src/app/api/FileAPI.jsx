@@ -1,4 +1,4 @@
-import { storageRef } from 'app/firebase/';
+import { storageRef } from '../firebase/';
 
 // - Get file Extension
 const getExtension = (fileName) => {

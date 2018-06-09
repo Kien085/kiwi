@@ -20,16 +20,16 @@ import IconMenu from 'material-ui/IconMenu';
 import reactStringReplace from 'react-string-replace';
 
 // - Import app components
-import CommentGroup from 'CommentGroup';
-import PostWrite from 'PostWrite';
-import Img from 'Img';
-import IconButtonElement from 'IconButtonElement';
-import UserAvatar from 'UserAvatar';
+import CommentGroup from './CommentGroup';
+import PostWrite from './PostWrite';
+import Img from './Img';
+import IconButtonElement from '../layouts/IconButtonElement';
+import UserAvatar from './UserAvatar';
 
 // - Import actions
-import * as voteActions from 'voteActions';
-import * as postActions from 'postActions';
-import * as globalActions from 'globalActions';
+import * as voteActions from '../actions/voteActions';
+import * as postActions from '../actions/postActions';
+import * as globalActions from '../actions/globalActions';
 
 export class Post extends Component {
     /**
@@ -187,7 +187,7 @@ export class Post extends Component {
      * Handle read more event
      * @param  {event} evt  is the event passed by click on read more
      */
-    handleReadMore(evt) {
+    handleReadMore = (evt) => {
         this.setState({ readMoreState: !this.state.readMoreState });
     }
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import SvgImage from 'material-ui/svg-icons/image/image';
 
 // - Import actions
-import * as imageGalleryActions from 'imageGalleryActions';
+import * as imageGalleryActions from '../actions/imageGalleryActions';
 
 export class Img extends Component {
 

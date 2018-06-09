@@ -8,14 +8,14 @@ import FlatButton from 'material-ui/FlatButton';
 import uuid from 'uuid';
 
 // - Import actions
-import * as imageGalleryActions from 'imageGalleryActions';
-import * as globalActions from 'globalActions';
+import * as imageGalleryActions from '../actions/imageGalleryActions';
+import * as globalActions from '../actions/globalActions';
 
 // - Import app components
-import Img from 'Img';
+import Img from './Img';
 
 // - Import API
-import FileAPI from 'FileAPI';
+import FileAPI from '../api/FileAPI';
 
 export class ImageGallery extends Component {
 
@@ -38,11 +38,11 @@ export class ImageGallery extends Component {
         this.props.deleteImage(id);
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         window.addEventListener("onSendResizedImage", this.handleSendResizedImage);
     }
 
-    componentWillUnmount() {
+    componentWillUnmount = () => {
         window.removeEventListener("onSendResizedImage", this.handleSendResizedImage);
     }
 

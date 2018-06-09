@@ -1,14 +1,14 @@
 import moment from 'moment';
-import { firebaseRef, firebaseAuth, storageRef } from 'app/firebase/';
+import { firebaseRef, firebaseAuth, storageRef } from '../firebase/';
 
 // - Import action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // - Import actions
-import * as globalActions from 'globalActions';
+import * as globalActions from './globalActions';
 
 // - Import app API
-import FileAPI from 'FileAPI';
+import FileAPI from '../api/FileAPI';
 
 /* _____________ UI Actions _____________ */
 

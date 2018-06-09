@@ -1,12 +1,12 @@
-import { firebaseRef, firebaseAuth } from 'app/firebase/';
+import { firebaseRef, firebaseAuth } from '../firebase/';
 import moment from 'moment';
 import { push } from 'react-router-redux';
 
 // - Import action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // - Import actions
-import * as globalActions from 'globalActions';
+import * as globalActions from './globalActions';
 import EncryptionAPI from '../api/EncryptionAPI';
 
 /* _____________ CRUD DB _____________ */

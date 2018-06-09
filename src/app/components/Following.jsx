@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // - Import app components
-import UserBoxList from 'UserBoxList';
+import UserBoxList from './UserBoxList';
 
 // - Import API
-import CircleAPI from 'CircleAPI';
+import CircleAPI from '../api/CircleAPI';
 
 export class Following extends Component {
 

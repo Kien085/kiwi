@@ -7,12 +7,12 @@ import Divider from 'material-ui/Divider';
 import { ListItem } from 'material-ui/List';
 
 // - Import actions
-import * as commentActions from 'commentActions';
+import * as commentActions from '../actions/commentActions';
 
 // - Import app components
-import CommentList from 'CommentList';
-import CommentWrite from 'CommentWrite';
-import UserAvatar from 'UserAvatar';
+import CommentList from './CommentList';
+import CommentWrite from './CommentWrite';
+import UserAvatar from './UserAvatar';
 
 export class CommentGroup extends Component {
     /**
@@ -114,7 +114,7 @@ export class CommentGroup extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
