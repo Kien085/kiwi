@@ -14,7 +14,7 @@ install:
 
 script:
   - echo "Building application"
-  #- npm install
+  - npm install
   - cd src
   - npm install
   - npm run build
