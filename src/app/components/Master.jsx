@@ -27,6 +27,7 @@ import * as userActions from 'userActions';
 import * as globalActions from 'globalActions';
 import * as circleActions from 'circleActions';
 import * as notifyActions from 'notifyActions';
+import * as friendActions from 'friendActions';
 
 export class Master extends Component {
 
@@ -143,6 +144,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch(voteActions.dbGetVotes())
             dispatch(notifyActions.dbGetNotifies())
             dispatch(circleActions.dbGetCircles())
+            dispatch(friendActions.dbGetFriendList())
+            dispatch(friendActions.dbGetSentRequests())
+            dispatch(friendActions.dbGetReceivedRequests())
 
         },
         clearData: () => {
