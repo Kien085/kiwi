@@ -139,8 +139,7 @@ export class CommentGroup extends Component {
                         </Paper>) : ''}
                 </div>
 
-                {!this.props.disableComments ? (<div>
-                    <Divider />
+                {!this.props.disableComments ? (<div id={"innerCommentGroupDiv"}>
                     <Paper zDepth={0} className="animate2-top10" style={{ position: "relative", overflowY: "auto", padding: "12px 16px", display: (this.props.open ? "block" : "none"), borderRadius: "0 0 7px 7px" }}>
                         <div style={{ display: "flex" }}>
                             <UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} style={{ flex: "none", margin: "4px 0px" }} size={36} />
