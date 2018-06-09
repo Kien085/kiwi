@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // - Import app components
-import Blog from 'Blog';
+import Blog from './Blog';
 
 // - Import actions
-import * as postActions from 'postActions';
-import * as userActions from 'userActions';
+import * as postActions from '../actions/postActions';
+import * as userActions from '../actions/userActions';
 
 export class PostPage extends Component {
     

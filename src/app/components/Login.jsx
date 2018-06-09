@@ -6,11 +6,10 @@ import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-// import Grid from 'material-ui/Grid/Grid';
-import { firebaseAuth } from 'app/firebase/';
+import { firebaseAuth } from '../firebase/';
 
 // - Import actions
-import * as authorizeActions from 'authorizeActions';
+import * as authorizeActions from '../actions/authorizeActions';
 
 export class Login extends Component {
 

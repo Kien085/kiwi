@@ -1,0 +1,667 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ProfileHead renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ProfileHead />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <t
+          bgClassName="react-parallax-bgimage"
+          bgImageAlt=""
+          bgStyle={
+            Object {
+              "position": "relative",
+            }
+          }
+          className="profile__parallax"
+          disabled={false}
+          log={false}
+          strength={500}
+        >
+          <t
+            className=""
+          >
+            <Connect(ImgCover)
+              borderRadius="2px"
+              fileName="https://firebasestorage.googleapis.com/v0/b/open-social-33d92.appspot.com/o/images%2F751145a1-9488-46fd-a97e-04018665a6d3.JPG?alt=media&token=1a1d5e21-5101-450e-9054-ea4a20e06c57"
+              height="510px"
+              width="100%"
+            />
+          </t>
+        </t>,
+        <div
+          className="profile__head-info"
+        >
+          <EventListener
+            onResize={[Function]}
+            target="window"
+          />
+          <div
+            className="left"
+          >
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Connect(UserAvatar)
+                fileName={undefined}
+                fullName={undefined}
+                size={60}
+                style={
+                  Object {
+                    "border": "2px solid rgb(255, 255, 255)",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="info"
+            >
+              <div
+                className="fullName"
+              />
+            </div>
+          </div>
+          <div
+            className="right"
+          >
+            
+          </div>
+        </div>,
+        "",
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "bgClassName": "react-parallax-bgimage",
+          "bgImageAlt": "",
+          "bgStyle": Object {
+            "position": "relative",
+          },
+          "children": <t
+            className=""
+          >
+            <Connect(ImgCover)
+              borderRadius="2px"
+              fileName="https://firebasestorage.googleapis.com/v0/b/open-social-33d92.appspot.com/o/images%2F751145a1-9488-46fd-a97e-04018665a6d3.JPG?alt=media&token=1a1d5e21-5101-450e-9054-ea4a20e06c57"
+              height="510px"
+              width="100%"
+            />
+          </t>,
+          "className": "profile__parallax",
+          "disabled": false,
+          "log": false,
+          "strength": 500,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <Connect(ImgCover)
+              borderRadius="2px"
+              fileName="https://firebasestorage.googleapis.com/v0/b/open-social-33d92.appspot.com/o/images%2F751145a1-9488-46fd-a97e-04018665a6d3.JPG?alt=media&token=1a1d5e21-5101-450e-9054-ea4a20e06c57"
+              height="510px"
+              width="100%"
+            />,
+            "className": "",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "borderRadius": "2px",
+              "fileName": "https://firebasestorage.googleapis.com/v0/b/open-social-33d92.appspot.com/o/images%2F751145a1-9488-46fd-a97e-04018665a6d3.JPG?alt=media&token=1a1d5e21-5101-450e-9054-ea4a20e06c57",
+              "height": "510px",
+              "width": "100%",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <EventListener
+              onResize={[Function]}
+              target="window"
+            />,
+            <div
+              className="left"
+            >
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Connect(UserAvatar)
+                  fileName={undefined}
+                  fullName={undefined}
+                  size={60}
+                  style={
+                    Object {
+                      "border": "2px solid rgb(255, 255, 255)",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="info"
+              >
+                <div
+                  className="fullName"
+                />
+              </div>
+            </div>,
+            <div
+              className="right"
+            >
+              
+            </div>,
+          ],
+          "className": "profile__head-info",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "onResize": [Function],
+              "target": "window",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Connect(UserAvatar)
+                    fileName={undefined}
+                    fullName={undefined}
+                    size={60}
+                    style={
+                      Object {
+                        "border": "2px solid rgb(255, 255, 255)",
+                      }
+                    }
+                  />
+                </div>,
+                <div
+                  className="info"
+                >
+                  <div
+                    className="fullName"
+                  />
+                </div>,
+              ],
+              "className": "left",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Connect(UserAvatar)
+                    fileName={undefined}
+                    fullName={undefined}
+                    size={60}
+                    style={
+                      Object {
+                        "border": "2px solid rgb(255, 255, 255)",
+                      }
+                    }
+                  />,
+                  "style": Object {
+                    "display": "flex",
+                    "justifyContent": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "fileName": undefined,
+                    "fullName": undefined,
+                    "size": 60,
+                    "style": Object {
+                      "border": "2px solid rgb(255, 255, 255)",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="fullName"
+                  />,
+                  "className": "info",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "className": "fullName",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "",
+              "className": "right",
+            },
+            "ref": null,
+            "rendered": "",
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "",
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <t
+            bgClassName="react-parallax-bgimage"
+            bgImageAlt=""
+            bgStyle={
+              Object {
+                "position": "relative",
+              }
+            }
+            className="profile__parallax"
+            disabled={false}
+            log={false}
+            strength={500}
+          >
+            <t
+              className=""
+            >
+              <Connect(ImgCover)
+                borderRadius="2px"
+                fileName="https://firebasestorage.googleapis.com/v0/b/open-social-33d92.appspot.com/o/images%2F751145a1-9488-46fd-a97e-04018665a6d3.JPG?alt=media&token=1a1d5e21-5101-450e-9054-ea4a20e06c57"
+                height="510px"
+                width="100%"
+              />
+            </t>
+          </t>,
+          <div
+            className="profile__head-info"
+          >
+            <EventListener
+              onResize={[Function]}
+              target="window"
+            />
+            <div
+              className="left"
+            >
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Connect(UserAvatar)
+                  fileName={undefined}
+                  fullName={undefined}
+                  size={60}
+                  style={
+                    Object {
+                      "border": "2px solid rgb(255, 255, 255)",
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="info"
+              >
+                <div
+                  className="fullName"
+                />
+              </div>
+            </div>
+            <div
+              className="right"
+            >
+              
+            </div>
+          </div>,
+          "",
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "bgClassName": "react-parallax-bgimage",
+            "bgImageAlt": "",
+            "bgStyle": Object {
+              "position": "relative",
+            },
+            "children": <t
+              className=""
+            >
+              <Connect(ImgCover)
+                borderRadius="2px"
+                fileName="https://firebasestorage.googleapis.com/v0/b/open-social-33d92.appspot.com/o/images%2F751145a1-9488-46fd-a97e-04018665a6d3.JPG?alt=media&token=1a1d5e21-5101-450e-9054-ea4a20e06c57"
+                height="510px"
+                width="100%"
+              />
+            </t>,
+            "className": "profile__parallax",
+            "disabled": false,
+            "log": false,
+            "strength": 500,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <Connect(ImgCover)
+                borderRadius="2px"
+                fileName="https://firebasestorage.googleapis.com/v0/b/open-social-33d92.appspot.com/o/images%2F751145a1-9488-46fd-a97e-04018665a6d3.JPG?alt=media&token=1a1d5e21-5101-450e-9054-ea4a20e06c57"
+                height="510px"
+                width="100%"
+              />,
+              "className": "",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "borderRadius": "2px",
+                "fileName": "https://firebasestorage.googleapis.com/v0/b/open-social-33d92.appspot.com/o/images%2F751145a1-9488-46fd-a97e-04018665a6d3.JPG?alt=media&token=1a1d5e21-5101-450e-9054-ea4a20e06c57",
+                "height": "510px",
+                "width": "100%",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <EventListener
+                onResize={[Function]}
+                target="window"
+              />,
+              <div
+                className="left"
+              >
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Connect(UserAvatar)
+                    fileName={undefined}
+                    fullName={undefined}
+                    size={60}
+                    style={
+                      Object {
+                        "border": "2px solid rgb(255, 255, 255)",
+                      }
+                    }
+                  />
+                </div>
+                <div
+                  className="info"
+                >
+                  <div
+                    className="fullName"
+                  />
+                </div>
+              </div>,
+              <div
+                className="right"
+              >
+                
+              </div>,
+            ],
+            "className": "profile__head-info",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "onResize": [Function],
+                "target": "window",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    style={
+                      Object {
+                        "display": "flex",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <Connect(UserAvatar)
+                      fileName={undefined}
+                      fullName={undefined}
+                      size={60}
+                      style={
+                        Object {
+                          "border": "2px solid rgb(255, 255, 255)",
+                        }
+                      }
+                    />
+                  </div>,
+                  <div
+                    className="info"
+                  >
+                    <div
+                      className="fullName"
+                    />
+                  </div>,
+                ],
+                "className": "left",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <Connect(UserAvatar)
+                      fileName={undefined}
+                      fullName={undefined}
+                      size={60}
+                      style={
+                        Object {
+                          "border": "2px solid rgb(255, 255, 255)",
+                        }
+                      }
+                    />,
+                    "style": Object {
+                      "display": "flex",
+                      "justifyContent": "center",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "fileName": undefined,
+                      "fullName": undefined,
+                      "size": 60,
+                      "style": Object {
+                        "border": "2px solid rgb(255, 255, 255)",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <div
+                      className="fullName"
+                    />,
+                    "className": "info",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": undefined,
+                      "className": "fullName",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "div",
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "",
+                "className": "right",
+              },
+              "ref": null,
+              "rendered": "",
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        "",
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

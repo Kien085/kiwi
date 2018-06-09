@@ -5,11 +5,11 @@ import { NavLink, withRouter } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
 
 // - Import actions
-import *  as authorizeActions from 'authorizeActions';
-import * as globalActions from 'globalActions';
+import *  as authorizeActions from '../actions/authorizeActions';
+import * as globalActions from '../actions/globalActions';
 
 // - Import app API
-import StringAPI from 'StringAPI';
+import StringAPI from '../api/StringAPI';
 
 import forge from 'node-forge';
 

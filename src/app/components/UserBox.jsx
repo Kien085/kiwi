@@ -9,13 +9,13 @@ import Checkbox from 'material-ui/Checkbox';
 import TextField from 'material-ui/TextField';
 
 // - Import app components
-import UserAvatar from 'UserAvatar';
+import UserAvatar from './UserAvatar';
 
 // - Import API
-import CircleAPI from 'CircleAPI';
+import CircleAPI from '../api/CircleAPI';
 
 // - Import actions
-import * as circleActions from 'circleActions';
+import * as circleActions from '../actions/circleActions';
 
 export class UserBox extends Component {
 

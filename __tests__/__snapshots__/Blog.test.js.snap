@@ -3,6 +3,7 @@
 exports[`Component: Blog renders correctly 1`] = `
 <div>
   
+  
   <div
     className="grid grid__gutters grid__1of2 grid__space-around animate-top"
   >

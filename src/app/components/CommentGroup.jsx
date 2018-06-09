@@ -114,7 +114,7 @@ export class CommentGroup extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

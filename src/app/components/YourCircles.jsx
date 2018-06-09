@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { List } from 'material-ui/List';
 
 // - Import app components
-import Circle from 'Circle';
+import Circle from './Circle';
 
 export class YourCircles extends Component {
 

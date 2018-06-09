@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // - Import app components
-import UserBox from 'UserBox';
+import UserBox from './UserBox';
 
 export class UserBoxList extends Component {
     userList = () => {

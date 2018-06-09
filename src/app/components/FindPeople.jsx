@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // - Import app components
-import UserBoxList from 'UserBoxList';
+import UserBoxList from './UserBoxList';
 
 // - Import actions
-import * as userActions from 'userActions';
+import * as userActions from '../actions/userActions';
 
 export class FindPeople extends Component {
     componentWillMount() {

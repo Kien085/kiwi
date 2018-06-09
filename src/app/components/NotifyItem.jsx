@@ -6,14 +6,14 @@ import SvgClose from 'material-ui/svg-icons/navigation/close';
 import { grey400 } from 'material-ui/styles/colors';
 
 // - Import app components
-import UserAvatar from 'UserAvatar';
+import UserAvatar from './UserAvatar';
 
 // - Import actions
-import * as notifyActions from 'notifyActions';
+import * as notifyActions from '../actions/notifyActions';
 
 export class NotifyItem extends Component {
 
-    handleSeenNotify = (evt) => {
+    handleSeenNotify(evt) {
         evt.preventDefault();
         const { seenNotify, id, url, goTo, isSeen, closeNotify } = this.props;
 
@@ -28,7 +28,7 @@ export class NotifyItem extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

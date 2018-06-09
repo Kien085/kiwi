@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: CommentWrite renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CommentWrite />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <textarea
+          autoFocus={true}
+          defaultValue={undefined}
+          onChange={[Function]}
+        />,
+        <FlatButton
+          basic={true}
+          color="teal"
+          disabled={false}
+          fullWidth={false}
+          labelPosition="after"
+          labelStyle={Object {}}
+          onClick={[Function]}
+          onKeyboardFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onTouchStart={[Function]}
+          primary={false}
+          secondary={false}
+          style={
+            Object {
+              "marginTop": "5px",
+            }
+          }
+        >
+          Add Comment
+        </FlatButton>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "autoFocus": true,
+          "defaultValue": undefined,
+          "onChange": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "textarea",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "basic": true,
+          "children": "Add Comment",
+          "color": "teal",
+          "disabled": false,
+          "fullWidth": false,
+          "labelPosition": "after",
+          "labelStyle": Object {},
+          "onClick": [Function],
+          "onKeyboardFocus": [Function],
+          "onMouseEnter": [Function],
+          "onMouseLeave": [Function],
+          "onTouchStart": [Function],
+          "primary": false,
+          "secondary": false,
+          "style": Object {
+            "marginTop": "5px",
+          },
+        },
+        "ref": null,
+        "rendered": "Add Comment",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <textarea
+            autoFocus={true}
+            defaultValue={undefined}
+            onChange={[Function]}
+          />,
+          <FlatButton
+            basic={true}
+            color="teal"
+            disabled={false}
+            fullWidth={false}
+            labelPosition="after"
+            labelStyle={Object {}}
+            onClick={[Function]}
+            onKeyboardFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onTouchStart={[Function]}
+            primary={false}
+            secondary={false}
+            style={
+              Object {
+                "marginTop": "5px",
+              }
+            }
+          >
+            Add Comment
+          </FlatButton>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "autoFocus": true,
+            "defaultValue": undefined,
+            "onChange": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "textarea",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "basic": true,
+            "children": "Add Comment",
+            "color": "teal",
+            "disabled": false,
+            "fullWidth": false,
+            "labelPosition": "after",
+            "labelStyle": Object {},
+            "onClick": [Function],
+            "onKeyboardFocus": [Function],
+            "onMouseEnter": [Function],
+            "onMouseLeave": [Function],
+            "onTouchStart": [Function],
+            "primary": false,
+            "secondary": false,
+            "style": Object {
+              "marginTop": "5px",
+            },
+          },
+          "ref": null,
+          "rendered": "Add Comment",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

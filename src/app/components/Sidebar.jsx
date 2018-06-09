@@ -5,11 +5,11 @@ import EventListener, { withOptions } from 'react-event-listener';
 import keycode from 'keycode';
 
 // - Import API
-import * as AuthAPI from 'AuthAPI';
+import * as AuthAPI from '../api/AuthAPI';
 
 // - Import actions
-import * as authorizeActions from 'authorizeActions';
-import * as globalActions from 'globalActions';
+import * as authorizeActions from '../actions/authorizeActions';
+import * as globalActions from '../actions/globalActions';
 
 // - Fields
 const sizeCondition = (width) => (width >= 750);
@@ -50,7 +50,7 @@ export class Sidebar extends Component {
      * @param  {boolean} status if is true, sidebar will be open
      * @param  {string} source is the element that fired the function
      */
-    open = (status, source) => {
+    open(status, source) {
         const width = window.innerWidth;
 
         if (status) {
@@ -126,7 +126,7 @@ export class Sidebar extends Component {
      * Handle resize event for window to change sidebar status
      * @param  {event} evt is the event is passed by winodw resize event
      */
-    handleResize = (evt) => {
+    handleResize(evt) {
         const width = window.innerWidth;
 
         if (sizeCondition(width)) {
@@ -168,7 +168,7 @@ export class Sidebar extends Component {
 
 
     // Handle logout user
-    handleLogout = () => {
+    handleLogout() {
         this.props.dispatch(authorizeActions.dbLogout());
     }
 
@@ -176,7 +176,7 @@ export class Sidebar extends Component {
      * Handle keyup event for window to close sidebar
      * @param  {event} evt is the event is passed by winodw key event
      */
-    handleKeyUp = (evt) => {
+    handleKeyUp(evt) {
         if (this.state.overlayOpen) {
             if (this.state.open && keycode(event) === 'esc') {
                 this.open(false);
@@ -184,11 +184,11 @@ export class Sidebar extends Component {
         }
     }
 
-    componentWillMount = () => {
+    componentWillMount() {
         this.props.open(this.open);
     }
 
-    getChildren = () => {
+    getChildren() {
         return React.Children.map(this.props.children, (childe) => {
             if (childe.type.qcName === 'SidebarContent') {
                 const sideBarContent = React.cloneElement(childe, {
@@ -207,7 +207,7 @@ export class Sidebar extends Component {
         });
     }
 
-    componentDidMount = () => {
+    componentDidMount() {
         this.handleResize();
     }
 

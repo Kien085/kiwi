@@ -8,21 +8,21 @@ import Divider from 'material-ui/Divider';
 import SvgArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 
 // - Import app components
-import Sidebar from 'Sidebar';
-import Blog from 'Blog';
-import HomeHeader from 'HomeHeader';
-import SidebarContent from 'SidebarContent';
-import SidebarMain from 'SidebarMain';
-import Profile from 'Profile';
-import PostPage from 'PostPage';
-import People from 'People';
-import Messenger from 'Messenger';
+import Sidebar from './Sidebar';
+import Blog from './Blog';
+import HomeHeader from './HomeHeader';
+// import SidebarContent from './SidebarContent';
+import SidebarMain from './SidebarMain';
+import Profile from './Profile';
+import PostPage from './PostPage';
+import People from './People';
+import Messenger from './Messenger';
 
 // - Import API
-import CircleAPI from 'CircleAPI';
+import CircleAPI from '../api/CircleAPI';
 
 // - Import actions
-import * as globalActions from 'globalActions';
+import * as globalActions from '../actions/globalActions';
 
 export class Home extends Component {
     constructor(props) {
@@ -36,7 +36,7 @@ export class Home extends Component {
     }
 
     // handle close sidebar
-    handleCloseSidebar = () => {
+    handleCloseSidebar() {
         this.state.sidebarOpen(false, 'overlay');
     }
 
@@ -44,7 +44,7 @@ export class Home extends Component {
      * Change sidebar overlay status
      * @param  {boolean} status if is true, the sidebar is on overlay status
      */
-    sidebarOverlay = (status) => {
+    sidebarOverlay(status) {
         this.setState({ sidebarOverlay: status });
     }
 
@@ -53,7 +53,7 @@ export class Home extends Component {
      * Pass function to change sidebar status
      * @param  {boolean} open  is a function callback to change sidebar status out of sidebar component
      */
-    sidebar = (open) => {
+    sidebar(open) {
         this.setState({ sidebarOpen: open });
     }
 
@@ -62,7 +62,7 @@ export class Home extends Component {
      * Change sidebar status if is open or not
      * @param  {boolean} status is true, if the sidebar is open
      */
-    sidebarStatus = (status) => {
+    sidebarStatus(status) {
         this.setState({ sidebarStatus: status });
     }
 

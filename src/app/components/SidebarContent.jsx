@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export default class SidebarContent extends Component {
-    static qcName = 'SidebarContent'
+    static qcName = 'SidebarContent';
 
     /**
      * Handle click on cover of sidebar

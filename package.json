@@ -27,18 +27,18 @@
       "html"
     ],
     "globals": {
-        "API_KEY" : "AIzaSyBUSBuOuxKUaYv4PwyasG6ZUcx-gLlKgd8",
-        "AUTH_DOMAIN" : "kiwi-staging.firebaseapp.com",
-        "DATABASE_URL" : "https://kiwi-staging.firebaseio.com",
-        "PROJECT_ID" : "kiwi-staging",
-        "STORAGE_BUCKET" : "kiwi-staging.appspot.com",
-        "MESSAGING_SENDER_ID" : "840549430709"
+      "API_KEY": "AIzaSyBUSBuOuxKUaYv4PwyasG6ZUcx-gLlKgd8",
+      "AUTH_DOMAIN": "kiwi-staging.firebaseapp.com",
+      "DATABASE_URL": "https://kiwi-staging.firebaseio.com",
+      "PROJECT_ID": "kiwi-staging",
+      "STORAGE_BUCKET": "kiwi-staging.appspot.com",
+      "MESSAGING_SENDER_ID": "840549430709"
     }
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest AdPost.test.js AdSky.test.js __tests__/Blog.test.js --browser",
+    "test": "jest \".*/__tests__/(?!Peter)(?!regression)\" --browser",
     "test:localRegression": "jest index.test.js --runInBand",
     "test:localUpdate": "jest index.test.js --updateSnapshot --runInBand",
     "test:stagingRegression": "jest regressionStaging.test.js --runInBand",
@@ -52,6 +52,7 @@
     "@angular/cli": "^1.7.4",
     "babel-cli": "^6.26.0",
     "babel-jest": "^22.4.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",

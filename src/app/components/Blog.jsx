@@ -44,11 +44,11 @@ export class Blog extends Component {
             // The title of home header.
             homeTitle: '',
 
-            // adSky: true,
+            adSky: false,
 
-            // adPost: true,
+            adPost: false,
 
-            // displaySelfAd: true,
+            displaySelfAd: false,
 
             // Which ads to display
             rand : Math.floor(Math.random() * 4),
@@ -273,7 +273,7 @@ export class Blog extends Component {
 
         return (
             <div >
-                {/* {this.state.adSky ? <AdSky left={false} image={img}/> : ''} */}
+                {this.state.adSky ? <AdSky left={false} image={img}/> : ''}
                 {this.state.adSky ? <AdSky left={true} image={img2} /> : ''}
                 <div className='grid grid__gutters grid__1of2 grid__space-around animate-top'>
                     <div className='grid-cell animate-top' style={{ maxWidth: '530px', minWidth: '280px' }}>
