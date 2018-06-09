@@ -51,10 +51,7 @@ export var dbAddFriendRequest = (userFriend) => {
 
         // Add to userFriend's request branch
         updates[`userRequests/${userFriend.userId}/received/${theirRequestId}`] = userReceivedReq;
-
         return firebaseRef.update(updates).then((result) => {
-            // Update list of sent requests`
-            // dispatch(dbGetSentRequests());
             dispatch(notifyActions.dbAddNotify(
                 {
                     description: `${user.fullName} wants to be friends with you.`,
@@ -65,10 +62,8 @@ export var dbAddFriendRequest = (userFriend) => {
                 }));
         }, (error) => {
             dispatch(globalActions.showErrorMessage(error.message));
-        })
-
-    }
-
+        });
+    };
 }
 
 
@@ -85,11 +80,10 @@ export var dbAcceptFriendRequest = (myReqId, request) => {
             {
                 fullName: request.fullName,
                 avatar: request.avatar,
-                userId: request.uid
+                userId: request.uid,
             };
         dispatch(dbAddFriend(userFriend, myReqId, request.reqId, false));
-
-    }
+    };
 }
 
 
@@ -103,7 +97,8 @@ export var dbDenyFriendRequest = (myReqId, request) => {
                 avatar: request.avatar,
                 userId: request.uid
             };
-        let updates = {}
+
+        let updates = {};
         updates[`userRequests/${uid}/received/${myReqId}`] = null;
         updates[`userRequests/${userFriend.userId}/sent/${request.reqId}/acknowledged`] = true;
         updates[`userRequests/${userFriend.userId}/sent/${request.reqId}/approved`] = false;
@@ -131,7 +126,6 @@ export var dbAddFriend = (userFriend, myRequestId, theirRequestId, fromUser) => 
         };
 
         // TODO: Encrypt your data key in friend's public key
-        // let userSentRef = firebaseRef.child(`userRequests/${uid}/sent/${requestId}`);
         let updates = {};
         // Check if the friend request was sent by current user
         if (fromUser) {
@@ -145,8 +139,6 @@ export var dbAddFriend = (userFriend, myRequestId, theirRequestId, fromUser) => 
         }
         updates[`userFriends/${uid}/${userFriend.userId}`] = friend;
         return firebaseRef.update(updates).then((result) => {
-            // Add user to friend list
-            // dispatch(addFriendUser(uid, userFriend));
             dispatch(notifyActions.dbAddNotify(
                 {
                     description: `${user.fullName} became friends with you.`,
@@ -157,8 +149,8 @@ export var dbAddFriend = (userFriend, myRequestId, theirRequestId, fromUser) => 
                 }));
         }, (error) => {
             dispatch(globalActions.showErrorMessage(error.message));
-        })
-    }
+        });
+    };
 }
 
 
@@ -172,16 +164,14 @@ export var dbFriendRequestDenied = (userFriend, myRequestId) => {
         let user = getState().user.info[uid];
 
         // Remove sent request from self
-        // let requestId = firebaseRef.child(`userRequests/${uid}/received/${userFriend.userId}`).requestId;
         let updates = {};
-        //updates[`userRequests/${userFriend.userId}/received/${theirRequestId}`] = null;
         updates[`userRequests/${uid}/sent/${myRequestId}`] = null;
         return firebaseRef.update(updates).then((result) => {
             // does not notify current user that there request was denied
         }, (error) => {
             dispatch(globalActions.showErrorMessage(error.message));
-        })
-    }
+        });
+    };
 }
 
 /**
@@ -189,21 +179,19 @@ export var dbFriendRequestDenied = (userFriend, myRequestId) => {
  * @param {object} userFriend is the user whom to cancel the request to
  */
 export var dbCancelFriendRequest = (userFriend, myRequestId, theirRequestId) => {
-    debugger;
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
         let user = getState().user.info[uid];
 
         // Remove sent request from self and received request from userFriend
-        // let requestId = firebaseRef.child(`userRequests/${uid}/received/${userFriend.userId}`).requestId;
         let updates = {};
         updates[`userRequests/${userFriend.userId}/received/${theirRequestId}`] = null;
         updates[`userRequests/${uid}/sent/${myRequestId}`] = null;
         return firebaseRef.update(updates).then((result) => {
         }, (error) => {
             dispatch(globalActions.showErrorMessage(error.message));
-        })
-    }
+        });
+    };
 }
 
 
@@ -224,7 +212,7 @@ export var dbDeleteFriend = (friendId) => {
         }, (error) => {
             dispatch(globalActions.showErrorMessage(error.message))
         });
-    }
+    };
 }
 
 
@@ -252,7 +240,7 @@ export var dbGetSentRequests = () => {
                         userId: pendingRequest.request.uid,
                         fullName: pendingRequest.request.fullName,
                         avatar: pendingRequest.request.avatar
-                    }
+                    };
 
                 // Add to friends if userFriend accepts friend request
                 if (pendingRequest.request.acknowledged && pendingRequest.request.approved) {
@@ -263,13 +251,12 @@ export var dbGetSentRequests = () => {
                 if (pendingRequest.request.acknowledged && !pendingRequest.request.approved) {
                     dispatch(dbFriendRequestDenied(userFriend, pendingRequest.myReqId));
                 }
+
             });
 
-
             dispatch(updateSentRequestList(parsedRequests));
-
         });
-    }
+    };
 
 }
 
@@ -298,7 +285,7 @@ export var dbGetReceivedRequests = () => {
             //  }
             dispatch(updateReceivedRequestList(parsedRequests));
         });
-    }
+    };
 }
 
 
@@ -318,7 +305,7 @@ export var dbGetFriendList = () => {
             });
             dispatch(updateFriendList(friendList));
         });
-    }
+    };
 }
 
 

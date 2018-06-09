@@ -36,7 +36,7 @@ export class Profile extends Component {
      * @return {react element} return the DOM which rendered by component
      */
     render() {
-        if (this.allowViewPosts() ){
+        if (this.allowViewPosts()){
             return (
                 <div style={{ margin: '0 auto', width: '90%' }}>
                     <div>
