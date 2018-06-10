@@ -15,7 +15,7 @@ import UserAvatar from './UserAvatar';
 import CircleAPI from '../api/CircleAPI';
 
 // - Import actions
-import * as circleActions from '../actions/circleActions';
+import * as friendActions from 'friendActions';
 
 export class UserBox extends Component {
 
@@ -30,54 +30,24 @@ export class UserBox extends Component {
             // It will be true if user follow popover is open
             open: false,
 
-            // The value of circle input
-            circleName: '',
+            // It will be true if the two users are friends
+            isFriend: false,
 
-            // It will be true if the text field for adding group is empty
-            disabledAddCircle: true
         };
     }
 
-    handleFollowUser = (checked, cid) => {
+
+    handleFriendUser = (evt) => {
+        // This prevents ghost click.
+        event.preventDefault();
         const { userId, user } = this.props;
         const { avatar, fullName } = user;
 
-        if (checked) {
-            this.props.addFollowingUser(cid, { avatar, userId, fullName });
-        } else {
-            this.props.deleteFollowingUser(cid, userId);
-        }
+        this.props.addFriendRequest({ avatar, userId, fullName });
     }
 
-    /**
-     * Handle create circle
-     * 
-     * @memberof UserBox
-     */
-    handleCreateCricle = () => {
-        const { circleName } = this.state;
+   
 
-        if (circleName && circleName.trim() !== '') {
-            this.props.createCircle(circleName);
-
-            this.setState({
-                circleName: '',
-                disabledAddCircle: true
-            });
-        }
-    }
-
-    /**
-     * Handle change group name input to the state
-     * 
-     * @memberof UserBox
-     */
-    handleChangeName = (evt) => {
-        this.setState({
-            circleName: evt.target.value,
-            disabledAddCircle: (evt.target.value === undefined || evt.target.value.trim() === '')
-        });
-    }
 
     /**
      * Handle touch tab on follow popover
@@ -103,30 +73,53 @@ export class UserBox extends Component {
         this.setState({ open: false });
     }
 
-    circleList = () => {
-        const { circles, _, userBelongCircles } = this.props;
+       /**
+     * Check if a friend request has already been sent to user
+     * @return {boolean} true if friend request has been sent, false if not
+     */
+    hasSentRequest = () => {
+        const { sentRequests, uid } = this.props;
+        
+        Object.keys(sentRequests).forEach((index) => {
+            if (sentRequests[index].uid = uid) return true;
+        });
+        return false;
+    }
+    
 
-        if (circles) {
-            return Object.keys(circles).map((key, index) => {
-                if (key.trim() !== '-Followers') {
-                    const isBelong = userBelongCircles.indexOf(key) > -1;
+    /**
+     * Retrieve requestId of own sent request and and other user's received request 
+     * @param {string} userFriendId user authenticator id of friend
+     * @return {Array} returns array where first element is requestId of own sent request
+     *                                     second element is requestId of other user's received request
+     */
+    getSentRequestIds = (userFriendId) => {
+        const { sentRequests } = this.props;
+        let retVal = null;
+        Object.keys(sentRequests).forEach((index) => {
+            if(sentRequests[index].request.uid === userFriendId) {
+                retVal = [sentRequests[index].myReqId, sentRequests[index].request]
+            }
+        });
+        return retVal;
+    }
 
-                    return (<Checkbox
-                        key={key}
-                        style={{ padding: '10px' }}
-                        label={circles[key].name}
-                        labelStyle={{
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
-                            width: '100%'
-                        }}
-                        onCheck={(evt, checked) => this.handleFollowUser(checked, key)}
-                        checked={isBelong}
-                    />);
-                }
-            });
-        }
+
+    /**
+     * Retrieve requestId of own sent request and and other user's received request 
+     * @param {string} userFriendId user authenticator id of friend
+     * @return {Array} returns array where first element is requestId of own sent request
+     *                                     second element is requestId of other user's received request
+     */
+    getReceivedRequestIds = (userFriendId) => {
+        const { receivedRequests } = this.props;
+        let retVal = null;
+        Object.keys(receivedRequests).forEach((index) => {
+            if(receivedRequests[index].request.uid === userFriendId) {
+                retVal = [receivedRequests[index].myReqId, receivedRequests[index].request]
+            }
+        });
+        return retVal;
     }
 
     /**
@@ -134,6 +127,24 @@ export class UserBox extends Component {
      * @return {react element} return the DOM which rendered by component
      */
     render() {
+        let userId = this.props.friendId;
+        let avatar = this.props.friendAvatar;
+        let fullName = this.props.friendFullName;
+        let userFriend = {userId, avatar, fullName};
+        let sentRequestIds =  this.getSentRequestIds(userId);
+        let mySentRequestId =  undefined;
+        let sentFriendRequest = null;
+        if(sentRequestIds !== null) {
+            mySentRequestId = sentRequestIds[0];
+            sentFriendRequest = sentRequestIds[1];
+        }
+        let receivedRequestIds =  this.getReceivedRequestIds(userId);
+        let myReceivedRequestId =  undefined;
+        let receivedFriendRequest = null;
+        if(receivedRequestIds !== null) {
+            myReceivedRequestId = receivedRequestIds[0];
+            receivedFriendRequest = receivedRequestIds[1];
+        }
         return (
             <Paper style={{height: '100px', width: '100%', margin: '10', textAlign: 'center'}} zDepth={1} className='grid-cell'>
                 <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', height: '100%', position: 'relative', padding: '30px'}}>
@@ -146,11 +157,11 @@ export class UserBox extends Component {
                         </div>
                     </div>
                     <div>
-                        <FlatButton>Add friend</FlatButton>
-                        <FlatButton>Cancel request</FlatButton>
-                        <FlatButton>Approve</FlatButton>
-                        <FlatButton>Deny</FlatButton>
-                        <FlatButton>Unfriend</FlatButton>
+                        <FlatButton onClick={ () => this.props.addFriendRequest(userFriend)}>Add friend</FlatButton>
+                        <FlatButton onClick={ () => this.props.cancelFriendRequest(userFriend, mySentRequestId, sentFriendRequest === null ? sentFriendRequest: sentFriendRequest.reqId)}>Cancel request</FlatButton>
+                        <FlatButton onClick={ () => this.props.acceptFriend(myReceivedRequestId, receivedFriendRequest)}>Approve</FlatButton>
+                        <FlatButton onClick={ () => this.props.denyFriend(myReceivedRequestId, receivedFriendRequest)}>Deny</FlatButton>
+                        <FlatButton onClick={ () => this.props.deleteFriend(userId)}>Unfriend</FlatButton>
                     </div>
                 </div>
             </Paper>
@@ -167,10 +178,12 @@ export class UserBox extends Component {
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        createCircle: (name) => dispatch(circleActions.dbAddCircle(name)),
-        addFollowingUser: (cid, user) => dispatch(circleActions.dbAddFollowingUser(cid, user)),
-        deleteFollowingUser: (cid, followingId) => dispatch(circleActions.dbDeleteFollowingUser(cid, followingId)),
-        goTo: (url) => dispatch(push(url))
+        addFriendRequest: (user) => dispatch(friendActions.dbAddFriendRequest(user)),
+        cancelFriendRequest: (userFriend, myRequestId, theirRequestId) => dispatch(friendActions.dbCancelFriendRequest(userFriend, myRequestId, theirRequestId)),
+        acceptFriend: (myRequestId, request) => dispatch(friendActions.dbAcceptFriendRequest(myRequestId, request)),
+        denyFriend: (myRequestId, request) => dispatch(friendActions.dbDenyFriendRequest(myRequestId, request)),
+        deleteFriend: (friendId) => dispatch(friendActions.dbDeleteFriend(friendId)),
+        goTo: (url) => dispatch(push(url)),
 
     }
 }
@@ -182,17 +195,21 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  * @return {object}          props of component
  */
 const mapStateToProps = (state, ownProps) => {
-    const { uid } = state.authorize
-    const circles = state.circle ? (state.circle.userCircles[uid] || {}) : {}
-    const userBelongCircles = CircleAPI.getUserBelongCircles(circles, ownProps.userId)
+    const { uid } = state.authorize;
+    const friends = state.friends;
+    const sentRequests = state.sentFriendRequests;
+    const { userId } = ownProps;
+    const { avatar, fullName } = ownProps.user;
 
     return {
-        circles: circles,
-        userBelongCircles: userBelongCircles || [],
-        belongCirclesCount: userBelongCircles.length || 0,
-        firstBelongCircle: userBelongCircles ? (circles ? circles[userBelongCircles[0]] : {}) : {},
+        friendId: userId,
+        friendAvatar: avatar,
+        friendFullName: fullName,
+        friends: friends,
         avatar: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].avatar || '' : '',
-        fullName: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].fullName || '' : ''
+        fullName: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].fullName || '' : '',
+        sentRequests: state.sentFriendRequests ? state.sentFriendRequests : [],
+        receivedRequests: state.receivedFriendRequests ? state.receivedFriendRequests : [],
     }
 }
 
