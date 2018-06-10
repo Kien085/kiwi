@@ -10,6 +10,7 @@ import UserAvatar from './UserAvatar';
 
 // - Import actions
 import * as notifyActions from '../actions/notifyActions';
+import * as friendActions from '../actions/friendActions';
 
 export class NotifyItem extends Component {
 
@@ -28,12 +29,36 @@ export class NotifyItem extends Component {
     }
 
     /**
+     * Retrieve requestId of own sent request and and other user's received request 
+     * @param {string} userFriendId user authenticator id of friend
+     * @return {Array} returns array where first element is requestId of own sent request
+     *                                     second element is request object corresponding to requestId
+     */
+    getReceivedRequestIds = (userFriendId) => {
+        const { receivedRequests } = this.props;
+        let retVal = null;
+        Object.keys(receivedRequests).forEach((index) => {
+            if(receivedRequests[index].request.uid === userFriendId) {
+                retVal = [receivedRequests[index].myReqId, receivedRequests[index].request]
+            }
+        });
+        return retVal;
+    }
+
+    /**
      * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
-        const { description, fullName, avatar, isSeen, id, goTo,closeNotify, notifierUserId, url, deleteNotiy } = this.props;
-
+        const { description, fullName, avatar, isSeen, id, notifierUserId, url, isRequest} = this.props;
+        let myReceivedRequestId, receivedFriendRequest;
+        if (isRequest) {
+            let receivedRequestIds =  this.getReceivedRequestIds(notifierUserId);
+            if (receivedRequestIds !== null) {
+                myReceivedRequestId = receivedRequestIds[0];
+                receivedFriendRequest = receivedRequestIds[1];
+            }
+        }
         return (
             <div className='item' style={isSeen ? { opacity: 0.6 } : {}} key={id}>
                 <div className='avatar'>
@@ -41,8 +66,8 @@ export class NotifyItem extends Component {
                         to={`/${notifierUserId}`}
                         onClick={(evt) => {
                             evt.preventDefault()
-                            closeNotify()
-                            goTo(`/${notifierUserId}`)
+                            this.props.closeNotify()
+                            this.props.goTo(`/${notifierUserId}`)
                         }}
                     >
                         <UserAvatar fullName={fullName} fileName={avatar} />
@@ -58,9 +83,16 @@ export class NotifyItem extends Component {
                         </div>
                     </NavLink>
                 </div>
-                <div className='close' onClick={() => deleteNotiy(id)}>
+                { isRequest ? 
+                (<div>
+                    <button onClick={() => {this.props.acceptFriend(myReceivedRequestId, receivedFriendRequest); this.props.deleteNotify(id);}}>Confirm</button>
+                    <button onClick={() => {this.props.denyFriend(myReceivedRequestId, receivedFriendRequest); this.props.deleteNotify(id);}}>Delete</button>
+                </div>)  
+                : (<div className='close' onClick={() => this.props.deleteNotify(id)}>
                     <SvgClose hoverColor={grey400} style={{ cursor: 'pointer' }} />
-                </div>
+                </div>)
+                }
+            
             </div>
         )
     }
@@ -76,7 +108,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         goTo: (url) => dispatch(push(url)),
         seenNotify: (id) => dispatch(notifyActions.dbSeenNotify(id)),
-        deleteNotiy: (id) => dispatch(notifyActions.dbDeleteNotify(id))
+        deleteNotify: (id) => dispatch(notifyActions.dbDeleteNotify(id)),
+        acceptFriend: (myRequestId, request) => dispatch(friendActions.dbAcceptFriendRequest(myRequestId, request)),
+        denyFriend: (myRequestId, request) => dispatch(friendActions.dbDenyFriendRequest(myRequestId, request)),
     }
 }
 
@@ -88,7 +122,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  */
 const mapStateToProps = (state, ownProps) => {
     return {
-
+        receivedRequests: state.receivedFriendRequests ? state.receivedFriendRequests : [],
     }
 }
 

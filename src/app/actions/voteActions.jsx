@@ -37,7 +37,8 @@ export const dbAddVote = (postId, ownerPostUserId) => {
                 dispatch(notifyActions.dbAddNotify({
                     description: 'Vote on your post.',
                     url: `/${ownerPostUserId}/posts/${postId}`,
-                    notifyRecieverUserId: ownerPostUserId, notifierUserId: uid
+                    notifyRecieverUserId: ownerPostUserId, notifierUserId: uid,
+                    isRequest: false,
                 }));
         }, (error) => dispatch(globalActions.showErrorMessage(error.message)));
     };

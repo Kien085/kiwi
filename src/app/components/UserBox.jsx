@@ -91,7 +91,7 @@ export class UserBox extends Component {
      * Retrieve requestId of own sent request and and other user's received request 
      * @param {string} userFriendId user authenticator id of friend
      * @return {Array} returns array where first element is requestId of own sent request
-     *                                     second element is requestId of other user's received request
+     *                                     second element is request object corresponding to requestId
      */
     getSentRequestIds = (userFriendId) => {
         const { sentRequests } = this.props;
@@ -109,7 +109,7 @@ export class UserBox extends Component {
      * Retrieve requestId of own sent request and and other user's received request 
      * @param {string} userFriendId user authenticator id of friend
      * @return {Array} returns array where first element is requestId of own sent request
-     *                                     second element is requestId of other user's received request
+     *                                     second element is request object corresponding to requestId
      */
     getReceivedRequestIds = (userFriendId) => {
         const { receivedRequests } = this.props;
@@ -196,8 +196,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  */
 const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize;
-    const friends = state.friends;
-    const sentRequests = state.sentFriendRequests;
     const { userId } = ownProps;
     const { avatar, fullName } = ownProps.user;
 
@@ -205,7 +203,6 @@ const mapStateToProps = (state, ownProps) => {
         friendId: userId,
         friendAvatar: avatar,
         friendFullName: fullName,
-        friends: friends,
         avatar: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].avatar || '' : '',
         fullName: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].fullName || '' : '',
         sentRequests: state.sentFriendRequests ? state.sentFriendRequests : [],

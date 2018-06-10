@@ -21,7 +21,8 @@ export const dbAddNotify = (newNotify) => {
             description: newNotify.description,
             url: newNotify.url,
             notifierUserId: newNotify.notifierUserId,
-            isSeen: false
+            isSeen: false,
+            isRequest: newNotify.isRequest,
         };
 
         let notifyRef = firebaseRef.child(`userNotifies/${newNotify.notifyRecieverUserId}`).push(notify);
@@ -59,7 +60,7 @@ export const dbGetNotifies = () => {
  */
 export const dbDeleteNotify = (id) => {
     return (dispatch, getState) => {
-
+        
         // Get current user id
         let uid = getState().authorize.uid;
 
@@ -86,7 +87,8 @@ export const dbSeenNotify = (id) => {
             description: notify.description,
             url: notify.url,
             notifierUserId: notify.notifierUserId,
-            isSeen: true
+            isSeen: true,
+            isRequest: notify.isRequest,
         };
 
         // Write the new data simultaneously in the list

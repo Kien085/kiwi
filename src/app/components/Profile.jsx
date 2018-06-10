@@ -49,9 +49,8 @@ export class Profile extends Component {
                             </div>
                             <div style={{ height: '24px' }}></div>
                             <Blog posts={this.props.posts} displayWriting={false} adSky={false} adPost={false} />
-                        </div>) :
-
-                        (<div className='profile__title'>
+                        </div>) 
+                        : (<div className='profile__title'>
                             Nothing shared
                             </div>)
                     }
