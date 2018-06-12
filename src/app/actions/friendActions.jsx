@@ -9,6 +9,7 @@ import * as types from 'actionTypes';
 // - Import actions
 import * as globalActions from 'globalActions';
 import * as notifyActions from 'notifyActions';
+import EncryptionAPI from '../api/EncryptionAPI';
 
 /* _____________ CRUD DB _____________ */
 
@@ -125,7 +126,9 @@ export var dbAddFriend = (userFriend, myRequestId, theirRequestId, fromUser) => 
             uid: userFriend.userId,
         };
 
-        // TODO: Encrypt your data key in friend's public key
+        // Encrypt your data key in friend's public key
+        EncryptionAPI.sendEncryptedKey(uid, userFriend.userId);
+
         let updates = {};
         // Check if the friend request was sent by current user
         if (fromUser) {
@@ -207,6 +210,7 @@ export var dbDeleteFriend = (friendId) => {
         let updates = {};
         updates[`userFriends/${friendId}/${uid}`] = null;
         updates[`userFriends/${uid}/${friendId}`] = null;
+        updates[`keys/${friendId}/${uid}`] = null;
         return firebaseRef.update(updates).then((result) => {
             // dispatch(deleteFriendUser(uid, friendId))
         }, (error) => {

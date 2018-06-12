@@ -11,6 +11,7 @@ import * as notifyActions from './notifyActions';
 // - Import app API
 import EncryptionAPI from '../api/EncryptionAPI';
 
+import forge from 'node-forge';
 /* _____________ CRUD DB _____________ */
 
 /**
@@ -34,20 +35,25 @@ export const dbAddComment = (newComment, callBack) => {
             userId: uid,
         };
 
-         // Deep copy of comments
-         let encryptedComment = JSON.parse(JSON.stringify(comment));
+        // Deep copy of comments
+        let encryptedComment = JSON.parse(JSON.stringify(comment));
 
-         // Get own public key
+        // Get own data key
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
-        // let privateKey, publicKey;
         let keysRef = firebaseRef.child(`keys/${uid}`);
-        keysRef.once('value',(snap) => {
-            if(snap.val() && (!key || !iv)) {
-                key = snap.val().key || {};
-                iv = snap.val().iv || {};
+        keysRef.once('value', (snap) => {
+            if (snap.val() && (!key || !iv)) {
+                let encryptedKey = snap.val().key || '';
+                let encryptedIV = snap.val().iv || '';
+
+                // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
+                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                key = privateKey.decrypt(encryptedKey);
+                iv = privateKey.decrypt(encryptedIV);
             }
-        
+
             // Encrypt contents of comments
             encryptedComment.text = EncryptionAPI.encrypt(comment.text, key, iv);
 
@@ -63,21 +69,21 @@ export const dbAddComment = (newComment, callBack) => {
             return commentRef.then(() => {
                 callBack();
                 dispatch(globalActions.hideTopLoading());
-                
+
                 if (newComment.ownerPostUserId !== uid)
-                dispatch(notifyActions.dbAddNotify(
-                    {
-                        description: 'Add comment on your post.',
-                        url: `/${newComment.ownerPostUserId}/posts/${newComment.postId}`,
-                        notifyRecieverUserId: newComment.ownerPostUserId, notifierUserId: uid,
-                        isRequest: false,
-                    }));
+                    dispatch(notifyActions.dbAddNotify(
+                        {
+                            description: 'Add comment on your post.',
+                            url: `/${newComment.ownerPostUserId}/posts/${newComment.postId}`,
+                            notifyRecieverUserId: newComment.ownerPostUserId, notifierUserId: uid,
+                            isRequest: false,
+                        }));
             }, (error) => {
                 dispatch(globalActions.showErrorMessage(error.message));
                 dispatch(globalActions.hideTopLoading());
             })
         })
-            
+
     }
 }
 
@@ -103,9 +109,16 @@ export const dbGetComments = () => {
                             let currComment = comments[postId][commentId];
 
                             // Look up key and iv to decipher comment
-                            let key = keySnapshot.val()[currComment.userId].key || {};
-                            let iv = keySnapshot.val()[currComment.userId].iv || {};
-                            if(key && iv) {
+                            let encryptedKey = keySnapshot.val()[uid][currComment.userId].key || '';
+                            let encryptedIV = keySnapshot.val()[uid][currComment.userId].iv || '';
+
+                            // decrypt data with a private key (defaults to RSAES PKCS#1 v1.5)
+                            let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                            let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                            let key = privateKey.decrypt(encryptedKey);
+                            let iv = privateKey.decrypt(encryptedIV);
+
+                            if (key && iv) {
                                 // Decipher comment
                                 decryptedComments[postId][commentId].text = EncryptionAPI.decrypt(currComment.text, key, iv);
                                 console.log('text is ' + currComment.text)
@@ -129,32 +142,37 @@ export const dbUpdateComment = (id, postId, text) => {
 
     return (dispatch, getState) => {
 
-         // Deep copy of comments
-         let encryptedText = JSON.parse(JSON.stringify(text));
+        // Deep copy of comments
+        let encryptedText = JSON.parse(JSON.stringify(text));
 
-         // Get own public key
-         let key = localStorage.getItem('dataKey');
-         let iv = localStorage.getItem('dataIV');
-         // let privateKey, publicKey;
-         let keysRef = firebaseRef.child(`keys/${uid}`);
-         keysRef.once('value',(snap) => {
-             if(snap.val() && (!key || !iv)) {
-                 key = snap.val().key || {};
-                 iv = snap.val().iv || {};
-             }
-         
-             // Encrypt contents of comments
-             encryptedText = EncryptionAPI.encrypt(text, key, iv)
-    
+        // Get own data key
+        let key = localStorage.getItem('dataKey');
+        let iv = localStorage.getItem('dataIV');
+        let keysRef = firebaseRef.child(`keys/${uid}`);
+        keysRef.once('value', (snap) => {
+            if (snap.val() && (!key || !iv)) {
+                let encryptedKey = snap.val().key || '';
+                let encryptedIV = snap.val().iv || '';
+
+                // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
+                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                key = privateKey.decrypt(encryptedKey);
+                iv = privateKey.decrypt(encryptedIV);
+            }
+
+            // Encrypt contents of comments
+            encryptedText = EncryptionAPI.encrypt(text, key, iv)
+
             dispatch(globalActions.showTopLoading());
-    
+
             // Get current user id
             let uid = getState().authorize.uid;
-    
+
             // Write the new data simultaneously in the list
             let updates = {};
             let comment = getState().comment.postComments[postId][id];
-    
+
             updates[`postComments/${postId}/${id}`] = {
                 postId: postId,
                 score: comment.score,
@@ -164,7 +182,7 @@ export const dbUpdateComment = (id, postId, text) => {
                 userAvatar: comment.userAvatar,
                 userId: uid,
             };
-    
+
             return firebaseRef.update(updates).then((result) => {
                 dispatch(updateComment({ id, postId, text, editorStatus: false }));
                 dispatch(globalActions.hideTopLoading());

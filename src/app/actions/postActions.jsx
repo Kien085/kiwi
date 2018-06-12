@@ -12,6 +12,8 @@ import * as globalActions from './globalActions';
 // - Import app API
 import EncryptionAPI from '../api/EncryptionAPI';
 
+import forge from 'node-forge';
+
 /* _____________ CRUD DB _____________ */
 
 /**
@@ -47,20 +49,25 @@ export var dbAddPost = (newPost, callBack) => {
         // Deep copy
         let encryptedPost = JSON.parse(JSON.stringify(post));
 
-        
-        // let privateKey, publicKey;
-        // Retrieve keys from database
-        let key, iv;
+        // Get own data key
+        let key = localStorage.getItem('dataKey');
+        let iv = localStorage.getItem('dataIV');
         let keysRef = firebaseRef.child(`keys/${uid}`);
         keysRef.once('value', (snap) => {
-            if(snap.val()) {
-                key = snap.val().key || {};
-                iv = snap.val().iv || {};
+            if (snap.val() && (!key || !iv)) {
+                let encryptedKey = snap.val().key || '';
+                let encryptedIV = snap.val().iv || '';
+
+                // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
+                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                key = privateKey.decrypt(encryptedKey);
+                iv = privateKey.decrypt(encryptedIV);
             }
-        
+
             // encrypt text of post
-            if(key && iv) encryptedPost.body = EncryptionAPI.encrypt(post.body, key, iv);
-            
+            if (key && iv) encryptedPost.body = EncryptionAPI.encrypt(post.body, key, iv);
+
             // Create post in firebase
             let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
             return postRef.then(() => {
@@ -74,7 +81,7 @@ export var dbAddPost = (newPost, callBack) => {
         });
     }
 }
-    
+
 
 
 /**
@@ -85,7 +92,7 @@ export var dbAddPost = (newPost, callBack) => {
 export const dbAddImagePost = (newPost, callBack) => {
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
-        
+
         let uid = getState().authorize.uid;
         let post = {
             postTypeId: 1,
@@ -108,33 +115,39 @@ export const dbAddImagePost = (newPost, callBack) => {
             deleted: false,
         };
 
-      // Deep copy
-      let encryptedPost = JSON.parse(JSON.stringify(post));
+        // Deep copy
+        let encryptedPost = JSON.parse(JSON.stringify(post));
 
-      // let privateKey, publicKey;
-      // Retrieve keys from database
-      let key, iv;
-      let keysRef = firebaseRef.child(`keys/${uid}`);
-      keysRef.once('value', (snap) => {
-          if(snap.val()) {
-              key = snap.val().key || {};
-              iv = snap.val().iv || {};
-          }
-      
-          // encrypt text of post
-          if(key && iv) encryptedPost.body = EncryptionAPI.encrypt(post.body, key, iv);
-          
-          // Create post in firebase
-          let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
-          return postRef.then(() => {
-              dispatch(addPost(uid, {
-                  ...post,
-                  id: postRef.key,
-              }));
-              callBack();
-              dispatch(globalActions.hideTopLoading());
-          }, (error) => dispatch(globalActions.showErrorMessage(error.message)));
-      });
+        // Get own data key
+        let key = localStorage.getItem('dataKey');
+        let iv = localStorage.getItem('dataIV');
+        let keysRef = firebaseRef.child(`keys/${uid}`);
+        keysRef.once('value', (snap) => {
+            if (snap.val() && (!key || !iv)) {
+                let encryptedKey = snap.val().key || '';
+                let encryptedIV = snap.val().iv || '';
+
+                // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
+                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                key = privateKey.decrypt(encryptedKey);
+                iv = privateKey.decrypt(encryptedIV);
+            }
+
+            // encrypt text of post
+            if (key && iv) encryptedPost.body = EncryptionAPI.encrypt(post.body, key, iv);
+
+            // Create post in firebase
+            let postRef = firebaseRef.child(`userPosts/${uid}/posts`).push(encryptedPost);
+            return postRef.then(() => {
+                dispatch(addPost(uid, {
+                    ...post,
+                    id: postRef.key,
+                }));
+                callBack();
+                dispatch(globalActions.hideTopLoading());
+            }, (error) => dispatch(globalActions.showErrorMessage(error.message)));
+        });
     };
 }
 
@@ -175,25 +188,28 @@ export const dbUpdatePost = (newPost, callBack) => {
         };
 
         // Deep copy
-      let encryptedPost = JSON.parse(JSON.stringify(updatedPost));
+        let encryptedPost = JSON.parse(JSON.stringify(updatedPost));
 
-      // let privateKey, publicKey;
-      // Retrieve keys from database
-      let key, iv;
-      let keysRef = firebaseRef.child(`keys/${uid}`);
-      keysRef.once('value', (snap) => {
-          if(snap.val()) {
-              key = snap.val().key || {};
-              iv = snap.val().iv || {};
-          }
-      
-            // encrypt text of post
-            if(key && iv) {
-                encryptedPost.body = EncryptionAPI.encrypt(updatedPost.body, key, iv);
+        // Get own data key
+        let key = localStorage.getItem('dataKey');
+        let iv = localStorage.getItem('dataIV');
+        let keysRef = firebaseRef.child(`keys/${uid}`);
+        keysRef.once('value', (snap) => {
+            if (snap.val() && (!key || !iv)) {
+                let encryptedKey = snap.val().key || '';
+                let encryptedIV = snap.val().iv || '';
+
+                // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
+                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                key = privateKey.decrypt(encryptedKey);
+                iv = privateKey.decrypt(encryptedIV);
             }
 
-            updates[`userPosts/${uid}/posts/${newPost.id}`] = encryptedPost;
+            // encrypt text of post
+            if (key && iv) encryptedPost.body = EncryptionAPI.encrypt(updatedPost.body, key, iv);
 
+            updates[`userPosts/${uid}/posts/${newPost.id}`] = encryptedPost;
             return firebaseRef.update(updates).then((result) => {
                 dispatch(updatePost(uid, { id: newPost.id, ...updatedPost }));
                 callBack();
@@ -235,18 +251,26 @@ export const dbDeletePost = (id) => {
 export const dbGetPosts = () => {
     console.log('function dbGetPosts')
     return (dispatch, getState) => {
-        // Look up key and iv to decipher post
-        let key, iv;
         let uid = getState().authorize.uid;
+
+        // Look up key and iv to decipher post
+        let key = localStorage.getItem('dataKey');
+        let iv = localStorage.getItem('dataIV');
         let keysRef = firebaseRef.child(`keys/${uid}`);
-        keysRef.once('value',(snap) => {
-            if(snap.val()) {
-                key = snap.val().key || {};
-                iv = snap.val().iv || {};
+        keysRef.once('value', (snap) => {
+            if (snap.val() && (!key || !iv)) {
+                let encryptedKey = snap.val().key || '';
+                let encryptedIV = snap.val().iv || '';
+
+                // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
+                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                key = privateKey.decrypt(encryptedKey);
+                iv = privateKey.decrypt(encryptedIV);
             }
             if (uid) {
                 let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
-                
+
                 // Decrypt body of post look up all of own's posts
                 return postsRef.once('value', (snapshot) => {
                     let posts = snapshot.val() || {};
@@ -256,11 +280,11 @@ export const dbGetPosts = () => {
                             id: postId,
                             ...posts[postId]
                         };
-                        
+
                         // Decrypt body of post
-                        if(key && iv ) parsedPosts[postId].body = EncryptionAPI.decrypt(parsedPosts[postId].body, key, iv);
+                        if (key && iv) parsedPosts[postId].body = EncryptionAPI.decrypt(parsedPosts[postId].body, key, iv);
                     });
-                    
+
                     dispatch(addPosts(uid, parsedPosts));
                 });
             }
@@ -268,21 +292,31 @@ export const dbGetPosts = () => {
     };
 }
 
-//  Get single post from database by its id
-export const dbGetPostById = (uid, postId) => {
-
-    console.log('function dbGetPostsById')
+/**
+ *   Get single post from database by its id
+ * @param  {string} uid is id of user whose posts we want to get
+ * @param  {string} postId is id of post we want to get
+ * */
+export const dbGetPostById = (userId, postId) => {
     return (dispatch, getState) => {
+        let uid = getState().authorize.uid;
+
         // Look up key and iv to decipher post
         let key, iv;
-        let keysRef = firebaseRef.child(`keys/${uid}`);
-        keysRef.once('value').then((snap) => {
-            if(snap.val()) {
-                key = snap.val().key || {};
-                iv = snap.val().iv || {};
+        let keysRef = firebaseRef.child(`keys/${uid}/${userId}`);
+        keysRef.once('value', (snap) => {
+            if (snap.val() && (!key || !iv)) {
+                let encryptedKey = snap.val().key || '';
+                let encryptedIV = snap.val().iv || '';
+
+                // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
+                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                key = privateKey.decrypt(encryptedKey);
+                iv = privateKey.decrypt(encryptedIV);
             }
-            if (uid) {
-                let postsRef = firebaseRef.child(`userPosts/${uid}/posts/${postId}`);
+            if (userId) {
+                let postsRef = firebaseRef.child(`userPosts/${userId}/posts/${postId}`);
 
                 return postsRef.once('value').then((snapshot) => {
                     const newPost = snapshot.val() || {};
@@ -292,9 +326,9 @@ export const dbGetPostById = (uid, postId) => {
                     };
 
                     // Decrypt body of post
-                    if(key && iv) post.body = EncryptionAPI.decrypt(post.body, key, iv);
+                    if (key && iv) post.body = EncryptionAPI.decrypt(post.body, key, iv);
 
-                    dispatch(addPost(uid, post));
+                    dispatch(addPost(userId, post));
                 });
             }
         });
@@ -303,23 +337,30 @@ export const dbGetPostById = (uid, postId) => {
 
 /**
  * Get all user post from database by user id
- * @param  {string} uid is id of user whose posts we want to get
+ * @param  {string} userId is id of user whose posts we want to get
  */
-export const dbGetPostsByUserId = (uid) => {
+export const dbGetPostsByUserId = (userId) => {
     console.log('function dbGetPostsByUserId')
     return (dispatch, getState) => {
+        let uid = getState().authorize.uid;
+
         // Look up key and iv to decipher post
         let key, iv;
-        let keysRef = firebaseRef.child(`keys/${uid}`);
+        let keysRef = firebaseRef.child(`keys/${uid}/${userId}`);
         keysRef.once('value', (snap) => {
-            if(snap.val()) {
-                key = snap.val().key || {};
-                iv = snap.val().iv || {};
-            }
+            if (snap.val() && (!key || !iv)) {
+                let encryptedKey = snap.val().key || '';
+                let encryptedIV = snap.val().iv || '';
 
-            if (uid) {
-                let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
-    
+                // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
+                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                key = privateKey.decrypt(encryptedKey);
+                iv = privateKey.decrypt(encryptedIV);
+            }
+            if (userId) {
+                let postsRef = firebaseRef.child(`userPosts/${userId}/posts`);
+
                 // Look up all posts of user with this id
                 return postsRef.once('value', (snapshot) => {
                     let posts = snapshot.val() || {};
@@ -332,9 +373,9 @@ export const dbGetPostsByUserId = (uid) => {
                         };
 
                         // Decrypt body of post
-                        if(key && iv) parsedPosts[postId].body = EncryptionAPI.decrypt(parsedPosts[postId].body, key, iv);
+                        if (key && iv) parsedPosts[postId].body = EncryptionAPI.decrypt(parsedPosts[postId].body, key, iv);
                     });
-                    dispatch(addPosts(uid, parsedPosts));
+                    dispatch(addPosts(userId, parsedPosts));
                 });
             }
         });
