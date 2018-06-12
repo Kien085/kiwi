@@ -80,9 +80,15 @@ export var dbSignup = (user) => {
 
             // Prevent password from being stored
             delete user.password;
+            // Create user signup date in the form: '2018-06-01'
+            var date = new Date();
+            var monthString = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+            var dayString = (date.getDate() < 10 ? '0' : '') + date.getDate();
+            var dateString = date.getFullYear() + '-' + monthString + '-' + dayString;
             firebaseRef.child(`users/${signupResult.uid}/info`).set({
                 ...user,
-                avatar: 'noImage'
+                avatar: 'noImage',
+                memberSince: dateString
             }).then((result) => {
                 dispatch(globalActions.showNotificationSuccess())
             }, (error) => dispatch(globalActions.showErrorMessage(error.code)));

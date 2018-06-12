@@ -66,25 +66,33 @@
                                 </div>
                             </section><!--//doc-section-->
                             <section id="installation-section" class="doc-section">
-                                <h2 class="section-title">Running the webpage Locally</h2>
+                                <h2 class="section-title">Running the webpage locally</h2>
                                 <div id="step1"  class="section-block">
                                     <h3 class="block-title">Step One</h3>
-                                    <p>After cloning from out Github Page, navigate to the folder where our website is located in a terminal.
-                                        Then, go into the src subfolder. After this, call npm install.
+                                    <p>After cloning from our Github Page, navigate to the kiwi folder and call npm install.
+                                    </p>
+                                    <div class="code-block">
+                                        <h6>In kiwi:</h6>
+                                        <p><code>$ npm install</code></p>
+                                    </div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="step2"  class="section-block">
+                                    <h3 class="block-title">Step Two</h3>
+                                    <p>Next, navigate to the src folder and call npm install again.
                                     </p>
                                     <div class="code-block">
                                         <h6>In kiwi/src:</h6>
                                         <p><code>$ npm install</code></p>
                                     </div><!--//code-block-->
                                 </div><!--//section-block-->
-                                <div id="step2"  class="section-block">
-                                    <h3 class="block-title">Step Two</h3>
-                                    <p>Then, call npm start
+                                <div id="step3"  class="section-block">
+                                    <h3 class="block-title">Step Three</h3>
+                                    <p>Then, call npm start.
                                     </p>
-                                    <h6>In kiwi/src again:</h6>
+                                    <h6>In kiwi/src:</h6>
                                     <p><code>$ npm start</code></p>
                                 </div><!--//section-block-->
-                                <div id="step3"  class="section-block">
+                                <div id="step4"  class="section-block">
                                     <h3 class="block-title">Running Locally</h3>
                                     <p>If you see the following lines of code in your terminal, the website is now up and running on <a href="localhost:3000">localhost:3000</a>
                                     </p>
@@ -94,7 +102,7 @@
                                         &gt; npm run build &amp;&amp; node server.js <br /> <br /> <br />
                                         &gt; react-social@1.0.0 build &lt;Directory&gt;\kiwi\src <br />
                                         &gt; webpack <br /> <br />
-                                        (A lot of lines of stuff) <br />
+                                        ... (Many lines of webpack stuff) <br />
                                         Express server is up on port 3000
                                         </code></p> 
                                     </div><!--//code-block-->
@@ -105,10 +113,93 @@
                                             If this happens to you, all you need to do to fix it is to run npm install webpack
                                         </p>
                                         <div class="code-block">
-                                            <h6>If webpacks is undefined:</h6>
+                                            <h6>If webpack is undefined:</h6>
                                             <p><code>$ npm install webpack</code></p>
                                         </div><!--//code-block-->
-                                    </div><!--//section-block-->
+                                        <p>One error that some users encounter is that npm does not install the babel plugin transform-object-rest-spread <br/>
+                                            If this happens to you, all you need to do to fix it is to run npm install babel-plugin-transform-object-rest-spread
+                                        </p>
+                                        <div class="code-block">
+                                            <h6>If unknown plugin "transform-object-rest-spread":</h6>
+                                            <p><code>$ npm install babel-plugin-transform-object-rest-spread</code></p>
+                                        </div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="hotreload" class="section-block">
+                                    <h3 class="block-title">Running the webpage locally with hot reload</h3>
+                                    <p>In order to enable reloading of the locally hosted webpage when you make changes to the code, call webpack-dev-server in the src folder inside of kiwi.
+                                    </p>
+                                    <div class="code-block">
+                                        <h6>In kiwi/src:</h6>
+                                        <p><code>$ webpack-dev-server</code></p>
+                                    </div><!--//code-block-->
+                                    <p>If you see the following lines of code in your terminal, the website is now up and running on <a href="localhost:8080">localhost:8080</a>
+                                    </p>
+                                    <div class="code-block">
+                                        <p><code>$ webpack-dev-server <br /> <br />
+                                        &gt; development <br />
+                                        &gt; 10% building modules 1/1 modules 0 active ｢wds｣: Project is running at http://localhost:8080/ <br />
+                                        ... (Many lines of webpack stuff) <br />
+                                        ｢wdm｣: Compiled successfully.
+                                        </code></p> 
+                                    </div><!--//code-block-->
+                                </div>
+                            </section><!--//doc-section-->
+
+                            <section id="documentation-section" class="doc-section">
+                                <h2 class="section-title">Adding and editing doumentation</h2>
+                                <div id="qstart"  class="section-block">
+                                    <h3 class="block-title">Quick Start</h3>
+                                    <p>After cloning from our Github Page, navigate to the docs folder inside of kiwi. There you will find a file named start.html, which you can edit to change the quick start page.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="esdocs"  class="section-block">
+                                    <h3 class="block-title">ESDocs</h3>
+                                    <p>After cloning from our Github Page, 
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="components"  class="section-block">
+                                    <h3 class="block-title">Components</h3>
+                                    <p>After cloning from our Github Page,  navigate to the docs folder inside of kiwi. There you will find a file named components.html, which you can edit to change the components page.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="faqs"  class="section-block">
+                                    <h3 class="block-title">FAQs</h3>
+                                    <p>After cloning from our Github Page, navigate to the docs folder inside of kiwi. There you will find a file named faqs.html, which you can edit to change the FAQs page.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="updates"  class="section-block">
+                                    <h3 class="block-title">Updates</h3>
+                                    <p>After cloning from our Github Page, 
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="aboutus"  class="section-block">
+                                    <h3 class="block-title">About Us</h3>
+                                    <p>After cloning from our Github Page,  navigate to the docs folder inside of kiwi. There you will find a file named license.html, which you can edit to change the About Us page.
+                                    </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+
+                            <section id="documentation-section" class="doc-section">
+                                <h2 class="section-title">Adding, editing, and running tests</h2>
+                                <div id="adding"  class="section-block">
+                                    <h3 class="block-title">Adding Tests</h3>
+                                    <p>After cloning from our Github Page, navigate to the __tests__ folder inside of kiwi. There you will find a multitude of test files. To add a new test suite simply create a new test file in this folder.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="editing"  class="section-block">
+                                    <h3 class="block-title">Editing Tests</h3>
+                                    <p>After cloning from our Github Page, navigate to the __tests__ folder inside of kiwi. There you will find a multitude of test files. To edit a test suite simply change the file for the component you are testing.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="running"  class="section-block">
+                                    <h3 class="block-title">Running Tests</h3>
+                                    <p>After cloning from our Github Page, navigate to the kiwi folder and call npm test. This runs the test script in the package.json file, which currently runs all tests which are in the __tests__ folder and do not have peter or regression in their name. This script is also run by Travis CI whenever you push a build to Github.
+                                    </p>
+                                    <div class="code-block">
+                                        <h6>In kiwi:</h6>
+                                        <p><code>$ npm test</code></p>
+                                    </div><!--//code-block-->
+                                </div><!--//section-block-->
                             </section><!--//doc-section-->
                   
                         </div><!--//content-inner-->
