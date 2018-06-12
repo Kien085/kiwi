@@ -69,22 +69,30 @@
                                 <h2 class="section-title">Running the webpage Locally</h2>
                                 <div id="step1"  class="section-block">
                                     <h3 class="block-title">Step One</h3>
-                                    <p>After cloning from out Github Page, navigate to the folder where our website is located in a terminal.
-                                        Then, go into the src subfolder. After this, call npm install.
+                                    <p>After cloning from our Github Page, navigate to the kiwi folder and call npm install.
+                                    </p>
+                                    <div class="code-block">
+                                        <h6>In kiwi:</h6>
+                                        <p><code>$ npm install</code></p>
+                                    </div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="step2"  class="section-block">
+                                    <h3 class="block-title">Step Two</h3>
+                                    <p>Next, navigate to the src folder and call npm install again.
                                     </p>
                                     <div class="code-block">
                                         <h6>In kiwi/src:</h6>
                                         <p><code>$ npm install</code></p>
                                     </div><!--//code-block-->
                                 </div><!--//section-block-->
-                                <div id="step2"  class="section-block">
-                                    <h3 class="block-title">Step Two</h3>
-                                    <p>Then, call npm start
+                                <div id="step3"  class="section-block">
+                                    <h3 class="block-title">Step Three</h3>
+                                    <p>Then, call npm start.
                                     </p>
-                                    <h6>In kiwi/src again:</h6>
+                                    <h6>In kiwi/src:</h6>
                                     <p><code>$ npm start</code></p>
                                 </div><!--//section-block-->
-                                <div id="step3"  class="section-block">
+                                <div id="step4"  class="section-block">
                                     <h3 class="block-title">Running Locally</h3>
                                     <p>If you see the following lines of code in your terminal, the website is now up and running on <a href="localhost:3000">localhost:3000</a>
                                     </p>
@@ -94,7 +102,7 @@
                                         &gt; npm run build &amp;&amp; node server.js <br /> <br /> <br />
                                         &gt; react-social@1.0.0 build &lt;Directory&gt;\kiwi\src <br />
                                         &gt; webpack <br /> <br />
-                                        (A lot of lines of stuff) <br />
+                                        ... (Many lines of webpack stuff) <br />
                                         Express server is up on port 3000
                                         </code></p> 
                                     </div><!--//code-block-->
@@ -105,8 +113,15 @@
                                             If this happens to you, all you need to do to fix it is to run npm install webpack
                                         </p>
                                         <div class="code-block">
-                                            <h6>If webpacks is undefined:</h6>
+                                            <h6>If webpack is undefined:</h6>
                                             <p><code>$ npm install webpack</code></p>
+                                        </div><!--//code-block-->
+                                        <p>One error that some users encounter is that npm does not install the babel plugin transform-object-rest-spread <br/>
+                                            If this happens to you, all you need to do to fix it is to run npm install babel-plugin-transform-object-rest-spread
+                                        </p>
+                                        <div class="code-block">
+                                            <h6>If unknown plugin "transform-object-rest-spread":</h6>
+                                            <p><code>$ npm install babel-plugin-transform-object-rest-spread</code></p>
                                         </div><!--//code-block-->
                                     </div><!--//section-block-->
                             </section><!--//doc-section-->
