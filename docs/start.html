@@ -102,7 +102,7 @@
                                         &gt; npm run build &amp;&amp; node server.js <br /> <br /> <br />
                                         &gt; react-social@1.0.0 build &lt;Directory&gt;\kiwi\src <br />
                                         &gt; webpack <br /> <br />
-                                        ... (Many lines of webpack stuff) <br />
+                                        ... (Many lines of webpack stuff) <br /> <br />
                                         Express server is up on port 3000
                                         </code></p> 
                                     </div><!--//code-block-->
@@ -137,16 +137,30 @@
                                     <div class="code-block">
                                         <p><code>$ webpack-dev-server <br /> <br />
                                         &gt; development <br />
-                                        &gt; 10% building modules 1/1 modules 0 active ｢wds｣: Project is running at http://localhost:8080/ <br />
-                                        ... (Many lines of webpack stuff) <br />
+                                        &gt; 10% building modules 1/1 modules 0 active ｢wds｣: Project is running at http://localhost:8080/ <br />  <br />
+                                        ... (Many lines of webpack stuff) <br />  <br />
                                         ｢wdm｣: Compiled successfully.
                                         </code></p> 
                                     </div><!--//code-block-->
                                 </div>
                             </section><!--//doc-section-->
 
+                            <section id="app-section" class="doc-section">
+                                <h2 class="section-title">The App</h2>
+                                <div id="frontend"  class="section-block">
+                                    <h3 class="block-title">Frontend</h3>
+                                    <p>After cloning from our Github Page, navigate to the kiwi/src/app. There you will find many folders. The components, layouts, reducers, and styles folders affect the app's frontend. Most of your edits will be made in the files in the components folder.
+                                    </p>
+                                </div><!--//section-block-->
+                                <div id="backend"  class="section-block">
+                                    <h3 class="block-title">Backend</h3>
+                                    <p>After cloning from our Github Page, navigate to the kiwi/src/app. There you will find many folders. The actions, api, constants, and firebase folders affect the app's backend. Most of your edits will be made in the files in the actions folder. Also the firebase config can be found in kiwi/config.
+                                    </p>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+
                             <section id="documentation-section" class="doc-section">
-                                <h2 class="section-title">Adding and editing doumentation</h2>
+                                <h2 class="section-title">Documentation</h2>
                                 <div id="qstart"  class="section-block">
                                     <h3 class="block-title">Quick Start</h3>
                                     <p>After cloning from our Github Page, navigate to the docs folder inside of kiwi. There you will find a file named start.html, which you can edit to change the quick start page.
@@ -179,8 +193,8 @@
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
 
-                            <section id="documentation-section" class="doc-section">
-                                <h2 class="section-title">Adding, editing, and running tests</h2>
+                            <section id="testing-section" class="doc-section">
+                                <h2 class="section-title">Testing</h2>
                                 <div id="adding"  class="section-block">
                                     <h3 class="block-title">Adding Tests</h3>
                                     <p>After cloning from our Github Page, navigate to the __tests__ folder inside of kiwi. There you will find a multitude of test files. To add a new test suite simply create a new test file in this folder.
@@ -209,12 +223,40 @@
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                 <li><a class="scrollto" href="#download-section">Download</a></li>
                                 <li>
-                                    <a class="scrollto" href="#installation-section">Running the webpage Locally</a>
+                                    <a class="scrollto" href="#installation-section">Running the webpage locally</a>
                                     <ul class="nav doc-sub-menu">
                                         <li><a class="scrollto" href="#step1">Step One</a></li>
                                         <li><a class="scrollto" href="#step2">Step Two</a></li>
-                                        <li><a class="scrollto" href="#step3">Running Locally</a></li>
+                                        <li><a class="scrollto" href="#step3">Step Three</a></li>
+                                        <li><a class="scrollto" href="#step4">Running Locally</a></li>
                                         <li><a class="scrollto" href="#errors">Possible Errors</a></li>
+                                        <li><a class="scrollto" href="#hotreload">Running with hot reload</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                                <li>
+                                    <a class="scrollto" href="#app-section">The App</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#frontend">Frontend</a></li>
+                                        <li><a class="scrollto" href="#backend">Backend</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                                <li>
+                                    <a class="scrollto" href="#documentation-section">Documentation</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#qstart">Quick Start</a></li>
+                                        <li><a class="scrollto" href="#esdocs">ESDocs</a></li>
+                                        <li><a class="scrollto" href="#components">Components</a></li>
+                                        <li><a class="scrollto" href="#faqs">FAQs</a></li>
+                                        <li><a class="scrollto" href="#updates">Updates</a></li>
+                                        <li><a class="scrollto" href="#aboutus">About Us</a></li>
+                                    </ul><!--//nav-->
+                                </li>
+                                <li>
+                                    <a class="scrollto" href="#testing-section">Testing</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#adding">Adding Tests</a></li>
+                                        <li><a class="scrollto" href="#editing">Editing Tests</a></li>
+                                        <li><a class="scrollto" href="#running">Running Tests</a></li>
                                     </ul><!--//nav-->
                                 </li>
                             </ul><!--//doc-menu-->
