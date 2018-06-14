@@ -1,7 +1,6 @@
 import firebase, { firebaseRef } from '../firebase/';
 
 import forge from 'node-forge';
-import keypair from 'keypair';
 
 /**
  * Encrypt message with AES given a key and iv
@@ -39,36 +38,76 @@ const decrypt = (ciphertext, key, iv) => {
  * @param {string} userId
  */
 const generateKeys = (userId) => {
-    let localStorage = window.localStorage;
-    let keyPair = keypair();
-    let publicKey = forge.pki.publicKeyFromPem(keyPair.public);
-    let privateKey = forge.pki.privateKeyFromPem(keyPair.private)
+    // let localStorage = window.localStorage;
+    // let keyPair = keypair();
+    // let publicKey = forge.pki.publicKeyFromPem(keyPair.public);
+    // let privateKey = forge.pki.privateKeyFromPem(keyPair.private)
 
-    // Save private/public key pair locally
-    localStorage.setItem('keyPair', JSON.stringify(keyPair));
+    // // Save private/public key pair locally
+    // localStorage.setItem('keyPair', JSON.stringify(keyPair));
 
-    localStorage.setItem('privateKey', privateKey);
-    localStorage.setItem('publicKey', publicKey);
+    // localStorage.setItem('privateKey', privateKey);
+    // localStorage.setItem('publicKey', publicKey);
 
-    // Generate a public key for symmetric encryption
-    // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
-    let key = forge.random.getBytesSync(32);
-    let iv = forge.random.getBytesSync(32);
-    localStorage.setItem('dataKey', key);
-    localStorage.setItem('dataIV', iv);
+    // // Generate a public key for symmetric encryption
+    // // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
+    // let key = forge.random.getBytesSync(32);
+    // let iv = forge.random.getBytesSync(32);
+    // localStorage.setItem('dataKey', key);
+    // localStorage.setItem('dataIV', iv);
 
-    // encrypt data with a public key (defaults to RSAES PKCS#1 v1.5)
-    let encryptedKey = publicKey.encrypt(key);
-    let encryptedIV = publicKey.encrypt(iv);
+    // // encrypt data with a public key (defaults to RSAES PKCS#1 v1.5)
+    // let encryptedKey = publicKey.encrypt(key);
+    // let encryptedIV = publicKey.encrypt(iv);
 
-    // store public key and encrypted data key 
-    let updates = {};
-    updates[`keys/${userId}`] = {
-        publicKey: keyPair.public,
-        key: encryptedKey,
-        iv: encryptedIV,
-    };
-    return firebaseRef.update(updates);
+    // // store public key and encrypted data key 
+    // let updates = {};
+    // updates[`keys/${userId}`] = {
+    //     publicKey: keyPair.public,
+    //     key: encryptedKey,
+    //     iv: encryptedIV,
+    // };
+    // return firebaseRef.update(updates);
+    forge.pki.rsa.generateKeyPair({ bits: 2048, workers: -1 }, (err, keypair) => {
+        if (err) {
+            console.error(err)
+        } else {
+            let localStorage = window.localStorage;
+            let privateKey = keypair.privateKey;
+            let publicKey = keypair.publicKey;
+
+            let keyPair = {
+                public: forge.pki.publicKeyToPem(publicKey),
+                private: forge.pki.privateKeyToPem(privateKey),
+            }
+            debugger;
+            localStorage.setItem('keyPair', JSON.stringify(keyPair));
+
+            // Save privateKey locally
+            // localStorage.setItem('privateKey', privateKey);
+            // localStorage.setItem('publicKey', publicKey);
+            // Generate a public key for symmetric encryption
+            // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
+            let key = forge.random.getBytesSync(32);
+            let iv = forge.random.getBytesSync(32);
+            localStorage.setItem('dataKey', key);
+            localStorage.setItem('dataIV', iv);
+
+
+            // encrypt data with a public key (defaults to RSAES PKCS#1 v1.5)
+            let encryptedKey = publicKey.encrypt(key);
+            let encryptedIV = publicKey.encrypt(iv);
+
+            // store public key and encrypted data key 
+            let updates = {};
+            updates[`keys/${userId}/${userId}`] = {
+                publicKey: keyPair.public,
+                key: encryptedKey,
+                iv: encryptedIV,
+            };
+            return firebaseRef.update(updates);
+        }
+    });
 }
 
 /**
@@ -77,7 +116,7 @@ const generateKeys = (userId) => {
  * @param {string} friendId is the identifier of user to send key to
  */
 const sendEncryptedKey = (userId, friendId) => {
-    return firebaseRef.child(`keys/${friendId}`).once('value', (snapshot) => {
+    return firebaseRef.child(`keys/${friendId}/${friendId}`).once('value', (snapshot) => {
         let publicPEM = snapshot.val().publicKey || '';
         let publicKey = forge.pki.publicKeyFromPem(publicPEM);
 

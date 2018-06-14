@@ -71,7 +71,8 @@ export var dbAddFollowingUser = (cid, userFollowing) => {
                 {
                     description: `${user.fullName} follow you.`,
                     url: `/${uid}`,
-                    notifyRecieverUserId: userFollowing.userId, notifierUserId: uid
+                    notifyRecieverUserId: userFollowing.userId, notifierUserId: uid,
+                    isRequest: false,
                 }));
 
         }, (error) => {

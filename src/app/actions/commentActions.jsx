@@ -41,7 +41,7 @@ export const dbAddComment = (newComment, callBack) => {
         // Get own data key
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
-        let keysRef = firebaseRef.child(`keys/${uid}`);
+        let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
         keysRef.once('value', (snap) => {
             if (snap.val() && (!key || !iv)) {
                 let encryptedKey = snap.val().key || '';
@@ -106,20 +106,19 @@ export const dbGetComments = () => {
                         Object.keys(comments[postId]).forEach((commentId) => {
                             // Reference to current comment
                             let currComment = comments[postId][commentId];
-
+                            if( keySnapshot.val()[uid][currComment.userId] ) {
                             // Look up key and iv to decipher comment
                             let encryptedKey = keySnapshot.val()[uid][currComment.userId].key || '';
                             let encryptedIV = keySnapshot.val()[uid][currComment.userId].iv || '';
 
-                            if (encryptedKey && encryptedIV) {
-                                // decrypt data with a private key (defaults to RSAES PKCS#1 v1.5)
-                                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
-                                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                                let key = privateKey.decrypt(encryptedKey);
-                                let iv = privateKey.decrypt(encryptedIV);
+                            // decrypt data with a private key (defaults to RSAES PKCS#1 v1.5)
+                            let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                            let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                            let key = privateKey.decrypt(encryptedKey);
+                            let iv = privateKey.decrypt(encryptedIV);
 
-                                // Decipher comment
-                                decryptedComments[postId][commentId].text = EncryptionAPI.decrypt(currComment.text, key, iv);
+                            // Decipher comment
+                            decryptedComments[postId][commentId].text = EncryptionAPI.decrypt(currComment.text, key, iv);
                             }
                         });
                     });
@@ -146,7 +145,7 @@ export const dbUpdateComment = (id, postId, text) => {
         // Get own data key
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
-        let keysRef = firebaseRef.child(`keys/${uid}`);
+        let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
         keysRef.once('value', (snap) => {
             if (snap.val() && (!key || !iv)) {
                 let encryptedKey = snap.val().key || '';
