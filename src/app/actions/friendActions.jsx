@@ -8,7 +8,10 @@ import * as types from 'actionTypes';
 
 // - Import actions
 import * as globalActions from 'globalActions';
+import * as postActions from './postActions';
+import * as userActions from './userActions';
 import * as notifyActions from 'notifyActions';
+
 import EncryptionAPI from '../api/EncryptionAPI';
 
 /* _____________ CRUD DB _____________ */
@@ -306,12 +309,15 @@ export var dbGetFriendList = () => {
             let friendList = [];
             Object.keys(userFriends).forEach((friendId) => {
                 friendList.push(userFriends[friendId]);
+                dispatch(postActions.dbGetPostsByUserId(friendId));
+                dispatch(userActions.dbGetUserInfoByUserId(friendId));
             });
             dispatch(updateFriendList(friendList));
         });
     };
-}
 
+
+}
 
 
 /* _____________ CRUD State _____________ */
