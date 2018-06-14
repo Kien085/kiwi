@@ -94,7 +94,6 @@ export const dbGetComments = () => {
         if (uid) {
             let commentsRef = firebaseRef.child(`postComments`);
             return commentsRef.on('value', (snapshot) => {
-                console.log('in function dbGetComments()')
                 let comments = snapshot.val() || {};
 
                 // Get reference to all keys in db
@@ -112,16 +111,15 @@ export const dbGetComments = () => {
                             let encryptedKey = keySnapshot.val()[uid][currComment.userId].key || '';
                             let encryptedIV = keySnapshot.val()[uid][currComment.userId].iv || '';
 
-                            // decrypt data with a private key (defaults to RSAES PKCS#1 v1.5)
-                            let keyPair = JSON.parse(localStorage.getItem('keyPair'));
-                            let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                            let key = privateKey.decrypt(encryptedKey);
-                            let iv = privateKey.decrypt(encryptedIV);
+                            if (encryptedKey && encryptedIV) {
+                                // decrypt data with a private key (defaults to RSAES PKCS#1 v1.5)
+                                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                                let key = privateKey.decrypt(encryptedKey);
+                                let iv = privateKey.decrypt(encryptedIV);
 
-                            if (key && iv) {
                                 // Decipher comment
                                 decryptedComments[postId][commentId].text = EncryptionAPI.decrypt(currComment.text, key, iv);
-                                console.log('text is ' + currComment.text)
                             }
                         });
                     });

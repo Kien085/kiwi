@@ -16,12 +16,6 @@ const encrypt = (plaintext, key, iv) => {
     cipher.update(forge.util.createBuffer(plaintext));
     let pass = cipher.finish();
     return pass ? cipher.output.toHex() : plaintext;
-    // return pass ? forge.util.encode64(cipher.output.getBytes()) : plaintext;
-    // if (pass) {
-    //     return forge.util.encode64(cipher.output.getBytes());
-    // } 
-    // console.error('Encryption failed');
-    // return plaintext;
 }
 
 /**
@@ -32,18 +26,12 @@ const encrypt = (plaintext, key, iv) => {
  * @returns decrypted message as a String
  */
 const decrypt = (ciphertext, key, iv) => {
-    let data = forge.util.hexToBytes(ciphertext); // hex
-    // let data = forge.util.decode64(ciphertext); 
+    let data = forge.util.hexToBytes(ciphertext);
     const decipher = forge.cipher.createDecipher('AES-CBC', key);
     decipher.start({ iv: iv });
     decipher.update(forge.util.createBuffer(data));
     let pass = decipher.finish();
     return pass ? decipher.output.toString() : ciphertext;
-    // if (pass) {
-    //     return decipher.output.toString();
-    // }
-    // console.error('Decryption failed');
-    // return ciphertext;
 }
 
 /**
@@ -73,9 +61,9 @@ const generateKeys = (userId) => {
     let encryptedKey = publicKey.encrypt(key);
     let encryptedIV = publicKey.encrypt(iv);
 
-    // send 'encrypted', 'iv', 'tag', and result.encapsulation to recipient 
+    // store public key and encrypted data key 
     let updates = {};
-    updates[`keys/${userId}/${userId}`] = {
+    updates[`keys/${userId}`] = {
         publicKey: keyPair.public,
         key: encryptedKey,
         iv: encryptedIV,
@@ -89,7 +77,7 @@ const generateKeys = (userId) => {
  * @param {string} friendId is the identifier of user to send key to
  */
 const sendEncryptedKey = (userId, friendId) => {
-    return firebaseRef.child(`keys/${friendId}/${friendId}`).once('value', (snapshot) => {
+    return firebaseRef.child(`keys/${friendId}`).once('value', (snapshot) => {
         let publicPEM = snapshot.val().publicKey || '';
         let publicKey = forge.pki.publicKeyFromPem(publicPEM);
 

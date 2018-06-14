@@ -157,7 +157,6 @@ export const dbAddImagePost = (newPost, callBack) => {
  * @param {func} callBack //TODO: anti pattern should change to parent state or move state to redux
  */
 export const dbUpdatePost = (newPost, callBack) => {
-    console.log("function updatePost");
     return (dispatch, getState) => {
         dispatch(globalActions.showTopLoading());
 
@@ -249,7 +248,6 @@ export const dbDeletePost = (id) => {
 
 //  Get all user posts from data base (self posts)
 export const dbGetPosts = () => {
-    console.log('function dbGetPosts')
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
 
@@ -340,7 +338,6 @@ export const dbGetPostById = (userId, postId) => {
  * @param  {string} userId is id of user whose posts we want to get
  */
 export const dbGetPostsByUserId = (userId) => {
-    console.log('function dbGetPostsByUserId')
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
 

@@ -89,7 +89,7 @@ export class Blog extends Component {
         if (posts === undefined || !Object.keys(posts).length > 0) {
             return (
                 <h1>
-                    'Nothing has shared.'
+                    {/* 'Nothing has shared.' */}
                 </h1>
             );
         }
