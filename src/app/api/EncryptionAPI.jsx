@@ -38,36 +38,7 @@ const decrypt = (ciphertext, key, iv) => {
  * @param {string} userId
  */
 const generateKeys = (userId) => {
-    // let localStorage = window.localStorage;
-    // let keyPair = keypair();
-    // let publicKey = forge.pki.publicKeyFromPem(keyPair.public);
-    // let privateKey = forge.pki.privateKeyFromPem(keyPair.private)
 
-    // // Save private/public key pair locally
-    // localStorage.setItem('keyPair', JSON.stringify(keyPair));
-
-    // localStorage.setItem('privateKey', privateKey);
-    // localStorage.setItem('publicKey', publicKey);
-
-    // // Generate a public key for symmetric encryption
-    // // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
-    // let key = forge.random.getBytesSync(32);
-    // let iv = forge.random.getBytesSync(32);
-    // localStorage.setItem('dataKey', key);
-    // localStorage.setItem('dataIV', iv);
-
-    // // encrypt data with a public key (defaults to RSAES PKCS#1 v1.5)
-    // let encryptedKey = publicKey.encrypt(key);
-    // let encryptedIV = publicKey.encrypt(iv);
-
-    // // store public key and encrypted data key 
-    // let updates = {};
-    // updates[`keys/${userId}`] = {
-    //     publicKey: keyPair.public,
-    //     key: encryptedKey,
-    //     iv: encryptedIV,
-    // };
-    // return firebaseRef.update(updates);
     forge.pki.rsa.generateKeyPair({ bits: 2048, workers: -1 }, (err, keypair) => {
         if (err) {
             console.error(err)
@@ -80,12 +51,9 @@ const generateKeys = (userId) => {
                 public: forge.pki.publicKeyToPem(publicKey),
                 private: forge.pki.privateKeyToPem(privateKey),
             }
-            debugger;
+            // Save pair key locally
             localStorage.setItem('keyPair', JSON.stringify(keyPair));
 
-            // Save privateKey locally
-            // localStorage.setItem('privateKey', privateKey);
-            // localStorage.setItem('publicKey', publicKey);
             // Generate a public key for symmetric encryption
             // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
             let key = forge.random.getBytesSync(32);

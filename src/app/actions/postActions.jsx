@@ -52,7 +52,7 @@ export var dbAddPost = (newPost, callBack) => {
         // Get own data key
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
-        let keysRef = firebaseRef.child(`keys/${uid}`);
+        let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
         keysRef.once('value', (snap) => {
             if (snap.val() && (!key || !iv)) {
                 let encryptedKey = snap.val().key || '';
@@ -121,7 +121,7 @@ export const dbAddImagePost = (newPost, callBack) => {
         // Get own data key
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
-        let keysRef = firebaseRef.child(`keys/${uid}`);
+        let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
         keysRef.once('value', (snap) => {
             if (snap.val() && (!key || !iv)) {
                 let encryptedKey = snap.val().key || '';
@@ -192,7 +192,7 @@ export const dbUpdatePost = (newPost, callBack) => {
         // Get own data key
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
-        let keysRef = firebaseRef.child(`keys/${uid}`);
+        let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
         keysRef.once('value', (snap) => {
             if (snap.val() && (!key || !iv)) {
                 let encryptedKey = snap.val().key || '';
@@ -254,7 +254,7 @@ export const dbGetPosts = () => {
         // Look up key and iv to decipher post
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
-        let keysRef = firebaseRef.child(`keys/${uid}`);
+        let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
         keysRef.once('value', (snap) => {
             if (snap.val() && (!key || !iv)) {
                 let encryptedKey = snap.val().key || '';
