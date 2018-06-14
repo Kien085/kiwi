@@ -106,19 +106,20 @@ export const dbGetComments = () => {
                         Object.keys(comments[postId]).forEach((commentId) => {
                             // Reference to current comment
                             let currComment = comments[postId][commentId];
-                            if( keySnapshot.val()[uid][currComment.userId] ) {
-                            // Look up key and iv to decipher comment
-                            let encryptedKey = keySnapshot.val()[uid][currComment.userId].key || '';
-                            let encryptedIV = keySnapshot.val()[uid][currComment.userId].iv || '';
+                            let keyRef = keySnapshot.val()[uid][currComment.userId] || '';
+                            if (keyRef) {
+                                // Look up key and iv to decipher comment
+                                let encryptedKey = keyRef.key;
+                                let encryptedIV = keyRef.iv;
 
-                            // decrypt data with a private key (defaults to RSAES PKCS#1 v1.5)
-                            let keyPair = JSON.parse(localStorage.getItem('keyPair'));
-                            let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                            let key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
-                            let iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
+                                // decrypt data with a private key (defaults to RSAES PKCS#1 v1.5)
+                                let keyPair = JSON.parse(localStorage.getItem('keyPair'));
+                                let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
+                                let key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
+                                let iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
 
-                            // Decipher comment
-                            decryptedComments[postId][commentId].text = EncryptionAPI.decrypt(currComment.text, key, iv);
+                                // Decipher comment
+                                decryptedComments[postId][commentId].text = EncryptionAPI.decrypt(currComment.text, key, iv);
                             }
                         });
                     });
