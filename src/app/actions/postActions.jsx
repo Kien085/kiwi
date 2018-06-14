@@ -61,8 +61,8 @@ export var dbAddPost = (newPost, callBack) => {
                 // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
                 let keyPair = JSON.parse(localStorage.getItem('keyPair'));
                 let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                key = privateKey.decrypt(encryptedKey);
-                iv = privateKey.decrypt(encryptedIV);
+                key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
+                iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
             }
 
             // encrypt text of post
@@ -130,8 +130,8 @@ export const dbAddImagePost = (newPost, callBack) => {
                 // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
                 let keyPair = JSON.parse(localStorage.getItem('keyPair'));
                 let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                key = privateKey.decrypt(encryptedKey);
-                iv = privateKey.decrypt(encryptedIV);
+                key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
+                iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
             }
 
             // encrypt text of post
@@ -201,8 +201,8 @@ export const dbUpdatePost = (newPost, callBack) => {
                 // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
                 let keyPair = JSON.parse(localStorage.getItem('keyPair'));
                 let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                key = privateKey.decrypt(encryptedKey);
-                iv = privateKey.decrypt(encryptedIV);
+                key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
+                iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
             }
 
             // encrypt text of post
@@ -263,8 +263,8 @@ export const dbGetPosts = () => {
                 // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
                 let keyPair = JSON.parse(localStorage.getItem('keyPair'));
                 let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                key = privateKey.decrypt(encryptedKey);
-                iv = privateKey.decrypt(encryptedIV);
+                key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
+                iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
             }
             if (uid) {
                 let postsRef = firebaseRef.child(`userPosts/${uid}/posts`);
@@ -310,8 +310,8 @@ export const dbGetPostById = (userId, postId) => {
                 // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
                 let keyPair = JSON.parse(localStorage.getItem('keyPair'));
                 let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                key = privateKey.decrypt(encryptedKey);
-                iv = privateKey.decrypt(encryptedIV);
+                key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
+                iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
             }
             if (userId) {
                 let postsRef = firebaseRef.child(`userPosts/${userId}/posts/${postId}`);
@@ -352,8 +352,8 @@ export const dbGetPostsByUserId = (userId) => {
                 // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
                 let keyPair = JSON.parse(localStorage.getItem('keyPair'));
                 let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                key = privateKey.decrypt(encryptedKey);
-                iv = privateKey.decrypt(encryptedIV);
+                key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
+                iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
             }
             if (userId) {
                 let postsRef = firebaseRef.child(`userPosts/${userId}/posts`);

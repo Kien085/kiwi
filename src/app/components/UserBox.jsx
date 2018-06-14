@@ -159,8 +159,8 @@ export class UserBox extends Component {
                     <div>
                         <FlatButton onClick={ () => this.props.addFriendRequest(userFriend)}>Add friend</FlatButton>
                         <FlatButton onClick={ () => this.props.cancelFriendRequest(userFriend, mySentRequestId, sentFriendRequest === null ? sentFriendRequest: sentFriendRequest.reqId)}>Cancel request</FlatButton>
-                        <FlatButton onClick={ () => this.props.acceptFriend(myReceivedRequestId, receivedFriendRequest)}>Approve</FlatButton>
-                        <FlatButton onClick={ () => this.props.denyFriend(myReceivedRequestId, receivedFriendRequest)}>Deny</FlatButton>
+                        {/* <FlatButton onClick={ () => this.props.acceptFriend(myReceivedRequestId, receivedFriendRequest)}>Approve</FlatButton> */}
+                        {/* <FlatButton onClick={ () => this.props.denyFriend(myReceivedRequestId, receivedFriendRequest)}>Deny</FlatButton> */}
                         <FlatButton onClick={ () => this.props.deleteFriend(userId)}>Unfriend</FlatButton>
                     </div>
                 </div>

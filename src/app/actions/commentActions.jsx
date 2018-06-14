@@ -50,8 +50,8 @@ export const dbAddComment = (newComment, callBack) => {
                 // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
                 let keyPair = JSON.parse(localStorage.getItem('keyPair'));
                 let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                key = privateKey.decrypt(encryptedKey);
-                iv = privateKey.decrypt(encryptedIV);
+                key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
+                iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
             }
 
             // Encrypt contents of comments
@@ -114,8 +114,8 @@ export const dbGetComments = () => {
                             // decrypt data with a private key (defaults to RSAES PKCS#1 v1.5)
                             let keyPair = JSON.parse(localStorage.getItem('keyPair'));
                             let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                            let key = privateKey.decrypt(encryptedKey);
-                            let iv = privateKey.decrypt(encryptedIV);
+                            let key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
+                            let iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
 
                             // Decipher comment
                             decryptedComments[postId][commentId].text = EncryptionAPI.decrypt(currComment.text, key, iv);
@@ -154,8 +154,8 @@ export const dbUpdateComment = (id, postId, text) => {
                 // decrypt data key with a private key (defaults to RSAES PKCS#1 v1.5)
                 let keyPair = JSON.parse(localStorage.getItem('keyPair'));
                 let privateKey = forge.pki.privateKeyFromPem(keyPair.private);
-                key = privateKey.decrypt(encryptedKey);
-                iv = privateKey.decrypt(encryptedIV);
+                key = forge.util.decodeUtf8(privateKey.decrypt(encryptedKey));
+                iv = forge.util.decodeUtf8(privateKey.decrypt(encryptedIV));
             }
 
             // Encrypt contents of comments

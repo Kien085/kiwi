@@ -63,8 +63,8 @@ const generateKeys = (userId) => {
 
 
             // encrypt data with a public key (defaults to RSAES PKCS#1 v1.5)
-            let encryptedKey = publicKey.encrypt(key);
-            let encryptedIV = publicKey.encrypt(iv);
+            let encryptedKey = publicKey.encrypt(forge.util.encodeUtf8(key))
+            let encryptedIV = publicKey.encrypt(forge.util.encodeUtf8(iv))
 
             // store public key and encrypted data key 
             let updates = {};
@@ -92,8 +92,8 @@ const sendEncryptedKey = (userId, friendId) => {
         let iv = localStorage.getItem('dataIV');
 
         // Encrypt your data key with friend's public key
-        let encryptedKey = publicKey.encrypt(key);
-        let encryptedIV = publicKey.encrypt(iv);
+        let encryptedKey = publicKey.encrypt(forge.util.encodeUtf8(key))
+        let encryptedIV = publicKey.encrypt(forge.util.encodeUtf8(iv))
 
         // Send your encrypted data key to friend
         return firebaseRef.child(`keys/${friendId}/${userId}/`).set({
