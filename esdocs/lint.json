@@ -36,23 +36,23 @@
     "filePath": "app/actions/authorizeActions.jsx",
     "lines": [
       {
-        "lineNumber": 130,
+        "lineNumber": 136,
         "line": "/**\r"
       },
       {
-        "lineNumber": 131,
+        "lineNumber": 137,
         "line": " * Reset user's password\r"
       },
       {
-        "lineNumber": 132,
+        "lineNumber": 138,
         "line": " * @param {string} newPassword\r"
       },
       {
-        "lineNumber": 133,
+        "lineNumber": 139,
         "line": " */\r"
       },
       {
-        "lineNumber": 134,
+        "lineNumber": 140,
         "line": "export const dbResetPassword = (email) => {\r"
       }
     ],
@@ -68,27 +68,27 @@
     "filePath": "app/actions/commentActions.jsx",
     "lines": [
       {
-        "lineNumber": 121,
+        "lineNumber": 133,
         "line": "/**\r"
       },
       {
-        "lineNumber": 122,
+        "lineNumber": 134,
         "line": " * Update a comment from database\r"
       },
       {
-        "lineNumber": 123,
+        "lineNumber": 135,
         "line": " * @param  {string} id of comment\r"
       },
       {
-        "lineNumber": 124,
+        "lineNumber": 136,
         "line": " * @param {string} postId is the identifier of the post which comment belong to\r"
       },
       {
-        "lineNumber": 125,
+        "lineNumber": 137,
         "line": " */\r"
       },
       {
-        "lineNumber": 126,
+        "lineNumber": 138,
         "line": "export const dbUpdateComment = (id, postId, text) => {\r"
       }
     ],
@@ -100,6 +100,215 @@
     "docParams": [
       "id",
       "postId"
+    ]
+  },
+  {
+    "name": "dbAcceptFriendRequest",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 73,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 74,
+        "line": " * Accept friend request\r"
+      },
+      {
+        "lineNumber": 75,
+        "line": " * @param string myReqId the id of the received request\r"
+      },
+      {
+        "lineNumber": 76,
+        "line": " * @param {object} request the received request object\r"
+      },
+      {
+        "lineNumber": 77,
+        "line": " * */\r"
+      },
+      {
+        "lineNumber": 78,
+        "line": "export var dbAcceptFriendRequest = (myReqId, request) => {\r"
+      }
+    ],
+    "codeParams": [
+      "myReqId",
+      "request"
+    ],
+    "docParams": [
+      "string",
+      "request"
+    ]
+  },
+  {
+    "name": "dbAddFriend",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 114,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 115,
+        "line": "* Add a user to friend list\r"
+      },
+      {
+        "lineNumber": 116,
+        "line": "* @param {object} userFriend is the user to add to friend's list\r"
+      },
+      {
+        "lineNumber": 117,
+        "line": "* @param {boolean} requestId unique id of friend request\r"
+      },
+      {
+        "lineNumber": 118,
+        "line": "*/\r"
+      },
+      {
+        "lineNumber": 119,
+        "line": "export var dbAddFriend = (userFriend, myRequestId, theirRequestId, fromUser) => {\r"
+      }
+    ],
+    "codeParams": [
+      "userFriend",
+      "myRequestId",
+      "theirRequestId",
+      "fromUser"
+    ],
+    "docParams": [
+      "userFriend",
+      "requestId"
+    ]
+  },
+  {
+    "name": "dbFriendRequestDenied",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 162,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 163,
+        "line": " * Process the friend request you sent once it was denied\r"
+      },
+      {
+        "lineNumber": 164,
+        "line": " * @param {object} userFriend is the user whom to cancel the request to\r"
+      },
+      {
+        "lineNumber": 165,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 166,
+        "line": "export var dbFriendRequestDenied = (userFriend, myRequestId) => {\r"
+      }
+    ],
+    "codeParams": [
+      "userFriend",
+      "myRequestId"
+    ],
+    "docParams": [
+      "userFriend"
+    ]
+  },
+  {
+    "name": "dbCancelFriendRequest",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 182,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 183,
+        "line": " * Cancel a sent friend request\r"
+      },
+      {
+        "lineNumber": 184,
+        "line": " * @param {object} userFriend is the user whom to cancel the request to\r"
+      },
+      {
+        "lineNumber": 185,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 186,
+        "line": "export var dbCancelFriendRequest = (userFriend, myRequestId, theirRequestId) => {\r"
+      }
+    ],
+    "codeParams": [
+      "userFriend",
+      "myRequestId",
+      "theirRequestId"
+    ],
+    "docParams": [
+      "userFriend"
+    ]
+  },
+  {
+    "name": "updateSentRequestList",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 361,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 362,
+        "line": " * Update the state of friend requests sent by current user\r"
+      },
+      {
+        "lineNumber": 363,
+        "line": " * @param {array} parsedRequest array of friend requests sent\r"
+      },
+      {
+        "lineNumber": 364,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 365,
+        "line": "export const updateSentRequestList = (parsedRequests) => {\r"
+      }
+    ],
+    "codeParams": [
+      "parsedRequests"
+    ],
+    "docParams": [
+      "parsedRequest"
+    ]
+  },
+  {
+    "name": "updateReceivedRequestList",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 373,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 374,
+        "line": " * Update the state of friend requests received by current user\r"
+      },
+      {
+        "lineNumber": 375,
+        "line": " * @param {array} parsedRequest array of friend requests received\r"
+      },
+      {
+        "lineNumber": 376,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 377,
+        "line": "export const updateReceivedRequestList = (parsedRequests) => {\r"
+      }
+    ],
+    "codeParams": [
+      "parsedRequests"
+    ],
+    "docParams": [
+      "parsedRequest"
     ]
   },
   {
@@ -170,23 +379,23 @@
     "filePath": "app/actions/notifyActions.jsx",
     "lines": [
       {
-        "lineNumber": 103,
+        "lineNumber": 105,
         "line": "/**\r"
       },
       {
-        "lineNumber": 104,
+        "lineNumber": 106,
         "line": " * Add notificaition \r"
       },
       {
-        "lineNumber": 105,
+        "lineNumber": 107,
         "line": " * @param {object} data  \r"
       },
       {
-        "lineNumber": 106,
+        "lineNumber": 108,
         "line": " */\r"
       },
       {
-        "lineNumber": 107,
+        "lineNumber": 109,
         "line": "export const addNotify = () => {\r"
       }
     ],
@@ -196,27 +405,65 @@
     ]
   },
   {
+    "name": "dbGetPostById",
+    "filePath": "app/actions/postActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 292,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 293,
+        "line": " *   Get single post from database by its id\r"
+      },
+      {
+        "lineNumber": 294,
+        "line": " * @param  {string} uid is id of user whose posts we want to get\r"
+      },
+      {
+        "lineNumber": 295,
+        "line": " * @param  {string} postId is id of post we want to get\r"
+      },
+      {
+        "lineNumber": 296,
+        "line": " * */\r"
+      },
+      {
+        "lineNumber": 297,
+        "line": "export const dbGetPostById = (userId, postId) => {\r"
+      }
+    ],
+    "codeParams": [
+      "userId",
+      "postId"
+    ],
+    "docParams": [
+      "uid",
+      "postId"
+    ]
+  },
+  {
     "name": "addImagePost",
     "filePath": "app/actions/postActions.jsx",
     "lines": [
       {
-        "lineNumber": 403,
+        "lineNumber": 441,
         "line": "/**\r"
       },
       {
-        "lineNumber": 404,
+        "lineNumber": 442,
         "line": " * Add a post with image\r"
       },
       {
-        "lineNumber": 405,
+        "lineNumber": 443,
         "line": " * @param {object} post \r"
       },
       {
-        "lineNumber": 406,
+        "lineNumber": 444,
         "line": " */\r"
       },
       {
-        "lineNumber": 407,
+        "lineNumber": 445,
         "line": "export const addImagePost = (uid, post) => {\r"
       }
     ],
@@ -233,23 +480,23 @@
     "filePath": "app/actions/userActions.jsx",
     "lines": [
       {
-        "lineNumber": 33,
+        "lineNumber": 32,
         "line": "/**\r"
       },
       {
-        "lineNumber": 34,
+        "lineNumber": 33,
         "line": " *  Get user info from database\r"
       },
       {
-        "lineNumber": 35,
+        "lineNumber": 34,
         "line": " * @param {string} uid \r"
       },
       {
-        "lineNumber": 36,
+        "lineNumber": 35,
         "line": " */\r"
       },
       {
-        "lineNumber": 37,
+        "lineNumber": 36,
         "line": "export const dbGetUserInfoByUserId = (uid, sw) => {\r"
       }
     ],
@@ -299,27 +546,27 @@
     "filePath": "app/actions/voteActions.jsx",
     "lines": [
       {
-        "lineNumber": 61,
+        "lineNumber": 62,
         "line": "/**\r"
       },
       {
-        "lineNumber": 62,
+        "lineNumber": 63,
         "line": " * Delete a vote from database\r"
       },
       {
-        "lineNumber": 63,
+        "lineNumber": 64,
         "line": " * @param  {string} id of vote\r"
       },
       {
-        "lineNumber": 64,
+        "lineNumber": 65,
         "line": " * @param {string} postId is the identifier of the post which vote belong to\r"
       },
       {
-        "lineNumber": 65,
+        "lineNumber": 66,
         "line": " */\r"
       },
       {
-        "lineNumber": 66,
+        "lineNumber": 67,
         "line": "export const dbDeleteVote = (postId) => {\r"
       }
     ],
@@ -461,27 +708,27 @@
     "filePath": "app/components/ImageGallery.jsx",
     "lines": [
       {
-        "lineNumber": 102,
+        "lineNumber": 103,
         "line": "    /**\r"
       },
       {
-        "lineNumber": 103,
+        "lineNumber": 104,
         "line": "     * When the post text changed\r"
       },
       {
-        "lineNumber": 104,
+        "lineNumber": 105,
         "line": "     * @param  {event} evt is an event passed by change post text callback funciton\r"
       },
       {
-        "lineNumber": 105,
+        "lineNumber": 106,
         "line": "     * @param  {string} data is the post content which user writes\r"
       },
       {
-        "lineNumber": 106,
+        "lineNumber": 107,
         "line": "     */\r"
       },
       {
-        "lineNumber": 107,
+        "lineNumber": 108,
         "line": "    render() {\r"
       }
     ],
@@ -496,31 +743,31 @@
     "filePath": "app/components/ImageGallery.jsx",
     "lines": [
       {
-        "lineNumber": 173,
+        "lineNumber": 174,
         "line": "/**\r"
       },
       {
-        "lineNumber": 174,
+        "lineNumber": 175,
         "line": " * Map state to props\r"
       },
       {
-        "lineNumber": 175,
+        "lineNumber": 176,
         "line": " * @param  {object} state is the obeject from redux store\r"
       },
       {
-        "lineNumber": 176,
+        "lineNumber": 177,
         "line": " * @param  {object} ownProps is the props belong to component\r"
       },
       {
-        "lineNumber": 177,
+        "lineNumber": 178,
         "line": " * @return {object}          props of component\r"
       },
       {
-        "lineNumber": 178,
+        "lineNumber": 179,
         "line": " */\r"
       },
       {
-        "lineNumber": 179,
+        "lineNumber": 180,
         "line": "const mapStateToProps = (state) => {\r"
       }
     ],

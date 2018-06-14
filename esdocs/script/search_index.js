@@ -624,6 +624,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "peter-test/app/constants/actiontypes.jsx~update_friend_list",
+    "variable/index.html#static-variable-UPDATE_FRIEND_LIST",
+    "<span>UPDATE_FRIEND_LIST</span> <span class=\"search-result-import-path\">peter-test/app/constants/actionTypes.jsx</span>",
+    "variable"
+  ],
+  [
     "peter-test/app/constants/actiontypes.jsx~update_password",
     "variable/index.html#static-variable-UPDATE_PASSWORD",
     "<span>UPDATE_PASSWORD</span> <span class=\"search-result-import-path\">peter-test/app/constants/actionTypes.jsx</span>",
@@ -633,6 +639,18 @@ window.esdocSearchIndex = [
     "peter-test/app/constants/actiontypes.jsx~update_post",
     "variable/index.html#static-variable-UPDATE_POST",
     "<span>UPDATE_POST</span> <span class=\"search-result-import-path\">peter-test/app/constants/actionTypes.jsx</span>",
+    "variable"
+  ],
+  [
+    "peter-test/app/constants/actiontypes.jsx~update_received_requests",
+    "variable/index.html#static-variable-UPDATE_RECEIVED_REQUESTS",
+    "<span>UPDATE_RECEIVED_REQUESTS</span> <span class=\"search-result-import-path\">peter-test/app/constants/actionTypes.jsx</span>",
+    "variable"
+  ],
+  [
+    "peter-test/app/constants/actiontypes.jsx~update_sent_requests",
+    "variable/index.html#static-variable-UPDATE_SENT_REQUESTS",
+    "<span>UPDATE_SENT_REQUESTS</span> <span class=\"search-result-import-path\">peter-test/app/constants/actionTypes.jsx</span>",
     "variable"
   ],
   [
@@ -717,6 +735,12 @@ window.esdocSearchIndex = [
     "peter-test/app/actions/circleactions.jsx~addfollowinguser",
     "function/index.html#static-function-addFollowingUser",
     "<span>addFollowingUser</span> <span class=\"search-result-import-path\">peter-test/app/actions/circleActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/actions/friendactions.jsx~addfrienduser",
+    "function/index.html#static-function-addFriendUser",
+    "<span>addFriendUser</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
     "function"
   ],
   [
@@ -882,6 +906,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "peter-test/app/actions/friendactions.jsx~dbacceptfriendrequest",
+    "function/index.html#static-function-dbAcceptFriendRequest",
+    "<span>dbAcceptFriendRequest</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
+    "function"
+  ],
+  [
     "peter-test/app/actions/circleactions.jsx~dbaddcircle",
     "function/index.html#static-function-dbAddCircle",
     "<span>dbAddCircle</span> <span class=\"search-result-import-path\">peter-test/app/actions/circleActions.jsx</span>",
@@ -897,6 +927,18 @@ window.esdocSearchIndex = [
     "peter-test/app/actions/circleactions.jsx~dbaddfollowinguser",
     "function/index.html#static-function-dbAddFollowingUser",
     "<span>dbAddFollowingUser</span> <span class=\"search-result-import-path\">peter-test/app/actions/circleActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/actions/friendactions.jsx~dbaddfriend",
+    "function/index.html#static-function-dbAddFriend",
+    "<span>dbAddFriend</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/actions/friendactions.jsx~dbaddfriendrequest",
+    "function/index.html#static-function-dbAddFriendRequest",
+    "<span>dbAddFriendRequest</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
     "function"
   ],
   [
@@ -924,6 +966,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "peter-test/app/actions/friendactions.jsx~dbcancelfriendrequest",
+    "function/index.html#static-function-dbCancelFriendRequest",
+    "<span>dbCancelFriendRequest</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
+    "function"
+  ],
+  [
     "peter-test/app/actions/circleactions.jsx~dbdeletecircle",
     "function/index.html#static-function-dbDeleteCircle",
     "<span>dbDeleteCircle</span> <span class=\"search-result-import-path\">peter-test/app/actions/circleActions.jsx</span>",
@@ -939,6 +987,12 @@ window.esdocSearchIndex = [
     "peter-test/app/actions/circleactions.jsx~dbdeletefollowinguser",
     "function/index.html#static-function-dbDeleteFollowingUser",
     "<span>dbDeleteFollowingUser</span> <span class=\"search-result-import-path\">peter-test/app/actions/circleActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/actions/friendactions.jsx~dbdeletefriend",
+    "function/index.html#static-function-dbDeleteFriend",
+    "<span>dbDeleteFriend</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
     "function"
   ],
   [
@@ -966,9 +1020,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "peter-test/app/actions/friendactions.jsx~dbdenyfriendrequest",
+    "function/index.html#static-function-dbDenyFriendRequest",
+    "<span>dbDenyFriendRequest</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
+    "function"
+  ],
+  [
     "peter-test/app/actions/imagegalleryactions.jsx~dbdownloadimage",
     "function/index.html#static-function-dbDownloadImage",
     "<span>dbDownloadImage</span> <span class=\"search-result-import-path\">peter-test/app/actions/imageGalleryActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/actions/friendactions.jsx~dbfriendrequestdenied",
+    "function/index.html#static-function-dbFriendRequestDenied",
+    "<span>dbFriendRequestDenied</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
     "function"
   ],
   [
@@ -987,6 +1053,12 @@ window.esdocSearchIndex = [
     "peter-test/app/actions/commentactions.jsx~dbgetcomments",
     "function/index.html#static-function-dbGetComments",
     "<span>dbGetComments</span> <span class=\"search-result-import-path\">peter-test/app/actions/commentActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/actions/friendactions.jsx~dbgetfriendlist",
+    "function/index.html#static-function-dbGetFriendList",
+    "<span>dbGetFriendList</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
     "function"
   ],
   [
@@ -1017,6 +1089,18 @@ window.esdocSearchIndex = [
     "peter-test/app/actions/postactions.jsx~dbgetpostsbyuserid",
     "function/index.html#static-function-dbGetPostsByUserId",
     "<span>dbGetPostsByUserId</span> <span class=\"search-result-import-path\">peter-test/app/actions/postActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/actions/friendactions.jsx~dbgetreceivedrequests",
+    "function/index.html#static-function-dbGetReceivedRequests",
+    "<span>dbGetReceivedRequests</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/actions/friendactions.jsx~dbgetsentrequests",
+    "function/index.html#static-function-dbGetSentRequests",
+    "<span>dbGetSentRequests</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
     "function"
   ],
   [
@@ -1146,6 +1230,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "peter-test/app/actions/friendactions.jsx~deletefrienduser",
+    "function/index.html#static-function-deleteFriendUser",
+    "<span>deleteFriendUser</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
+    "function"
+  ],
+  [
     "peter-test/app/actions/imagegalleryactions.jsx~deleteimage",
     "function/index.html#static-function-deleteImage",
     "<span>deleteImage</span> <span class=\"search-result-import-path\">peter-test/app/actions/imageGalleryActions.jsx</span>",
@@ -1192,6 +1282,12 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-firebaseRef",
     "<span>firebaseRef</span> <span class=\"search-result-import-path\">peter-test/app/firebase/index.js</span>",
     "variable"
+  ],
+  [
+    "peter-test/app/reducers/friendlistreducer.jsx~friendlistreducer",
+    "function/index.html#static-function-friendListReducer",
+    "<span>friendListReducer</span> <span class=\"search-result-import-path\">peter-test/app/reducers/friendListReducer.jsx</span>",
+    "function"
   ],
   [
     "peter-test/app/api/postapi.jsx~getcontenttags",
@@ -1326,6 +1422,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "peter-test/app/reducers/receivedfriendrequestsreducer.jsx~receivedfriendrequestsreducer",
+    "function/index.html#static-function-receivedFriendRequestsReducer",
+    "<span>receivedFriendRequestsReducer</span> <span class=\"search-result-import-path\">peter-test/app/reducers/receivedFriendRequestsReducer.jsx</span>",
+    "function"
+  ],
+  [
     "peter-test/app/helpers/index.jsx~resetpassword",
     "function/index.html#static-function-resetPassword",
     "<span>resetPassword</span> <span class=\"search-result-import-path\">peter-test/app/helpers/index.jsx</span>",
@@ -1347,6 +1449,12 @@ window.esdocSearchIndex = [
     "peter-test/app/actions/imagegalleryactions.jsx~sendimagerequest",
     "function/index.html#static-function-sendImageRequest",
     "<span>sendImageRequest</span> <span class=\"search-result-import-path\">peter-test/app/actions/imageGalleryActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/reducers/sentfriendrequestsreducer.jsx~sentfriendrequestsreducer",
+    "function/index.html#static-function-sentFriendRequestsReducer",
+    "<span>sentFriendRequestsReducer</span> <span class=\"search-result-import-path\">peter-test/app/reducers/sentFriendRequestsReducer.jsx</span>",
     "function"
   ],
   [
@@ -1434,6 +1542,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "peter-test/app/actions/friendactions.jsx~updatefriendlist",
+    "function/index.html#static-function-updateFriendList",
+    "<span>updateFriendList</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
+    "function"
+  ],
+  [
     "peter-test/app/actions/authorizeactions.jsx~updatepassword",
     "function/index.html#static-function-updatePassword",
     "<span>updatePassword</span> <span class=\"search-result-import-path\">peter-test/app/actions/authorizeActions.jsx</span>",
@@ -1443,6 +1557,18 @@ window.esdocSearchIndex = [
     "peter-test/app/actions/postactions.jsx~updatepost",
     "function/index.html#static-function-updatePost",
     "<span>updatePost</span> <span class=\"search-result-import-path\">peter-test/app/actions/postActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/actions/friendactions.jsx~updatereceivedrequestlist",
+    "function/index.html#static-function-updateReceivedRequestList",
+    "<span>updateReceivedRequestList</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
+    "function"
+  ],
+  [
+    "peter-test/app/actions/friendactions.jsx~updatesentrequestlist",
+    "function/index.html#static-function-updateSentRequestList",
+    "<span>updateSentRequestList</span> <span class=\"search-result-import-path\">peter-test/app/actions/friendActions.jsx</span>",
     "function"
   ],
   [
@@ -1770,6 +1896,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "app/actions/friendactions.jsx",
+    "file/app/actions/friendActions.jsx.html",
+    "app/actions/friendActions.jsx",
+    "file"
+  ],
+  [
     "app/actions/globalactions.jsx",
     "file/app/actions/globalActions.jsx.html",
     "app/actions/globalActions.jsx",
@@ -1897,9 +2029,9 @@ window.esdocSearchIndex = [
   ],
   [
     "app/components/blog.jsx~blog#componentwillmount",
-    "class/app/components/Blog.jsx~Blog.html#instance-method-componentWillMount",
+    "class/app/components/Blog.jsx~Blog.html#instance-member-componentWillMount",
     "app/components/Blog.jsx~Blog#componentWillMount",
-    "method"
+    "member"
   ],
   [
     "app/components/blog.jsx~blog#constructor",
@@ -1980,12 +2112,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "app/components/circle.jsx~circle#righticonmenu",
-    "class/app/components/Circle.jsx~Circle.html#instance-member-rightIconMenu",
-    "app/components/Circle.jsx~Circle#rightIconMenu",
-    "member"
-  ],
-  [
     "app/components/circle.jsx~circle#state",
     "class/app/components/Circle.jsx~Circle.html#instance-member-state",
     "app/components/Circle.jsx~Circle#state",
@@ -2005,9 +2131,9 @@ window.esdocSearchIndex = [
   ],
   [
     "app/components/comment.jsx~comment#componentwillmount",
-    "class/app/components/Comment.jsx~Comment.html#instance-method-componentWillMount",
+    "class/app/components/Comment.jsx~Comment.html#instance-member-componentWillMount",
     "app/components/Comment.jsx~Comment#componentWillMount",
-    "method"
+    "member"
   ],
   [
     "app/components/comment.jsx~comment#constructor",
@@ -2299,9 +2425,9 @@ window.esdocSearchIndex = [
   ],
   [
     "app/components/findpeople.jsx~findpeople#componentwillmount",
-    "class/app/components/FindPeople.jsx~FindPeople.html#instance-method-componentWillMount",
+    "class/app/components/FindPeople.jsx~FindPeople.html#instance-member-componentWillMount",
     "app/components/FindPeople.jsx~FindPeople#componentWillMount",
-    "method"
+    "member"
   ],
   [
     "app/components/findpeople.jsx~findpeople#render",
@@ -2467,15 +2593,15 @@ window.esdocSearchIndex = [
   ],
   [
     "app/components/imagegallery.jsx~imagegallery#componentdidmount",
-    "class/app/components/ImageGallery.jsx~ImageGallery.html#instance-method-componentDidMount",
+    "class/app/components/ImageGallery.jsx~ImageGallery.html#instance-member-componentDidMount",
     "app/components/ImageGallery.jsx~ImageGallery#componentDidMount",
-    "method"
+    "member"
   ],
   [
     "app/components/imagegallery.jsx~imagegallery#componentwillunmount",
-    "class/app/components/ImageGallery.jsx~ImageGallery.html#instance-method-componentWillUnmount",
+    "class/app/components/ImageGallery.jsx~ImageGallery.html#instance-member-componentWillUnmount",
     "app/components/ImageGallery.jsx~ImageGallery#componentWillUnmount",
-    "method"
+    "member"
   ],
   [
     "app/components/imagegallery.jsx~imagegallery#handledeleteimage",
@@ -2623,9 +2749,9 @@ window.esdocSearchIndex = [
   ],
   [
     "app/components/master.jsx~master#componentwillmount",
-    "class/app/components/Master.jsx~Master.html#instance-method-componentWillMount",
+    "class/app/components/Master.jsx~Master.html#instance-member-componentWillMount",
     "app/components/Master.jsx~Master#componentWillMount",
-    "method"
+    "member"
   ],
   [
     "app/components/master.jsx~master#constructor",
@@ -2677,9 +2803,9 @@ window.esdocSearchIndex = [
   ],
   [
     "app/components/messenger.jsx~messenger#componentwillmount",
-    "class/app/components/Messenger.jsx~Messenger.html#instance-method-componentWillMount",
+    "class/app/components/Messenger.jsx~Messenger.html#instance-member-componentWillMount",
     "app/components/Messenger.jsx~Messenger#componentWillMount",
-    "method"
+    "member"
   ],
   [
     "app/components/messenger.jsx~messenger#constructor",
@@ -2724,6 +2850,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "app/components/notifyitem.jsx~notifyitem#getreceivedrequestids",
+    "class/app/components/NotifyItem.jsx~NotifyItem.html#instance-member-getReceivedRequestIds",
+    "app/components/NotifyItem.jsx~NotifyItem#getReceivedRequestIds",
+    "member"
+  ],
+  [
     "app/components/notifyitem.jsx~notifyitem#handleseennotify",
     "class/app/components/NotifyItem.jsx~NotifyItem.html#instance-member-handleSeenNotify",
     "app/components/NotifyItem.jsx~NotifyItem#handleSeenNotify",
@@ -2743,9 +2875,9 @@ window.esdocSearchIndex = [
   ],
   [
     "app/components/people.jsx~people#componentwillmount",
-    "class/app/components/People.jsx~People.html#instance-method-componentWillMount",
+    "class/app/components/People.jsx~People.html#instance-member-componentWillMount",
     "app/components/People.jsx~People#componentWillMount",
-    "method"
+    "member"
   ],
   [
     "app/components/people.jsx~people#render",
@@ -2815,9 +2947,9 @@ window.esdocSearchIndex = [
   ],
   [
     "app/components/post.jsx~post#handlereadmore",
-    "class/app/components/Post.jsx~Post.html#instance-method-handleReadMore",
+    "class/app/components/Post.jsx~Post.html#instance-member-handleReadMore",
     "app/components/Post.jsx~Post#handleReadMore",
-    "method"
+    "member"
   ],
   [
     "app/components/post.jsx~post#handlevote",
@@ -2845,9 +2977,9 @@ window.esdocSearchIndex = [
   ],
   [
     "app/components/postpage.jsx~postpage#componentwillmount",
-    "class/app/components/PostPage.jsx~PostPage.html#instance-method-componentWillMount",
+    "class/app/components/PostPage.jsx~PostPage.html#instance-member-componentWillMount",
     "app/components/PostPage.jsx~PostPage#componentWillMount",
-    "method"
+    "member"
   ],
   [
     "app/components/postpage.jsx~postpage#render",
@@ -2863,9 +2995,9 @@ window.esdocSearchIndex = [
   ],
   [
     "app/components/postwrite.jsx~postwrite#componentwillreceiveprops",
-    "class/app/components/PostWrite.jsx~PostWrite.html#instance-method-componentWillReceiveProps",
+    "class/app/components/PostWrite.jsx~PostWrite.html#instance-member-componentWillReceiveProps",
     "app/components/PostWrite.jsx~PostWrite#componentWillReceiveProps",
-    "method"
+    "member"
   ],
   [
     "app/components/postwrite.jsx~postwrite#constructor",
@@ -2940,10 +3072,16 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "app/components/profile.jsx~profile#allowviewposts",
+    "class/app/components/Profile.jsx~Profile.html#instance-member-allowViewPosts",
+    "app/components/Profile.jsx~Profile#allowViewPosts",
+    "member"
+  ],
+  [
     "app/components/profile.jsx~profile#componentwillmount",
-    "class/app/components/Profile.jsx~Profile.html#instance-method-componentWillMount",
+    "class/app/components/Profile.jsx~Profile.html#instance-member-componentWillMount",
     "app/components/Profile.jsx~Profile#componentWillMount",
-    "method"
+    "member"
   ],
   [
     "app/components/profile.jsx~profile#render",
@@ -3228,33 +3366,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "app/components/userbox.jsx~userbox#circlelist",
-    "class/app/components/UserBox.jsx~UserBox.html#instance-member-circleList",
-    "app/components/UserBox.jsx~UserBox#circleList",
-    "member"
-  ],
-  [
     "app/components/userbox.jsx~userbox#constructor",
     "class/app/components/UserBox.jsx~UserBox.html#instance-constructor-constructor",
     "app/components/UserBox.jsx~UserBox#constructor",
     "method"
   ],
   [
-    "app/components/userbox.jsx~userbox#handlechangename",
-    "class/app/components/UserBox.jsx~UserBox.html#instance-member-handleChangeName",
-    "app/components/UserBox.jsx~UserBox#handleChangeName",
+    "app/components/userbox.jsx~userbox#getreceivedrequestids",
+    "class/app/components/UserBox.jsx~UserBox.html#instance-member-getReceivedRequestIds",
+    "app/components/UserBox.jsx~UserBox#getReceivedRequestIds",
     "member"
   ],
   [
-    "app/components/userbox.jsx~userbox#handlecreatecricle",
-    "class/app/components/UserBox.jsx~UserBox.html#instance-member-handleCreateCricle",
-    "app/components/UserBox.jsx~UserBox#handleCreateCricle",
+    "app/components/userbox.jsx~userbox#getsentrequestids",
+    "class/app/components/UserBox.jsx~UserBox.html#instance-member-getSentRequestIds",
+    "app/components/UserBox.jsx~UserBox#getSentRequestIds",
     "member"
   ],
   [
-    "app/components/userbox.jsx~userbox#handlefollowuser",
-    "class/app/components/UserBox.jsx~UserBox.html#instance-member-handleFollowUser",
-    "app/components/UserBox.jsx~UserBox#handleFollowUser",
+    "app/components/userbox.jsx~userbox#handlefrienduser",
+    "class/app/components/UserBox.jsx~UserBox.html#instance-member-handleFriendUser",
+    "app/components/UserBox.jsx~UserBox#handleFriendUser",
     "member"
   ],
   [
@@ -3267,6 +3399,12 @@ window.esdocSearchIndex = [
     "app/components/userbox.jsx~userbox#handletouchtap",
     "class/app/components/UserBox.jsx~UserBox.html#instance-member-handleTouchTap",
     "app/components/UserBox.jsx~UserBox#handleTouchTap",
+    "member"
+  ],
+  [
+    "app/components/userbox.jsx~userbox#hassentrequest",
+    "class/app/components/UserBox.jsx~UserBox.html#instance-member-hasSentRequest",
+    "app/components/UserBox.jsx~UserBox#hasSentRequest",
     "member"
   ],
   [
@@ -3372,6 +3510,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "app/reducers/friendlistreducer.jsx",
+    "file/app/reducers/friendListReducer.jsx.html",
+    "app/reducers/friendListReducer.jsx",
+    "file"
+  ],
+  [
     "app/reducers/globalreducer.jsx",
     "file/app/reducers/globalReducer.jsx.html",
     "app/reducers/globalReducer.jsx",
@@ -3393,6 +3537,18 @@ window.esdocSearchIndex = [
     "app/reducers/postreducer.jsx",
     "file/app/reducers/postReducer.jsx.html",
     "app/reducers/postReducer.jsx",
+    "file"
+  ],
+  [
+    "app/reducers/receivedfriendrequestsreducer.jsx",
+    "file/app/reducers/receivedFriendRequestsReducer.jsx.html",
+    "app/reducers/receivedFriendRequestsReducer.jsx",
+    "file"
+  ],
+  [
+    "app/reducers/sentfriendrequestsreducer.jsx",
+    "file/app/reducers/sentFriendRequestsReducer.jsx.html",
+    "app/reducers/sentFriendRequestsReducer.jsx",
     "file"
   ],
   [
