@@ -141,14 +141,16 @@ li > code {
   position: fixed;
   width: 100%;
   z-index: 1;
-  background-color: #fafafa;
+  background-color: #333842;
+  color: rgba(255,255,255,0.6);
   top: 0;
   border-bottom: solid 1px #ddd;
 }
 .layout-container > header > a{
   margin: 0 5px;
-  color: #444;
+  color: rgba(255,255,255,0.85);
 }
+
 
 .layout-container > header > a.repo-url-github {
   font-size: 0;

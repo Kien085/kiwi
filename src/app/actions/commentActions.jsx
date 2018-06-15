@@ -39,6 +39,7 @@ export const dbAddComment = (newComment, callBack) => {
         let encryptedComment = JSON.parse(JSON.stringify(comment));
 
         // Get own data key
+        let localStorage = window.localStorage;
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
         let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
@@ -91,6 +92,7 @@ export const dbAddComment = (newComment, callBack) => {
 export const dbGetComments = () => {
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
+        let localStorage = window.localStorage;
         if (uid) {
             let commentsRef = firebaseRef.child(`postComments`);
             return commentsRef.on('value', (snapshot) => {
@@ -144,6 +146,7 @@ export const dbUpdateComment = (id, postId, text) => {
         let encryptedText = JSON.parse(JSON.stringify(text));
 
         // Get own data key
+        let localStorage = window.localStorage;
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
         let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
