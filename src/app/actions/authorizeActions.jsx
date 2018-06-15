@@ -22,6 +22,19 @@ export var dbLogin = (email, password) => {
      
         // Log in user if input matches credentials in db
         return firebaseAuth().signInWithEmailAndPassword(email, password).then((result) => {
+            // Add user to dailyActiveUsers
+            
+            // Create user signup date in the form: '2018-06-01'
+            var date = new Date();
+            var monthString = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+            var dayString = (date.getDate() < 10 ? '0' : '') + date.getDate();
+            var dateString = date.getFullYear() + '-' + monthString + '-' + dayString;
+            
+            firebaseRef.child(`dailyActiveUsers/${dateString}/${result.uid}`).set({
+                active: true
+            });
+
+            // Actual dbLogin stuff
             dispatch(globalActions.showNotificationSuccess());
             dispatch(login(result.uid));
             dispatch(push('/'));
@@ -36,9 +49,25 @@ export var dbLogin = (email, password) => {
 export var dbLoginWithOAuth = (provider) => {
     return (dispatch, getState) => {
       dispatch(globalActions.showNotificationRequest());
-  
+     
     //   return authorizeService.loginWithOAuth(type).then((result) => {
       return firebaseAuth().signInWithPopup(provider).then((result) => {
+        // Add user to dailyActiveUsers
+            
+        // Create user signup date in the form: '2018-06-01'
+        var date = new Date();
+        var monthString = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+        var dayString = (date.getDate() < 10 ? '0' : '') + date.getDate();
+        var dateString = date.getFullYear() + '-' + monthString + '-' + dayString;
+        
+
+
+        firebaseRef.child(`dailyActiveUsers/${dateString}/${result.uid}`).set({
+            active: true
+        });
+
+        // Actual dbLogingWithOAuth stuff
+        
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         // var token = result.credential.accessToken;
         // The signed-in user info.
@@ -97,6 +126,17 @@ export var dbSignup = (user) => {
                 uid: signupResult.uid,
                 ...user
             }));
+
+            // Add user to dailyActiveUsers
+            // Create user signup date in the form: '2018-06-01'
+            var date = new Date();
+            var monthString = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+            var dayString = (date.getDate() < 10 ? '0' : '') + date.getDate();
+            var dateString = date.getFullYear() + '-' + monthString + '-' + dayString;
+            
+            firebaseRef.child(`dailyActiveUsers/${dateString}/${signupResult.uid}`).set({
+                active: true
+            });
             
             dispatch(push('/'));
         }, (error) => dispatch(globalActions.showErrorMessage(error.code)))
