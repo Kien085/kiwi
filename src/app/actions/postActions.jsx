@@ -50,6 +50,7 @@ export var dbAddPost = (newPost, callBack) => {
         let encryptedPost = JSON.parse(JSON.stringify(post));
 
         // Get own data key
+        let localStorage = window.localStorage;
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
         let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
@@ -119,6 +120,7 @@ export const dbAddImagePost = (newPost, callBack) => {
         let encryptedPost = JSON.parse(JSON.stringify(post));
 
         // Get own data key
+        let localStorage = window.localStorage;
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
         let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
@@ -190,6 +192,7 @@ export const dbUpdatePost = (newPost, callBack) => {
         let encryptedPost = JSON.parse(JSON.stringify(updatedPost));
 
         // Get own data key
+        let localStorage = window.localStorage;
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
         let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
@@ -252,6 +255,7 @@ export const dbGetPosts = () => {
         let uid = getState().authorize.uid;
 
         // Look up key and iv to decipher post
+        let localStorage = window.localStorage;
         let key = localStorage.getItem('dataKey');
         let iv = localStorage.getItem('dataIV');
         let keysRef = firebaseRef.child(`keys/${uid}/${uid}`);
@@ -298,6 +302,7 @@ export const dbGetPosts = () => {
 export const dbGetPostById = (userId, postId) => {
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
+        let localStorage = window.localStorage;
 
         // Look up key and iv to decipher post
         let key, iv;
@@ -340,6 +345,7 @@ export const dbGetPostById = (userId, postId) => {
 export const dbGetPostsByUserId = (userId) => {
     return (dispatch, getState) => {
         let uid = getState().authorize.uid;
+        let localStorage = window.localStorage;
 
         // Look up key and iv to decipher post
         let key, iv;
