@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // - Import app components
-import UserBoxList from 'UserBoxList';
+import UserBoxList from './UserBoxList';
 
 // - Import actions
-import * as userActions from 'userActions';
+import * as userActions from '../actions/userActions';
 
 export class FindPeople extends Component {
-    componentWillMount() {
+    componentWillMount = () => {
         this.props.loadPeople();
     }
 
@@ -21,9 +21,6 @@ export class FindPeople extends Component {
             <div>
                 {this.props.peopleInfo && Object.keys(this.props.peopleInfo).length !== 0 ?  
                     (<div>
-                        <div className='profile__title'>
-                            Suggestions for you
-                        </div>
                         <UserBoxList users={this.props.peopleInfo}/>
                         <div style={{ height: '24px' }}></div>
                     </div>) :

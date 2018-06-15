@@ -14,18 +14,27 @@ install:
 
 script:
   - echo "Building application"
+  # Ensure environment is up to date with npm requirements
   - npm install
+
+  # Build the react app
   - cd src
   - npm install
   - npm run build
-  - cp -r public/* ../public
+
+
+  # Run Tests on react app
   - cd ../
   - echo "Running tests..."
-  # Run Regression Tests
+  - npm test -- -u
 
 
 after_success:
   - echo "Tests are passing!"
+  
+  # Locate react app build
+  - cd src
+  # FIREBASE SPECIFIC DEPLOYMENT LOGIC
   - if [ $TRAVIS_BRANCH = 'staging' ]; then firebase deploy --token "$FIREBASE_TOKEN_STAGING" -P "kiwi-staging"; fi 
   - if [ $TRAVIS_BRANCH = 'production' ]; then firebase deploy --token "$FIREBASE_TOKEN_PROD" -P "kiwi-prod"; fi
 

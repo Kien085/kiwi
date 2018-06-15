@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: AdSky renders correctly 1`] = `
+<div
+  className="adSky"
+  style={
+    Object {
+      "height": "600px",
+      "left": "100%",
+      "position": "fixed",
+      "top": "55%",
+      "transform": "translate(-100%, -50%)",
+      "width": "160px",
+    }
+  }
+>
+  <img
+    className="adSky"
+    src="src/public/images/skyAds/advertise.jpg"
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;

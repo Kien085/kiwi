@@ -1,14 +1,13 @@
-import { firebaseRef, firebaseAuth } from 'app/firebase/';
+import { firebaseRef, firebaseAuth } from '../firebase/';
 import moment from 'moment';
 import { push } from 'react-router-redux';
 
 // - Import action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // - Import actions
-import * as globalActions from 'globalActions';
-
-import forge from 'node-forge';
+import * as globalActions from './globalActions';
+import EncryptionAPI from '../api/EncryptionAPI';
 
 /* _____________ CRUD DB _____________ */
 
@@ -23,6 +22,19 @@ export var dbLogin = (email, password) => {
      
         // Log in user if input matches credentials in db
         return firebaseAuth().signInWithEmailAndPassword(email, password).then((result) => {
+            // Add user to dailyActiveUsers
+            
+            // Create user signup date in the form: '2018-06-01'
+            var date = new Date();
+            var monthString = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+            var dayString = (date.getDate() < 10 ? '0' : '') + date.getDate();
+            var dateString = date.getFullYear() + '-' + monthString + '-' + dayString;
+            
+            firebaseRef.child(`dailyActiveUsers/${dateString}/${result.uid}`).set({
+                active: true
+            });
+
+            // Actual dbLogin stuff
             dispatch(globalActions.showNotificationSuccess());
             dispatch(login(result.uid));
             dispatch(push('/'));
@@ -37,9 +49,25 @@ export var dbLogin = (email, password) => {
 export var dbLoginWithOAuth = (provider) => {
     return (dispatch, getState) => {
       dispatch(globalActions.showNotificationRequest());
-  
+     
     //   return authorizeService.loginWithOAuth(type).then((result) => {
       return firebaseAuth().signInWithPopup(provider).then((result) => {
+        // Add user to dailyActiveUsers
+            
+        // Create user signup date in the form: '2018-06-01'
+        var date = new Date();
+        var monthString = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+        var dayString = (date.getDate() < 10 ? '0' : '') + date.getDate();
+        var dateString = date.getFullYear() + '-' + monthString + '-' + dayString;
+        
+
+
+        firebaseRef.child(`dailyActiveUsers/${dateString}/${result.uid}`).set({
+            active: true
+        });
+
+        // Actual dbLogingWithOAuth stuff
+        
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         // var token = result.credential.accessToken;
         // The signed-in user info.
@@ -76,44 +104,20 @@ export var dbSignup = (user) => {
     return (dispatch, getState) => {
         dispatch(globalActions.showNotificationRequest());
         return firebaseAuth().createUserWithEmailAndPassword(user.email, user.password).then((signupResult) => {
-            let rsa = forge.pki.rsa;
-            // generate an RSA key pair asynchronously (uses web workers if available)
-            // use workers: -1 to run a fast core estimator to optimize # of workers
-            rsa.generateKeyPair({bits: 2048, workers: -1}, function(err, keypair) {
-                if(err) {
-                    console.error(err)
-                } else {
-                    let localStorage = window.localStorage;
-                    let privateKey = keypair.privateKey;
-                    let publicKey = keypair.publicKey;
-            
-                    // Save privateKey locally
-                    localStorage.setItem('privPair', privateKey);
-                    localStorage.setItem('pubPair', publicKey);
-                    // Generate a public key for symmetric encryption
-                    // Note: a key size of 16 bytes will use AES-128, 24 => AES-192, 32 => AES-256
-                    let key = forge.random.getBytesSync(32);
-                    let iv = forge.random.getBytesSync(32);
-                    localStorage.setItem('PUBkey', key);
-                    localStorage.setItem('PUBiv', iv);
-            
-                    
-                    firebaseRef.child(`keys/${signupResult.uid}/`).set({
-                        key: key,
-                        iv: iv
-                    }).then((result) => {
-                        dispatch(globalActions.showNotificationSuccess())
-                    }, (error) => dispatch(globalActions.showErrorMessage(error.code)));
-                    
-                    
-                }
-            });
+            // Generate keys for encryption
+            EncryptionAPI.generateKeys(signupResult.uid);
 
             // Prevent password from being stored
             delete user.password;
+            // Create user signup date in the form: '2018-06-01'
+            var date = new Date();
+            var monthString = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+            var dayString = (date.getDate() < 10 ? '0' : '') + date.getDate();
+            var dateString = date.getFullYear() + '-' + monthString + '-' + dayString;
             firebaseRef.child(`users/${signupResult.uid}/info`).set({
                 ...user,
-                avatar: 'noImage'
+                avatar: 'noImage',
+                memberSince: dateString
             }).then((result) => {
                 dispatch(globalActions.showNotificationSuccess())
             }, (error) => dispatch(globalActions.showErrorMessage(error.code)));
@@ -122,6 +126,17 @@ export var dbSignup = (user) => {
                 uid: signupResult.uid,
                 ...user
             }));
+
+            // Add user to dailyActiveUsers
+            // Create user signup date in the form: '2018-06-01'
+            var date = new Date();
+            var monthString = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+            var dayString = (date.getDate() < 10 ? '0' : '') + date.getDate();
+            var dateString = date.getFullYear() + '-' + monthString + '-' + dayString;
+            
+            firebaseRef.child(`dailyActiveUsers/${dateString}/${signupResult.uid}`).set({
+                active: true
+            });
             
             dispatch(push('/'));
         }, (error) => dispatch(globalActions.showErrorMessage(error.code)))

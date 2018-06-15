@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
-import { firebaseRef, firebaseAuth } from 'app/firebase/';
+import { firebaseRef, firebaseAuth } from '../firebase/';
 import moment from 'moment';
-import {push} from "react-router-redux";
 import {connect} from "react-redux";
 
 // - Import app components
 import { Widget, addResponseMessage} from 'react-chat-widget';
-import 'react-chat-widget/lib/styles.css';
+// import 'react-chat-widget/lib/styles.css';
 
 
 // - Import actions
-import * as voteActions from 'voteActions';
-import * as postActions from 'postActions';
-import * as globalActions from 'globalActions';
+import * as voteActions from '../actions/voteActions';
+import * as postActions from '../actions/postActions';
+import * as globalActions from '../actions/globalActions';
 import {addImageList} from "../actions/imageGalleryActions";
 
 export class Messenger extends Component {
@@ -23,13 +22,11 @@ export class Messenger extends Component {
     }
 
     /**
-     * Loads previous messages in conversation from firebase
+     * Runs when the component loads
+     * Fetches the messages of a specific conversation
      */
-    componentWillMount() {
-        console.log("Mounting messenger");
-
+    componentWillMount = () => {
         //TODO Switch to this line when conversation ids have been made
-        //firebaseRef.child(`userMessages/${this.props.convoID}`).once('value').then((snapshot) => {
         firebaseRef.child(`userMessages/messageList`).once('value').then((snapshot) => {
                 let message = snapshot.val() || {};
 
@@ -37,15 +34,6 @@ export class Messenger extends Component {
                     addResponseMessage(message.message);
                 }
             });
-
-
-        // firebaseRef.child("userMessages/").once('value').then(function (snapshot) {
-        //     console.log(snapshot.val());
-        //
-        //     this.props = {
-        //         messages: snapshot.val()
-        //     };
-        // })
     }
 
     /**
@@ -59,8 +47,6 @@ export class Messenger extends Component {
             sender: this.props.uid,
             timeStamp: moment().unix()
         }
-
-        console.log(toUploadMsg);
 
         //TODO send message to a specific conversation key
         let convoRef = firebaseRef.child(`userMessages/messageList`).push(toUploadMsg);
@@ -76,7 +62,7 @@ export class Messenger extends Component {
             <div id="messenger">
                 <Widget
                     handleNewUserMessage = {this.handleNewUserMessage}
-                    title = {`${this.props.name}'s Chat`}
+                    title = {`Chat Title`}
                     subtitle = {""}
                 />
             </div>
@@ -92,7 +78,7 @@ export class Messenger extends Component {
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
     const { userId } = ownProps.uid
-    console.log("mapDispatch");
+
     return {
         loadUserInfo: () => dispatch(userActions.dbGetUserInfoByUserId(userId, 'header'))
 
@@ -108,8 +94,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const mapStateToProps = (state, ownProps) => {
     const { userId } = ownProps.uid
     const { uid } = state.authorize
-
-    console.log(state);
 
     return {
         avatar: state.user.info && state.user.info[userId] ? state.user.info[userId].avatar || '' : '',

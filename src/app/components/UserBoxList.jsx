@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // - Import app components
-import UserBox from 'UserBox';
+import UserBox from './UserBox';
 
 export class UserBoxList extends Component {
     userList = () => {
@@ -17,12 +17,12 @@ export class UserBoxList extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
         return (
-            <div className='grid grid__1of4 grid__space-around'>
+            <div>
                 {this.userList()}
             </div>
         );

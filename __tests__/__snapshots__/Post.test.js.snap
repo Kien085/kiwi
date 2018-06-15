@@ -1,0 +1,2925 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Post renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Post />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <CardHeader
+          avatar={
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              to="/undefined"
+            >
+              <Connect(UserAvatar)
+                fileName={undefined}
+                fullName={undefined}
+                size={36}
+              />
+            </NavLink>
+          }
+          subtitle="Invalid date"
+          title={
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+              title="User is secure :)"
+              to="/undefined"
+            >
+              <div />
+              <svg
+                height="15"
+                style={
+                  Object {
+                    "marginLeft": "7px",
+                    "marginTop": "1px",
+                  }
+                }
+                width="11"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.323 6.705h.99c.38 0 .687.32.687.715v6.866a.701.701 0 0 1-.688.714H.688A.701.701 0 0 1 0 14.286V7.42c0-.395.308-.715.688-.715h.989V3.86h1.475v2.845h4.696V3.86h1.475v2.845zm0-2.845H1.677C1.677 1.728 3.389 0 5.5 0c2.111 0 3.823 1.728 3.823 3.86zm-1.475 0A2.359 2.359 0 0 0 5.5 1.49a2.359 2.359 0 0 0-2.348 2.37h4.696z"
+                  fill="#7ED321"
+                />
+              </svg>
+            </NavLink>
+          }
+        >
+          
+        </CardHeader>,
+        "",
+        "",
+        <CardActions>
+          <div
+            style={
+              Object {
+                "border": "0px",
+                "display": "flex",
+                "justifyContent": "space-between",
+                "margin": "16px 8px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+            >
+              <div
+                className="g__circle"
+                onClick={[Function]}
+              >
+                <Checkbox
+                  checkedIcon={
+                    <ActionFavorite
+                      style={
+                        Object {
+                          "fill": "#EC425C",
+                        }
+                      }
+                    />
+                  }
+                  defaultChecked={undefined}
+                  disabled={false}
+                  labelPosition="right"
+                  style={
+                    Object {
+                      "transform": "translate(6px, 6px)",
+                    }
+                  }
+                  uncheckedIcon={
+                    <ActionFavoriteBorder
+                      style={
+                        Object {
+                          "fill": "#757575",
+                        }
+                      }
+                    />
+                  }
+                />
+              </div>
+              <div
+                style={
+                  Object {
+                    "color": "#757575",
+                    "fontSize": "12px",
+                    "lineHeight": "36px",
+                  }
+                }
+              >
+                 
+                
+                 
+              </div>
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "color": "#757575",
+                      "fontSize": "12px",
+                      "lineHeight": "36px",
+                    }
+                  }
+                >
+                  
+                </div>
+                <div
+                  className="g__circle"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <Checkbox
+                    checkedIcon={
+                      <svg
+                        height="21"
+                        style={
+                          Object {
+                            "marginLeft": "2px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                          fill="#757575"
+                        />
+                      </svg>
+                    }
+                    defaultChecked={false}
+                    disabled={false}
+                    labelPosition="right"
+                    style={
+                      Object {
+                        "transform": "translate(6px, 6px)",
+                      }
+                    }
+                    uncheckedIcon={
+                      <svg
+                        height="21"
+                        style={
+                          Object {
+                            "marginLeft": "2px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                          fill="#757575"
+                        />
+                      </svg>
+                    }
+                  />
+                </div>
+              </div>
+              <div
+                className="g__circle"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <Checkbox
+                  checkedIcon={
+                    <svg
+                      height="16"
+                      style={
+                        Object {
+                          "marginLeft": "1px",
+                          "marginTop": "2px",
+                        }
+                      }
+                      width="20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                        fill="#757575"
+                      />
+                    </svg>
+                  }
+                  disabled={false}
+                  labelPosition="right"
+                  style={
+                    Object {
+                      "transform": "translate(6px, 6px)",
+                    }
+                  }
+                  uncheckedIcon={
+                    <svg
+                      height="16"
+                      style={
+                        Object {
+                          "marginLeft": "1px",
+                          "marginTop": "2px",
+                        }
+                      }
+                      width="20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                        fill="#757575"
+                      />
+                    </svg>
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </CardActions>,
+        <Connect(CommentGroup)
+          disableComments={undefined}
+          isPostOwner={undefined}
+          onToggleRequest={[Function]}
+          open={false}
+          ownerPostUserId={undefined}
+          postId={undefined}
+        />,
+        <Snackbar
+          autoHideDuration={1000}
+          message="Link to Post copied!"
+          open={false}
+          style={
+            Object {
+              "left": "1%",
+              "transform": "none",
+            }
+          }
+        />,
+        <Connect(PostWrite)
+          disableComments={undefined}
+          disableSharing={undefined}
+          edit={true}
+          id={undefined}
+          image=""
+          onRequestClose={[Function]}
+          open={false}
+          text={undefined}
+        />,
+      ],
+      "style": Object {
+        "backgroundColor": "#fff",
+        "border": "1px solid #dddfe2",
+        "borderRadius": "7px",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "avatar": <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            to="/undefined"
+          >
+            <Connect(UserAvatar)
+              fileName={undefined}
+              fullName={undefined}
+              size={36}
+            />
+          </NavLink>,
+          "children": "",
+          "subtitle": "Invalid date",
+          "title": <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
+            title="User is secure :)"
+            to="/undefined"
+          >
+            <div />
+            <svg
+              height="15"
+              style={
+                Object {
+                  "marginLeft": "7px",
+                  "marginTop": "1px",
+                }
+              }
+              width="11"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.323 6.705h.99c.38 0 .687.32.687.715v6.866a.701.701 0 0 1-.688.714H.688A.701.701 0 0 1 0 14.286V7.42c0-.395.308-.715.688-.715h.989V3.86h1.475v2.845h4.696V3.86h1.475v2.845zm0-2.845H1.677C1.677 1.728 3.389 0 5.5 0c2.111 0 3.823 1.728 3.823 3.86zm-1.475 0A2.359 2.359 0 0 0 5.5 1.49a2.359 2.359 0 0 0-2.348 2.37h4.696z"
+                fill="#7ED321"
+              />
+            </svg>
+          </NavLink>,
+        },
+        "ref": null,
+        "rendered": "",
+        "type": [Function],
+      },
+      "",
+      "",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <div
+            style={
+              Object {
+                "border": "0px",
+                "display": "flex",
+                "justifyContent": "space-between",
+                "margin": "16px 8px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+            >
+              <div
+                className="g__circle"
+                onClick={[Function]}
+              >
+                <Checkbox
+                  checkedIcon={
+                    <ActionFavorite
+                      style={
+                        Object {
+                          "fill": "#EC425C",
+                        }
+                      }
+                    />
+                  }
+                  defaultChecked={undefined}
+                  disabled={false}
+                  labelPosition="right"
+                  style={
+                    Object {
+                      "transform": "translate(6px, 6px)",
+                    }
+                  }
+                  uncheckedIcon={
+                    <ActionFavoriteBorder
+                      style={
+                        Object {
+                          "fill": "#757575",
+                        }
+                      }
+                    />
+                  }
+                />
+              </div>
+              <div
+                style={
+                  Object {
+                    "color": "#757575",
+                    "fontSize": "12px",
+                    "lineHeight": "36px",
+                  }
+                }
+              >
+                 
+                
+                 
+              </div>
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "color": "#757575",
+                      "fontSize": "12px",
+                      "lineHeight": "36px",
+                    }
+                  }
+                >
+                  
+                </div>
+                <div
+                  className="g__circle"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <Checkbox
+                    checkedIcon={
+                      <svg
+                        height="21"
+                        style={
+                          Object {
+                            "marginLeft": "2px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                          fill="#757575"
+                        />
+                      </svg>
+                    }
+                    defaultChecked={false}
+                    disabled={false}
+                    labelPosition="right"
+                    style={
+                      Object {
+                        "transform": "translate(6px, 6px)",
+                      }
+                    }
+                    uncheckedIcon={
+                      <svg
+                        height="21"
+                        style={
+                          Object {
+                            "marginLeft": "2px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                          fill="#757575"
+                        />
+                      </svg>
+                    }
+                  />
+                </div>
+              </div>
+              <div
+                className="g__circle"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <Checkbox
+                  checkedIcon={
+                    <svg
+                      height="16"
+                      style={
+                        Object {
+                          "marginLeft": "1px",
+                          "marginTop": "2px",
+                        }
+                      }
+                      width="20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                        fill="#757575"
+                      />
+                    </svg>
+                  }
+                  disabled={false}
+                  labelPosition="right"
+                  style={
+                    Object {
+                      "transform": "translate(6px, 6px)",
+                    }
+                  }
+                  uncheckedIcon={
+                    <svg
+                      height="16"
+                      style={
+                        Object {
+                          "marginLeft": "1px",
+                          "marginTop": "2px",
+                        }
+                      }
+                      width="20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                        fill="#757575"
+                      />
+                    </svg>
+                  }
+                />
+              </div>
+            </div>
+          </div>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <div
+                  className="g__circle"
+                  onClick={[Function]}
+                >
+                  <Checkbox
+                    checkedIcon={
+                      <ActionFavorite
+                        style={
+                          Object {
+                            "fill": "#EC425C",
+                          }
+                        }
+                      />
+                    }
+                    defaultChecked={undefined}
+                    disabled={false}
+                    labelPosition="right"
+                    style={
+                      Object {
+                        "transform": "translate(6px, 6px)",
+                      }
+                    }
+                    uncheckedIcon={
+                      <ActionFavoriteBorder
+                        style={
+                          Object {
+                            "fill": "#757575",
+                          }
+                        }
+                      />
+                    }
+                  />
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#757575",
+                      "fontSize": "12px",
+                      "lineHeight": "36px",
+                    }
+                  }
+                >
+                   
+                  
+                   
+                </div>
+              </div>,
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "color": "#757575",
+                        "fontSize": "12px",
+                        "lineHeight": "36px",
+                      }
+                    }
+                  >
+                    
+                  </div>
+                  <div
+                    className="g__circle"
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "display": "flex",
+                      }
+                    }
+                  >
+                    <Checkbox
+                      checkedIcon={
+                        <svg
+                          height="21"
+                          style={
+                            Object {
+                              "marginLeft": "2px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                      defaultChecked={false}
+                      disabled={false}
+                      labelPosition="right"
+                      style={
+                        Object {
+                          "transform": "translate(6px, 6px)",
+                        }
+                      }
+                      uncheckedIcon={
+                        <svg
+                          height="21"
+                          style={
+                            Object {
+                              "marginLeft": "2px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                    />
+                  </div>
+                </div>
+                <div
+                  className="g__circle"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <Checkbox
+                    checkedIcon={
+                      <svg
+                        height="16"
+                        style={
+                          Object {
+                            "marginLeft": "1px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                          fill="#757575"
+                        />
+                      </svg>
+                    }
+                    disabled={false}
+                    labelPosition="right"
+                    style={
+                      Object {
+                        "transform": "translate(6px, 6px)",
+                      }
+                    }
+                    uncheckedIcon={
+                      <svg
+                        height="16"
+                        style={
+                          Object {
+                            "marginLeft": "1px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                          fill="#757575"
+                        />
+                      </svg>
+                    }
+                  />
+                </div>
+              </div>,
+            ],
+            "style": Object {
+              "border": "0px",
+              "display": "flex",
+              "justifyContent": "space-between",
+              "margin": "16px 8px",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="g__circle"
+                    onClick={[Function]}
+                  >
+                    <Checkbox
+                      checkedIcon={
+                        <ActionFavorite
+                          style={
+                            Object {
+                              "fill": "#EC425C",
+                            }
+                          }
+                        />
+                      }
+                      defaultChecked={undefined}
+                      disabled={false}
+                      labelPosition="right"
+                      style={
+                        Object {
+                          "transform": "translate(6px, 6px)",
+                        }
+                      }
+                      uncheckedIcon={
+                        <ActionFavoriteBorder
+                          style={
+                            Object {
+                              "fill": "#757575",
+                            }
+                          }
+                        />
+                      }
+                    />
+                  </div>,
+                  <div
+                    style={
+                      Object {
+                        "color": "#757575",
+                        "fontSize": "12px",
+                        "lineHeight": "36px",
+                      }
+                    }
+                  >
+                     
+                    
+                     
+                  </div>,
+                ],
+                "style": Object {
+                  "display": "flex",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <Checkbox
+                      checkedIcon={
+                        <ActionFavorite
+                          style={
+                            Object {
+                              "fill": "#EC425C",
+                            }
+                          }
+                        />
+                      }
+                      defaultChecked={undefined}
+                      disabled={false}
+                      labelPosition="right"
+                      style={
+                        Object {
+                          "transform": "translate(6px, 6px)",
+                        }
+                      }
+                      uncheckedIcon={
+                        <ActionFavoriteBorder
+                          style={
+                            Object {
+                              "fill": "#757575",
+                            }
+                          }
+                        />
+                      }
+                    />,
+                    "className": "g__circle",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "checkedIcon": <ActionFavorite
+                        style={
+                          Object {
+                            "fill": "#EC425C",
+                          }
+                        }
+                      />,
+                      "defaultChecked": undefined,
+                      "disabled": false,
+                      "labelPosition": "right",
+                      "style": Object {
+                        "transform": "translate(6px, 6px)",
+                      },
+                      "uncheckedIcon": <ActionFavoriteBorder
+                        style={
+                          Object {
+                            "fill": "#757575",
+                          }
+                        }
+                      />,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " ",
+                      "",
+                      " ",
+                    ],
+                    "style": Object {
+                      "color": "#757575",
+                      "fontSize": "12px",
+                      "lineHeight": "36px",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " ",
+                    "",
+                    " ",
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "display": "flex",
+                      }
+                    }
+                  >
+                    <div
+                      style={
+                        Object {
+                          "color": "#757575",
+                          "fontSize": "12px",
+                          "lineHeight": "36px",
+                        }
+                      }
+                    >
+                      
+                    </div>
+                    <div
+                      className="g__circle"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "display": "flex",
+                        }
+                      }
+                    >
+                      <Checkbox
+                        checkedIcon={
+                          <svg
+                            height="21"
+                            style={
+                              Object {
+                                "marginLeft": "2px",
+                                "marginTop": "2px",
+                              }
+                            }
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                              fill="#757575"
+                            />
+                          </svg>
+                        }
+                        defaultChecked={false}
+                        disabled={false}
+                        labelPosition="right"
+                        style={
+                          Object {
+                            "transform": "translate(6px, 6px)",
+                          }
+                        }
+                        uncheckedIcon={
+                          <svg
+                            height="21"
+                            style={
+                              Object {
+                                "marginLeft": "2px",
+                                "marginTop": "2px",
+                              }
+                            }
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                              fill="#757575"
+                            />
+                          </svg>
+                        }
+                      />
+                    </div>
+                  </div>,
+                  <div
+                    className="g__circle"
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "display": "flex",
+                      }
+                    }
+                  >
+                    <Checkbox
+                      checkedIcon={
+                        <svg
+                          height="16"
+                          style={
+                            Object {
+                              "marginLeft": "1px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                      disabled={false}
+                      labelPosition="right"
+                      style={
+                        Object {
+                          "transform": "translate(6px, 6px)",
+                        }
+                      }
+                      uncheckedIcon={
+                        <svg
+                          height="16"
+                          style={
+                            Object {
+                              "marginLeft": "1px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                    />
+                  </div>,
+                ],
+                "style": Object {
+                  "display": "flex",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <div
+                        style={
+                          Object {
+                            "color": "#757575",
+                            "fontSize": "12px",
+                            "lineHeight": "36px",
+                          }
+                        }
+                      >
+                        
+                      </div>,
+                      <div
+                        className="g__circle"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "display": "flex",
+                          }
+                        }
+                      >
+                        <Checkbox
+                          checkedIcon={
+                            <svg
+                              height="21"
+                              style={
+                                Object {
+                                  "marginLeft": "2px",
+                                  "marginTop": "2px",
+                                }
+                              }
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                fill="#757575"
+                              />
+                            </svg>
+                          }
+                          defaultChecked={false}
+                          disabled={false}
+                          labelPosition="right"
+                          style={
+                            Object {
+                              "transform": "translate(6px, 6px)",
+                            }
+                          }
+                          uncheckedIcon={
+                            <svg
+                              height="21"
+                              style={
+                                Object {
+                                  "marginLeft": "2px",
+                                  "marginTop": "2px",
+                                }
+                              }
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                fill="#757575"
+                              />
+                            </svg>
+                          }
+                        />
+                      </div>,
+                    ],
+                    "style": Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "",
+                        "style": Object {
+                          "color": "#757575",
+                          "fontSize": "12px",
+                          "lineHeight": "36px",
+                        },
+                      },
+                      "ref": null,
+                      "rendered": "",
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <Checkbox
+                          checkedIcon={
+                            <svg
+                              height="21"
+                              style={
+                                Object {
+                                  "marginLeft": "2px",
+                                  "marginTop": "2px",
+                                }
+                              }
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                fill="#757575"
+                              />
+                            </svg>
+                          }
+                          defaultChecked={false}
+                          disabled={false}
+                          labelPosition="right"
+                          style={
+                            Object {
+                              "transform": "translate(6px, 6px)",
+                            }
+                          }
+                          uncheckedIcon={
+                            <svg
+                              height="21"
+                              style={
+                                Object {
+                                  "marginLeft": "2px",
+                                  "marginTop": "2px",
+                                }
+                              }
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                fill="#757575"
+                              />
+                            </svg>
+                          }
+                        />,
+                        "className": "g__circle",
+                        "onClick": [Function],
+                        "style": Object {
+                          "display": "flex",
+                        },
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "checkedIcon": <svg
+                            height="21"
+                            style={
+                              Object {
+                                "marginLeft": "2px",
+                                "marginTop": "2px",
+                              }
+                            }
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                              fill="#757575"
+                            />
+                          </svg>,
+                          "defaultChecked": false,
+                          "disabled": false,
+                          "labelPosition": "right",
+                          "style": Object {
+                            "transform": "translate(6px, 6px)",
+                          },
+                          "uncheckedIcon": <svg
+                            height="21"
+                            style={
+                              Object {
+                                "marginLeft": "2px",
+                                "marginTop": "2px",
+                              }
+                            }
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                              fill="#757575"
+                            />
+                          </svg>,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      "type": "div",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <Checkbox
+                      checkedIcon={
+                        <svg
+                          height="16"
+                          style={
+                            Object {
+                              "marginLeft": "1px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                      disabled={false}
+                      labelPosition="right"
+                      style={
+                        Object {
+                          "transform": "translate(6px, 6px)",
+                        }
+                      }
+                      uncheckedIcon={
+                        <svg
+                          height="16"
+                          style={
+                            Object {
+                              "marginLeft": "1px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                    />,
+                    "className": "g__circle",
+                    "onClick": [Function],
+                    "style": Object {
+                      "display": "flex",
+                    },
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "checkedIcon": <svg
+                        height="16"
+                        style={
+                          Object {
+                            "marginLeft": "1px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                          fill="#757575"
+                        />
+                      </svg>,
+                      "disabled": false,
+                      "labelPosition": "right",
+                      "style": Object {
+                        "transform": "translate(6px, 6px)",
+                      },
+                      "uncheckedIcon": <svg
+                        height="16"
+                        style={
+                          Object {
+                            "marginLeft": "1px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                          fill="#757575"
+                        />
+                      </svg>,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "disableComments": undefined,
+          "isPostOwner": undefined,
+          "onToggleRequest": [Function],
+          "open": false,
+          "ownerPostUserId": undefined,
+          "postId": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "autoHideDuration": 1000,
+          "message": "Link to Post copied!",
+          "open": false,
+          "style": Object {
+            "left": "1%",
+            "transform": "none",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "disableComments": undefined,
+          "disableSharing": undefined,
+          "edit": true,
+          "id": undefined,
+          "image": "",
+          "onRequestClose": [Function],
+          "open": false,
+          "text": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <CardHeader
+            avatar={
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                to="/undefined"
+              >
+                <Connect(UserAvatar)
+                  fileName={undefined}
+                  fullName={undefined}
+                  size={36}
+                />
+              </NavLink>
+            }
+            subtitle="Invalid date"
+            title={
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+                title="User is secure :)"
+                to="/undefined"
+              >
+                <div />
+                <svg
+                  height="15"
+                  style={
+                    Object {
+                      "marginLeft": "7px",
+                      "marginTop": "1px",
+                    }
+                  }
+                  width="11"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.323 6.705h.99c.38 0 .687.32.687.715v6.866a.701.701 0 0 1-.688.714H.688A.701.701 0 0 1 0 14.286V7.42c0-.395.308-.715.688-.715h.989V3.86h1.475v2.845h4.696V3.86h1.475v2.845zm0-2.845H1.677C1.677 1.728 3.389 0 5.5 0c2.111 0 3.823 1.728 3.823 3.86zm-1.475 0A2.359 2.359 0 0 0 5.5 1.49a2.359 2.359 0 0 0-2.348 2.37h4.696z"
+                    fill="#7ED321"
+                  />
+                </svg>
+              </NavLink>
+            }
+          >
+            
+          </CardHeader>,
+          "",
+          "",
+          <CardActions>
+            <div
+              style={
+                Object {
+                  "border": "0px",
+                  "display": "flex",
+                  "justifyContent": "space-between",
+                  "margin": "16px 8px",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <div
+                  className="g__circle"
+                  onClick={[Function]}
+                >
+                  <Checkbox
+                    checkedIcon={
+                      <ActionFavorite
+                        style={
+                          Object {
+                            "fill": "#EC425C",
+                          }
+                        }
+                      />
+                    }
+                    defaultChecked={undefined}
+                    disabled={false}
+                    labelPosition="right"
+                    style={
+                      Object {
+                        "transform": "translate(6px, 6px)",
+                      }
+                    }
+                    uncheckedIcon={
+                      <ActionFavoriteBorder
+                        style={
+                          Object {
+                            "fill": "#757575",
+                          }
+                        }
+                      />
+                    }
+                  />
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#757575",
+                      "fontSize": "12px",
+                      "lineHeight": "36px",
+                    }
+                  }
+                >
+                   
+                  
+                   
+                </div>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "color": "#757575",
+                        "fontSize": "12px",
+                        "lineHeight": "36px",
+                      }
+                    }
+                  >
+                    
+                  </div>
+                  <div
+                    className="g__circle"
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "display": "flex",
+                      }
+                    }
+                  >
+                    <Checkbox
+                      checkedIcon={
+                        <svg
+                          height="21"
+                          style={
+                            Object {
+                              "marginLeft": "2px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                      defaultChecked={false}
+                      disabled={false}
+                      labelPosition="right"
+                      style={
+                        Object {
+                          "transform": "translate(6px, 6px)",
+                        }
+                      }
+                      uncheckedIcon={
+                        <svg
+                          height="21"
+                          style={
+                            Object {
+                              "marginLeft": "2px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                    />
+                  </div>
+                </div>
+                <div
+                  className="g__circle"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <Checkbox
+                    checkedIcon={
+                      <svg
+                        height="16"
+                        style={
+                          Object {
+                            "marginLeft": "1px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                          fill="#757575"
+                        />
+                      </svg>
+                    }
+                    disabled={false}
+                    labelPosition="right"
+                    style={
+                      Object {
+                        "transform": "translate(6px, 6px)",
+                      }
+                    }
+                    uncheckedIcon={
+                      <svg
+                        height="16"
+                        style={
+                          Object {
+                            "marginLeft": "1px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                          fill="#757575"
+                        />
+                      </svg>
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          </CardActions>,
+          <Connect(CommentGroup)
+            disableComments={undefined}
+            isPostOwner={undefined}
+            onToggleRequest={[Function]}
+            open={false}
+            ownerPostUserId={undefined}
+            postId={undefined}
+          />,
+          <Snackbar
+            autoHideDuration={1000}
+            message="Link to Post copied!"
+            open={false}
+            style={
+              Object {
+                "left": "1%",
+                "transform": "none",
+              }
+            }
+          />,
+          <Connect(PostWrite)
+            disableComments={undefined}
+            disableSharing={undefined}
+            edit={true}
+            id={undefined}
+            image=""
+            onRequestClose={[Function]}
+            open={false}
+            text={undefined}
+          />,
+        ],
+        "style": Object {
+          "backgroundColor": "#fff",
+          "border": "1px solid #dddfe2",
+          "borderRadius": "7px",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "avatar": <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              to="/undefined"
+            >
+              <Connect(UserAvatar)
+                fileName={undefined}
+                fullName={undefined}
+                size={36}
+              />
+            </NavLink>,
+            "children": "",
+            "subtitle": "Invalid date",
+            "title": <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+              title="User is secure :)"
+              to="/undefined"
+            >
+              <div />
+              <svg
+                height="15"
+                style={
+                  Object {
+                    "marginLeft": "7px",
+                    "marginTop": "1px",
+                  }
+                }
+                width="11"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.323 6.705h.99c.38 0 .687.32.687.715v6.866a.701.701 0 0 1-.688.714H.688A.701.701 0 0 1 0 14.286V7.42c0-.395.308-.715.688-.715h.989V3.86h1.475v2.845h4.696V3.86h1.475v2.845zm0-2.845H1.677C1.677 1.728 3.389 0 5.5 0c2.111 0 3.823 1.728 3.823 3.86zm-1.475 0A2.359 2.359 0 0 0 5.5 1.49a2.359 2.359 0 0 0-2.348 2.37h4.696z"
+                  fill="#7ED321"
+                />
+              </svg>
+            </NavLink>,
+          },
+          "ref": null,
+          "rendered": "",
+          "type": [Function],
+        },
+        "",
+        "",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <div
+              style={
+                Object {
+                  "border": "0px",
+                  "display": "flex",
+                  "justifyContent": "space-between",
+                  "margin": "16px 8px",
+                }
+              }
+            >
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <div
+                  className="g__circle"
+                  onClick={[Function]}
+                >
+                  <Checkbox
+                    checkedIcon={
+                      <ActionFavorite
+                        style={
+                          Object {
+                            "fill": "#EC425C",
+                          }
+                        }
+                      />
+                    }
+                    defaultChecked={undefined}
+                    disabled={false}
+                    labelPosition="right"
+                    style={
+                      Object {
+                        "transform": "translate(6px, 6px)",
+                      }
+                    }
+                    uncheckedIcon={
+                      <ActionFavoriteBorder
+                        style={
+                          Object {
+                            "fill": "#757575",
+                          }
+                        }
+                      />
+                    }
+                  />
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#757575",
+                      "fontSize": "12px",
+                      "lineHeight": "36px",
+                    }
+                  }
+                >
+                   
+                  
+                   
+                </div>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "color": "#757575",
+                        "fontSize": "12px",
+                        "lineHeight": "36px",
+                      }
+                    }
+                  >
+                    
+                  </div>
+                  <div
+                    className="g__circle"
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "display": "flex",
+                      }
+                    }
+                  >
+                    <Checkbox
+                      checkedIcon={
+                        <svg
+                          height="21"
+                          style={
+                            Object {
+                              "marginLeft": "2px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                      defaultChecked={false}
+                      disabled={false}
+                      labelPosition="right"
+                      style={
+                        Object {
+                          "transform": "translate(6px, 6px)",
+                        }
+                      }
+                      uncheckedIcon={
+                        <svg
+                          height="21"
+                          style={
+                            Object {
+                              "marginLeft": "2px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                    />
+                  </div>
+                </div>
+                <div
+                  className="g__circle"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <Checkbox
+                    checkedIcon={
+                      <svg
+                        height="16"
+                        style={
+                          Object {
+                            "marginLeft": "1px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                          fill="#757575"
+                        />
+                      </svg>
+                    }
+                    disabled={false}
+                    labelPosition="right"
+                    style={
+                      Object {
+                        "transform": "translate(6px, 6px)",
+                      }
+                    }
+                    uncheckedIcon={
+                      <svg
+                        height="16"
+                        style={
+                          Object {
+                            "marginLeft": "1px",
+                            "marginTop": "2px",
+                          }
+                        }
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                          fill="#757575"
+                        />
+                      </svg>
+                    }
+                  />
+                </div>
+              </div>
+            </div>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <div
+                    className="g__circle"
+                    onClick={[Function]}
+                  >
+                    <Checkbox
+                      checkedIcon={
+                        <ActionFavorite
+                          style={
+                            Object {
+                              "fill": "#EC425C",
+                            }
+                          }
+                        />
+                      }
+                      defaultChecked={undefined}
+                      disabled={false}
+                      labelPosition="right"
+                      style={
+                        Object {
+                          "transform": "translate(6px, 6px)",
+                        }
+                      }
+                      uncheckedIcon={
+                        <ActionFavoriteBorder
+                          style={
+                            Object {
+                              "fill": "#757575",
+                            }
+                          }
+                        />
+                      }
+                    />
+                  </div>
+                  <div
+                    style={
+                      Object {
+                        "color": "#757575",
+                        "fontSize": "12px",
+                        "lineHeight": "36px",
+                      }
+                    }
+                  >
+                     
+                    
+                     
+                  </div>
+                </div>,
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <div
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "display": "flex",
+                      }
+                    }
+                  >
+                    <div
+                      style={
+                        Object {
+                          "color": "#757575",
+                          "fontSize": "12px",
+                          "lineHeight": "36px",
+                        }
+                      }
+                    >
+                      
+                    </div>
+                    <div
+                      className="g__circle"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "display": "flex",
+                        }
+                      }
+                    >
+                      <Checkbox
+                        checkedIcon={
+                          <svg
+                            height="21"
+                            style={
+                              Object {
+                                "marginLeft": "2px",
+                                "marginTop": "2px",
+                              }
+                            }
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                              fill="#757575"
+                            />
+                          </svg>
+                        }
+                        defaultChecked={false}
+                        disabled={false}
+                        labelPosition="right"
+                        style={
+                          Object {
+                            "transform": "translate(6px, 6px)",
+                          }
+                        }
+                        uncheckedIcon={
+                          <svg
+                            height="21"
+                            style={
+                              Object {
+                                "marginLeft": "2px",
+                                "marginTop": "2px",
+                              }
+                            }
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                              fill="#757575"
+                            />
+                          </svg>
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="g__circle"
+                    onClick={[Function]}
+                    style={
+                      Object {
+                        "display": "flex",
+                      }
+                    }
+                  >
+                    <Checkbox
+                      checkedIcon={
+                        <svg
+                          height="16"
+                          style={
+                            Object {
+                              "marginLeft": "1px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                      disabled={false}
+                      labelPosition="right"
+                      style={
+                        Object {
+                          "transform": "translate(6px, 6px)",
+                        }
+                      }
+                      uncheckedIcon={
+                        <svg
+                          height="16"
+                          style={
+                            Object {
+                              "marginLeft": "1px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                            fill="#757575"
+                          />
+                        </svg>
+                      }
+                    />
+                  </div>
+                </div>,
+              ],
+              "style": Object {
+                "border": "0px",
+                "display": "flex",
+                "justifyContent": "space-between",
+                "margin": "16px 8px",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      className="g__circle"
+                      onClick={[Function]}
+                    >
+                      <Checkbox
+                        checkedIcon={
+                          <ActionFavorite
+                            style={
+                              Object {
+                                "fill": "#EC425C",
+                              }
+                            }
+                          />
+                        }
+                        defaultChecked={undefined}
+                        disabled={false}
+                        labelPosition="right"
+                        style={
+                          Object {
+                            "transform": "translate(6px, 6px)",
+                          }
+                        }
+                        uncheckedIcon={
+                          <ActionFavoriteBorder
+                            style={
+                              Object {
+                                "fill": "#757575",
+                              }
+                            }
+                          />
+                        }
+                      />
+                    </div>,
+                    <div
+                      style={
+                        Object {
+                          "color": "#757575",
+                          "fontSize": "12px",
+                          "lineHeight": "36px",
+                        }
+                      }
+                    >
+                       
+                      
+                       
+                    </div>,
+                  ],
+                  "style": Object {
+                    "display": "flex",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <Checkbox
+                        checkedIcon={
+                          <ActionFavorite
+                            style={
+                              Object {
+                                "fill": "#EC425C",
+                              }
+                            }
+                          />
+                        }
+                        defaultChecked={undefined}
+                        disabled={false}
+                        labelPosition="right"
+                        style={
+                          Object {
+                            "transform": "translate(6px, 6px)",
+                          }
+                        }
+                        uncheckedIcon={
+                          <ActionFavoriteBorder
+                            style={
+                              Object {
+                                "fill": "#757575",
+                              }
+                            }
+                          />
+                        }
+                      />,
+                      "className": "g__circle",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "checkedIcon": <ActionFavorite
+                          style={
+                            Object {
+                              "fill": "#EC425C",
+                            }
+                          }
+                        />,
+                        "defaultChecked": undefined,
+                        "disabled": false,
+                        "labelPosition": "right",
+                        "style": Object {
+                          "transform": "translate(6px, 6px)",
+                        },
+                        "uncheckedIcon": <ActionFavoriteBorder
+                          style={
+                            Object {
+                              "fill": "#757575",
+                            }
+                          }
+                        />,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        "",
+                        " ",
+                      ],
+                      "style": Object {
+                        "color": "#757575",
+                        "fontSize": "12px",
+                        "lineHeight": "36px",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      "",
+                      " ",
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "display": "flex",
+                        }
+                      }
+                    >
+                      <div
+                        style={
+                          Object {
+                            "color": "#757575",
+                            "fontSize": "12px",
+                            "lineHeight": "36px",
+                          }
+                        }
+                      >
+                        
+                      </div>
+                      <div
+                        className="g__circle"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "display": "flex",
+                          }
+                        }
+                      >
+                        <Checkbox
+                          checkedIcon={
+                            <svg
+                              height="21"
+                              style={
+                                Object {
+                                  "marginLeft": "2px",
+                                  "marginTop": "2px",
+                                }
+                              }
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                fill="#757575"
+                              />
+                            </svg>
+                          }
+                          defaultChecked={false}
+                          disabled={false}
+                          labelPosition="right"
+                          style={
+                            Object {
+                              "transform": "translate(6px, 6px)",
+                            }
+                          }
+                          uncheckedIcon={
+                            <svg
+                              height="21"
+                              style={
+                                Object {
+                                  "marginLeft": "2px",
+                                  "marginTop": "2px",
+                                }
+                              }
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                fill="#757575"
+                              />
+                            </svg>
+                          }
+                        />
+                      </div>
+                    </div>,
+                    <div
+                      className="g__circle"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "display": "flex",
+                        }
+                      }
+                    >
+                      <Checkbox
+                        checkedIcon={
+                          <svg
+                            height="16"
+                            style={
+                              Object {
+                                "marginLeft": "1px",
+                                "marginTop": "2px",
+                              }
+                            }
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                              fill="#757575"
+                            />
+                          </svg>
+                        }
+                        disabled={false}
+                        labelPosition="right"
+                        style={
+                          Object {
+                            "transform": "translate(6px, 6px)",
+                          }
+                        }
+                        uncheckedIcon={
+                          <svg
+                            height="16"
+                            style={
+                              Object {
+                                "marginLeft": "1px",
+                                "marginTop": "2px",
+                              }
+                            }
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                              fill="#757575"
+                            />
+                          </svg>
+                        }
+                      />
+                    </div>,
+                  ],
+                  "style": Object {
+                    "display": "flex",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <div
+                          style={
+                            Object {
+                              "color": "#757575",
+                              "fontSize": "12px",
+                              "lineHeight": "36px",
+                            }
+                          }
+                        >
+                          
+                        </div>,
+                        <div
+                          className="g__circle"
+                          onClick={[Function]}
+                          style={
+                            Object {
+                              "display": "flex",
+                            }
+                          }
+                        >
+                          <Checkbox
+                            checkedIcon={
+                              <svg
+                                height="21"
+                                style={
+                                  Object {
+                                    "marginLeft": "2px",
+                                    "marginTop": "2px",
+                                  }
+                                }
+                                width="20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                  fill="#757575"
+                                />
+                              </svg>
+                            }
+                            defaultChecked={false}
+                            disabled={false}
+                            labelPosition="right"
+                            style={
+                              Object {
+                                "transform": "translate(6px, 6px)",
+                              }
+                            }
+                            uncheckedIcon={
+                              <svg
+                                height="21"
+                                style={
+                                  Object {
+                                    "marginLeft": "2px",
+                                    "marginTop": "2px",
+                                  }
+                                }
+                                width="20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                  fill="#757575"
+                                />
+                              </svg>
+                            }
+                          />
+                        </div>,
+                      ],
+                      "style": Object {
+                        "alignItems": "center",
+                        "display": "flex",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "",
+                          "style": Object {
+                            "color": "#757575",
+                            "fontSize": "12px",
+                            "lineHeight": "36px",
+                          },
+                        },
+                        "ref": null,
+                        "rendered": "",
+                        "type": "div",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <Checkbox
+                            checkedIcon={
+                              <svg
+                                height="21"
+                                style={
+                                  Object {
+                                    "marginLeft": "2px",
+                                    "marginTop": "2px",
+                                  }
+                                }
+                                width="20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                  fill="#757575"
+                                />
+                              </svg>
+                            }
+                            defaultChecked={false}
+                            disabled={false}
+                            labelPosition="right"
+                            style={
+                              Object {
+                                "transform": "translate(6px, 6px)",
+                              }
+                            }
+                            uncheckedIcon={
+                              <svg
+                                height="21"
+                                style={
+                                  Object {
+                                    "marginLeft": "2px",
+                                    "marginTop": "2px",
+                                  }
+                                }
+                                width="20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                  fill="#757575"
+                                />
+                              </svg>
+                            }
+                          />,
+                          "className": "g__circle",
+                          "onClick": [Function],
+                          "style": Object {
+                            "display": "flex",
+                          },
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "checkedIcon": <svg
+                              height="21"
+                              style={
+                                Object {
+                                  "marginLeft": "2px",
+                                  "marginTop": "2px",
+                                }
+                              }
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                fill="#757575"
+                              />
+                            </svg>,
+                            "defaultChecked": false,
+                            "disabled": false,
+                            "labelPosition": "right",
+                            "style": Object {
+                              "transform": "translate(6px, 6px)",
+                            },
+                            "uncheckedIcon": <svg
+                              height="21"
+                              style={
+                                Object {
+                                  "marginLeft": "2px",
+                                  "marginTop": "2px",
+                                }
+                              }
+                              width="20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z"
+                                fill="#757575"
+                              />
+                            </svg>,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": [Function],
+                        },
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <Checkbox
+                        checkedIcon={
+                          <svg
+                            height="16"
+                            style={
+                              Object {
+                                "marginLeft": "1px",
+                                "marginTop": "2px",
+                              }
+                            }
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                              fill="#757575"
+                            />
+                          </svg>
+                        }
+                        disabled={false}
+                        labelPosition="right"
+                        style={
+                          Object {
+                            "transform": "translate(6px, 6px)",
+                          }
+                        }
+                        uncheckedIcon={
+                          <svg
+                            height="16"
+                            style={
+                              Object {
+                                "marginLeft": "1px",
+                                "marginTop": "2px",
+                              }
+                            }
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                              fill="#757575"
+                            />
+                          </svg>
+                        }
+                      />,
+                      "className": "g__circle",
+                      "onClick": [Function],
+                      "style": Object {
+                        "display": "flex",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "checkedIcon": <svg
+                          height="16"
+                          style={
+                            Object {
+                              "marginLeft": "1px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                            fill="#757575"
+                          />
+                        </svg>,
+                        "disabled": false,
+                        "labelPosition": "right",
+                        "style": Object {
+                          "transform": "translate(6px, 6px)",
+                        },
+                        "uncheckedIcon": <svg
+                          height="16"
+                          style={
+                            Object {
+                              "marginLeft": "1px",
+                              "marginTop": "2px",
+                            }
+                          }
+                          width="20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z"
+                            fill="#757575"
+                          />
+                        </svg>,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "disableComments": undefined,
+            "isPostOwner": undefined,
+            "onToggleRequest": [Function],
+            "open": false,
+            "ownerPostUserId": undefined,
+            "postId": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "autoHideDuration": 1000,
+            "message": "Link to Post copied!",
+            "open": false,
+            "style": Object {
+              "left": "1%",
+              "transform": "none",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "disableComments": undefined,
+            "disableSharing": undefined,
+            "edit": true,
+            "id": undefined,
+            "image": "",
+            "onRequestClose": [Function],
+            "open": false,
+            "text": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

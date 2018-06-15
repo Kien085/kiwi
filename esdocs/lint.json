@@ -1,0 +1,782 @@
+[
+  {
+    "name": "dbLoginWithOAuth",
+    "filePath": "app/actions/authorizeActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 31,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 32,
+        "line": " * Login user with OAuth\r"
+      },
+      {
+        "lineNumber": 33,
+        "line": " * @param {string} type \r"
+      },
+      {
+        "lineNumber": 34,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 35,
+        "line": "export var dbLoginWithOAuth = (provider) => {\r"
+      }
+    ],
+    "codeParams": [
+      "provider"
+    ],
+    "docParams": [
+      "type"
+    ]
+  },
+  {
+    "name": "dbResetPassword",
+    "filePath": "app/actions/authorizeActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 136,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 137,
+        "line": " * Reset user's password\r"
+      },
+      {
+        "lineNumber": 138,
+        "line": " * @param {string} newPassword\r"
+      },
+      {
+        "lineNumber": 139,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 140,
+        "line": "export const dbResetPassword = (email) => {\r"
+      }
+    ],
+    "codeParams": [
+      "email"
+    ],
+    "docParams": [
+      "newPassword"
+    ]
+  },
+  {
+    "name": "dbUpdateComment",
+    "filePath": "app/actions/commentActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 133,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 134,
+        "line": " * Update a comment from database\r"
+      },
+      {
+        "lineNumber": 135,
+        "line": " * @param  {string} id of comment\r"
+      },
+      {
+        "lineNumber": 136,
+        "line": " * @param {string} postId is the identifier of the post which comment belong to\r"
+      },
+      {
+        "lineNumber": 137,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 138,
+        "line": "export const dbUpdateComment = (id, postId, text) => {\r"
+      }
+    ],
+    "codeParams": [
+      "id",
+      "postId",
+      "text"
+    ],
+    "docParams": [
+      "id",
+      "postId"
+    ]
+  },
+  {
+    "name": "dbAcceptFriendRequest",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 73,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 74,
+        "line": " * Accept friend request\r"
+      },
+      {
+        "lineNumber": 75,
+        "line": " * @param string myReqId the id of the received request\r"
+      },
+      {
+        "lineNumber": 76,
+        "line": " * @param {object} request the received request object\r"
+      },
+      {
+        "lineNumber": 77,
+        "line": " * */\r"
+      },
+      {
+        "lineNumber": 78,
+        "line": "export var dbAcceptFriendRequest = (myReqId, request) => {\r"
+      }
+    ],
+    "codeParams": [
+      "myReqId",
+      "request"
+    ],
+    "docParams": [
+      "string",
+      "request"
+    ]
+  },
+  {
+    "name": "dbAddFriend",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 114,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 115,
+        "line": "* Add a user to friend list\r"
+      },
+      {
+        "lineNumber": 116,
+        "line": "* @param {object} userFriend is the user to add to friend's list\r"
+      },
+      {
+        "lineNumber": 117,
+        "line": "* @param {boolean} requestId unique id of friend request\r"
+      },
+      {
+        "lineNumber": 118,
+        "line": "*/\r"
+      },
+      {
+        "lineNumber": 119,
+        "line": "export var dbAddFriend = (userFriend, myRequestId, theirRequestId, fromUser) => {\r"
+      }
+    ],
+    "codeParams": [
+      "userFriend",
+      "myRequestId",
+      "theirRequestId",
+      "fromUser"
+    ],
+    "docParams": [
+      "userFriend",
+      "requestId"
+    ]
+  },
+  {
+    "name": "dbFriendRequestDenied",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 162,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 163,
+        "line": " * Process the friend request you sent once it was denied\r"
+      },
+      {
+        "lineNumber": 164,
+        "line": " * @param {object} userFriend is the user whom to cancel the request to\r"
+      },
+      {
+        "lineNumber": 165,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 166,
+        "line": "export var dbFriendRequestDenied = (userFriend, myRequestId) => {\r"
+      }
+    ],
+    "codeParams": [
+      "userFriend",
+      "myRequestId"
+    ],
+    "docParams": [
+      "userFriend"
+    ]
+  },
+  {
+    "name": "dbCancelFriendRequest",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 182,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 183,
+        "line": " * Cancel a sent friend request\r"
+      },
+      {
+        "lineNumber": 184,
+        "line": " * @param {object} userFriend is the user whom to cancel the request to\r"
+      },
+      {
+        "lineNumber": 185,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 186,
+        "line": "export var dbCancelFriendRequest = (userFriend, myRequestId, theirRequestId) => {\r"
+      }
+    ],
+    "codeParams": [
+      "userFriend",
+      "myRequestId",
+      "theirRequestId"
+    ],
+    "docParams": [
+      "userFriend"
+    ]
+  },
+  {
+    "name": "updateSentRequestList",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 361,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 362,
+        "line": " * Update the state of friend requests sent by current user\r"
+      },
+      {
+        "lineNumber": 363,
+        "line": " * @param {array} parsedRequest array of friend requests sent\r"
+      },
+      {
+        "lineNumber": 364,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 365,
+        "line": "export const updateSentRequestList = (parsedRequests) => {\r"
+      }
+    ],
+    "codeParams": [
+      "parsedRequests"
+    ],
+    "docParams": [
+      "parsedRequest"
+    ]
+  },
+  {
+    "name": "updateReceivedRequestList",
+    "filePath": "app/actions/friendActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 373,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 374,
+        "line": " * Update the state of friend requests received by current user\r"
+      },
+      {
+        "lineNumber": 375,
+        "line": " * @param {array} parsedRequest array of friend requests received\r"
+      },
+      {
+        "lineNumber": 376,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 377,
+        "line": "export const updateReceivedRequestList = (parsedRequests) => {\r"
+      }
+    ],
+    "codeParams": [
+      "parsedRequests"
+    ],
+    "docParams": [
+      "parsedRequest"
+    ]
+  },
+  {
+    "name": "defaultDataDisable",
+    "filePath": "app/actions/globalActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 26,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 27,
+        "line": " * Default data loaded status will be false\r"
+      },
+      {
+        "lineNumber": 28,
+        "line": " * @param {boolean} status \r"
+      },
+      {
+        "lineNumber": 29,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 30,
+        "line": "export const defaultDataDisable = () => {\r"
+      }
+    ],
+    "codeParams": [],
+    "docParams": [
+      "status"
+    ]
+  },
+  {
+    "name": "dbSaveImage",
+    "filePath": "app/actions/imageGalleryActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 51,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 52,
+        "line": " * Save image URL in the server\r"
+      },
+      {
+        "lineNumber": 53,
+        "line": " * @param  {string} imageURL is the URL of image\r"
+      },
+      {
+        "lineNumber": 54,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 55,
+        "line": "export const dbSaveImage = (imageURL, imageFullPath) => {\r"
+      }
+    ],
+    "codeParams": [
+      "imageURL",
+      "imageFullPath"
+    ],
+    "docParams": [
+      "imageURL"
+    ]
+  },
+  {
+    "name": "addNotify",
+    "filePath": "app/actions/notifyActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 105,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 106,
+        "line": " * Add notificaition \r"
+      },
+      {
+        "lineNumber": 107,
+        "line": " * @param {object} data  \r"
+      },
+      {
+        "lineNumber": 108,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 109,
+        "line": "export const addNotify = () => {\r"
+      }
+    ],
+    "codeParams": [],
+    "docParams": [
+      "data"
+    ]
+  },
+  {
+    "name": "dbGetPostById",
+    "filePath": "app/actions/postActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 292,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 293,
+        "line": " *   Get single post from database by its id\r"
+      },
+      {
+        "lineNumber": 294,
+        "line": " * @param  {string} uid is id of user whose posts we want to get\r"
+      },
+      {
+        "lineNumber": 295,
+        "line": " * @param  {string} postId is id of post we want to get\r"
+      },
+      {
+        "lineNumber": 296,
+        "line": " * */\r"
+      },
+      {
+        "lineNumber": 297,
+        "line": "export const dbGetPostById = (userId, postId) => {\r"
+      }
+    ],
+    "codeParams": [
+      "userId",
+      "postId"
+    ],
+    "docParams": [
+      "uid",
+      "postId"
+    ]
+  },
+  {
+    "name": "addImagePost",
+    "filePath": "app/actions/postActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 441,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 442,
+        "line": " * Add a post with image\r"
+      },
+      {
+        "lineNumber": 443,
+        "line": " * @param {object} post \r"
+      },
+      {
+        "lineNumber": 444,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 445,
+        "line": "export const addImagePost = (uid, post) => {\r"
+      }
+    ],
+    "codeParams": [
+      "uid",
+      "post"
+    ],
+    "docParams": [
+      "post"
+    ]
+  },
+  {
+    "name": "dbGetUserInfoByUserId",
+    "filePath": "app/actions/userActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 32,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 33,
+        "line": " *  Get user info from database\r"
+      },
+      {
+        "lineNumber": 34,
+        "line": " * @param {string} uid \r"
+      },
+      {
+        "lineNumber": 35,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 36,
+        "line": "export const dbGetUserInfoByUserId = (uid, sw) => {\r"
+      }
+    ],
+    "codeParams": [
+      "uid",
+      "sw"
+    ],
+    "docParams": [
+      "uid"
+    ]
+  },
+  {
+    "name": "dbAddVote",
+    "filePath": "app/actions/voteActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 13,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 14,
+        "line": " *  Add vote to database\r"
+      },
+      {
+        "lineNumber": 15,
+        "line": " * @param  {string} postId is the identifier of the post which user vote\r"
+      },
+      {
+        "lineNumber": 16,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 17,
+        "line": "export const dbAddVote = (postId, ownerPostUserId) => {\r"
+      }
+    ],
+    "codeParams": [
+      "postId",
+      "ownerPostUserId"
+    ],
+    "docParams": [
+      "postId"
+    ]
+  },
+  {
+    "name": "dbDeleteVote",
+    "filePath": "app/actions/voteActions.jsx",
+    "lines": [
+      {
+        "lineNumber": 62,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 63,
+        "line": " * Delete a vote from database\r"
+      },
+      {
+        "lineNumber": 64,
+        "line": " * @param  {string} id of vote\r"
+      },
+      {
+        "lineNumber": 65,
+        "line": " * @param {string} postId is the identifier of the post which vote belong to\r"
+      },
+      {
+        "lineNumber": 66,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 67,
+        "line": "export const dbDeleteVote = (postId) => {\r"
+      }
+    ],
+    "codeParams": [
+      "postId"
+    ],
+    "docParams": [
+      "id",
+      "postId"
+    ]
+  },
+  {
+    "name": "uploadImage",
+    "filePath": "app/api/FileAPI.jsx",
+    "lines": [
+      {
+        "lineNumber": 18,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 19,
+        "line": " * Upload image on the server\r"
+      },
+      {
+        "lineNumber": 20,
+        "line": " * @param {file} file \r"
+      },
+      {
+        "lineNumber": 21,
+        "line": " * @param {string} fileName \r"
+      },
+      {
+        "lineNumber": 22,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 23,
+        "line": "const uploadImage = (file, fileName, progress) => {\r"
+      }
+    ],
+    "codeParams": [
+      "file",
+      "fileName",
+      "progress"
+    ],
+    "docParams": [
+      "file",
+      "fileName"
+    ]
+  },
+  {
+    "name": "constraintImage",
+    "filePath": "app/api/FileAPI.jsx",
+    "lines": [
+      {
+        "lineNumber": 50,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 51,
+        "line": " * Constraint image size\r"
+      },
+      {
+        "lineNumber": 52,
+        "line": " * @param {file} file \r"
+      },
+      {
+        "lineNumber": 53,
+        "line": " * @param {number} maxWidth \r"
+      },
+      {
+        "lineNumber": 54,
+        "line": " * @param {number} maxHeight \r"
+      },
+      {
+        "lineNumber": 55,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 56,
+        "line": "const constraintImage = (file, fileName, maxWidth, maxHeight) => {\r"
+      }
+    ],
+    "codeParams": [
+      "file",
+      "fileName",
+      "maxWidth",
+      "maxHeight"
+    ],
+    "docParams": [
+      "file",
+      "maxWidth",
+      "maxHeight"
+    ]
+  },
+  {
+    "name": "mapStateToProps",
+    "filePath": "app/components/CommentList.jsx",
+    "lines": [
+      {
+        "lineNumber": 61,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 62,
+        "line": " * Map state to props\r"
+      },
+      {
+        "lineNumber": 63,
+        "line": " * @param  {object} state is the obeject from redux store\r"
+      },
+      {
+        "lineNumber": 64,
+        "line": " * @param  {object} ownProps is the props belong to component\r"
+      },
+      {
+        "lineNumber": 65,
+        "line": " * @return {object}          props of component\r"
+      },
+      {
+        "lineNumber": 66,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 67,
+        "line": "const mapStateToProps = (state) => {\r"
+      }
+    ],
+    "codeParams": [
+      "state"
+    ],
+    "docParams": [
+      "state",
+      "ownProps"
+    ]
+  },
+  {
+    "name": "ImageGallery#render",
+    "filePath": "app/components/ImageGallery.jsx",
+    "lines": [
+      {
+        "lineNumber": 103,
+        "line": "    /**\r"
+      },
+      {
+        "lineNumber": 104,
+        "line": "     * When the post text changed\r"
+      },
+      {
+        "lineNumber": 105,
+        "line": "     * @param  {event} evt is an event passed by change post text callback funciton\r"
+      },
+      {
+        "lineNumber": 106,
+        "line": "     * @param  {string} data is the post content which user writes\r"
+      },
+      {
+        "lineNumber": 107,
+        "line": "     */\r"
+      },
+      {
+        "lineNumber": 108,
+        "line": "    render() {\r"
+      }
+    ],
+    "codeParams": [],
+    "docParams": [
+      "evt",
+      "data"
+    ]
+  },
+  {
+    "name": "mapStateToProps",
+    "filePath": "app/components/ImageGallery.jsx",
+    "lines": [
+      {
+        "lineNumber": 174,
+        "line": "/**\r"
+      },
+      {
+        "lineNumber": 175,
+        "line": " * Map state to props\r"
+      },
+      {
+        "lineNumber": 176,
+        "line": " * @param  {object} state is the obeject from redux store\r"
+      },
+      {
+        "lineNumber": 177,
+        "line": " * @param  {object} ownProps is the props belong to component\r"
+      },
+      {
+        "lineNumber": 178,
+        "line": " * @return {object}          props of component\r"
+      },
+      {
+        "lineNumber": 179,
+        "line": " */\r"
+      },
+      {
+        "lineNumber": 180,
+        "line": "const mapStateToProps = (state) => {\r"
+      }
+    ],
+    "codeParams": [
+      "state"
+    ],
+    "docParams": [
+      "state",
+      "ownProps"
+    ]
+  }
+]

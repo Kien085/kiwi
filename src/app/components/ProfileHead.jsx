@@ -10,13 +10,13 @@ import EventListener, { withOptions } from 'react-event-listener';
 import { Parallax, Background } from 'react-parallax';
 
 // - Import app components
-import ImgCover from 'ImgCover';
-import EditProfile from 'EditProfile';
-import UserAvatar from 'UserAvatar';
+import ImgCover from './ImgCover';
+import EditProfile from './EditProfile';
+import UserAvatar from './UserAvatar';
 
 // - Import actions
-import * as globalActions from 'globalActions';
-import * as userActions from 'userActions';
+import * as globalActions from '../actions/globalActions';
+import * as userActions from '../actions/userActions';
 
 export class ProfileHead extends Component {
 
@@ -54,7 +54,7 @@ export class ProfileHead extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

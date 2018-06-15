@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: AdPost renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "border": "1px solid #dddfe2",
+      "borderRadius": "7px",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "muiPrepared": true,
+        "position": "relative",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "muiPrepared": true,
+        }
+      }
+    >
+      <img
+        src="src/public/images/postAds/yourAdHere.jpg"
+        style={
+          Object {
+            "maxWidth": "100%",
+            "minWidth": "100%",
+            "muiPrepared": true,
+            "verticalAlign": "top",
+            "width": "100%",
+          }
+        }
+      />
+    </div>
+    
+  </div>
+</div>
+`;

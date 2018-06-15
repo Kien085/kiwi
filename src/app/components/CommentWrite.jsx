@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from 'material-ui/FlatButton';
 
 // - Import actions
-import * as commentActions from 'commentActions';
+import * as commentActions from '../actions/commentActions';
 
 export class CommentWrite extends Component {
     constructor(props) {

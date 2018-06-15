@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { List } from 'material-ui/List';
 
 // - Import app components
-import Comment from 'Comment';
-import * as PostAPI from 'PostAPI';
+import Comment from './Comment';
+import * as PostAPI from '../api/PostAPI';
 
 export class CommentList extends Component {
 
@@ -34,7 +34,7 @@ export class CommentList extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

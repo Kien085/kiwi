@@ -6,18 +6,18 @@ import { grey50 } from 'material-ui/styles/colors';
 import { push } from 'react-router-redux';
 
 // - Import app components
-import FindPeople from 'FindPeople';
-import Following from 'Following';
-import Followers from 'Followers';
-import YourCircles from 'YourCircles';
+import FindPeople from './FindPeople';
+import Following from './Following';
+import Followers from './Followers';
+import YourCircles from './YourCircles';
 
 // - Import actions
-import * as circleActions from 'circleActions';
-import * as globalActions from 'globalActions';
+import * as circleActions from '../actions/circleActions';
+import * as globalActions from '../actions/globalActions';
 
 export class People extends Component {
 
-    componentWillMount() {
+    componentWillMount = () => {
         // Tab
         switch (this.props.match.params) {
             case undefined:
@@ -36,7 +36,7 @@ export class People extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
@@ -77,27 +77,7 @@ export class People extends Component {
 
         return (
             <div style={styles.people}>
-                <Tabs inkBarStyle={{ backgroundColor: grey50 }} initialSelectedIndex={tabIndex} >
-                    <Tab label="Find People" onActive={() => {
-                        this.props.goTo('/people')
-                        this.props.setHeaderTitle('People')
-                    }} >
-                        {circlesLoaded ? <FindPeople /> : ''}
-                    </Tab>
-                    <Tab label="Following" onActive={() => {
-                        this.props.goTo('/people/circles')
-                        this.props.setHeaderTitle('Circles')
-                    }} >
-                        {circlesLoaded ? <Following /> : ''}
-                        {circlesLoaded ? <YourCircles /> : ''}
-                    </Tab>
-                    <Tab label="Followers" onActive={() => {
-                        this.props.goTo('/people/followers')
-                        this.props.setHeaderTitle('Followers')
-                    }}>
-                        {circlesLoaded ? <Followers /> : ''}
-                    </Tab>
-                </Tabs>
+                <FindPeople />
             </div>
         )
     }
@@ -115,8 +95,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         goTo: (url) => dispatch(push(url)),
         setHeaderTitle: (title) => dispatch(globalActions.setHeaderTitle(title))
-
-
     }
 }
 
@@ -131,9 +109,6 @@ const mapStateToProps = (state, ownProps) => {
     return {
         uid: state.authorize.uid,
         circlesLoaded: state.circle.loaded
-
-
-
     }
 }
 

@@ -7,12 +7,12 @@ import Divider from 'material-ui/Divider';
 import { ListItem } from 'material-ui/List';
 
 // - Import actions
-import * as commentActions from 'commentActions';
+import * as commentActions from '../actions/commentActions';
 
 // - Import app components
-import CommentList from 'CommentList';
-import CommentWrite from 'CommentWrite';
-import UserAvatar from 'UserAvatar';
+import CommentList from './CommentList';
+import CommentWrite from './CommentWrite';
+import UserAvatar from './UserAvatar';
 
 export class CommentGroup extends Component {
     /**
@@ -114,7 +114,7 @@ export class CommentGroup extends Component {
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
@@ -139,8 +139,7 @@ export class CommentGroup extends Component {
                         </Paper>) : ''}
                 </div>
 
-                {!this.props.disableComments ? (<div>
-                    <Divider />
+                {!this.props.disableComments ? (<div id={"innerCommentGroupDiv"}>
                     <Paper zDepth={0} className="animate2-top10" style={{ position: "relative", overflowY: "auto", padding: "12px 16px", display: (this.props.open ? "block" : "none"), borderRadius: "0 0 7px 7px" }}>
                         <div style={{ display: "flex" }}>
                             <UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} style={{ flex: "none", margin: "4px 0px" }} size={36} />

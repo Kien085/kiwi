@@ -9,13 +9,13 @@ import Checkbox from 'material-ui/Checkbox';
 import TextField from 'material-ui/TextField';
 
 // - Import app components
-import UserAvatar from 'UserAvatar';
+import UserAvatar from './UserAvatar';
 
 // - Import API
-import CircleAPI from 'CircleAPI';
+import CircleAPI from '../api/CircleAPI';
 
 // - Import actions
-import * as circleActions from 'circleActions';
+import * as friendActions from 'friendActions';
 
 export class UserBox extends Component {
 
@@ -30,54 +30,24 @@ export class UserBox extends Component {
             // It will be true if user follow popover is open
             open: false,
 
-            // The value of circle input
-            circleName: '',
+            // It will be true if the two users are friends
+            isFriend: false,
 
-            // It will be true if the text field for adding group is empty
-            disabledAddCircle: true
         };
     }
 
-    handleFollowUser = (checked, cid) => {
+
+    handleFriendUser = (evt) => {
+        // This prevents ghost click.
+        event.preventDefault();
         const { userId, user } = this.props;
         const { avatar, fullName } = user;
 
-        if (checked) {
-            this.props.addFollowingUser(cid, { avatar, userId, fullName });
-        } else {
-            this.props.deleteFollowingUser(cid, userId);
-        }
+        this.props.addFriendRequest({ avatar, userId, fullName });
     }
 
-    /**
-     * Handle create circle
-     * 
-     * @memberof UserBox
-     */
-    handleCreateCricle = () => {
-        const { circleName } = this.state;
+   
 
-        if (circleName && circleName.trim() !== '') {
-            this.props.createCircle(circleName);
-
-            this.setState({
-                circleName: '',
-                disabledAddCircle: true
-            });
-        }
-    }
-
-    /**
-     * Handle change group name input to the state
-     * 
-     * @memberof UserBox
-     */
-    handleChangeName = (evt) => {
-        this.setState({
-            circleName: evt.target.value,
-            disabledAddCircle: (evt.target.value === undefined || evt.target.value.trim() === '')
-        });
-    }
 
     /**
      * Handle touch tab on follow popover
@@ -103,115 +73,97 @@ export class UserBox extends Component {
         this.setState({ open: false });
     }
 
-    circleList = () => {
-        const { circles, _, userBelongCircles } = this.props;
+       /**
+     * Check if a friend request has already been sent to user
+     * @return {boolean} true if friend request has been sent, false if not
+     */
+    hasSentRequest = () => {
+        const { sentRequests, uid } = this.props;
+        
+        Object.keys(sentRequests).forEach((index) => {
+            if (sentRequests[index].uid = uid) return true;
+        });
+        return false;
+    }
+    
 
-        if (circles) {
-            return Object.keys(circles).map((key, index) => {
-                if (key.trim() !== '-Followers') {
-                    const isBelong = userBelongCircles.indexOf(key) > -1;
+    /**
+     * Retrieve requestId of own sent request and and other user's received request 
+     * @param {string} userFriendId user authenticator id of friend
+     * @return {Array} returns array where first element is requestId of own sent request
+     *                                     second element is request object corresponding to requestId
+     */
+    getSentRequestIds = (userFriendId) => {
+        const { sentRequests } = this.props;
+        let retVal = null;
+        Object.keys(sentRequests).forEach((index) => {
+            if(sentRequests[index].request.uid === userFriendId) {
+                retVal = [sentRequests[index].myReqId, sentRequests[index].request]
+            }
+        });
+        return retVal;
+    }
 
-                    return (<Checkbox
-                        key={key}
-                        style={{ padding: '10px' }}
-                        label={circles[key].name}
-                        labelStyle={{
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
-                            width: '100%'
-                        }}
-                        onCheck={(evt, checked) => this.handleFollowUser(checked, key)}
-                        checked={isBelong}
-                    />);
-                }
-            });
-        }
+
+    /**
+     * Retrieve requestId of own sent request and and other user's received request 
+     * @param {string} userFriendId user authenticator id of friend
+     * @return {Array} returns array where first element is requestId of own sent request
+     *                                     second element is request object corresponding to requestId
+     */
+    getReceivedRequestIds = (userFriendId) => {
+        const { receivedRequests } = this.props;
+        let retVal = null;
+        Object.keys(receivedRequests).forEach((index) => {
+            if(receivedRequests[index].request.uid === userFriendId) {
+                retVal = [receivedRequests[index].myReqId, receivedRequests[index].request]
+            }
+        });
+        return retVal;
     }
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {
-        const styles = {
-            paper: {
-                height: 254,
-                width: 243,
-                margin: 10,
-                textAlign: 'center',
-                maxWidth: '257px'
-            },
-            followButton: {
-                position: 'absolute',
-                bottom: '8px',
-                left: 0,
-                right: 0
-            }
-        };
-
+        let userId = this.props.friendId;
+        let avatar = this.props.friendAvatar;
+        let fullName = this.props.friendFullName;
+        let userFriend = {userId, avatar, fullName};
+        let sentRequestIds =  this.getSentRequestIds(userId);
+        let mySentRequestId =  undefined;
+        let sentFriendRequest = null;
+        if(sentRequestIds !== null) {
+            mySentRequestId = sentRequestIds[0];
+            sentFriendRequest = sentRequestIds[1];
+        }
+        let receivedRequestIds =  this.getReceivedRequestIds(userId);
+        let myReceivedRequestId =  undefined;
+        let receivedFriendRequest = null;
+        if(receivedRequestIds !== null) {
+            myReceivedRequestId = receivedRequestIds[0];
+            receivedFriendRequest = receivedRequestIds[1];
+        }
         return (
-            <Paper style={styles.paper} zDepth={1} className='grid-cell'>
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'flex-start',
-                    height: '100%',
-                    position: 'relative',
-                    padding: '30px'
-
-                }}>
+            <Paper style={{height: '100px', width: '100%', margin: '10', textAlign: 'center'}} zDepth={1} className='grid-cell'>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', height: '100%', position: 'relative', padding: '30px'}}>
                     <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{ cursor: 'pointer' }}>
-                        <UserAvatar
-                            fullName={this.props.fullName}
-                            fileName={this.props.avatar}
-                            size={90}
-                        />
+                        <UserAvatar fullName={this.props.fullName} fileName={this.props.avatar} size={60}/>
                     </div>
-                    <div onClick={() => this.props.goTo(`/${this.props.userId}`)} className='people__name' style={{ cursor: 'pointer' }}>
-                        <div>
+                    <div onClick={() => this.props.goTo(`/${this.props.userId}`)} style={{cursor: 'pointer', wordBreak: 'break-word', padding: '10px'}}>
+                        <div style={{color: 'black', fontSize: '20px', lineHeight: '20px', marginLeft: '20px', overflow: 'hidden', textOverflow: 'ellipsis', wordBreak: 'break-word', overflow: 'hidden', textOverflow: 'ellipsis'}}>
                             {this.props.user.fullName}
                         </div>
                     </div>
-                    <div style={styles.followButton}>
-                        <FlatButton
-                            label={(this.props.belongCirclesCount && this.props.belongCirclesCount < 1) ? 'Follow'
-                                : (this.props.belongCirclesCount > 1 ? `${this.props.belongCirclesCount} Circles` : ((this.props.firstBelongCircle) ? this.props.firstBelongCircle.name : 'Follow'))}
-                            primary={true}
-                            onTouchTap={this.handleTouchTap}
-                        />
+                    <div>
+                        <FlatButton onClick={ () => this.props.addFriendRequest(userFriend)}>Add friend</FlatButton>
+                        <FlatButton onClick={ () => this.props.cancelFriendRequest(userFriend, mySentRequestId, sentFriendRequest === null ? sentFriendRequest: sentFriendRequest.reqId)}>Cancel request</FlatButton>
+                        {/* <FlatButton onClick={ () => this.props.acceptFriend(myReceivedRequestId, receivedFriendRequest)}>Approve</FlatButton> */}
+                        {/* <FlatButton onClick={ () => this.props.denyFriend(myReceivedRequestId, receivedFriendRequest)}>Deny</FlatButton> */}
+                        <FlatButton onClick={ () => this.props.deleteFriend(userId)}>Unfriend</FlatButton>
                     </div>
                 </div>
-                <Popover
-                    open={this.state.open}
-                    anchorEl={this.state.anchorEl}
-                    anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-                    targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-                    onRequestClose={this.handleRequestClose}
-                    animation={PopoverAnimationVertical}
-                >
-                    <Menu >
-                        <div style={{
-                            position: 'relative',
-                            display: 'block',
-                            maxHeight: '220px'
-                        }}>
-                            <div style={{ overflowY: 'auto', height: '100%' }}>
-                                {this.circleList()}
-
-                            </div>
-                        </div>
-                        <div style={{ padding: '10px' }}>
-                            <TextField
-                                hintText="Group name"
-                                onChange={this.handleChangeName}
-                                value={this.state.circleName}
-                            /><br />
-                            <FlatButton label="ADD" primary={true} disabled={this.state.disabledAddCircle} onClick={this.handleCreateCricle} />
-                        </div>
-                    </Menu>
-                </Popover>
             </Paper>
         );
     }
@@ -226,10 +178,12 @@ export class UserBox extends Component {
  */
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        createCircle: (name) => dispatch(circleActions.dbAddCircle(name)),
-        addFollowingUser: (cid, user) => dispatch(circleActions.dbAddFollowingUser(cid, user)),
-        deleteFollowingUser: (cid, followingId) => dispatch(circleActions.dbDeleteFollowingUser(cid, followingId)),
-        goTo: (url) => dispatch(push(url))
+        addFriendRequest: (user) => dispatch(friendActions.dbAddFriendRequest(user)),
+        cancelFriendRequest: (userFriend, myRequestId, theirRequestId) => dispatch(friendActions.dbCancelFriendRequest(userFriend, myRequestId, theirRequestId)),
+        acceptFriend: (myRequestId, request) => dispatch(friendActions.dbAcceptFriendRequest(myRequestId, request)),
+        denyFriend: (myRequestId, request) => dispatch(friendActions.dbDenyFriendRequest(myRequestId, request)),
+        deleteFriend: (friendId) => dispatch(friendActions.dbDeleteFriend(friendId)),
+        goTo: (url) => dispatch(push(url)),
 
     }
 }
@@ -241,17 +195,18 @@ const mapDispatchToProps = (dispatch, ownProps) => {
  * @return {object}          props of component
  */
 const mapStateToProps = (state, ownProps) => {
-    const { uid } = state.authorize
-    const circles = state.circle ? (state.circle.userCircles[uid] || {}) : {}
-    const userBelongCircles = CircleAPI.getUserBelongCircles(circles, ownProps.userId)
+    const { uid } = state.authorize;
+    const { userId } = ownProps;
+    const { avatar, fullName } = ownProps.user;
 
     return {
-        circles: circles,
-        userBelongCircles: userBelongCircles || [],
-        belongCirclesCount: userBelongCircles.length || 0,
-        firstBelongCircle: userBelongCircles ? (circles ? circles[userBelongCircles[0]] : {}) : {},
+        friendId: userId,
+        friendAvatar: avatar,
+        friendFullName: fullName,
         avatar: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].avatar || '' : '',
-        fullName: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].fullName || '' : ''
+        fullName: state.user.info && state.user.info[ownProps.userId] ? state.user.info[ownProps.userId].fullName || '' : '',
+        sentRequests: state.sentFriendRequests ? state.sentFriendRequests : [],
+        receivedRequests: state.receivedFriendRequests ? state.receivedFriendRequests : [],
     }
 }
 

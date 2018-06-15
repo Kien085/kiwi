@@ -20,16 +20,16 @@ import IconMenu from 'material-ui/IconMenu';
 import reactStringReplace from 'react-string-replace';
 
 // - Import app components
-import CommentGroup from 'CommentGroup';
-import PostWrite from 'PostWrite';
-import Img from 'Img';
-import IconButtonElement from 'IconButtonElement';
-import UserAvatar from 'UserAvatar';
+import CommentGroup from './CommentGroup';
+import PostWrite from './PostWrite';
+import Img from './Img';
+import IconButtonElement from '../layouts/IconButtonElement';
+import UserAvatar from './UserAvatar';
 
 // - Import actions
-import * as voteActions from 'voteActions';
-import * as postActions from 'postActions';
-import * as globalActions from 'globalActions';
+import * as voteActions from '../actions/voteActions';
+import * as postActions from '../actions/postActions';
+import * as globalActions from '../actions/globalActions';
 
 export class Post extends Component {
     /**
@@ -187,7 +187,7 @@ export class Post extends Component {
      * Handle read more event
      * @param  {event} evt  is the event passed by click on read more
      */
-    handleReadMore(evt) {
+    handleReadMore = (evt) => {
         this.setState({ readMoreState: !this.state.readMoreState });
     }
 
@@ -236,7 +236,11 @@ export class Post extends Component {
         return (
             <div style={{ backgroundColor: '#fff', border: '1px solid #dddfe2', borderRadius: '7px' }}>
                 <CardHeader
-                    title={<NavLink to={`/${ownerUserId}`}>{ownerDisplayName}</NavLink>}
+                    title={
+                        <NavLink title="User is secure :)" style={{display: 'flex'}} to={`/${ownerUserId}`}>
+                            <div>{ownerDisplayName}</div>
+                            <svg style={{marginLeft: '7px', marginTop: '1px'}} width="11" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M9.323 6.705h.99c.38 0 .687.32.687.715v6.866a.701.701 0 0 1-.688.714H.688A.701.701 0 0 1 0 14.286V7.42c0-.395.308-.715.688-.715h.989V3.86h1.475v2.845h4.696V3.86h1.475v2.845zm0-2.845H1.677C1.677 1.728 3.389 0 5.5 0c2.111 0 3.823 1.728 3.823 3.86zm-1.475 0A2.359 2.359 0 0 0 5.5 1.49a2.359 2.359 0 0 0-2.348 2.37h4.696z" fill="#7ED321"/></svg>
+                        </NavLink>}
                     subtitle={moment.unix(creationDate).fromNow()}
                     avatar={<NavLink to={`/${ownerUserId}`}><UserAvatar fullName={fullName} fileName={avatar} size={36} /></NavLink>}
                 >
@@ -248,7 +252,7 @@ export class Post extends Component {
                         <Linkify properties={{ target: '_blank', style: { color: 'blue' } }}>
                             {reactStringReplace(body, /#(\w+)/g, (match, i) => (
                                 <NavLink
-                                    style={{ color: 'green' }}
+                                    style={{ color: '#3072f6', backgroundColor: '#f1f8ff', borderRadius: '5px', padding: '4px' }}
                                     key={match + i}
                                     to={`/tag/${match}`}
                                     onClick={evt => {
@@ -270,7 +274,7 @@ export class Post extends Component {
                     </CardMedia>) : ''}
 
                 <CardActions>
-                    <div style={{ margin: "16px 8px", display: 'flex', justifyContent: 'space-between' }}>
+                    <div style={{ margin: "16px 8px", border: '0px', display: 'flex', justifyContent: 'space-between' }}>
                         <div style={{ display: 'flex' }}>
                             <div className='g__circle' onClick={this.handleVote}>
                                 <Checkbox
@@ -280,7 +284,9 @@ export class Post extends Component {
                                     style={{ transform: 'translate(6px, 6px)' }}
                                 />
                             </div>
-                            <div style={styles.counter}> {this.props.voteCount > 0 ? this.props.voteCount : ''} </div>
+                            <div style={styles.counter}> {this.props.voteCount > 0 ? 
+                                this.props.voteCount > 1 ? 
+                                    this.props.voteCount + " people likes this" : this.props.voteCount + " person likes this" : ''} </div>
                         </div>
                         <div style={{ display: 'flex' }}>
                             {!this.props.disableComments ? (<div style={{ display: 'flex', alignItems: 'center' }}>
@@ -289,17 +295,34 @@ export class Post extends Component {
                                         this.props.commentCount === 1 ? 
                                             this.props.commentCount + " comment" : ''}
                                 </div>
-                                <span className='g__circle' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0' }}>
-                                    <svg onClick={this.handleOpenComments} style={{ marginTop: '2px' }} width="20" height="21" xmlns="http://www.w3.org/2000/svg"><path d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z" fill={(this.props.commentCount > 0) ? '#4E7FF7' : '#757575'} />
-                                        <rect x="4" y="4" width="12" height="2" fill={(this.props.commentCount > 0) ? '#4E7FF7' : '#fff'}></rect>
-                                        <rect x="4" y="7" width="12" height="2" fill={(this.props.commentCount > 0) ? '#4E7FF7' : '#fff'}></rect>
-                                        <rect x="4" y="10" width="12" height="2" fill={(this.props.commentCount > 0) ? '#4E7FF7' : '#fff'}></rect>
-                                    </svg>
-                                </span>
+                                <div className='g__circle' onClick={this.handleOpenComments} style={{ display: 'flex'}}>
+                                    <Checkbox
+                                        checkedIcon={
+                                            <svg style={{ marginTop: '2px', marginLeft: "2px" }} width="20" height="21" xmlns="http://www.w3.org/2000/svg"><path d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z" fill={(this.props.commentCount > 0) ? '#4E7FF7' : '#757575'}/>
+                                                {(this.props.commentCount > 0) && <rect x="4" y="4" width="12" height="2" fill='#4E7FF7'></rect>}
+                                                {(this.props.commentCount > 0) && <rect x="4" y="7" width="12" height="2" fill='#4E7FF7'></rect>}
+                                                {(this.props.commentCount > 0) && <rect x="4" y="10" width="12" height="2" fill='#4E7FF7'></rect>}
+                                            </svg>
+                                        }
+                                        uncheckedIcon={
+                                            <svg style={{ marginTop: '2px', marginLeft: "2px" }} width="20" height="21" xmlns="http://www.w3.org/2000/svg"><path d="M11.87 16l-7.435 4.415A.288.288 0 0 1 4 20.168V16h-.493c-1.22 0-1.661-.127-2.107-.365A2.486 2.486 0 0 1 .365 14.6C.127 14.154 0 13.712 0 12.493V3.507C0 2.287.127 1.846.365 1.4A2.486 2.486 0 0 1 1.4.365C1.846.127 2.288 0 3.507 0h12.986c1.22 0 1.661.127 2.107.365.446.239.796.589 1.035 1.035.238.446.365.888.365 2.107v8.986c0 1.22-.127 1.661-.365 2.107a2.486 2.486 0 0 1-1.035 1.035c-.446.238-.888.365-2.107.365h-4.624zM3.753 2c-.61 0-.831.063-1.054.183-.223.119-.398.294-.517.517-.12.223-.183.444-.183 1.054v8.492c0 .61.063.831.183 1.054.119.223.294.398.517.517.223.12.444.183 1.054.183h12.492c.61 0 .831-.063 1.054-.183.223-.119.398-.294.517-.517.12-.223.183-.444.183-1.054V3.754c0-.61-.063-.831-.183-1.054a1.243 1.243 0 0 0-.517-.517c-.223-.12-.444-.183-1.054-.183H3.754zm6.97 12H6v3.104L10.724 14z" fill={(this.props.commentCount > 0) ? '#4E7FF7' : '#757575'}/>
+                                                {(this.props.commentCount > 0) && <rect x="4" y="4" width="12" height="2" fill='#4E7FF7'></rect>}
+                                                {(this.props.commentCount > 0) && <rect x="4" y="7" width="12" height="2" fill='#4E7FF7'></rect>}
+                                                {(this.props.commentCount > 0) && <rect x="4" y="10" width="12" height="2" fill='#4E7FF7'></rect>}
+                                            </svg>
+                                        }
+                                        defaultChecked={this.props.commentCount > 0}
+                                        style={{ transform: 'translate(6px, 6px)' }}
+                                    />
+                                </div>
                             </div>) : ''}
                             {!this.props.disableSharing ?
-                                <div className='g__circle' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <svg onClick={this.handleOpenShare} style={{marginBottom: '1px'}} width="20" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z" fill="#757575"/></svg>
+                                <div className='g__circle' onClick={this.handleOpenShare} style={{ display: 'flex' }}>
+                                    <Checkbox
+                                        checkedIcon={<svg style={{marginTop: '2px', marginLeft: '1px'}} width="20" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z" fill="#757575"/></svg>}
+                                        uncheckedIcon={<svg style={{marginTop: '2px', marginLeft: '1px'}} width="20" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M19.7 6.2l-6.6-6c-.5-.5-1.1 0-1.1.8v3C7.3 4 3.3 6.9 1.4 10.8.7 12.1.3 13.5 0 14.9c-.2 1 1.3 1.5 1.9.6C4.1 12 7.8 9.7 12 9.7V13c0 .8.6 1.3 1.1.8l6.6-6c.4-.4.4-1.2 0-1.6z" fill="#757575"/></svg>}
+                                        style={{ transform: 'translate(6px, 6px)' }}
+                                    />
                                 </div>
                                 : ''}
                         </div>

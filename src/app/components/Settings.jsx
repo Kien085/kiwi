@@ -5,7 +5,7 @@ import { push } from 'react-router-redux';
 import TextField from 'material-ui/TextField';
 
 // - Import actions
-import * as authorizeActions from 'authorizeActions'
+import * as authorizeActions from '../actions/authorizeActions'
 
 export class Settings extends Component {
 
@@ -68,7 +68,7 @@ export class Settings extends Component {
 
 
     /**
-     * Reneder component DOM
+     * Render component DOM
      * @return {react element} return the DOM which rendered by component
      */
     render() {

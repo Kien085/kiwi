@@ -1,16 +1,16 @@
-import firebase, { firebaseRef } from 'app/firebase/';
+import firebase, { firebaseRef } from '../firebase/';
 
 // - Import utility components
 import moment from 'moment';
 
 // - Import action types
-import * as types from 'actionTypes';
+import * as types from '../constants/actionTypes';
 
 // - Import actions
-import * as globalActions from 'globalActions';
-import * as postActions from 'postActions';
-import * as userActions from 'userActions';
-import * as notifyActions from 'notifyActions';
+import * as globalActions from './globalActions';
+import * as postActions from './postActions';
+import * as userActions from './userActions';
+import * as notifyActions from './notifyActions';
 
 /* _____________ CRUD DB _____________ */
 
@@ -71,7 +71,8 @@ export var dbAddFollowingUser = (cid, userFollowing) => {
                 {
                     description: `${user.fullName} follow you.`,
                     url: `/${uid}`,
-                    notifyRecieverUserId: userFollowing.userId, notifierUserId: uid
+                    notifyRecieverUserId: userFollowing.userId, notifierUserId: uid,
+                    isRequest: false,
                 }));
 
         }, (error) => {

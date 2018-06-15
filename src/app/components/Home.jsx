@@ -8,21 +8,21 @@ import Divider from 'material-ui/Divider';
 import SvgArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 
 // - Import app components
-import Sidebar from 'Sidebar';
-import Blog from 'Blog';
-import HomeHeader from 'HomeHeader';
-import SidebarContent from 'SidebarContent';
-import SidebarMain from 'SidebarMain';
-import Profile from 'Profile';
-import PostPage from 'PostPage';
-import People from 'People';
-import Messenger from 'Messenger';
+import Sidebar from './Sidebar';
+import Blog from './Blog';
+import HomeHeader from './HomeHeader';
+// import SidebarContent from './SidebarContent';
+import SidebarMain from './SidebarMain';
+import Profile from './Profile';
+import PostPage from './PostPage';
+import People from './People';
+import Messenger from './Messenger';
 
 // - Import API
-import CircleAPI from 'CircleAPI';
+import CircleAPI from '../api/CircleAPI';
 
 // - Import actions
-import * as globalActions from 'globalActions';
+import * as globalActions from '../actions/globalActions';
 
 export class Home extends Component {
     constructor(props) {
@@ -120,7 +120,10 @@ export class Home extends Component {
                 </Sidebar>
 
 
-                <Messenger uid={this.props.uid}/>
+                {
+                    //TODO Finish messenger implementation; postponed at 6.6.18
+                    /*<Messenger uid={this.props.uid}/>*/
+                }
             </div>
         )
     }
@@ -149,10 +152,10 @@ const mapStateToProps = (state, ownProps) => {
     const { uid } = state.authorize
 
     let mergedPosts = {}
-    const circles = state.circle ? (state.circle.userCircles[uid] || {}) : {}
-    const followingUsers = CircleAPI.getFollowingUsers(circles)
+    const friendList = state.friendList;
     const posts = state.post.userPosts ? state.post.userPosts[state.authorize.uid] : {}
-    Object.keys(followingUsers).forEach((userId) => {
+    Object.keys(friendList).forEach((index) => {
+        let userId = friendList[index].uid;
         let newPosts = state.post.userPosts ? state.post.userPosts[userId] : {}
         _.merge(mergedPosts, newPosts)
     })
