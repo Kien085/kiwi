@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
 <head>
     <title>Quick Start</title>
     <!-- Meta -->
@@ -9,16 +12,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">    
-    <link rel="shortcut icon" href="favicon.ico">  
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
     <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
-    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->
     <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="assets/plugins/prism/prism.css">
     <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
-    
+
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -26,8 +30,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-</head> 
+
+</head>
 
 <body class="body-green">
     <div class="page-wrapper">
@@ -38,87 +42,363 @@
                     <h1 class="logo">
                         <a href="index.html">
                             <span aria-hidden="true" class="icon_documents_alt icon"></span>
-                            <span class="text-highlight">Pretty</span><span class="text-bold">Docs</span>
+                            <span class="text-highlight">Pretty</span>
+                            <span class="text-bold">Docs</span>
                         </a>
                     </h1>
-                </div><!--//branding-->
+                </div>
+                <!--//branding-->
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="start.html">Quick Start</a></li>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="start.html">Quick Start</a>
+                    </li>
                     <li class="active">Encryption</li>
                 </ol>
-            </div><!--//container-->
-        </header><!--//header-->
+            </div>
+            <!--//container-->
+        </header>
+        <!--//header-->
         <div class="doc-wrapper">
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
-                    <h1 class="doc-title"><i class="icon fa fa-user-secret"></i> Use of Encryption</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: June 14th, 2018</div>
-                </div><!--//doc-header-->
-                <div class="doc-body">
-                    <div class="doc-content">
-                        <div class="content-inner">
-                            
-                            <section id="installation-section" class="doc-section">
-                                <h2 class="section-title">Running the webpage Locally</h2>
-                                <div id="step1"  class="section-block">
-                                    <h3 class="block-title">Step One</h3>
-                                    <p>After cloning from out Github Page, navigate to the folder where our website is located in a terminal.
-                                        Then, go into the src subfolder. After this, call npm install.
+                    <h1 class="doc-title">
+                        <i class="icon fa fa-user-secret"></i> Use of Encryption</h1>
+                    <i class="fa fa-clock-o"></i> Last updated: June 16th, 2018</div>
+            </div>
+            <!--//doc-header-->
+            <div class="doc-body">
+                <div class="doc-content">
+                    <div class="content-inner">
+                        <section id="documentation-section" class="doc-section">
+                            <h2 class="section-title">Overview</h2>
+                            <div id="qstart" class="section-block">
+                                <p>Oasis uses Firebase for its authentication, database, and hosting services. Because of this,
+                                    Firebase is responsible for handling a lot of sensitive data, such as user accounts and
+                                    personal data. For this sensitive data, Firebase provides encryption of passwords via
+                                    SCrypt as well as
+                                    <a href="https://firebase.google.com/support/privacy/" target="_blank">encryption in transit and encryption at rest</a>
+                                    which prevents those without administrative rights from viewing the content; however, those with administrative rights are
+                                    still able to view data stored in the database. Thus, in Oasis, we resolved this issue
+                                    by implementing end-to-end encryption for data.
+                                </p>
+                            </div>
+                            <h2 class="section-title">Encryption of User Data</h2>
+                            <div id="encryption-scheme" class="section-block">
+                                <h3 class="block-title">Hybrid Encryption</h3>
+                                <p> Since user's data is stored in Firebase's database, we encrypted the contents of the data
+                                    prior to its storage. This was done via a hybrid encryption scheme where each user possesses
+                                    one symmetric data key and a pair of asymmetric encryption keys. In this scheme, the
+                                    symmetric data key is used to encrypt user data, and the key pair provides a secure way
+                                    to share data keys between users. </p>
+                                <img src="assets\images\HybridEncryption.png" alt="Hybrid Encryption">
+                            </div>
+                            <div id="encryption-scheme" class="section-block">
+                                <h3 class="block-title">Key Exchange</h3>
+                                <p>When signing up for Oasis, these keys are randomly generated, and the public key of the paired
+                                    keys is stored on firebase. The diagram below illustrates the process of how data keys
+                                    are shared between users that are friends.
+                                </p>
+                                <img src="assets\images\KeyExchange.png" alt="Key Exchange Diagram">
+                                <p> Alice and Bob just became friends. At this moment, they exchange data keys so that they can
+                                    view each other’s posts and comments. This happens in the following manner:
+                                    <ol>
+                                        <li>Alice reads Bob’s public key from the database (Bob's public key is availble to all
+                                            users so that they may send information to Bob only).</li>
+                                        <li>Alice encrypts her own data key using Bob's public key.</li>
+                                        <li>The encrypted result is stored in the database.</li>
+                                        <li>Bob is now able to retrieve Alice’s encrypted data key from firebase.</li>
+                                        <li>He decrypts it using his own private key.
+                                            <li>Now Bob has Alice’s data key and is able to view data that Alice shares, such
+                                                as posts.</li>
+                                            <li>In a similar fashion, Bob sends his data key to Alice.</li>
+                                    </ol>
+                                    Note: For each of her friends, Alice encrypts her data key using her friend's public key and stores the encrypted result
+                                    in firebase. These encrypted data keys are only viewable by the recipient as they require
+                                    the proper private key to decrypt it. Thus, Eve is unable to view Alice's data because
+                                    she does not have access to the private keys needed to decipher Alice's encrypted data
+                                    keys.
+                                </p>
+                            </div>
+                            <!--//section-block-->
+                            <div id="flow" class="section-block">
+                                <h3 class="block-title">Data Flow</h3>
+                                <p> Since users' posts and comments are stored in Firebase's database, we encrypted the contents
+                                    of the data prior to its storage. This was done via a hybrid encryption scheme where
+                                    each user possesses one symmetric data key and a pair of asymmetric encryption keys.
+                                    In this scheme, the symmetric data key is used to encrypt user data, and the key pair
+                                    is used sharing of data keys between users that are friends.
+                                </p>
+                                <img src="assets\images\EncryptionSchemeDiagram.png" alt="Hybrid Encryption Diagram">
+                                <p>Suppose that Alice and Bob are two users who are friends. They are able to view each other’s
+                                    posts and comments in this manner:
+                                    <ol>
+                                        <li>Alice makes a new post.</li>
+                                        <li>Her post is encrypted with her own data key and the result is stored in firebase.
+                                        <br>Now, all users that have access to Alice’s data key, specifically her friends, are
+                                            able to see the contents of her post. </li>
+                                        <li>One of Alice’s friends, Bob, is able to retrieve one of Alice’s encrypted data keys
+                                            and decrypt it using his private key.</li>
+                                        <li>Bob is able to use Alice’s data key to decrypt her post.</li>
+                                        <li>Now, Bob is able to view Alice's post.</li>
+                                    </ol>
+                                </p>
+                            </div>
+                            <!--//section-block-->
+                            <div id="whyHybrid" class="section-block">
+                                <h4 class="block-title">Why Use Hybrid Encryption</h3>
+                                    <p> Hybrid encryption was chosen because it scales with the size of the plaform given the
+                                        limited storage space of
+                                        <a href="https://firebase.google.com/pricing/" target="_blank">Firebase's free plan</a>. Each user has a single data key for sending information
+                                        to all other users. As a result, Firebase is only required to store a single copy
+                                        of each encrypted data. In contrast to other secure asymmetric encryption schemes,
+                                        this prevents the database from being cluttered with multiples copies of each posts
+                                        and comments, limiting space usage of Firebase.
                                     </p>
-                                    <div class="code-block">
-                                        <h6>In kiwi/src:</h6>
-                                        <p><code>$ npm install</code></p>
-                                    </div><!--//code-block-->
-                                </div><!--//section-block-->
-                            </section><!--//doc-section-->
-   
-                        </div><!--//content-inner-->
-                    </div><!--//doc-content-->
-                    <div class="doc-sidebar hidden-xs">
-                        <nav id="doc-nav">
-                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
-                                <li><a class="scrollto" href="#download-section">Download</a></li>
-                                <li>
-                                    <a class="scrollto" href="#installation-section">Running the webpage Locally</a>
-                                    <ul class="nav doc-sub-menu">
-                                        <li><a class="scrollto" href="#step1">Step One</a></li>
-                                        <li><a class="scrollto" href="#step2">Step Two</a></li>
-                                        <li><a class="scrollto" href="#step3">Running Locally</a></li>
-                                        <li><a class="scrollto" href="#errors">Possible Errors</a></li>
-                                    </ul><!--//nav-->
-                                </li>
-                                
-                                <li><a class="scrollto" href="#callouts-section">Callouts</a></li>
-                               
-                            </ul><!--//doc-menu-->
-                        </nav>
-                    </div><!--//doc-sidebar-->
-                </div><!--//doc-body-->              
-            </div><!--//container-->
-        </div><!--//doc-wrapper-->
-        
-        
-        
-    </div><!--//page-wrapper-->
-    
+                            </div>
+                            <!--//section-block-->
+                        </section>
+                        <!--//doc-section-->
+
+                        <section id="documentation-section" class="doc-section">
+                            <h2 class="section-title">Encryption of Messaging</h2>
+                            <div id="messaging" class="section-block">
+                                <p>Note:
+                                    <br> Our project does not currently have messaging implemented, however the basic overall
+                                    structure on how to add encryption to an existing messaging feature will be outlined
+                                    below.
+                                </p>
+                                <p>For messaging encryption, we chose to use the Signal protocol used in the Signal App. More
+                                    information can be found
+                                    <a href="https://github.com/signalapp/libsignal-protocol-javascript" target="_blank">here </a>
+                                    with regards to that project.</p>
+                                <p>We chose this in order to ensure that there was end to end encryption between users messaging
+                                    each other. This meant, for encryption, we would keep all the encryption private keys
+                                    only on the user’s local storage. Though, this can be modified to make the availability
+                                    of private keys more feasible in terms of key storage.</p>
+                                <p> I will first explain our understanding the Signal protocol at a fairly high level view, only
+                                    going into details when deemed appropriate. Then, I will explain our proposed use of
+                                    the Signal protocol and finally end with the necessary infrastructure needed to bring
+                                    it all together and integrate Signal into this project.</p>
+                            </div>
+                            <div id="signal" class="section-block">
+                                <h3 class="block-title">How Signal Works</h3>
+                                <p>There are two people wanting to message each other: Alice and Bob. They need to message securely
+                                    in order to keep others from viewing any of their messages in transit or at rest when
+                                    stored on the database. Signal requires them to each have the following keys in order
+                                    to complete this end to end encryption messaging transaction:</p>
+                                <ol>
+                                    <li>A Public/Private Key Pair (Identity Key Pair)</li>
+                                    <li>A PreKey Bundle (Ephemeral Keys aka PreKeys)</li>
+                                </ol>
+                                <p>The Identity Key Pair consists of a public/private key pair that will be unique to each Alice
+                                    and Bob. This will be used for each user to send the other messages. This works as asymmetric
+                                    encryption normally works: If Bob wants to send a message to Alice, then Bob will need
+                                    to have Alice’s Public Key in order to encrypt his message with Alice’s public key. Then,
+                                    Alice will use her private key to decrypt the message and read it in plaintext. This
+                                    scenario does not include verification that Bob sent the message (no signing of the message’s
+                                    ciphertext).
+                                </p>
+                                <p>This is where part of the PreKey comes into play. The PreKey Pair are one time keys used
+                                    for an entire session between Alice and Bob: the PreKey Pair are also a public/private
+                                    key pair, however, whoever starts the session will determine whose PreKey will be used
+                                    for the session. For example, if Bob starts the session between Alice and him, then Bob’s
+                                    PreKey will be used for the remainder of the session’s life until the session is terminated
+                                    (This is briefly explained in the Signal Documentation).</p>
+                                <p>The purpose of the PreKey Pair is to add another level of security in the session between
+                                    each pair of users. For example, when Bob sends a message to Alice for the first time,
+                                    he must first establish a session with Alice. This will requrie the following:</p>
+                                <p>Bob will go to a Key Distribution Center (a Database of public keys of all users available
+                                    to all users, this does not require the actual user Bob to actually see all these keys;
+                                    this part can be abstracted away to the developer’s liking) and retrieve Alice’s Public
+                                    Key Bundle. The PreKey Bundle will include:</p>
+                                <ol>
+                                    <li>Alice’s public Identity Key</li>
+                                    <li>
+                                        Alice’s registration ID (which is just a random number needed to be generated by the developer in the implementation at the
+                                        moment when Alice’s Identity Key Pair is generated; this will be used as a sort of
+                                        ‘seed’ to generate the Identity Key Pair for each user)
+                                    </li>
+                                    <li> PreKey:
+                                        <ol type="a">
+                                            <li>Key ID: To be used as a way to refer to this unique PreKey for this user</li>
+                                            <li>The Public Key for this PreKey Pair</li>
+                                        </ol>
+                                    </li>
+                                    <li>Signed PreKey:
+                                        <ol type="a">
+                                            <li>Key ID: To be used as a way to refer to this unique Signed PreKey for this user</li>
+                                            <li>The Public Key for this Signed PreKey Pair</li>
+                                            <li>The Signature of the Signed PreKey: To be used to verify by Bob that any received
+                                                message actually came from Alice</li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                                <p>Once Bob has Alice’s PreKey Bundle/Public Key Bundle, he will use this in order to begin
+                                    a session with Alice. (For specifics on the how to start a Session, please refer to the
+                                    Signal Documentation).
+                                </p>
+                                <p>Now that Bob has a session started with Alice, he can now send encrypted messages to Alice
+                                    and likewise, Alice will send encrypted messages to Bob using his PreKey Bundle. Once
+                                    a session is established however, each of their public keys are stored within the session,
+                                    so they do not have to retrieve the PreKey Bundle each time from the database.</p>
+                            </div>
+                            <div id="signal-implement" class="section-block">
+                                <h3 class="block-title">Signal in Oasis</h3>
+                                <p>For our proposed implementation, we chose to have the session information stored on the client
+                                    side. The session does not store any message text or ciphertext, so the developer must
+                                    decide where to securely store the messages’ text. An issue arises with this because
+                                    in order for each user to retain a log of the previously sent and received messages in
+                                    this session, they must store a copy on their side. An idea we had was that we could
+                                    store the message log on each client’s local storage using the current client’s public
+                                    key, that way the client could decrypt the messages when their session is restored (this
+                                    would allow for the client to store the messages elsewhere also, since only the client
+                                    has access to their own private key to decrypt the message/thread log). For example,
+                                    if Bob has sent Alice multiple messages and they have been messaging back and forth,
+                                    then Alice and Bob must somehow retain a copy of their conversation. This is required
+                                    for the purpose of the UI: each user will need to have a copy of the thread (messages
+                                    between Alice and Bob) in order to be able to display to each user the history of the
+                                    messages sent to and from one another. They cannot share a common thread storage in plaintext
+                                    because the thread should remain encrypted so others will not be able to read it. This
+                                    either requires them to share a key that will be used to decrypt the messages thread
+                                    or they each need to retain of the messages in realtime. We chose the latter for simplicity.
+                                    Also note, that each user will retain the private key counterpart to each public key
+                                    that is put into the Key Distribution Center. Also note that each PreKey should only
+                                    be used per session; this means that a PreKey is used for each session they have with
+                                    themselves and others. If Alice talks with Bob and Eve in separate threads (and therefore
+                                    separate sessions), then Bob and Eve should each have a unique PreKey to give to Alice
+                                    to use when she retrieves their PreKey Bundles. This results in Bob and Eve having to
+                                    manage the distribution of their PreKeys given out to other users so that each of them
+                                    will know which private PreKey to refer to (using the key ID) when they are sent a message
+                                    by Alice. This is all that is required for them to message each other. If this seem simple
+                                    to you, please note that you might face issues, or, rather obstacles, with regard to
+                                    how and where keys are stored. Please follow encryption best practices when choosing
+                                    where to store each user’s private keys.</p>
+                                <p>Below, you will find the attached implementation for one-to-one message. Group messaging
+                                    was not in the scope of this project yet. There are two files: SignalProtocolStore.js
+                                    and libsignal-helper.js.</p>
+                                <ul>
+                                    <li>SignalProtocolStore.js:</li>
+                                    <ul>
+                                        <li> This file is the interface to how everything is stored for each user. We used a mixture
+                                            of local storage and firebase to store private keys and public keys respectively.</li>
+                                    </ul>
+                                    <br>
+                                    <li>Libsignal-helper.js:</li>
+                                    <ul>
+                                        <li>This file is meant to guide developers to the logic flow as to how and when keys
+                                            should be generated and how sessions are established.</li>
+                                    </ul>
+                                </ul>
+                            </div>
+                            <div id="consider" class="section-block">
+                                <h3 class="block-title">Things to Consider</h3>
+                                <ol>
+                                    <li>When we chose to store a user’s private keys on their local storage, we faced a problem
+                                        that a user must have multiple private keys for each device they use to message from
+                                        because the local storage would either have to travel with the user’s account somehow
+                                        or they would not have access to those private keys from another device. For example,
+                                        if Bob has his stored sessions information and all his private keys on his phone,
+                                        then when he tries to send messages through his laptop, he will no longer have access
+                                        to that information. A proposed solution was to somehow be able to migrate this information
+                                        to other devices via bluetooth or some other form of communication. Or, somehow integrate
+                                        a key management service to store them in a cloud so that users have access to their
+                                        own private keys anywhere they go, no matter the device. This does not seem to be
+                                        safe, since now the security of their private keys are delegated to a third party.
+                                        However, if the user loses the device where their private keys are stored (when using
+                                        local storage), then we also face the problem of them losing the ability to retrieve
+                                        any past messages they received or sent. This is something that future developers
+                                        will need to handle.
+                                    </li>
+                                    <br>
+                                    <li>The Signal protocol is dependent on having a good processor and browser support in order
+                                        to carry out the encryption. This means that the protocol will only be available
+                                        in certain versions of browsers, which will require careful limitations for future
+                                        developers when releasing this application</li>
+                                </ol>
+                            </div>
+                            <!--//section-block-->
+                        </section>
+                        <!--//doc-section-->
+                    </div>
+                    <!--//content-inner-->
+                </div>
+                <!--//doc-content-->
+                <div class="doc-sidebar hidden-xs">
+                    <nav id="doc-nav">
+                        <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                            <li>
+                                <a class="scrollto" href="#documentation-section">Overview</a>
+                            </li>
+                            <li>
+                                <a class="scrollto" href="#qstart">User Data</a>
+                                <ul class="nav doc-sub-menu">
+                                    <li>
+                                        <a class="scrollto" href="#encryption-scheme">Encryption Scheme</a>
+                                    </li>
+                                    <li>
+                                        <a class="scrollto" href="#flow">Data Flow</a>
+                                    </li>
+                                    <li>
+                                        <a class="scrollto" href="#whyHybrid">Why Hybrid Encryption</a>
+                                    </li>
+                                </ul>
+                                <!--//nav-->
+                            </li>
+                            <li>
+                                <a class="scrollto" href="#messaging">Messaging</a>
+                                <ul class="nav doc-sub-menu">
+                                    <li>
+                                        <a class="scrollto" href="#signal">How Signal Worksi</a>
+                                    </li>
+                                    <li>
+                                        <a class="scrollto" href="#signal-implement">Signal in Oasis</a>
+                                    </li>
+                                    <li>
+                                        <a class="scrollto" href="#consider">Things to Consider</a>
+                                    </li>
+                                </ul>
+                        </ul>
+                        <!--//nav-->
+                        </li>
+                        <!--//doc-menu-->
+                    </nav>
+                </div>
+                <!--//doc-sidebar-->
+            </div>
+            <!--//doc-body-->
+        </div>
+        <!--//container-->
+    </div>
+    <!--//doc-wrapper-->
+
+
+
+    </div>
+    <!--//page-wrapper-->
+
     <footer id="footer" class="footer text-center">
         <div class="container">
             <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
-            <small class="copyright">Designed with <i class="fa fa-heart"></i> by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a> for developers</small>
-            
-        </div><!--//container-->
-    </footer><!--//footer-->
-    
-     
-    <!-- Main Javascript -->          
+            <small class="copyright">Designed with
+                <i class="fa fa-heart"></i> by
+                <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a> for developers</small>
+
+        </div>
+        <!--//container-->
+    </footer>
+    <!--//footer-->
+
+
+    <!-- Main Javascript -->
     <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
-    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
-    
-</body>
-</html> 
 
+</body>
+</html>
