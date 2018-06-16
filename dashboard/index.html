@@ -26,7 +26,21 @@
 	crossorigin="anonymous">
   </script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script stc="js/dashboard.js"></script>
+  <script src="js/moment.js"></script>
+  <script src="js/dashboard.js"></script>
+
+  <!-- Firebase Integration -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  <script> 
+    var config = {
+	  apiKey: "AIzaSyBUSBuOuxKUaYv4PwyasG6ZUcx-gLlKgd8",
+	  authDomain: "https://kiwi-staging.firebaseapp.com/",
+	  databaseURL: "https://kiwi-staging.firebaseio.com",
+	  projectId: "kiwi-staging",
+	  storageBucket: "kiwi-staging.appspot.com",
+	  messagingSenderId: "840549430709",
+	};
+  </script>
 
 </head>
 <body class="app sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -37,11 +51,11 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-title">User Statistics</li>
-          <li class="nav-item"><a class="nav-link" href=""><i class="nav-icon icon-drop"></i> Number of Users</a></li>
-          <li class="nav-item"><a class="nav-link" href=""><i class="nav-icon icon-pencil"></i> Daily Active Users</a></li>
+          <li class="nav-item"><a class="nav-link" id="num-users-nav"><i class="nav-icon"></i>Number of Users</a></li>
+          <li class="nav-item"><a class="nav-link" id="daily-active-nav"><i class="nav-icon"></i>Daily Active Users</a></li>
           <li class="nav-title">Monetization</li>
-          <li class="nav-item"><a class="nav-link" href=""><i class="nav-icon icon-pie-chart"></i> Subscriptions</a></li>
-          <li class="nav-item"><a class="nav-link" href=""><i class="nav-icon icon-pie-chart"></i> Advertising</a></li>
+          <li class="nav-item"><a class="nav-link" id="subscriptions-nav"><i class="nav-icon"></i>Subscriptions</a></li>
+          <li class="nav-item"><a class="nav-link" id="advertising-nav"><i class="nav-icon"></i>Advertising</a></li>
         </ul>
       </nav>
     </div>
@@ -54,15 +68,6 @@
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="#">Admin</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
-
-        <!-- Breadcrumb Menu-->
-        <li class="breadcrumb-menu d-md-down-none">
-          <div class="btn-group" role="group" aria-label="Button group">
-            <a class="btn" href="#"><i class="icon-speech"></i></a>
-            <a class="btn" href="./"><i class="icon-graph"></i>  Dashboard</a>
-            <a class="btn" href="#"><i class="icon-settings"></i>  Settings</a>
-          </div>
-        </li>
 
       </ol>
       <div class="container-fluid">
@@ -78,7 +83,7 @@
                   <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="icon-location-pin"></i>
                   </button>
-                  <div class="text-value">24</div>
+                  <div id="top-total-users" class="text-value"></div>
                   <div>Total Users</div>
                 </div>
                 <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -94,7 +99,7 @@
                   <button type="button" class="btn btn-transparent p-0 float-right">
                     <i class="icon-location-pin"></i>
                   </button>
-                  <div class="text-value">6</div>
+                  <div id="top-users-online" class="text-value"></div>
                   <div>Users Online</div>
                 </div>
                 <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -143,8 +148,8 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-5">
-                  <h4 class="card-title mb-0">Number of Users</h4>
-                  <div class="small text-muted">May 2018</div>
+                  <h4 class="card-title mb-0" id="graph-title">Number of Users</h4>
+                  <div id="graph-subtitle" class="small text-muted">&nbsp;</div>
                 </div>
 
                 <!-- Range Picker -->
@@ -153,26 +158,28 @@
                     <label class="btn btn-outline-secondary active">
                       <input type="radio" name="options" id="option1" autocomplete="off" checked> Week
                     </label>
+
+                    <!-- If you wanna add Month / Year functionality
                     <label class="btn btn-outline-secondary">
                       <input type="radio" name="options" id="option2" autocomplete="off"> Month
                     </label>
                     <label class="btn btn-outline-secondary">
                       <input type="radio" name="options" id="option3" autocomplete="off"> Year
                     </label>
+                  --> 
                   </div>
                 </div>
 
               </div>
               <div class="chart-wrapper" style="height:300px;margin-top:40px;">
-                <div id="tester" style="width:100%;height:250px;"></div>
+                <div id="main-chart" style="width:100%;height:250px;"></div>
               </div>
             </div>
 
-            <!-- Chart Footer -->
+            <!--
             <div class="card-footer">
               <div class="row text-center">
 
-              	<!-- Footer Element 1 -->
                 <div class="col-sm-12 col-md mb-sm-2 mb-0">
                   <div class="text-muted">Visitors</div>
                   <strong>2,401 Vistors</strong>
@@ -181,7 +188,6 @@
                   </div>
                 </div>
 
-                <!-- Footer Element 2 -->
                 <div class="col-sm-12 col-md mb-sm-2 mb-0">
                   <div class="text-muted">Unique</div>
                   <strong>614 Unique Visitors</strong>
@@ -190,7 +196,6 @@
                   </div>
                 </div>
 
-                <!-- Footer Element 3 -->
                 <div class="col-sm-12 col-md mb-sm-2 mb-0">
                   <div class="text-muted">Pageviews</div>
                   <strong>5,419 Impressions</strong>
@@ -199,7 +204,6 @@
                   </div>
                 </div>
 
-                <!-- Footer Element 4 -->
                 <div class="col-sm-12 col-md mb-sm-2 mb-0">
                   <div class="text-muted">New Users</div>
                   <strong>22 New Users This Week</strong>
@@ -208,7 +212,6 @@
                   </div>
                 </div>
 
-                <!-- Footer Element 5 -->
                 <div class="col-sm-12 col-md mb-sm-2 mb-0">
                   <div class="text-muted">Subscriptions</div>
                   <strong>2 Conversions</strong>
@@ -219,19 +222,13 @@
 
               </div>
             </div>
+
+            -->
           </div>
         </div>
       </div>
     </main>
   </div> 
-
-  <script>
-	TESTER = document.getElementById('tester');
-    Plotly.plot( TESTER, [{
-    x: ["5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27"],
-    y: [1, 2, 4, 8, 16, 20, 24] }], {
-    margin: { t: 0 } } );
-  </script>
-
+  
 </body>
 </html>
