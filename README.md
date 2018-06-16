@@ -1,5 +1,7 @@
 # Team Kiwi's Conveyor Belt Repository
 
+## Documentation website: https://kiwicse112.github.io/kiwi/
+
 Welcome to Kiwi's repository for generating a conveyor belt to build software the right way.
 We have included in this repository different approaches to building our conveyor built
 in order to compare and contrast the strengths and weaknesses each technology has
